@@ -17,7 +17,8 @@
 		F93EFE3421AEB24E00FBC875 /* FotoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE3321AEB24E00FBC875 /* FotoAppUITests.swift */; };
 		F93EFE4221AEB27D00FBC875 /* Xcode.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE4121AEB27D00FBC875 /* Xcode.gitignore */; };
 		F93EFE4421AEB38F00FBC875 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE4321AEB38E00FBC875 /* GoogleService-Info.plist */; };
-		F93EFE4621AEB50B00FBC875 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE4521AEB50B00FBC875 /* Localizable.strings */; };
+		F93EFE4921AEB6E200FBC875 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE4B21AEB6E200FBC875 /* Localizable.strings */; };
+		F93EFE4E21AEB70200FBC875 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE4D21AEB70200FBC875 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +57,9 @@
 		F93EFE3521AEB24E00FBC875 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F93EFE4121AEB27D00FBC875 /* Xcode.gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = Xcode.gitignore; sourceTree = "<group>"; };
 		F93EFE4321AEB38E00FBC875 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		F93EFE4521AEB50B00FBC875 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		F93EFE4A21AEB6E200FBC875 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F93EFE4C21AEB6F100FBC875 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F93EFE4D21AEB70200FBC875 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,10 +130,12 @@
 		F93EFE1221AEB24C00FBC875 /* FotoApp */ = {
 			isa = PBXGroup;
 			children = (
-				F93EFE1321AEB24C00FBC875 /* AppDelegate.swift */,
-				F93EFE1521AEB24C00FBC875 /* ViewController.swift */,
-				F93EFE4521AEB50B00FBC875 /* Localizable.strings */,
+				F93EFE5221AEB8B900FBC875 /* Access */,
+				F93EFE5121AEB8AE00FBC875 /* Other */,
+				F93EFE5021AEB89600FBC875 /* Models */,
 				F93EFE1721AEB24C00FBC875 /* Main.storyboard */,
+				F93EFE1521AEB24C00FBC875 /* ViewController.swift */,
+				F93EFE4B21AEB6E200FBC875 /* Localizable.strings */,
 				F93EFE1A21AEB24D00FBC875 /* Assets.xcassets */,
 				F93EFE1C21AEB24D00FBC875 /* LaunchScreen.storyboard */,
 				F93EFE4121AEB27D00FBC875 /* Xcode.gitignore */,
@@ -158,6 +163,29 @@
 			path = FotoAppUITests;
 			sourceTree = "<group>";
 		};
+		F93EFE5021AEB89600FBC875 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F93EFE5121AEB8AE00FBC875 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				F93EFE1321AEB24C00FBC875 /* AppDelegate.swift */,
+				F93EFE4D21AEB70200FBC875 /* Extensions.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		F93EFE5221AEB8B900FBC875 /* Access */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Access;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -170,6 +198,7 @@
 				F93EFE0D21AEB24C00FBC875 /* Frameworks */,
 				F93EFE0E21AEB24C00FBC875 /* Resources */,
 				4EB4754358BD780CDC3E00AC /* [CP] Embed Pods Frameworks */,
+				F93EFE4F21AEB7AD00FBC875 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -246,6 +275,7 @@
 			knownRegions = (
 				en,
 				Base,
+				it,
 			);
 			mainGroup = F93EFE0721AEB24C00FBC875;
 			productRefGroup = F93EFE1121AEB24C00FBC875 /* Products */;
@@ -265,7 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F93EFE4221AEB27D00FBC875 /* Xcode.gitignore in Resources */,
-				F93EFE4621AEB50B00FBC875 /* Localizable.strings in Resources */,
+				F93EFE4921AEB6E200FBC875 /* Localizable.strings in Resources */,
 				F93EFE1E21AEB24D00FBC875 /* LaunchScreen.storyboard in Resources */,
 				F93EFE4421AEB38F00FBC875 /* GoogleService-Info.plist in Resources */,
 				F93EFE1B21AEB24D00FBC875 /* Assets.xcassets in Resources */,
@@ -360,6 +390,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F93EFE4F21AEB7AD00FBC875 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -368,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */,
+				F93EFE4E21AEB70200FBC875 /* Extensions.swift in Sources */,
 				F93EFE1421AEB24C00FBC875 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +468,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		F93EFE4B21AEB6E200FBC875 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F93EFE4A21AEB6E200FBC875 /* en */,
+				F93EFE4C21AEB6F100FBC875 /* it */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -427,6 +484,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -488,6 +546,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
