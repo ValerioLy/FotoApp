@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E09E2A0D4D4BE636EC7615C /* Pods_FotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2568872B37835C655A12FFB8 /* Pods_FotoApp.framework */; };
 		F93EFE1421AEB24C00FBC875 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE1321AEB24C00FBC875 /* AppDelegate.swift */; };
 		F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE1521AEB24C00FBC875 /* ViewController.swift */; };
 		F93EFE1921AEB24C00FBC875 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE1721AEB24C00FBC875 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 		F93EFE3421AEB24E00FBC875 /* FotoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE3321AEB24E00FBC875 /* FotoAppUITests.swift */; };
 		F93EFE4221AEB27D00FBC875 /* Xcode.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE4121AEB27D00FBC875 /* Xcode.gitignore */; };
 		F93EFE4421AEB38F00FBC875 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE4321AEB38E00FBC875 /* GoogleService-Info.plist */; };
+		F93EFE4621AEB50B00FBC875 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE4521AEB50B00FBC875 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2568872B37835C655A12FFB8 /* Pods_FotoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FotoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		922402085D1303BC36DAD3BD /* Pods-FotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.release.xcconfig"; sourceTree = "<group>"; };
+		B695B4D1BD9EBC21E7D243C0 /* Pods-FotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F93EFE1021AEB24C00FBC875 /* FotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F93EFE1321AEB24C00FBC875 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F93EFE1521AEB24C00FBC875 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +56,7 @@
 		F93EFE3521AEB24E00FBC875 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F93EFE4121AEB27D00FBC875 /* Xcode.gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = Xcode.gitignore; sourceTree = "<group>"; };
 		F93EFE4321AEB38E00FBC875 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F93EFE4521AEB50B00FBC875 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E09E2A0D4D4BE636EC7615C /* Pods_FotoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +85,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF3EE70B921AAD5A93E64A5A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B695B4D1BD9EBC21E7D243C0 /* Pods-FotoApp.debug.xcconfig */,
+				922402085D1303BC36DAD3BD /* Pods-FotoApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ED28BAD260096B4DDCF141AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2568872B37835C655A12FFB8 /* Pods_FotoApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F93EFE0721AEB24C00FBC875 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +109,8 @@
 				F93EFE2721AEB24E00FBC875 /* FotoAppTests */,
 				F93EFE3221AEB24E00FBC875 /* FotoAppUITests */,
 				F93EFE1121AEB24C00FBC875 /* Products */,
+				AF3EE70B921AAD5A93E64A5A /* Pods */,
+				ED28BAD260096B4DDCF141AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +129,7 @@
 			children = (
 				F93EFE1321AEB24C00FBC875 /* AppDelegate.swift */,
 				F93EFE1521AEB24C00FBC875 /* ViewController.swift */,
+				F93EFE4521AEB50B00FBC875 /* Localizable.strings */,
 				F93EFE1721AEB24C00FBC875 /* Main.storyboard */,
 				F93EFE1A21AEB24D00FBC875 /* Assets.xcassets */,
 				F93EFE1C21AEB24D00FBC875 /* LaunchScreen.storyboard */,
@@ -138,9 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F93EFE3821AEB24E00FBC875 /* Build configuration list for PBXNativeTarget "FotoApp" */;
 			buildPhases = (
+				8544BE44B96ECC066230EF71 /* [CP] Check Pods Manifest.lock */,
 				F93EFE0C21AEB24C00FBC875 /* Sources */,
 				F93EFE0D21AEB24C00FBC875 /* Frameworks */,
 				F93EFE0E21AEB24C00FBC875 /* Resources */,
+				4EB4754358BD780CDC3E00AC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F93EFE4221AEB27D00FBC875 /* Xcode.gitignore in Resources */,
+				F93EFE4621AEB50B00FBC875 /* Localizable.strings in Resources */,
 				F93EFE1E21AEB24D00FBC875 /* LaunchScreen.storyboard in Resources */,
 				F93EFE4421AEB38F00FBC875 /* GoogleService-Info.plist in Resources */,
 				F93EFE1B21AEB24D00FBC875 /* Assets.xcassets in Resources */,
@@ -258,6 +288,79 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4EB4754358BD780CDC3E00AC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8544BE44B96ECC066230EF71 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FotoApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F93EFE0C21AEB24C00FBC875 /* Sources */ = {
@@ -438,6 +541,7 @@
 		};
 		F93EFE3921AEB24E00FBC875 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B695B4D1BD9EBC21E7D243C0 /* Pods-FotoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -455,6 +559,7 @@
 		};
 		F93EFE3A21AEB24E00FBC875 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 922402085D1303BC36DAD3BD /* Pods-FotoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
