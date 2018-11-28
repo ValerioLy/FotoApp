@@ -14,6 +14,8 @@
 		F93EFE1E21AEB24D00FBC875 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE1C21AEB24D00FBC875 /* LaunchScreen.storyboard */; };
 		F93EFE2921AEB24E00FBC875 /* FotoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE2821AEB24E00FBC875 /* FotoAppTests.swift */; };
 		F93EFE3421AEB24E00FBC875 /* FotoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE3321AEB24E00FBC875 /* FotoAppUITests.swift */; };
+		F93EFE4221AEB27D00FBC875 /* Xcode.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE4121AEB27D00FBC875 /* Xcode.gitignore */; };
+		F93EFE4421AEB38F00FBC875 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE4321AEB38E00FBC875 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		F93EFE2F21AEB24E00FBC875 /* FotoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FotoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F93EFE3321AEB24E00FBC875 /* FotoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoAppUITests.swift; sourceTree = "<group>"; };
 		F93EFE3521AEB24E00FBC875 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F93EFE4121AEB27D00FBC875 /* Xcode.gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = Xcode.gitignore; sourceTree = "<group>"; };
+		F93EFE4321AEB38E00FBC875 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				F93EFE1721AEB24C00FBC875 /* Main.storyboard */,
 				F93EFE1A21AEB24D00FBC875 /* Assets.xcassets */,
 				F93EFE1C21AEB24D00FBC875 /* LaunchScreen.storyboard */,
+				F93EFE4121AEB27D00FBC875 /* Xcode.gitignore */,
+				F93EFE4321AEB38E00FBC875 /* GoogleService-Info.plist */,
 				F93EFE1F21AEB24D00FBC875 /* Info.plist */,
 			);
 			path = FotoApp;
@@ -229,7 +235,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F93EFE4221AEB27D00FBC875 /* Xcode.gitignore in Resources */,
 				F93EFE1E21AEB24D00FBC875 /* LaunchScreen.storyboard in Resources */,
+				F93EFE4421AEB38F00FBC875 /* GoogleService-Info.plist in Resources */,
 				F93EFE1B21AEB24D00FBC875 /* Assets.xcassets in Resources */,
 				F93EFE1921AEB24C00FBC875 /* Main.storyboard in Resources */,
 			);
