@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iFM-pM-la4">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Auth Screen Controller-->
+        <scene sceneID="b6x-gS-9Qz">
+            <objects>
+                <viewController id="iFM-pM-la4" customClass="AuthScreenController" customModule="FotoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="teY-NL-hfD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1a-cg-voU">
+                                <rect key="frame" x="82.666666666666686" y="70" width="249" height="41"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FotoApp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHw-W5-aMP">
+                                <rect key="frame" x="82.666666666666686" y="111" width="131" height="41"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
+                                <color key="textColor" red="0.1137254902" green="0.57254901960000004" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trees" translatesAutoresizingMaskIntoConstraints="NO" id="29p-jC-9qm">
+                                <rect key="frame" x="82.666666666666686" y="258" width="249" height="220"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCm-Uw-FeK">
+                                <rect key="frame" x="82.666666666666686" y="538" width="249" height="36"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.57254901960000004" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="6RM-FS-WNf"/>
+                                </constraints>
+                                <state key="normal" title="Continue with email" image="email-icon">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="9Xc-Dh-mIu" kind="show" identifier="segueToLogin" id="W7h-qE-QeJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="29p-jC-9qm" firstAttribute="centerY" secondItem="teY-NL-hfD" secondAttribute="centerY" id="Hoc-LS-iV8"/>
+                            <constraint firstItem="29p-jC-9qm" firstAttribute="trailing" secondItem="R1a-cg-voU" secondAttribute="trailing" id="JEX-Td-see"/>
+                            <constraint firstItem="eCm-Uw-FeK" firstAttribute="leading" secondItem="29p-jC-9qm" secondAttribute="leading" id="KsM-Ls-pof"/>
+                            <constraint firstItem="PHw-W5-aMP" firstAttribute="leading" secondItem="R1a-cg-voU" secondAttribute="leading" id="Nfh-MJ-ELw"/>
+                            <constraint firstItem="R1a-cg-voU" firstAttribute="top" secondItem="d41-to-fTc" secondAttribute="top" constant="50" id="R9t-lD-ghq"/>
+                            <constraint firstItem="29p-jC-9qm" firstAttribute="leading" secondItem="R1a-cg-voU" secondAttribute="leading" id="Rzs-z5-5DN"/>
+                            <constraint firstItem="R1a-cg-voU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d41-to-fTc" secondAttribute="leading" constant="30" id="Yuy-3b-mCp"/>
+                            <constraint firstItem="PHw-W5-aMP" firstAttribute="top" secondItem="R1a-cg-voU" secondAttribute="bottom" id="aOT-jP-EdS"/>
+                            <constraint firstItem="R1a-cg-voU" firstAttribute="centerX" secondItem="teY-NL-hfD" secondAttribute="centerX" id="bRs-In-Bj6"/>
+                            <constraint firstItem="d41-to-fTc" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="R1a-cg-voU" secondAttribute="trailing" constant="30" id="esm-sD-dJh"/>
+                            <constraint firstItem="eCm-Uw-FeK" firstAttribute="top" secondItem="29p-jC-9qm" secondAttribute="bottom" constant="60" id="g0w-Fk-3mp"/>
+                            <constraint firstItem="29p-jC-9qm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="PHw-W5-aMP" secondAttribute="bottom" constant="16" id="gHm-sT-SpI"/>
+                            <constraint firstItem="eCm-Uw-FeK" firstAttribute="trailing" secondItem="29p-jC-9qm" secondAttribute="trailing" id="pvb-ih-W46"/>
+                            <constraint firstItem="eCm-Uw-FeK" firstAttribute="centerX" secondItem="teY-NL-hfD" secondAttribute="centerX" id="rIN-Ep-Uf5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="d41-to-fTc"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailButton" destination="eCm-Uw-FeK" id="vwl-ZZ-i94"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mmb-WS-fFy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="63" y="156"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="RyR-iX-fiJ">
+            <objects>
+                <viewControllerPlaceholder id="9Xc-Dh-mIu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="30X-8s-tWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="653" y="243"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="email-icon" width="21" height="21"/>
+        <image name="trees" width="249" height="220"/>
+    </resources>
+</document>
