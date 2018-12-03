@@ -5,3 +5,35 @@
   Created by Valerio Ly on 28/11/18.
   Copyright © 2018 Valerio Ly. All rights reserved.
 */
+
+// SIGN UP
+kSignuplbl = "Registrati";
+kSignupButton = "Registrati";
+
+
+// Alert
+kAlertOkButton = "Ok";
+
+kAlertLoginFailedEmptyLabelsTitle = "Campi vuoti";
+kAlertLoginFailedEmptyLabelsMessage = "Hai lasciato uno o più campi vuoti";
+
+kAlertLoginFailedInvalidEmailTitle = "Mail non valida";
+kAlertLoginFailedInvalidEmailMessage = "L'indirizzo mail inserito non è valido";
+
+kAlertLoginFailedDifferentPasswordsTitle = "Password diverse";
+kAlertLoginFailedDifferentPasswordsMessage = "Le due password inserite non coincidono";
+
+kAlertLoginFailedInvalidPasswordTitle = "Password non valida";
+kAlertLoginFailedInvalidPasswordMessage = "La password deve essere lunga almeno sei caratteri";
+
+// User Info
+
+lblUserInfoContinue = "Continua";
+lblUserInfoinfo = "Le tue informazioni";
+lblUserInfoName = "Nome";
+lblUserInfoSurname = "Cognome";
+lblUserInfoEmail = "Email";
+TextFieldUserInfoName = "Nome";
+TextFieldUserInfoSurname = "Cognome";
+TextFieldUserInfoEmail = "Email";
+lblUserInfoAdmin = "Amministratore";

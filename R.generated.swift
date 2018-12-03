@@ -38,12 +38,62 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
+  /// This `R.image` struct is generated, and contains static references to 1 images.
+  struct image {
+    /// Image `placeholder`.
+    static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder")
+    
+    /// `UIImage(named: "placeholder", bundle: ..., traitCollection: ...)`
+    static func placeholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.placeholder, compatibleWith: traitCollection)
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.segue` struct is generated, and contains static references to 2 view controllers.
+  struct segue {
+    /// This struct is generated for `SignupController`, and contains static references to 1 segues.
+    struct signupController {
+      /// Segue identifier `segueUserInfo`.
+      static let segueUserInfo: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SignupController, UserInfoController> = Rswift.StoryboardSegueIdentifier(identifier: "segueUserInfo")
+      
+      /// Optionally returns a typed version of segue `segueUserInfo`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueUserInfo(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SignupController, UserInfoController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.signupController.segueUserInfo, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `UserInfoController`, and contains static references to 1 segues.
+    struct userInfoController {
+      /// Segue identifier `segueTerms`.
+      static let segueTerms: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, UserInfoController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueTerms")
+      
+      /// Optionally returns a typed version of segue `segueTerms`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueTerms(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, UserInfoController, UIKit.UIViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.userInfoController.segueTerms, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
+    /// Storyboard `Signup`.
+    static let signup = _R.storyboard.signup()
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
@@ -53,6 +103,242 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Main", bundle: ...)`
     static func main(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.main)
+    }
+    
+    /// `UIStoryboard(name: "Signup", bundle: ...)`
+    static func signup(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.signup)
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
+  struct string {
+    /// This `R.string.localizable` struct is generated, and contains static references to 20 localization keys.
+    struct localizable {
+      /// en translation: Administrator
+      /// 
+      /// Locales: en, it
+      static let lblUserInfoAdmin = Rswift.StringResource(key: "lblUserInfoAdmin", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Continue
+      /// 
+      /// Locales: en, it
+      static let lblUserInfoContinue = Rswift.StringResource(key: "lblUserInfoContinue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Different passwords
+      /// 
+      /// Locales: en, it
+      static let kAlertLoginFailedDifferentPasswordsTitle = Rswift.StringResource(key: "kAlertLoginFailedDifferentPasswordsTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Email
+      /// 
+      /// Locales: en, it
+      static let lblUserInfoEmail = Rswift.StringResource(key: "lblUserInfoEmail", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Email
+      /// 
+      /// Locales: en, it
+      static let textFieldUserInfoEmail = Rswift.StringResource(key: "TextFieldUserInfoEmail", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Empty fields
+      /// 
+      /// Locales: en, it
+      static let kAlertLoginFailedEmptyLabelsTitle = Rswift.StringResource(key: "kAlertLoginFailedEmptyLabelsTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Invalid mail
+      /// 
+      /// Locales: en, it
+      static let kAlertLoginFailedInvalidEmailTitle = Rswift.StringResource(key: "kAlertLoginFailedInvalidEmailTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Invalid password
+      /// 
+      /// Locales: en, it
+      static let kAlertLoginFailedInvalidPasswordTitle = Rswift.StringResource(key: "kAlertLoginFailedInvalidPasswordTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Name
+      /// 
+      /// Locales: en, it
+      static let lblUserInfoName = Rswift.StringResource(key: "lblUserInfoName", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Name
+      /// 
+      /// Locales: en, it
+      static let textFieldUserInfoName = Rswift.StringResource(key: "TextFieldUserInfoName", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Ok
+      /// 
+      /// Locales: en, it
+      static let kAlertOkButton = Rswift.StringResource(key: "kAlertOkButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Password must be six characters long
+      /// 
+      /// Locales: en, it
+      static let kAlertLoginFailedInvalidPasswordMessage = Rswift.StringResource(key: "kAlertLoginFailedInvalidPasswordMessage", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Sign Up
+      /// 
+      /// Locales: en, it
+      static let kSignupButton = Rswift.StringResource(key: "kSignupButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Sign Up
+      /// 
+      /// Locales: en, it
+      static let kSignuplbl = Rswift.StringResource(key: "kSignuplbl", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Surname
+      /// 
+      /// Locales: en, it
+      static let lblUserInfoSurname = Rswift.StringResource(key: "lblUserInfoSurname", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Surname
+      /// 
+      /// Locales: en, it
+      static let textFieldUserInfoSurname = Rswift.StringResource(key: "TextFieldUserInfoSurname", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: The confirmation password is different
+      /// 
+      /// Locales: en, it
+      static let kAlertLoginFailedDifferentPasswordsMessage = Rswift.StringResource(key: "kAlertLoginFailedDifferentPasswordsMessage", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: You left one or more fields empty
+      /// 
+      /// Locales: en, it
+      static let kAlertLoginFailedEmptyLabelsMessage = Rswift.StringResource(key: "kAlertLoginFailedEmptyLabelsMessage", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Your email is invalid
+      /// 
+      /// Locales: en, it
+      static let kAlertLoginFailedInvalidEmailMessage = Rswift.StringResource(key: "kAlertLoginFailedInvalidEmailMessage", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Your information
+      /// 
+      /// Locales: en, it
+      static let lblUserInfoinfo = Rswift.StringResource(key: "lblUserInfoinfo", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      
+      /// en translation: Administrator
+      /// 
+      /// Locales: en, it
+      static func lblUserInfoAdmin(_: Void = ()) -> String {
+        return NSLocalizedString("lblUserInfoAdmin", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Continue
+      /// 
+      /// Locales: en, it
+      static func lblUserInfoContinue(_: Void = ()) -> String {
+        return NSLocalizedString("lblUserInfoContinue", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Different passwords
+      /// 
+      /// Locales: en, it
+      static func kAlertLoginFailedDifferentPasswordsTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kAlertLoginFailedDifferentPasswordsTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Email
+      /// 
+      /// Locales: en, it
+      static func lblUserInfoEmail(_: Void = ()) -> String {
+        return NSLocalizedString("lblUserInfoEmail", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Email
+      /// 
+      /// Locales: en, it
+      static func textFieldUserInfoEmail(_: Void = ()) -> String {
+        return NSLocalizedString("TextFieldUserInfoEmail", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Empty fields
+      /// 
+      /// Locales: en, it
+      static func kAlertLoginFailedEmptyLabelsTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kAlertLoginFailedEmptyLabelsTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Invalid mail
+      /// 
+      /// Locales: en, it
+      static func kAlertLoginFailedInvalidEmailTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kAlertLoginFailedInvalidEmailTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Invalid password
+      /// 
+      /// Locales: en, it
+      static func kAlertLoginFailedInvalidPasswordTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kAlertLoginFailedInvalidPasswordTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Name
+      /// 
+      /// Locales: en, it
+      static func lblUserInfoName(_: Void = ()) -> String {
+        return NSLocalizedString("lblUserInfoName", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Name
+      /// 
+      /// Locales: en, it
+      static func textFieldUserInfoName(_: Void = ()) -> String {
+        return NSLocalizedString("TextFieldUserInfoName", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Ok
+      /// 
+      /// Locales: en, it
+      static func kAlertOkButton(_: Void = ()) -> String {
+        return NSLocalizedString("kAlertOkButton", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Password must be six characters long
+      /// 
+      /// Locales: en, it
+      static func kAlertLoginFailedInvalidPasswordMessage(_: Void = ()) -> String {
+        return NSLocalizedString("kAlertLoginFailedInvalidPasswordMessage", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Sign Up
+      /// 
+      /// Locales: en, it
+      static func kSignupButton(_: Void = ()) -> String {
+        return NSLocalizedString("kSignupButton", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Sign Up
+      /// 
+      /// Locales: en, it
+      static func kSignuplbl(_: Void = ()) -> String {
+        return NSLocalizedString("kSignuplbl", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Surname
+      /// 
+      /// Locales: en, it
+      static func lblUserInfoSurname(_: Void = ()) -> String {
+        return NSLocalizedString("lblUserInfoSurname", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Surname
+      /// 
+      /// Locales: en, it
+      static func textFieldUserInfoSurname(_: Void = ()) -> String {
+        return NSLocalizedString("TextFieldUserInfoSurname", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: The confirmation password is different
+      /// 
+      /// Locales: en, it
+      static func kAlertLoginFailedDifferentPasswordsMessage(_: Void = ()) -> String {
+        return NSLocalizedString("kAlertLoginFailedDifferentPasswordsMessage", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: You left one or more fields empty
+      /// 
+      /// Locales: en, it
+      static func kAlertLoginFailedEmptyLabelsMessage(_: Void = ()) -> String {
+        return NSLocalizedString("kAlertLoginFailedEmptyLabelsMessage", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Your email is invalid
+      /// 
+      /// Locales: en, it
+      static func kAlertLoginFailedInvalidEmailMessage(_: Void = ()) -> String {
+        return NSLocalizedString("kAlertLoginFailedInvalidEmailMessage", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Your information
+      /// 
+      /// Locales: en, it
+      static func lblUserInfoinfo(_: Void = ()) -> String {
+        return NSLocalizedString("lblUserInfoinfo", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
     }
     
     fileprivate init() {}
@@ -78,8 +364,9 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try main.validate()
       try launchScreen.validate()
+      try signup.validate()
+      try main.validate()
     }
     
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -103,6 +390,21 @@ struct _R: Rswift.Validatable {
       let name = "Main"
       
       static func validate() throws {
+        if #available(iOS 11.0, *) {
+        }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct signup: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
+      
+      let bundle = R.hostingBundle
+      let name = "Signup"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Signup', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
