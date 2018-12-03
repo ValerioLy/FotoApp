@@ -24,7 +24,8 @@
                                     <constraint firstAttribute="width" constant="165" id="13c-IT-Y3G"/>
                                     <constraint firstAttribute="height" constant="35" id="o5f-gc-zTM"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -37,16 +38,17 @@
                                     <constraint firstAttribute="height" constant="52" id="OXY-ty-ta5"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RM7-a0-hEz">
-                                <rect key="frame" x="18" y="308" width="120" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RM7-a0-hEz">
+                                <rect key="frame" x="18" y="308" width="180" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="aqi-pu-fkh"/>
+                                    <constraint firstAttribute="width" constant="180" id="aqi-pu-fkh"/>
                                     <constraint firstAttribute="height" constant="22" id="vC8-tZ-Bsa"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Forgot password"/>
                                 <connections>
                                     <action selector="forgotAction:" destination="5e3-Id-tss" eventType="touchUpInside" id="fQH-s6-u7g"/>
                                 </connections>
@@ -57,7 +59,7 @@
                                     <constraint firstAttribute="height" constant="52" id="gWW-cG-m90"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gL-0C-FDK">
@@ -65,7 +67,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="zYX-BI-raG"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -110,6 +112,7 @@
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="ECq-KV-bIp">
                         <barButtonItem key="rightBarButtonItem" title="Register" id="U7k-2V-5YE">
+                            <color key="tintColor" red="0.0" green="0.46691431449999998" blue="1" alpha="0.72474691899999999" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="registerAction:" destination="5e3-Id-tss" id="dxu-i7-uBy"/>
                             </connections>
