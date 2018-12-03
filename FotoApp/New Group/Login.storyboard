@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Sign in-->
         <scene sceneID="FYl-P7-6Pg">
             <objects>
                 <viewController id="5e3-Id-tss" customClass="LoginViewController" customModule="FotoApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -110,11 +110,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vuc-Uo-WTx"/>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="ECq-KV-bIp">
+                    <navigationItem key="navigationItem" title="Sign in" largeTitleDisplayMode="always" id="ECq-KV-bIp">
                         <barButtonItem key="rightBarButtonItem" title="Register" id="U7k-2V-5YE">
                             <color key="tintColor" red="0.0" green="0.46691431449999998" blue="1" alpha="0.72474691899999999" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="registerAction:" destination="5e3-Id-tss" id="dxu-i7-uBy"/>
+                                <segue destination="aJ8-nN-b3n" kind="show" id="0AK-dn-RfL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -130,12 +131,21 @@
             </objects>
             <point key="canvasLocation" x="973.60000000000002" y="17.541229385307346"/>
         </scene>
+        <!--Signup-->
+        <scene sceneID="gju-MI-4nT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Signup" id="aJ8-nN-b3n" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IrS-Cv-bUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1514" y="-124"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="pv0-gJ-Dw3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vMe-NB-iuw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ko9-Kc-yil">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

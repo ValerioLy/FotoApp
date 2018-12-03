@@ -23,9 +23,6 @@ class SignupController: UIViewController {
         }
     }
     
-    
-   
-    
     @IBOutlet var textFields: [UITextField]!
     
     @IBOutlet weak var signupOutlet: UIButton! {
@@ -34,9 +31,7 @@ class SignupController: UIViewController {
             signupOutlet.setTitle(R.string.localizable.kSignupButton(), for: .normal)
         }
     }
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -63,36 +58,28 @@ class SignupController: UIViewController {
         
         
         guard !email.isEmpty && !password.isEmpty && !repassword.isEmpty else {
-            self.present(GeneralUtils.share.alertError(title: R.string.localizable.kAlertLoginFailedEmptyLabelsTitle(), message: R.string.localizable.kAlertLoginFailedEmptyLabelsMessage().localized), animated: true, completion: nil)
-            return
-        }
-        
-        guard email.isValidEmail() else {
-            self.present(GeneralUtils.share.alertError(title: R.string.localizable.kAlertLoginFailedEmptyLabelsTitle(), message: R.string.localizable.kAlertLoginFailedInvalidEmailMessage()), animated: true, completion: nil)
+            self.present(UIApplication.alertError(title: R.string.localizable.kAlertLoginFailedEmptyLabelsTitle(), message: R.string.localizable.kAlertLoginFailedEmptyLabelsMessage().localized, closeAction:{}), animated: true, completion: nil)
             return
         }
         
         guard password == repassword else {
-            self.present(GeneralUtils.share.alertError(title: R.string.localizable.kAlertLoginFailedDifferentPasswordsTitle(), message: R.string.localizable.kAlertLoginFailedDifferentPasswordsMessage()), animated: true, completion: nil)
+            self.present(UIApplication.alertError(title: R.string.localizable.kAlertLoginFailedDifferentPasswordsTitle(), message: R.string.localizable.kAlertLoginFailedDifferentPasswordsMessage(), closeAction:{}), animated: true, completion: nil)
             return
         }
         
         guard password.count > 5 else {
-            self.present(GeneralUtils.share.alertError(title: R.string.localizable.kAlertLoginFailedInvalidPasswordTitle(), message: R.string.localizable.kAlertLoginFailedInvalidPasswordTitle()), animated: true, completion: nil)
+            self.present(UIApplication.alertError(title: R.string.localizable.kAlertLoginFailedInvalidPasswordTitle(), message: R.string.localizable.kAlertLoginFailedInvalidPasswordTitle(), closeAction:{}), animated: true, completion: nil)
             return
         }
         
         
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            if error == nil {
-                print("registrazione effettuata")
-                  self.performSegue(withIdentifier: "segueUserInfo", sender: nil)
-            } else {
-                let alert = UIAlertController(title: "OPS", message: error?.localizedDescription, preferredStyle: .alert)
-                let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(ok)
+        NetworkManager.register(email: email, password: password) { (success, err) in
+            if success {
+                self.performSegue(withIdentifier: R.segue.signupController.segueUserInfo.identifier, sender: self)
+            }
+            else {
+                let alert = UIApplication.alertError(title: "Opss", message: err, closeAction: {})
                 self.present(alert, animated: true, completion: nil)
-           
             }
         }
     }

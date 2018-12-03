@@ -9,10 +9,26 @@
 import Foundation
 import UIKit
 
+extension UIImage {
+    
+    func resized(withPercentage percentage: CGFloat) -> UIImage? {
+        let canvasSize = CGSize(width: size.width * percentage, height: size.height * percentage)
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+}
+
 extension UIButton {
     
     func roundedCorners() {
         self.layer.cornerRadius = CGFloat(8)
+        self.clipsToBounds = true
+    }
+    
+    func circle() {
+        self.layer.cornerRadius = self.frame.width / 2
         self.clipsToBounds = true
     }
 }

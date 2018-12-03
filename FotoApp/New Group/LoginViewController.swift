@@ -42,19 +42,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var login: UIButton!{
         didSet{
             login.setTitle("Sign in", for: .normal)
-            /*login.backgroundColor = UIColor(red: CGFloat(29)/CGFloat(255),
-                                        green: CGFloat(146)/CGFloat(255),
-                                        blue: CGFloat(98)/CGFloat(255),
-                                        alpha: 1)*/
-            /*let colorTop =  UIColor(red: 0.0/255.0, green: 150.0/255.0, blue: 136.0/255.0, alpha: 1.0)
-            let colorBottom = UIColor(red: 255.0/255.0, green: 94.0/255.0, blue: 58.0/255.0, alpha: 1.0)
-            
-            let gradientLayer = CAGradientLayer()
-            gradientLayer.colors = [colorTop, colorBottom]
-            gradientLayer.startPoint=CGPoint(x: 0.0, y: 1.0)
-            gradientLayer.endPoint=CGPoint(x: 1.0, y: 1.0)
-            //gradientLayer.locations = [0.0, 1.0]
-            //gradientLayer.frame = self.login.bounds*/
             
             let start : CGPoint = CGPoint(x: 1.0, y: 1.0)
             let end : CGPoint = CGPoint(x: 1.0, y: 0.0)
@@ -101,7 +88,7 @@ class LoginViewController: UIViewController {
             return
         }
         
-        NetworkManager.login(email: email, password: password) { (success) in
+        NetworkManager.login(email: email, password: password) { (success, err) in
             if success {
                 self.present(UIApplication.alertError(title: "Login Success", message: "Login success".localized, closeAction: {}),  animated: true, completion: nil)
                 /*self.performSegue(withIdentifier: R.segue.loginController.segueToMain, sender: self)*/
@@ -117,18 +104,4 @@ class LoginViewController: UIViewController {
     @IBAction func registerAction(_ sender: UIBarButtonItem) {
         /*self.performSegue(withIdentifier: R.segue.loginController.segueToMain, sender: self)*/
     }
-    /*override func viewWillAppear(_ animated: Bool) {
-     //self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 80)
-     self.navigationController?.navigationBar.sizeThatFits(CGSize()
-     }*/
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
 }

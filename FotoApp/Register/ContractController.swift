@@ -12,16 +12,12 @@ class ContractController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-         // Nasconde il back
+        
+        // hide back button
          self.navigationItem.setHidesBackButton(true, animated:true)
     }
-   
-    
-  
-    @IBAction func AcceptAction(_ sender: UIBarButtonItem) {
-    }
-    
-    
-    
 
+    @IBAction func AcceptAction(_ sender: UIBarButtonItem) {
+        
+    }
 }

@@ -7,39 +7,24 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseStorage
-import FirebaseFirestore
 
 class UserInfoController: UIViewController {
-
     enum TagFields : Int {
     case name = 0
     case surname
     case email
     }
-    
-    var user : User = User()
     private var pickerController:UIImagePickerController?
-    var db: Firestore! = Firestore.firestore()
-    let storageRef = Storage.storage().reference()
-    let collection = "users"
-    
     
     var image : UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Nasconde il back
          self.navigationItem.setHidesBackButton(true, animated:true)
-
     }
-    
-    
-    
-  
-    
-    
+
     @IBOutlet weak var lblContinue: UIBarButtonItem!{
         didSet {
             lblContinue.title = R.string.localizable.lblUserInfoContinue()
@@ -54,8 +39,7 @@ class UserInfoController: UIViewController {
     
     @IBOutlet weak var picture: UIButton! {
         didSet {
-            picture.Circle()
-            
+            picture.circle()
         }
     }
     
@@ -65,21 +49,19 @@ class UserInfoController: UIViewController {
         }
     }
     
-    
-    
     @IBOutlet var labelFields: [UILabel]! {
         didSet {
-        for labels in labelFields {
-            switch labels.tag {
-            case TagFields.name.rawValue:
-                labels.text = R.string.localizable.lblUserInfoName()
-            case TagFields.surname.rawValue:
-                  labels.text = R.string.localizable.lblUserInfoSurname()
-            case TagFields.email.rawValue:
-                  labels.text = R.string.localizable.lblUserInfoEmail()
-            default : break
+            for labels in labelFields {
+                switch labels.tag {
+                case TagFields.name.rawValue:
+                    labels.text = R.string.localizable.lblUserInfoName()
+                case TagFields.surname.rawValue:
+                      labels.text = R.string.localizable.lblUserInfoSurname()
+                case TagFields.email.rawValue:
+                      labels.text = R.string.localizable.lblUserInfoEmail()
+                default : break
+                }
             }
-        }
         }
     }
     
@@ -97,7 +79,6 @@ class UserInfoController: UIViewController {
             }
         }
     }
-    
     
     @IBAction func addPictureProfile(_ sender: Any) {
         self.pickerController = UIImagePickerController()
@@ -127,8 +108,6 @@ class UserInfoController: UIViewController {
     }
     
     
-    
-    
     @IBAction func ContinueAction(_ sender: UIBarButtonItem) {
         // prende il testo delle textfield
         var name : String? = ""
@@ -154,91 +133,20 @@ class UserInfoController: UIViewController {
         }
       
        
-        pushUserData(name: name, surname: surname, email: email, image: image) { (success) in
+        NetworkManager.pushUserData(name: name, surname: surname, email: email, image: image) { (success, err) in
             if success {
-          print("caricato l'utente e l'immagine")
-              self.performSegue(withIdentifier: "segueTerms", sender: self)
+                self.performSegue(withIdentifier: R.segue.userInfoController.segueTerms.identifier, sender: self)
             }
             else {
-                print("non va un cazzo")
+                let alert = UIApplication.alertError(title: "Opss", message: err, closeAction: {})
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }
-        
-        
-        
-
-
-//        guard let user = Auth.auth().currentUser else { return}
-//
-//        db.collection(self.collection).document(user.uid).setData(["name" : name, "surname" : surname, "email": email, "image": image], merge: true, completion: { (error) in
-//
-//                if let err = error{
-//                    let alert = UIAlertController(title: "OPS", message: err.localizedDescription, preferredStyle: .alert)
-//                    let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-//                    alert.addAction(ok)
-//                    self.present(alert, animated: true, completion: nil)
-//                    print("User could not be saved: \(err).")
-//                }
-//                else {
-//                    print("User saved successfully!")
-//                    self.performSegue(withIdentifier: "segueTerms", sender: self)
-//                }
-//            })
-    
-    
-    
-    func pushUserData(name: String? = nil, surname: String? = nil, email: String? = nil, image : UIImage? = nil, completion: @escaping(Bool) -> ()){
-        
-        guard let user = Auth.auth().currentUser else {
-            completion(false)
-            return
-            
-        }
-        
-        if let userImage = image {
-            
-            let folderRef = storageRef.child("\(user.uid)/profile-pic.jpg")
-            _ = folderRef.putData(userImage.pngData() ?? Data(), metadata: nil) { (metadata, error) in
-                guard metadata != nil else {
-                    completion(false)
-                    debugPrint("metadata nullo")
-                    return
-                }
-                folderRef.downloadURL { (url, error) in
-                    guard let downloadURL = url else {
-                        completion(false)
-                        debugPrint("downloadurl nullo")
-                        return
-                    }
-                    
-                    self.db.collection(self.collection).document(user.uid).setData([
-                        "id":user.uid,
-                        "name": name ,
-                        "surname": surname ,
-                        "email": email ,
-                        "image": downloadURL.absoluteString
-                    ], merge: true) { error in
-                        if let error = error {
-                            completion(false)
-                            print("errore caricamento dati")
-                        } else {
-                            completion(true)
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    
-    
 }
 
 
 extension UserInfoController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    
     
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -248,56 +156,23 @@ extension UserInfoController: UIImagePickerControllerDelegate, UINavigationContr
             return
         }
         
-        
         self.image = checkImageSizeAndResize(image: image)
-        
-        self.picture.setImage(self.image, for: .normal )
-        
-//
-//        if let imgUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL{
-//            let imgName = imgUrl.lastPathComponent
-//            let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
-//            let localPath = documentDirectory?.appending(imgName)
-//
-//            let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-//            let data = image.pngData()! as NSData
-//            data.write(toFile: localPath!, atomically: true)
-//
-//            let photoURL = URL.init(fileURLWithPath: localPath!)
-//            print(photoURL)
-//            self.urlText.text = photoURL.absoluteString
-//
-//        }
-//
-  
-       
-    
-        
-        
-        
+        self.picture.setImage(self.image, for: .normal)
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     
     private func checkImageSizeAndResize(image : UIImage) -> UIImage {
-        
         let imageSize: Int = image.pngData()!.count
         let imageDimension = Double(imageSize) / 1024.0 / 1024.0
         print("size of image in MB: ", imageDimension)
         
-        if imageDimension > 15 {
-            
+        if imageDimension > 2 {
             let img = image.resized(withPercentage: 0.5) ?? UIImage()
-            
-            
             return checkImageSizeAndResize(image: img)
-            
         }
         
         return image
-        
-        
     }
 }
 

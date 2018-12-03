@@ -6,6 +6,10 @@
   Copyright © 2018 Valerio Ly. All rights reserved.
 */
 
+// AUTH ERROR
+kNoSuchUser = "Nessun utente trovato";
+
+
 // SIGN UP
 kSignuplbl = "Registrati";
 kSignupButton = "Registrati";
