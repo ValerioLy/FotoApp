@@ -10,6 +10,7 @@ target 'FotoApp' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'CodableFirebase'
   pod 'R.swift', '~> 5.0.0.alpha.2'
 
 end
