@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,7 +42,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="9Xc-Dh-mIu" kind="show" identifier="segueToLogin" id="W7h-qE-QeJ"/>
+                                    <segue destination="9Xc-Dh-mIu" kind="show" identifier="" id="W7h-qE-QeJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -74,13 +73,13 @@
             </objects>
             <point key="canvasLocation" x="63" y="156"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--Login-->
         <scene sceneID="RyR-iX-fiJ">
             <objects>
-                <viewControllerPlaceholder id="9Xc-Dh-mIu" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Login" id="9Xc-Dh-mIu" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30X-8s-tWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653" y="243"/>
+            <point key="canvasLocation" x="575" y="251"/>
         </scene>
     </scenes>
     <resources>

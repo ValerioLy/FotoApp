@@ -8,9 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		8E09E2A0D4D4BE636EC7615C /* Pods_FotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2568872B37835C655A12FFB8 /* Pods_FotoApp.framework */; };
-		9659836B21AED798007E115A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9659836A21AED798007E115A /* Login.storyboard */; };
 		9659836D21AEE20B007E115A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659836C21AEE20B007E115A /* LoginViewController.swift */; };
-		F93EFE1421AEB24C00FBC875 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE1321AEB24C00FBC875 /* AppDelegate.swift */; };
+		B399C11421B556E400ABB0F6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399C10F21B556E300ABB0F6 /* Extension.swift */; };
+		B399C11A21B556F400ABB0F6 /* AuthScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399C11921B556F400ABB0F6 /* AuthScreenController.swift */; };
+		B399C11D21B556FB00ABB0F6 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399C11C21B556FA00ABB0F6 /* LaunchScreenController.swift */; };
+		B399C12021B576C000ABB0F6 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9659836A21AED798007E115A /* Login.storyboard */; };
+		B399C12121B576CC00ABB0F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B399C11B21B556FA00ABB0F6 /* LaunchScreen.storyboard */; };
+		B399C12221B576D700ABB0F6 /* AuthScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B399C11821B556F400ABB0F6 /* AuthScreen.storyboard */; };
+		B399C12321B5770A00ABB0F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399C10E21B556E300ABB0F6 /* AppDelegate.swift */; };
+		B399C12B21B577E100ABB0F6 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399C12A21B577E100ABB0F6 /* R.generated.swift */; };
+		B399C12D21B578C800ABB0F6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399C12C21B578C800ABB0F6 /* NetworkManager.swift */; };
 		F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE1521AEB24C00FBC875 /* ViewController.swift */; };
 		F93EFE1921AEB24C00FBC875 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE1721AEB24C00FBC875 /* Main.storyboard */; };
 		F93EFE1B21AEB24D00FBC875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE1A21AEB24D00FBC875 /* Assets.xcassets */; };
@@ -43,6 +50,14 @@
 		922402085D1303BC36DAD3BD /* Pods-FotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.release.xcconfig"; sourceTree = "<group>"; };
 		9659836A21AED798007E115A /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		9659836C21AEE20B007E115A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B399C10E21B556E300ABB0F6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B399C10F21B556E300ABB0F6 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		B399C11821B556F400ABB0F6 /* AuthScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthScreen.storyboard; sourceTree = "<group>"; };
+		B399C11921B556F400ABB0F6 /* AuthScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreenController.swift; sourceTree = "<group>"; };
+		B399C11B21B556FA00ABB0F6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B399C11C21B556FA00ABB0F6 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
+		B399C12A21B577E100ABB0F6 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		B399C12C21B578C800ABB0F6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B695B4D1BD9EBC21E7D243C0 /* Pods-FotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F93EFE1021AEB24C00FBC875 /* FotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F93EFE1521AEB24C00FBC875 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,22 +121,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		B3DB948521B52B9F00C6CC27 /* LaunchScreen */ = {
+		B399C11E21B5570600ABB0F6 /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
-				B3DB948621B52BD700C6CC27 /* LaunchScreen.storyboard */,
-				B3DB948C21B52C4300C6CC27 /* LaunchScreenController.swift */,
+				B399C11B21B556FA00ABB0F6 /* LaunchScreen.storyboard */,
+				B399C11C21B556FA00ABB0F6 /* LaunchScreenController.swift */,
 			);
-			path = LaunchScreen;
+			name = LaunchScreen;
+			path = "New Group1";
 			sourceTree = "<group>";
 		};
-		B3DB948E21B52D7F00C6CC27 /* AuthScreen */ = {
+		B399C11F21B5571500ABB0F6 /* AuthScreen */ = {
 			isa = PBXGroup;
 			children = (
-				B3DB948F21B52DAA00C6CC27 /* AuthScreen.storyboard */,
-				B3DB949121B5359100C6CC27 /* AuthScreenController.swift */,
+				B399C11821B556F400ABB0F6 /* AuthScreen.storyboard */,
+				B399C11921B556F400ABB0F6 /* AuthScreenController.swift */,
 			);
-			path = AuthScreen;
+			name = AuthScreen;
+			path = "New Group2";
 			sourceTree = "<group>";
 		};
 		ED28BAD260096B4DDCF141AF /* Frameworks */ = {
@@ -158,18 +175,19 @@
 			isa = PBXGroup;
 			children = (
 				9659836921AED773007E115A /* Login */,
-				F93EFE5121AEB8AE00FBC875 /* Other */,
-				F93EFE5021AEB89600FBC875 /* Models */,
+				B399C11F21B5571500ABB0F6 /* AuthScreen */,
+				B399C11E21B5570600ABB0F6 /* LaunchScreen */,
+				B399C10E21B556E300ABB0F6 /* AppDelegate.swift */,
+				B399C10F21B556E300ABB0F6 /* Extension.swift */,
 				F93EFE1721AEB24C00FBC875 /* Main.storyboard */,
+				B399C12A21B577E100ABB0F6 /* R.generated.swift */,
 				F93EFE1521AEB24C00FBC875 /* ViewController.swift */,
-				F93EFE4B21AEB6E200FBC875 /* Localizable.strings */,
+				B399C12C21B578C800ABB0F6 /* NetworkManager.swift */,
 				F93EFE1A21AEB24D00FBC875 /* Assets.xcassets */,
 				F93EFE4321AEB38E00FBC875 /* GoogleService-Info.plist */,
 				F93EFE1F21AEB24D00FBC875 /* Info.plist */,
+				F93EFE4B21AEB6E200FBC875 /* Localizable.strings */,
 				F93EFE5321AED0CE00FBC875 /* Xcode.gitignore */,
-				B3F1E2D821B54A83006692C2 /* R.generated.swift */,
-				B3DB949321B540E500C6CC27 /* Extension.swift */,
-				B3F1E2D421B54677006692C2 /* AppDelegate.swift */,
 			);
 			path = FotoApp;
 			sourceTree = "<group>";
@@ -190,22 +208,6 @@
 				F93EFE3521AEB24E00FBC875 /* Info.plist */,
 			);
 			path = FotoAppUITests;
-			sourceTree = "<group>";
-		};
-		F93EFE5021AEB89600FBC875 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		F93EFE5121AEB8AE00FBC875 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				F93EFE1321AEB24C00FBC875 /* AppDelegate.swift */,
-				F93EFE4D21AEB70200FBC875 /* Extensions.swift */,
-			);
-			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,14 +318,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3DB949021B52DAA00C6CC27 /* AuthScreen.storyboard in Resources */,
-				B3DB948721B52BD700C6CC27 /* LaunchScreen.storyboard in Resources */,
 				F93EFE4921AEB6E200FBC875 /* Localizable.strings in Resources */,
-				F93EFE1E21AEB24D00FBC875 /* LaunchScreen.storyboard in Resources */,
-				9659836B21AED798007E115A /* Login.storyboard in Resources */,
 				F93EFE4421AEB38F00FBC875 /* GoogleService-Info.plist in Resources */,
+				B399C12021B576C000ABB0F6 /* Login.storyboard in Resources */,
 				F93EFE1B21AEB24D00FBC875 /* Assets.xcassets in Resources */,
+				B399C12121B576CC00ABB0F6 /* LaunchScreen.storyboard in Resources */,
 				F93EFE5421AED0CE00FBC875 /* Xcode.gitignore in Resources */,
+				B399C12221B576D700ABB0F6 /* AuthScreen.storyboard in Resources */,
 				F93EFE1921AEB24C00FBC875 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,12 +442,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B399C11A21B556F400ABB0F6 /* AuthScreenController.swift in Sources */,
+				B399C12B21B577E100ABB0F6 /* R.generated.swift in Sources */,
 				9659836D21AEE20B007E115A /* LoginViewController.swift in Sources */,
+				B399C11D21B556FB00ABB0F6 /* LaunchScreenController.swift in Sources */,
+				B399C12D21B578C800ABB0F6 /* NetworkManager.swift in Sources */,
+				B399C12321B5770A00ABB0F6 /* AppDelegate.swift in Sources */,
 				F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */,
-				B3DB948D21B52C4300C6CC27 /* LaunchScreenController.swift in Sources */,
-				B3F1E2D521B54677006692C2 /* AppDelegate.swift in Sources */,
-				B3DB949221B5359100C6CC27 /* AuthScreenController.swift in Sources */,
-				B3F1E2D921B54A83006692C2 /* R.generated.swift in Sources */,
+				B399C11421B556E400ABB0F6 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
