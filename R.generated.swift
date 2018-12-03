@@ -38,59 +38,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 3 images.
-  struct image {
-    /// Image `email-icon`.
-    static let emailIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "email-icon")
-    /// Image `placeholder`.
-    static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder")
-    /// Image `trees`.
-    static let trees = Rswift.ImageResource(bundle: R.hostingBundle, name: "trees")
-    
-    /// `UIImage(named: "email-icon", bundle: ..., traitCollection: ...)`
-    static func emailIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.emailIcon, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "placeholder", bundle: ..., traitCollection: ...)`
-    static func placeholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.placeholder, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "trees", bundle: ..., traitCollection: ...)`
-    static func trees(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.trees, compatibleWith: traitCollection)
-    }
-    
-    fileprivate init() {}
-  }
-  
-  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
-  struct segue {
-    /// This struct is generated for `LaunchScreenController`, and contains static references to 1 segues.
-    struct launchScreenController {
-      /// Segue identifier `segueToAuth`.
-      static let segueToAuth: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LaunchScreenController, AuthScreenController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAuth")
-      
-      /// Optionally returns a typed version of segue `segueToAuth`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToAuth(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LaunchScreenController, AuthScreenController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.launchScreenController.segueToAuth, segue: segue)
-      }
-      
-      fileprivate init() {}
-    }
-    
-    fileprivate init() {}
-  }
-  
   /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
   struct storyboard {
     /// Storyboard `AuthScreen`.
     static let authScreen = _R.storyboard.authScreen()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
+    /// Storyboard `Login`.
+    static let login = _R.storyboard.login()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
     
@@ -102,6 +57,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
+    }
+    
+    /// `UIStoryboard(name: "Login", bundle: ...)`
+    static func login(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.login)
     }
     
     /// `UIStoryboard(name: "Main", bundle: ...)`
@@ -366,6 +326,8 @@ struct _R: Rswift.Validatable {
       try launchScreen.validate()
       try authScreen.validate()
       try main.validate()
+      try login.validate()
+      try launchScreen.validate()
     }
     
     struct authScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -389,6 +351,20 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "LaunchScreen"
+      
+      static func validate() throws {
+        if #available(iOS 11.0, *) {
+        }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct login: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
+      
+      let bundle = R.hostingBundle
+      let name = "Login"
       
       static func validate() throws {
         if #available(iOS 11.0, *) {

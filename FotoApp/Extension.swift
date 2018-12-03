@@ -16,3 +16,11 @@ extension UIButton {
         self.clipsToBounds = true
     }
 }
+/*extension UINavigationBar {
+    
+    override open func sizeThatFits(_ size: CGSize) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.size.width, height: 80.0)
+    }
+    
+}
+*/
