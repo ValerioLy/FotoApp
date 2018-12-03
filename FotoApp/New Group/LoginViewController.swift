@@ -90,6 +90,14 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func forgotAction(_ sender: UIButton) {
+        /*self.performSegue(withIdentifier: R.segue.loginController.segueToMain, sender: self)*/
+    }
+    
+    
+    @IBAction func registerAction(_ sender: UIBarButtonItem) {
+        /*self.performSegue(withIdentifier: R.segue.loginController.segueToMain, sender: self)*/
+    }
     /*override func viewWillAppear(_ animated: Bool) {
      //self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 80)
      self.navigationController?.navigationBar.sizeThatFits(CGSize()
