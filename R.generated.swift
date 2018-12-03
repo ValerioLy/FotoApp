@@ -38,10 +38,24 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 3 images.
   struct image {
+    /// Image `Checkbox`.
+    static let checkbox = Rswift.ImageResource(bundle: R.hostingBundle, name: "Checkbox")
+    /// Image `UnCheckbox`.
+    static let unCheckbox = Rswift.ImageResource(bundle: R.hostingBundle, name: "UnCheckbox")
     /// Image `placeholder`.
     static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder")
+    
+    /// `UIImage(named: "Checkbox", bundle: ..., traitCollection: ...)`
+    static func checkbox(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.checkbox, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "UnCheckbox", bundle: ..., traitCollection: ...)`
+    static func unCheckbox(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.unCheckbox, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "placeholder", bundle: ..., traitCollection: ...)`
     static func placeholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -71,12 +85,12 @@ struct R: Rswift.Validatable {
     /// This struct is generated for `UserInfoController`, and contains static references to 1 segues.
     struct userInfoController {
       /// Segue identifier `segueTerms`.
-      static let segueTerms: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, UserInfoController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueTerms")
+      static let segueTerms: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, UserInfoController, ContractController> = Rswift.StoryboardSegueIdentifier(identifier: "segueTerms")
       
       /// Optionally returns a typed version of segue `segueTerms`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueTerms(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, UserInfoController, UIKit.UIViewController>? {
+      static func segueTerms(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, UserInfoController, ContractController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.userInfoController.segueTerms, segue: segue)
       }
       
@@ -364,9 +378,9 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
+      try main.validate()
       try launchScreen.validate()
       try signup.validate()
-      try main.validate()
     }
     
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {

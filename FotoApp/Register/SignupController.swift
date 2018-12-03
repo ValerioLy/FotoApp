@@ -41,23 +41,7 @@ class SignupController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-        /** LABEL in NavigationItem **/
-        
-//        self.navigationController?.navigationBar.topItem?.title = "Sign Up"
-//        let title = UILabel (frame: CGRect(x: 0, y: 0, width: 320, height: 200))
-//
-//        title.textColor = UIColor.black
-//        title.numberOfLines = 0
-//        title.center = CGPoint(x: 0, y: 0)
-//        title.textAlignment = .left
-//        title.text = "Sign Up"
-//        title.font = title.font.withSize(40)
-//        self.navigationItem.titleView = title
-    }
+    
    
     @IBAction func signupAction(_ sender: Any) {
         var email : String = ""

@@ -15,8 +15,13 @@ class ContractController: UIViewController {
          // Nasconde il back
          self.navigationItem.setHidesBackButton(true, animated:true)
     }
+   
     
-
   
+    @IBAction func AcceptAction(_ sender: UIBarButtonItem) {
+    }
+    
+    
+    
 
 }

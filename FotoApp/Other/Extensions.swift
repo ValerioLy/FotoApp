@@ -21,13 +21,14 @@ extension String {
     
  
 }
+
 extension UIButton {
     
-func Circle(button : UIButton) {
+func Circle() {
     
-    button.layer.cornerRadius = button.frame.width / 2
-    button.imageView?.contentMode = .scaleAspectFill
-    button.clipsToBounds = true
+    self.layer.cornerRadius = self.frame.width / 2
+    self.imageView?.contentMode = .scaleAspectFill
+    self.clipsToBounds = true
 }
     
     

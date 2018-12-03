@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 import FirebaseFirestore
 
 class UserInfoController: UIViewController {
@@ -20,29 +21,24 @@ class UserInfoController: UIViewController {
     
     var user : User = User()
     private var pickerController:UIImagePickerController?
-    static var db: Firestore! = Firestore.firestore()
-    let collection = "listaUtenti"
+    var db: Firestore! = Firestore.firestore()
+    let storageRef = Storage.storage().reference()
+    let collection = "users"
+    
+    
+    var image : UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nasconde il back
          self.navigationItem.setHidesBackButton(true, animated:true)
-        
-        if let utente = Auth.auth().currentUser {
-            var textEmail = utente.email
-             self.emailField.text = textEmail
-            debugPrint("Email Riportata")
-        } else {
-            debugPrint("Email Non Riportata")
-        }
-        
-        
-      
+
     }
     
-    @IBOutlet weak var emailField: UITextField!
     
-    @IBOutlet weak var urlText: UITextField!
+    
+  
+    
     
     @IBOutlet weak var lblContinue: UIBarButtonItem!{
         didSet {
@@ -58,7 +54,8 @@ class UserInfoController: UIViewController {
     
     @IBOutlet weak var picture: UIButton! {
         didSet {
-            picture.Circle(button: picture)
+            picture.Circle()
+            
         }
     }
     
@@ -95,8 +92,6 @@ class UserInfoController: UIViewController {
                     placeholders.placeholder = R.string.localizable.textFieldUserInfoName()
                 case TagFields.surname.rawValue:
                     placeholders.placeholder = R.string.localizable.textFieldUserInfoSurname()
-                case TagFields.email.rawValue:
-                    placeholders.placeholder = R.string.localizable.textFieldUserInfoEmail()
                 default : break
                 }
             }
@@ -135,56 +130,105 @@ class UserInfoController: UIViewController {
     
     
     @IBAction func ContinueAction(_ sender: UIBarButtonItem) {
-        
         // prende il testo delle textfield
         var name : String? = ""
         var surname : String? = ""
         var email : String? = ""
-        var image : String? = ""
         
         for textField in textFields {
             switch textField.tag {
             case TagFields.name.rawValue :
-                user.nome = textField.text
+                
                 name = textField.text
                 break
             case TagFields.surname.rawValue :
-                user.cognome = textField.text
+                
                 surname = textField.text
                 break
             case TagFields.email.rawValue :
-                user.email = textField.text
+               
                 email = textField.text
                 break
             default : break
             }
         }
-        
-        
-        user.image = urlText.text
-        image = urlText.text
-        user.save()
-        
       
-      
-        // sava i dati nel server
+       
+        pushUserData(name: name, surname: surname, email: email, image: image) { (success) in
+            if success {
+          print("caricato l'utente e l'immagine")
+              self.performSegue(withIdentifier: "segueTerms", sender: self)
+            }
+            else {
+                print("non va un cazzo")
+            }
+        }
+    }
         
-        guard let user = Auth.auth().currentUser else { return}
+        
+        
+
+
+//        guard let user = Auth.auth().currentUser else { return}
+//
+//        db.collection(self.collection).document(user.uid).setData(["name" : name, "surname" : surname, "email": email, "image": image], merge: true, completion: { (error) in
+//
+//                if let err = error{
+//                    let alert = UIAlertController(title: "OPS", message: err.localizedDescription, preferredStyle: .alert)
+//                    let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+//                    alert.addAction(ok)
+//                    self.present(alert, animated: true, completion: nil)
+//                    print("User could not be saved: \(err).")
+//                }
+//                else {
+//                    print("User saved successfully!")
+//                    self.performSegue(withIdentifier: "segueTerms", sender: self)
+//                }
+//            })
+    
+    
+    
+    func pushUserData(name: String? = nil, surname: String? = nil, email: String? = nil, image : UIImage? = nil, completion: @escaping(Bool) -> ()){
+        
+        guard let user = Auth.auth().currentUser else {
+            completion(false)
+            return
             
-        UserInfoController.db.collection(self.collection).document(user.uid).setData(["name" : name, "surname" : surname, "email": email, "image": image], merge: true, completion: { (error) in
-                
-                if let err = error{
-                    let alert = UIAlertController(title: "OPS", message: err.localizedDescription, preferredStyle: .alert)
-                    let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-                    alert.addAction(ok)
-                    self.present(alert, animated: true, completion: nil)
-                    print("User could not be saved: \(err).")
+        }
+        
+        if let userImage = image {
+            
+            let folderRef = storageRef.child("\(user.uid)/profile-pic.jpg")
+            _ = folderRef.putData(userImage.pngData() ?? Data(), metadata: nil) { (metadata, error) in
+                guard metadata != nil else {
+                    completion(false)
+                    debugPrint("metadata nullo")
+                    return
                 }
-                else {
-                    print("User saved successfully!")
-                    self.performSegue(withIdentifier: "segueTerms", sender: self)
+                folderRef.downloadURL { (url, error) in
+                    guard let downloadURL = url else {
+                        completion(false)
+                        debugPrint("downloadurl nullo")
+                        return
+                    }
+                    
+                    self.db.collection(self.collection).document(user.uid).setData([
+                        "id":user.uid,
+                        "name": name ,
+                        "surname": surname ,
+                        "email": email ,
+                        "image": downloadURL.absoluteString
+                    ], merge: true) { error in
+                        if let error = error {
+                            completion(false)
+                            print("errore caricamento dati")
+                        } else {
+                            completion(true)
+                        }
+                    }
                 }
-            })
+            }
+        }
     }
     
     
@@ -205,11 +249,11 @@ extension UserInfoController: UIImagePickerControllerDelegate, UINavigationContr
         }
         
         
-        let img2 = checkImageSizeAndResize(image: image)
+        self.image = checkImageSizeAndResize(image: image)
         
-        self.picture.setImage(img2, for: .normal )
+        self.picture.setImage(self.image, for: .normal )
         
-
+//
 //        if let imgUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL{
 //            let imgName = imgUrl.lastPathComponent
 //            let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
@@ -223,54 +267,18 @@ extension UserInfoController: UIImagePickerControllerDelegate, UINavigationContr
 //            print(photoURL)
 //            self.urlText.text = photoURL.absoluteString
 //
-        
-           //************//
-//            let storageRef = Storage.storage().reference(withPath: photoURL.absoluteString)
-//                let uploadData = StorageMetadata()
-//                uploadData.contentType = "image/jpeg"
-//                storageRef.putFile(from: photoURL as URL, metadata: uploadData) { (StorageMetadata, Error) in
-//                    if (Error != nil){
-//                        print("error \(Error?.localizedDescription)")
-//                    } else {
-//                        print ("upload complete \(StorageMetadata)")
-//                    }
-//                }
-
-        guard let user = Auth.auth().currentUser else { return}
-        
-        if let userImage = image {
-        
-            let folderRef = storageRef.child("\(user.uid)/profile-pic.jpg")
-            _ = folderRef.putData(userImage.pngData() ?? Data(), metadata: nil) { (metadata, error) in
-                guard metadata != nil else {
-                    
-                }                }
-        }
-        
-        
-        
+//        }
+//
   
-        let uploadTask = riversRef.putData(data, metadata: nil) { (metadata, error) in
-            guard let metadata = metadata else {
-              
-                return
-            }
-           
-            let size = metadata.size
-           
-            riversRef.downloadURL { (url, error) in
-                guard let downloadURL = url else {
-                  
-                    return
-                }
-            }
-        }
+       
+    
         
         
         
         self.dismiss(animated: true, completion: nil)
         
     }
+    
     
     private func checkImageSizeAndResize(image : UIImage) -> UIImage {
         
@@ -292,4 +300,5 @@ extension UserInfoController: UIImagePickerControllerDelegate, UINavigationContr
         
     }
 }
+
 
