@@ -127,6 +127,13 @@ class UserInfoController: UIViewController {
     }
     
     
+    @IBAction func ChooseUser(_ sender: UISwitch) {
+        if sender.isOn {
+//            self.performSegue(withIdentifier: "", sender: self)
+        } else {
+//            self.performSegue(withIdentifier: "", sender: self)
+        }
+    }
     
     
     @IBAction func ContinueAction(_ sender: UIBarButtonItem) {

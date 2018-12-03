@@ -210,12 +210,15 @@
                                 <color key="textColor" red="0.23529411759999999" green="0.6588235294" blue="0.34509803919999998" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SvP-r8-QbG">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SvP-r8-QbG">
                                 <rect key="frame" x="312" y="242" width="49" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="7hZ-mm-hnR"/>
                                     <constraint firstAttribute="width" constant="47" id="usX-H2-jmh"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="ChooseUser:" destination="37x-fP-Eqf" eventType="valueChanged" id="dEH-AL-chu"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Administrator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITF-VE-pxY">
                                 <rect key="frame" x="25" y="242" width="274" height="31"/>
