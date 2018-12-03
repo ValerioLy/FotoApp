@@ -210,33 +210,64 @@ extension UserInfoController: UIImagePickerControllerDelegate, UINavigationContr
         self.picture.setImage(img2, for: .normal )
         
 
-        if let imgUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL{
-            let imgName = imgUrl.lastPathComponent
-            let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
-            let localPath = documentDirectory?.appending(imgName)
-
-            let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-            let data = image.pngData()! as NSData
-            data.write(toFile: localPath!, atomically: true)
-
-            let photoURL = URL.init(fileURLWithPath: localPath!)
-            print(photoURL)
-            self.urlText.text = photoURL.absoluteString
-            
+//        if let imgUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL{
+//            let imgName = imgUrl.lastPathComponent
+//            let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+//            let localPath = documentDirectory?.appending(imgName)
+//
+//            let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+//            let data = image.pngData()! as NSData
+//            data.write(toFile: localPath!, atomically: true)
+//
+//            let photoURL = URL.init(fileURLWithPath: localPath!)
+//            print(photoURL)
+//            self.urlText.text = photoURL.absoluteString
+//
         
-           
-            let storageRef = Storage.storage().reference(withPath: photoURL.absoluteString)
-                let uploadData = StorageMetadata()
-                uploadData.contentType = "image/jpeg"
-                storageRef.putFile(from: photoURL as URL, metadata: uploadData) { (StorageMetadata, Error) in
-                    if (Error != nil){
-                        print("error \(Error?.localizedDescription)")
-                    } else {
-                        print ("upload complete \(StorageMetadata)")
-                    }
-                }
-            
+           //************//
+//            let storageRef = Storage.storage().reference(withPath: photoURL.absoluteString)
+//                let uploadData = StorageMetadata()
+//                uploadData.contentType = "image/jpeg"
+//                storageRef.putFile(from: photoURL as URL, metadata: uploadData) { (StorageMetadata, Error) in
+//                    if (Error != nil){
+//                        print("error \(Error?.localizedDescription)")
+//                    } else {
+//                        print ("upload complete \(StorageMetadata)")
+//                    }
+//                }
+
+        guard let user = Auth.auth().currentUser else { return}
+        
+        if let userImage = image {
+        
+            let folderRef = storageRef.child("\(user.uid)/profile-pic.jpg")
+            _ = folderRef.putData(userImage.pngData() ?? Data(), metadata: nil) { (metadata, error) in
+                guard metadata != nil else {
+                    
+                }                }
         }
+        
+        
+        
+  
+        let uploadTask = riversRef.putData(data, metadata: nil) { (metadata, error) in
+            guard let metadata = metadata else {
+              
+                return
+            }
+           
+            let size = metadata.size
+           
+            riversRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                  
+                    return
+                }
+            }
+        }
+        
+        
+        
         self.dismiss(animated: true, completion: nil)
         
     }
