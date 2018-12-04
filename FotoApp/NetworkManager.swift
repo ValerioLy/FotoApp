@@ -11,13 +11,45 @@ import FirebaseStorage
 
 class NetworkManager: NSObject {
     private static let USERS_COLLECTION = "users"
-    private static var db : Firestore!
+    private static var db : Firestore = Firestore.firestore()
     private static var storageRef : StorageReference!
 
     static func initFirebase() {
         FirebaseApp.configure()
-        db = Firestore.firestore()
+        
         storageRef = Storage().reference()
+    }
+    
+    
+    
+    
+    
+    static func getData (completion: @escaping([Users])-> Void) {
+
+        db.collection(self.USERS_COLLECTION).getDocuments() { (querySnapshot, err) in
+            
+            var userList = [Users]()
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    
+                    let user = Users()
+                    let userData = document.data()
+                    
+                   
+                    user.name = userData["name"] as? String ?? ""
+                    user.surname = userData["surname"] as? String ?? ""
+                    
+                    
+                    userList += [user]
+                }
+                
+            }
+            completion(userList)
+        }
+        
     }
     
     static func register(email:String, password: String, completion: @escaping (Bool, String?)->()) {
