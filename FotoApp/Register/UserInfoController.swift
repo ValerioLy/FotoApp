@@ -238,6 +238,7 @@ extension UserInfoController: UIImagePickerControllerDelegate, UINavigationContr
 
         guard let user = Auth.auth().currentUser else { return}
         
+        /*
         if let userImage = image {
         
             let folderRef = storageRef.child("\(user.uid)/profile-pic.jpg")
@@ -265,7 +266,7 @@ extension UserInfoController: UIImagePickerControllerDelegate, UINavigationContr
                 }
             }
         }
-        
+        */
         
         
         self.dismiss(animated: true, completion: nil)

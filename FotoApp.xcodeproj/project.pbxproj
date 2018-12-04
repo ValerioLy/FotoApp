@@ -27,6 +27,10 @@
 		F94DB91B21B2723400DB2452 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94DB91A21B2723400DB2452 /* User.swift */; };
 		F94DB91D21B2727F00DB2452 /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94DB91C21B2727F00DB2452 /* RealmUtils.swift */; };
 		F94DB91F21B29B0000DB2452 /* ContractController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94DB91E21B29B0000DB2452 /* ContractController.swift */; };
+		FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570221B576D000CED714 /* CreditsViewController.swift */; };
+		FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570421B5896E00CED714 /* UserInfoViewController.swift */; };
+		FF5C803821B52C6E0045EC1A /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF5C803721B52C6E0045EC1A /* Options.storyboard */; };
+		FF5C803A21B5333D0045EC1A /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5C803921B5333D0045EC1A /* OptionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +80,10 @@
 		F94DB91A21B2723400DB2452 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F94DB91C21B2727F00DB2452 /* RealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUtils.swift; sourceTree = "<group>"; };
 		F94DB91E21B29B0000DB2452 /* ContractController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractController.swift; sourceTree = "<group>"; };
+		FF1E570221B576D000CED714 /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
+		FF1E570421B5896E00CED714 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		FF5C803721B52C6E0045EC1A /* Options.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Options.storyboard; sourceTree = "<group>"; };
+		FF5C803921B5333D0045EC1A /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +154,7 @@
 		F93EFE1221AEB24C00FBC875 /* FotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				FF5C803621B52BC00045EC1A /* Options */,
 				F93EFE5221AEB8B900FBC875 /* Register */,
 				F93EFE5121AEB8AE00FBC875 /* Other */,
 				F93EFE5021AEB89600FBC875 /* Models */,
@@ -208,6 +217,17 @@
 				F94DB91E21B29B0000DB2452 /* ContractController.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		FF5C803621B52BC00045EC1A /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				FF5C803721B52C6E0045EC1A /* Options.storyboard */,
+				FF5C803921B5333D0045EC1A /* OptionsViewController.swift */,
+				FF1E570221B576D000CED714 /* CreditsViewController.swift */,
+				FF1E570421B5896E00CED714 /* UserInfoViewController.swift */,
+			);
+			path = Options;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +343,7 @@
 				F93EFE1E21AEB24D00FBC875 /* LaunchScreen.storyboard in Resources */,
 				F93EFE4421AEB38F00FBC875 /* GoogleService-Info.plist in Resources */,
 				F93EFE1B21AEB24D00FBC875 /* Assets.xcassets in Resources */,
+				FF5C803821B52C6E0045EC1A /* Options.storyboard in Resources */,
 				F93EFE5421AED0CE00FBC875 /* Xcode.gitignore in Resources */,
 				F93EFE1921AEB24C00FBC875 /* Main.storyboard in Resources */,
 			);
@@ -443,8 +464,11 @@
 				F94DB91F21B29B0000DB2452 /* ContractController.swift in Sources */,
 				F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */,
 				F93EFE4E21AEB70200FBC875 /* Extensions.swift in Sources */,
+				FF5C803A21B5333D0045EC1A /* OptionsViewController.swift in Sources */,
 				F93EFE1421AEB24C00FBC875 /* AppDelegate.swift in Sources */,
+				FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */,
 				F94DB91D21B2727F00DB2452 /* RealmUtils.swift in Sources */,
+				FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */,
 				F94DB91B21B2723400DB2452 /* User.swift in Sources */,
 				F9442BA221B162D900F45C32 /* UserInfoController.swift in Sources */,
 				F93EFE5A21AED87000FBC875 /* SignupController.swift in Sources */,
