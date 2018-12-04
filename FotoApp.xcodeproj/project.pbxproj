@@ -33,6 +33,7 @@
 		F93EFE5821AED79600FBC875 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE5721AED79600FBC875 /* R.generated.swift */; };
 		F93EFE5A21AED87000FBC875 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE5921AED87000FBC875 /* SignupController.swift */; };
 		F9442BA221B162D900F45C32 /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9442BA121B162D900F45C32 /* UserInfoController.swift */; };
+		F94711DC21B6B642007F5019 /* AddJob.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94711DB21B6B642007F5019 /* AddJob.storyboard */; };
 		FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570221B576D000CED714 /* CreditsViewController.swift */; };
 		FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570421B5896E00CED714 /* UserInfoViewController.swift */; };
 		FF5C803821B52C6E0045EC1A /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF5C803721B52C6E0045EC1A /* Options.storyboard */; };
@@ -96,6 +97,7 @@
 		F93EFE5721AED79600FBC875 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		F93EFE5921AED87000FBC875 /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		F9442BA121B162D900F45C32 /* UserInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoController.swift; sourceTree = "<group>"; };
+		F94711DB21B6B642007F5019 /* AddJob.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddJob.storyboard; sourceTree = "<group>"; };
 		F94DB91E21B29B0000DB2452 /* ContractController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractController.swift; sourceTree = "<group>"; };
 		FF1E570221B576D000CED714 /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		FF1E570421B5896E00CED714 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 		F93EFE1221AEB24C00FBC875 /* FotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				F94711DA21B6B61F007F5019 /* AddJob */,
 				B3E953F321B6850C00D60014 /* Login */,
 				B3E953EE21B684CE00D60014 /* LaunchScreen */,
 				B3E953E721B6847A00D60014 /* Auth */,
@@ -261,6 +264,14 @@
 				F94DB91E21B29B0000DB2452 /* ContractController.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		F94711DA21B6B61F007F5019 /* AddJob */ = {
+			isa = PBXGroup;
+			children = (
+				F94711DB21B6B642007F5019 /* AddJob.storyboard */,
+			);
+			path = AddJob;
 			sourceTree = "<group>";
 		};
 		FF5C803621B52BC00045EC1A /* Options */ = {
@@ -387,6 +398,7 @@
 				F93EFE4921AEB6E200FBC875 /* Localizable.strings in Resources */,
 				B3E9540621B690F700D60014 /* LaunchScreen.storyboard in Resources */,
 				F93EFE4421AEB38F00FBC875 /* GoogleService-Info.plist in Resources */,
+				F94711DC21B6B642007F5019 /* AddJob.storyboard in Resources */,
 				F93EFE1B21AEB24D00FBC875 /* Assets.xcassets in Resources */,
 				FF5C803821B52C6E0045EC1A /* Options.storyboard in Resources */,
 				F93EFE5421AED0CE00FBC875 /* Xcode.gitignore in Resources */,
