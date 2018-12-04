@@ -33,10 +33,10 @@
                                 <rect key="frame" x="82.666666666666686" y="258" width="249" height="220"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCm-Uw-FeK">
-                                <rect key="frame" x="82.666666666666686" y="538" width="249" height="36"/>
+                                <rect key="frame" x="82.666666666666686" y="538" width="249" height="48"/>
                                 <color key="backgroundColor" red="0.1137254902" green="0.57254901960000004" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="6RM-FS-WNf"/>
+                                    <constraint firstAttribute="height" constant="48" id="Tnp-cM-fxA"/>
                                 </constraints>
                                 <state key="normal" title="Continue with email" image="email-icon">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

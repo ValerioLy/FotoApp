@@ -13,6 +13,9 @@ class LaunchScreenController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // large titles
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewDidAppear(_ animated: Bool) {

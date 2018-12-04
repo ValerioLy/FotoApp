@@ -10,6 +10,8 @@
 		8E09E2A0D4D4BE636EC7615C /* Pods_FotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2568872B37835C655A12FFB8 /* Pods_FotoApp.framework */; };
 		B31A3DEC21B584950014749E /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DE821B584950014749E /* UserInfoController.swift */; };
 		B31A3DEE21B584950014749E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DEA21B584950014749E /* SignupController.swift */; };
+		B371535121B69BA60069A5B0 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B371535021B69BA60069A5B0 /* R.generated.swift */; };
+		B371535221B69BC30069A5B0 /* R.generated.swift in Resources */ = {isa = PBXBuildFile; fileRef = B371535021B69BA60069A5B0 /* R.generated.swift */; };
 		B399C12D21B578C800ABB0F6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399C12C21B578C800ABB0F6 /* NetworkManager.swift */; };
 		B3E953E521B6847600D60014 /* AuthScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E953E321B6847600D60014 /* AuthScreenController.swift */; };
 		B3E953E621B6847600D60014 /* AuthScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E953E421B6847600D60014 /* AuthScreen.storyboard */; };
@@ -22,7 +24,6 @@
 		B3E9540221B68E9500D60014 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE1721AEB24C00FBC875 /* Main.storyboard */; };
 		B3E9540621B690F700D60014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E9540521B690EC00D60014 /* LaunchScreen.storyboard */; };
 		B3E9540821B6913300D60014 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E9540721B6913300D60014 /* LoginViewController.swift */; };
-		B3E9540A21B6915A00D60014 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E9540921B6915A00D60014 /* R.generated.swift */; };
 		F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE1521AEB24C00FBC875 /* ViewController.swift */; };
 		F93EFE1B21AEB24D00FBC875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE1A21AEB24D00FBC875 /* Assets.xcassets */; };
 		F93EFE2921AEB24E00FBC875 /* FotoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE2821AEB24E00FBC875 /* FotoAppTests.swift */; };
@@ -30,7 +31,6 @@
 		F93EFE4421AEB38F00FBC875 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE4321AEB38E00FBC875 /* GoogleService-Info.plist */; };
 		F93EFE4921AEB6E200FBC875 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE4B21AEB6E200FBC875 /* Localizable.strings */; };
 		F93EFE5421AED0CE00FBC875 /* Xcode.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE5321AED0CE00FBC875 /* Xcode.gitignore */; };
-		F93EFE5821AED79600FBC875 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE5721AED79600FBC875 /* R.generated.swift */; };
 		F93EFE5A21AED87000FBC875 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE5921AED87000FBC875 /* SignupController.swift */; };
 		F9442BA221B162D900F45C32 /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9442BA121B162D900F45C32 /* UserInfoController.swift */; };
 		FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570221B576D000CED714 /* CreditsViewController.swift */; };
@@ -63,6 +63,7 @@
 		9659836C21AEE20B007E115A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B31A3DE821B584950014749E /* UserInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfoController.swift; path = FotoApp/Register/UserInfoController.swift; sourceTree = SOURCE_ROOT; };
 		B31A3DEA21B584950014749E /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupController.swift; path = FotoApp/Register/SignupController.swift; sourceTree = SOURCE_ROOT; };
+		B371535021B69BA60069A5B0 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		B399C10E21B556E300ABB0F6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B399C11821B556F400ABB0F6 /* AuthScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthScreen.storyboard; sourceTree = "<group>"; };
 		B399C11C21B556FA00ABB0F6 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
@@ -72,11 +73,10 @@
 		B3E953E821B6849D00D60014 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3E953EB21B684CB00D60014 /* LaunchScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
 		B3E953EF21B6850600D60014 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		B3E953F421B6853C00D60014 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Other/Extensions.swift; sourceTree = "<group>"; };
+		B3E953F421B6853C00D60014 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B3E953F921B68D6F00D60014 /* Signup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		B3E9540521B690EC00D60014 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3E9540721B6913300D60014 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		B3E9540921B6915A00D60014 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		B695B4D1BD9EBC21E7D243C0 /* Pods-FotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F93EFE1021AEB24C00FBC875 /* FotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F93EFE1521AEB24C00FBC875 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 				9659836A21AED798007E115A /* Login.storyboard */,
 				B399C11821B556F400ABB0F6 /* AuthScreen.storyboard */,
 			);
-			name = "Recovered References";
+			path = "Recovered References";
 			sourceTree = "<group>";
 		};
 		B3E953E721B6847A00D60014 /* Auth */ = {
@@ -224,7 +224,7 @@
 				F93EFE1521AEB24C00FBC875 /* ViewController.swift */,
 				B399C12C21B578C800ABB0F6 /* NetworkManager.swift */,
 				B3E953E821B6849D00D60014 /* AppDelegate.swift */,
-				B3E9540921B6915A00D60014 /* R.generated.swift */,
+				B371535021B69BA60069A5B0 /* R.generated.swift */,
 				F93EFE1A21AEB24D00FBC875 /* Assets.xcassets */,
 				F93EFE4321AEB38E00FBC875 /* GoogleService-Info.plist */,
 				F93EFE1F21AEB24D00FBC875 /* Info.plist */,
@@ -382,6 +382,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B371535221B69BC30069A5B0 /* R.generated.swift in Resources */,
 				B3E9540221B68E9500D60014 /* Main.storyboard in Resources */,
 				B3E953E621B6847600D60014 /* AuthScreen.storyboard in Resources */,
 				F93EFE4921AEB6E200FBC875 /* Localizable.strings in Resources */,
@@ -496,11 +497,10 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(SRCROOT)/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/FotoApp\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -517,14 +517,13 @@
 				B399C12D21B578C800ABB0F6 /* NetworkManager.swift in Sources */,
 				B3E953ED21B684CB00D60014 /* LaunchScreenController.swift in Sources */,
 				F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */,
-				B3E9540A21B6915A00D60014 /* R.generated.swift in Sources */,
 				FF5C803A21B5333D0045EC1A /* OptionsViewController.swift in Sources */,
 				FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */,
 				FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */,
+				B371535121B69BA60069A5B0 /* R.generated.swift in Sources */,
 				F9442BA221B162D900F45C32 /* UserInfoController.swift in Sources */,
 				B3E9540821B6913300D60014 /* LoginViewController.swift in Sources */,
 				F93EFE5A21AED87000FBC875 /* SignupController.swift in Sources */,
-				F93EFE5821AED79600FBC875 /* R.generated.swift in Sources */,
 				B3E953E521B6847600D60014 /* AuthScreenController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,6 +566,7 @@
 				F93EFE1821AEB24C00FBC875 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		F93EFE4B21AEB6E200FBC875 /* Localizable.strings */ = {
@@ -576,6 +576,7 @@
 				F93EFE4C21AEB6F100FBC875 /* it */,
 			);
 			name = Localizable.strings;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -16,16 +16,24 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.file` struct is generated, and contains static references to 2 files.
+  /// This `R.file` struct is generated, and contains static references to 3 files.
   struct file {
     /// Resource file `GoogleService-Info.plist`.
     static let googleServiceInfoPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleService-Info", pathExtension: "plist")
+    /// Resource file `R.generated.swift`.
+    static let rGeneratedSwift = Rswift.FileResource(bundle: R.hostingBundle, name: "R.generated", pathExtension: "swift")
     /// Resource file `Xcode.gitignore`.
     static let xcodeGitignore = Rswift.FileResource(bundle: R.hostingBundle, name: "Xcode", pathExtension: "gitignore")
     
     /// `bundle.url(forResource: "GoogleService-Info", withExtension: "plist")`
     static func googleServiceInfoPlist(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.googleServiceInfoPlist
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "R.generated", withExtension: "swift")`
+    static func rGeneratedSwift(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.rGeneratedSwift
       return fileResource.bundle.url(forResource: fileResource)
     }
     
@@ -91,12 +99,12 @@ struct R: Rswift.Validatable {
     /// This struct is generated for `LaunchScreenController`, and contains static references to 1 segues.
     struct launchScreenController {
       /// Segue identifier `segueToAuth`.
-      static let segueToAuth: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LaunchScreenController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAuth")
+      static let segueToAuth: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LaunchScreenController, AuthScreenController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAuth")
       
       /// Optionally returns a typed version of segue `segueToAuth`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToAuth(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LaunchScreenController, UIKit.UINavigationController>? {
+      static func segueToAuth(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LaunchScreenController, AuthScreenController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.launchScreenController.segueToAuth, segue: segue)
       }
       
@@ -470,16 +478,16 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try authScreen.validate()
-      try login.validate()
       try options.validate()
-      try launchScreen.validate()
-      try signup.validate()
+      try login.validate()
       try main.validate()
+      try authScreen.validate()
+      try signup.validate()
+      try launchScreen.validate()
     }
     
     struct authScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UINavigationController
+      typealias InitialController = AuthScreenController
       
       let bundle = R.hostingBundle
       let name = "AuthScreen"
@@ -509,7 +517,7 @@ struct _R: Rswift.Validatable {
     }
     
     struct login: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UINavigationController
+      typealias InitialController = LoginViewController
       
       let bundle = R.hostingBundle
       let name = "Login"
@@ -543,8 +551,8 @@ struct _R: Rswift.Validatable {
       let name = "Options"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
@@ -553,7 +561,7 @@ struct _R: Rswift.Validatable {
     }
     
     struct signup: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UINavigationController
+      typealias InitialController = SignupController
       
       let bundle = R.hostingBundle
       let name = "Signup"

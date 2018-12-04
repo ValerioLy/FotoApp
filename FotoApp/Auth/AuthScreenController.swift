@@ -17,5 +17,8 @@ class AuthScreenController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // hides navigation bar
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }

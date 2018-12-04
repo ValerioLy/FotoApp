@@ -27,13 +27,16 @@ class SignupController: UIViewController {
     
     @IBOutlet weak var signupOutlet: UIButton! {
         didSet {
-            signupOutlet.layer.cornerRadius = 5
+            signupOutlet.roundedCorners()
             signupOutlet.setTitle(R.string.localizable.kSignupButton(), for: .normal)
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // green color to back button
+        self.navigationController?.navigationBar.tintColor = UIColor.primaryColor
     }
     
     

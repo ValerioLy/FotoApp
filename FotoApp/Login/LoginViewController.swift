@@ -21,45 +21,44 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var register: UIBarButtonItem!{
         didSet{
             register.title = "Register"
-            register.tintColor = UIColor(red: CGFloat(29)/CGFloat(255),
-                                         green: CGFloat(146)/CGFloat(255),
-                                         blue: CGFloat(98)/CGFloat(255),
-                                         alpha: 1)
-            
+            register.tintColor = UIColor.primaryColor
         }
     }
     
     @IBOutlet weak var forgot: UIButton!{
         didSet{
             forgot.setTitle("Forgot password", for: .normal)
-            forgot.setTitleColor(UIColor(red: CGFloat(29)/CGFloat(255),
-                                         green: CGFloat(146)/CGFloat(255),
-                                         blue: CGFloat(98)/CGFloat(255),
-                                         alpha: 1), for: .normal)
+            forgot.setTitleColor(UIColor.primaryColor, for: .normal)
         }
     }
     
     @IBOutlet weak var login: UIButton!{
         didSet{
+            login.roundedCorners()
             login.setTitle("Sign in", for: .normal)
             
-            let start : CGPoint = CGPoint(x: 1.0, y: 1.0)
-            let end : CGPoint = CGPoint(x: 1.0, y: 0.0)
-            let gradient: CAGradientLayer = CAGradientLayer(layer: login)
-            gradient.colors = [(UIColor(red: 0.0/255.0, green: 150.0/255.0, blue: 136.0/255.0, alpha: 1.00).cgColor), (UIColor(red: 29.0/255.0, green: 146.0/255.0, blue: 98.0/255.0, alpha: 1.00).cgColor)]
-            gradient.locations = [0.0 , 1.0]
-            
-            gradient.startPoint = start
-            gradient.endPoint = end
-            gradient.frame = CGRect(x: 0.0, y: 0.0, width: login.frame.size.width, height: login.frame.size.height)
-            
-            
-            login.layer.insertSublayer(gradient, at: 0)
+//            let start : CGPoint = CGPoint(x: 1.0, y: 1.0)
+//            let end : CGPoint = CGPoint(x: 1.0, y: 0.0)
+//            let gradient: CAGradientLayer = CAGradientLayer(layer: login)
+//            gradient.colors = [(UIColor(red: 0.0/255.0, green: 150.0/255.0, blue: 136.0/255.0, alpha: 1.00).cgColor), (UIColor(red: 29.0/255.0, green: 146.0/255.0, blue: 98.0/255.0, alpha: 1.00).cgColor)]
+//            gradient.locations = [0.0 , 1.0]
+//
+//            gradient.startPoint = start
+//            gradient.endPoint = end
+//            gradient.frame = CGRect(x: 0.0, y: 0.0, width: login.frame.size.width, height: login.frame.size.height)
+//
+//
+//            login.layer.insertSublayer(gradient, at: 0)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // show navigation bar
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        // hide back button
         self.navigationItem.setHidesBackButton(true, animated:false)
     }
     
