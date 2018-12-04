@@ -46,30 +46,18 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 6 images.
+  /// This `R.image` struct is generated, and contains static references to 5 images.
   struct image {
-    /// Image `Checkbox`.
-    static let checkbox = Rswift.ImageResource(bundle: R.hostingBundle, name: "Checkbox")
-    /// Image `UnCheckbox`.
-    static let unCheckbox = Rswift.ImageResource(bundle: R.hostingBundle, name: "UnCheckbox")
     /// Image `email-icon`.
     static let emailIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "email-icon")
     /// Image `illustration2`.
     static let illustration2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "illustration2")
     /// Image `placeholder`.
     static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder")
+    /// Image `right-arrow`.
+    static let rightArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "right-arrow")
     /// Image `trees`.
     static let trees = Rswift.ImageResource(bundle: R.hostingBundle, name: "trees")
-    
-    /// `UIImage(named: "Checkbox", bundle: ..., traitCollection: ...)`
-    static func checkbox(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.checkbox, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "UnCheckbox", bundle: ..., traitCollection: ...)`
-    static func unCheckbox(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.unCheckbox, compatibleWith: traitCollection)
-    }
     
     /// `UIImage(named: "email-icon", bundle: ..., traitCollection: ...)`
     static func emailIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -86,10 +74,25 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.placeholder, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "right-arrow", bundle: ..., traitCollection: ...)`
+    static func rightArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.rightArrow, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "trees", bundle: ..., traitCollection: ...)`
     static func trees(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.trees, compatibleWith: traitCollection)
     }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `imageCell`.
+    static let imageCell: Rswift.ReuseIdentifier<ImageCellController> = Rswift.ReuseIdentifier(identifier: "imageCell")
+    /// Reuse identifier `singleLineActionController`.
+    static let singleLineActionController: Rswift.ReuseIdentifier<SingleLineActionController> = Rswift.ReuseIdentifier(identifier: "singleLineActionController")
     
     fileprivate init() {}
   }
@@ -168,8 +171,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
   struct storyboard {
+    /// Storyboard `AlbumItem`.
+    static let albumItem = _R.storyboard.albumItem()
     /// Storyboard `AuthScreen`.
     static let authScreen = _R.storyboard.authScreen()
     /// Storyboard `LaunchScreen`.
@@ -182,6 +187,11 @@ struct R: Rswift.Validatable {
     static let options = _R.storyboard.options()
     /// Storyboard `Signup`.
     static let signup = _R.storyboard.signup()
+    
+    /// `UIStoryboard(name: "AlbumItem", bundle: ...)`
+    static func albumItem(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.albumItem)
+    }
     
     /// `UIStoryboard(name: "AuthScreen", bundle: ...)`
     static func authScreen(_: Void = ()) -> UIKit.UIStoryboard {
@@ -479,11 +489,27 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try options.validate()
-      try login.validate()
-      try main.validate()
-      try authScreen.validate()
-      try signup.validate()
+      try albumItem.validate()
       try launchScreen.validate()
+      try login.validate()
+      try authScreen.validate()
+      try main.validate()
+      try signup.validate()
+    }
+    
+    struct albumItem: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = AlbumItemController
+      
+      let bundle = R.hostingBundle
+      let name = "AlbumItem"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'AlbumItem', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+        }
+      }
+      
+      fileprivate init() {}
     }
     
     struct authScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -551,8 +577,8 @@ struct _R: Rswift.Validatable {
       let name = "Options"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }

@@ -18,6 +18,13 @@ extension UIImage {
     }
 }
 
+extension UIImageView {
+    func roundedCorners() {
+        self.layer.cornerRadius = CGFloat(8)
+        self.clipsToBounds = true
+    }
+}
+
 extension UIButton {
     
     func roundedCorners() {
