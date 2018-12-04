@@ -210,11 +210,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SvP-r8-QbG">
-                                <rect key="frame" x="312" y="306" width="49" height="31"/>
+                                <rect key="frame" x="312" y="242" width="49" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="7hZ-mm-hnR"/>
                                     <constraint firstAttribute="width" constant="47" id="usX-H2-jmh"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="ChooseUser:" destination="37x-fP-Eqf" eventType="valueChanged" id="dEH-AL-chu"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Administrator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITF-VE-pxY">
                                 <rect key="frame" x="25" y="306" width="274" height="31"/>

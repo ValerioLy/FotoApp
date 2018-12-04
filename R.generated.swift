@@ -441,9 +441,7 @@ struct _R: Rswift.Validatable {
     static func validate() throws {
       try launchScreen.validate()
       try signup.validate()
-      try authScreen.validate()
       try main.validate()
-      try login.validate()
     }
     
     struct authScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {

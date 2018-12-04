@@ -9,10 +9,10 @@
 import UIKit
 
 class UserInfoController: UIViewController {
+    
     enum TagFields : Int {
-    case name = 0
-    case surname
-    case email
+        case name = 0
+        case surname
     }
     private var pickerController:UIImagePickerController?
     
@@ -22,9 +22,15 @@ class UserInfoController: UIViewController {
         super.viewDidLoad()
         
         // Nasconde il back
-         self.navigationItem.setHidesBackButton(true, animated:true)
+        self.navigationItem.setHidesBackButton(true, animated:true)
+        
     }
-
+    
+    
+    
+    
+    
+    
     @IBOutlet weak var lblContinue: UIBarButtonItem!{
         didSet {
             lblContinue.title = R.string.localizable.lblUserInfoContinue()
@@ -56,9 +62,7 @@ class UserInfoController: UIViewController {
                 case TagFields.name.rawValue:
                     labels.text = R.string.localizable.lblUserInfoName()
                 case TagFields.surname.rawValue:
-                      labels.text = R.string.localizable.lblUserInfoSurname()
-                case TagFields.email.rawValue:
-                      labels.text = R.string.localizable.lblUserInfoEmail()
+                    labels.text = R.string.localizable.lblUserInfoSurname()
                 default : break
                 }
             }
@@ -108,42 +112,110 @@ class UserInfoController: UIViewController {
     }
     
     
+    @IBAction func ChooseUser(_ sender: UISwitch) {
+        if sender.isOn {
+            //            self.performSegue(withIdentifier: "", sender: self)
+        } else {
+            //            self.performSegue(withIdentifier: "", sender: self)
+        }
+    }
+    
+    
     @IBAction func ContinueAction(_ sender: UIBarButtonItem) {
-        // prende il testo delle textfield
+        
         var name : String? = ""
         var surname : String? = ""
-        var email : String? = ""
+        
         
         for textField in textFields {
             switch textField.tag {
             case TagFields.name.rawValue :
-                
                 name = textField.text
                 break
             case TagFields.surname.rawValue :
-                
                 surname = textField.text
-                break
-            case TagFields.email.rawValue :
-               
-                email = textField.text
                 break
             default : break
             }
         }
-      
-       
-        NetworkManager.pushUserData(name: name, surname: surname, email: email, image: image) { (success, err) in
+        
+        
+        pushUserData(name: name, surname: surname, image: image ?? UIImage()) { (success) in
+            
+            guard !(name?.isEmpty)! && !(surname?.isEmpty)! else {
+                let alert = UIAlertController(title: "Campi Vuoti", message: "Il nome o il cognome sono vuoti", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+                alert.addAction(ok)
+                self.present(alert, animated: true, completion: nil)
+                return }
+            
             if success {
-                self.performSegue(withIdentifier: R.segue.userInfoController.segueTerms.identifier, sender: self)
+                
+                print("caricato l'utente e l'immagine")
+                self.performSegue(withIdentifier: "segueTerms", sender: self)
+                
             }
             else {
-                let alert = UIApplication.alertError(title: "Opss", message: err, closeAction: {})
-                self.present(alert, animated: true, completion: nil)
+                print("non ha caricato niente")
             }
         }
     }
-}
+    
+    
+    
+    
+    
+    func pushUserData(name: String? = nil, surname: String? = nil, email: String? = nil, image : UIImage? = nil, completion: @escaping(Bool) -> ()){
+        
+        guard let user = Auth.auth().currentUser else {
+            completion(false)
+            return
+            
+        }
+        var downloadImageExt : URL?
+        
+        if let userImage = image {
+            
+            let folderRef = storageRef.child("\(user.uid)/profile-pic.jpg")
+            if let image = userImage.pngData() {
+                _ = folderRef.putData(image, metadata: nil) { (metadata, error) in
+                    guard metadata != nil else {
+                        completion(false)
+                        debugPrint("metadata nullo")
+                        return
+                    }
+                    folderRef.downloadURL { (url, error) in
+                        guard let downloadURL = url else {
+                            completion(false)
+                            debugPrint("downloadurl nullo")
+                            downloadImageExt = url
+                            return
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+                    
+                    
+                    self.db.collection(self.collection).document(user.uid).setData([
+                        "id":user.uid,
+                        "name": name ,
+                        "surname": surname ,
+                        "image": downloadImageExt ?? ""
+                    ], merge: true) { error in
+                        if let error = error {
+                            completion(false)
+                            print("errore caricamento dati")
+                        } else {
+                            completion(true)
+                        }
+                    }
+                }
+            }
+        }
+
 
 
 extension UserInfoController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -157,7 +229,9 @@ extension UserInfoController: UIImagePickerControllerDelegate, UINavigationContr
         }
         
         self.image = checkImageSizeAndResize(image: image)
-        self.picture.setImage(self.image, for: .normal)
+        
+        self.picture.setImage(self.image, for: .normal )
+        
         self.dismiss(animated: true, completion: nil)
     }
     
