@@ -38,35 +38,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 6 images.
+  /// This `R.image` struct is generated, and contains static references to 2 images.
   struct image {
-    /// Image `Checkbox`.
-    static let checkbox = Rswift.ImageResource(bundle: R.hostingBundle, name: "Checkbox")
-    /// Image `UnCheckbox`.
-    static let unCheckbox = Rswift.ImageResource(bundle: R.hostingBundle, name: "UnCheckbox")
-    /// Image `email-icon`.
-    static let emailIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "email-icon")
     /// Image `illustration2`.
     static let illustration2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "illustration2")
     /// Image `placeholder`.
     static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder")
     /// Image `trees`.
     static let trees = Rswift.ImageResource(bundle: R.hostingBundle, name: "trees")
-    
-    /// `UIImage(named: "Checkbox", bundle: ..., traitCollection: ...)`
-    static func checkbox(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.checkbox, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "UnCheckbox", bundle: ..., traitCollection: ...)`
-    static func unCheckbox(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.unCheckbox, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "email-icon", bundle: ..., traitCollection: ...)`
-    static func emailIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.emailIcon, compatibleWith: traitCollection)
-    }
     
     /// `UIImage(named: "illustration2", bundle: ..., traitCollection: ...)`
     static func illustration2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -88,16 +67,25 @@ struct R: Rswift.Validatable {
   
   /// This `R.segue` struct is generated, and contains static references to 3 view controllers.
   struct segue {
-    /// This struct is generated for `LaunchScreenController`, and contains static references to 1 segues.
-    struct launchScreenController {
-      /// Segue identifier `segueToAuth`.
-      static let segueToAuth: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LaunchScreenController, AuthScreenController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAuth")
+    /// This struct is generated for `OptionsViewController`, and contains static references to 2 segues.
+    struct optionsViewController {
+      /// Segue identifier `toCreditSegue`.
+      static let toCreditSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, OptionsViewController, CreditsViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toCreditSegue")
+      /// Segue identifier `toInfoSegue`.
+      static let toInfoSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, OptionsViewController, UserInfoViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toInfoSegue")
       
-      /// Optionally returns a typed version of segue `segueToAuth`.
+      /// Optionally returns a typed version of segue `toCreditSegue`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToAuth(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LaunchScreenController, AuthScreenController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.launchScreenController.segueToAuth, segue: segue)
+      static func toCreditSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, OptionsViewController, CreditsViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.optionsViewController.toCreditSegue, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `toInfoSegue`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func toInfoSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, OptionsViewController, UserInfoViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.optionsViewController.toInfoSegue, segue: segue)
       }
       
       fileprivate init() {}
@@ -136,7 +124,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
   struct storyboard {
     /// Storyboard `AuthScreen`.
     static let authScreen = _R.storyboard.authScreen()
@@ -146,6 +134,8 @@ struct R: Rswift.Validatable {
     static let login = _R.storyboard.login()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
+    /// Storyboard `Options`.
+    static let options = _R.storyboard.options()
     /// Storyboard `Signup`.
     static let signup = _R.storyboard.signup()
     
@@ -167,6 +157,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Main", bundle: ...)`
     static func main(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.main)
+    }
+    
+    /// `UIStoryboard(name: "Options", bundle: ...)`
+    static func options(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.options)
     }
     
     /// `UIStoryboard(name: "Signup", bundle: ...)`
@@ -439,9 +434,10 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try launchScreen.validate()
-      try signup.validate()
       try main.validate()
+      try options.validate()
+      try signup.validate()
+      try launchScreen.validate()
     }
     
     struct authScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -495,6 +491,22 @@ struct _R: Rswift.Validatable {
       let name = "Main"
       
       static func validate() throws {
+        if #available(iOS 11.0, *) {
+        }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct options: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
+      
+      let bundle = R.hostingBundle
+      let name = "Options"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
