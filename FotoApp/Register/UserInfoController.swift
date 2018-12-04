@@ -12,11 +12,10 @@ import FirebaseStorage
 import FirebaseFirestore
 
 class UserInfoController: UIViewController {
-
+    
     enum TagFields : Int {
-    case name = 0
-    case surname
-    case email
+        case name = 0
+        case surname
     }
     
     var user : User = User()
@@ -31,13 +30,13 @@ class UserInfoController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nasconde il back
-         self.navigationItem.setHidesBackButton(true, animated:true)
-
+        self.navigationItem.setHidesBackButton(true, animated:true)
+        
     }
     
     
     
-  
+    
     
     
     @IBOutlet weak var lblContinue: UIBarButtonItem!{
@@ -69,17 +68,15 @@ class UserInfoController: UIViewController {
     
     @IBOutlet var labelFields: [UILabel]! {
         didSet {
-        for labels in labelFields {
-            switch labels.tag {
-            case TagFields.name.rawValue:
-                labels.text = R.string.localizable.lblUserInfoName()
-            case TagFields.surname.rawValue:
-                  labels.text = R.string.localizable.lblUserInfoSurname()
-            case TagFields.email.rawValue:
-                  labels.text = R.string.localizable.lblUserInfoEmail()
-            default : break
+            for labels in labelFields {
+                switch labels.tag {
+                case TagFields.name.rawValue:
+                    labels.text = R.string.localizable.lblUserInfoName()
+                case TagFields.surname.rawValue:
+                    labels.text = R.string.localizable.lblUserInfoSurname()
+                default : break
+                }
             }
-        }
         }
     }
     
@@ -129,69 +126,54 @@ class UserInfoController: UIViewController {
     
     @IBAction func ChooseUser(_ sender: UISwitch) {
         if sender.isOn {
-//            self.performSegue(withIdentifier: "", sender: self)
+            //            self.performSegue(withIdentifier: "", sender: self)
         } else {
-//            self.performSegue(withIdentifier: "", sender: self)
+            //            self.performSegue(withIdentifier: "", sender: self)
         }
     }
     
     
     @IBAction func ContinueAction(_ sender: UIBarButtonItem) {
-        // prende il testo delle textfield
+        
         var name : String? = ""
         var surname : String? = ""
-        var email : String? = ""
+        
         
         for textField in textFields {
             switch textField.tag {
             case TagFields.name.rawValue :
-                
                 name = textField.text
                 break
             case TagFields.surname.rawValue :
-                
                 surname = textField.text
-                break
-            case TagFields.email.rawValue :
-               
-                email = textField.text
                 break
             default : break
             }
         }
-      
-       
-        pushUserData(name: name, surname: surname, email: email, image: image) { (success) in
+        
+        
+        pushUserData(name: name, surname: surname, image: image ?? UIImage()) { (success) in
+            
+            guard !(name?.isEmpty)! && !(surname?.isEmpty)! else {
+                let alert = UIAlertController(title: "Campi Vuoti", message: "Il nome o il cognome sono vuoti", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+                alert.addAction(ok)
+                self.present(alert, animated: true, completion: nil)
+                return }
+            
             if success {
-          print("caricato l'utente e l'immagine")
-              self.performSegue(withIdentifier: "segueTerms", sender: self)
+                
+                print("caricato l'utente e l'immagine")
+                self.performSegue(withIdentifier: "segueTerms", sender: self)
+                
             }
             else {
-                print("non va un cazzo")
+                print("non ha caricato niente")
             }
         }
     }
-        
-        
-        
-
-
-//        guard let user = Auth.auth().currentUser else { return}
-//
-//        db.collection(self.collection).document(user.uid).setData(["name" : name, "surname" : surname, "email": email, "image": image], merge: true, completion: { (error) in
-//
-//                if let err = error{
-//                    let alert = UIAlertController(title: "OPS", message: err.localizedDescription, preferredStyle: .alert)
-//                    let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-//                    alert.addAction(ok)
-//                    self.present(alert, animated: true, completion: nil)
-//                    print("User could not be saved: \(err).")
-//                }
-//                else {
-//                    print("User saved successfully!")
-//                    self.performSegue(withIdentifier: "segueTerms", sender: self)
-//                }
-//            })
+    
+    
     
     
     
@@ -202,29 +184,38 @@ class UserInfoController: UIViewController {
             return
             
         }
+        var downloadImageExt : URL?
         
         if let userImage = image {
             
             let folderRef = storageRef.child("\(user.uid)/profile-pic.jpg")
-            _ = folderRef.putData(userImage.pngData() ?? Data(), metadata: nil) { (metadata, error) in
-                guard metadata != nil else {
-                    completion(false)
-                    debugPrint("metadata nullo")
-                    return
-                }
-                folderRef.downloadURL { (url, error) in
-                    guard let downloadURL = url else {
+            if let image = userImage.pngData() {
+                _ = folderRef.putData(image, metadata: nil) { (metadata, error) in
+                    guard metadata != nil else {
                         completion(false)
-                        debugPrint("downloadurl nullo")
+                        debugPrint("metadata nullo")
                         return
                     }
+                    folderRef.downloadURL { (url, error) in
+                        guard let downloadURL = url else {
+                            completion(false)
+                            debugPrint("downloadurl nullo")
+                            downloadImageExt = url
+                            return
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+                    
                     
                     self.db.collection(self.collection).document(user.uid).setData([
                         "id":user.uid,
                         "name": name ,
                         "surname": surname ,
-                        "email": email ,
-                        "image": downloadURL.absoluteString
+                        "image": downloadImageExt ?? ""
                     ], merge: true) { error in
                         if let error = error {
                             completion(false)
@@ -236,11 +227,7 @@ class UserInfoController: UIViewController {
                 }
             }
         }
-    }
-    
-    
-    
-}
+
 
 
 extension UserInfoController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -259,28 +246,6 @@ extension UserInfoController: UIImagePickerControllerDelegate, UINavigationContr
         self.image = checkImageSizeAndResize(image: image)
         
         self.picture.setImage(self.image, for: .normal )
-        
-//
-//        if let imgUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL{
-//            let imgName = imgUrl.lastPathComponent
-//            let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
-//            let localPath = documentDirectory?.appending(imgName)
-//
-//            let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-//            let data = image.pngData()! as NSData
-//            data.write(toFile: localPath!, atomically: true)
-//
-//            let photoURL = URL.init(fileURLWithPath: localPath!)
-//            print(photoURL)
-//            self.urlText.text = photoURL.absoluteString
-//
-//        }
-//
-  
-       
-    
-        
-        
         
         self.dismiss(animated: true, completion: nil)
         
