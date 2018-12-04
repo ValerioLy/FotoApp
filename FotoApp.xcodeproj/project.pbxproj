@@ -8,36 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		8E09E2A0D4D4BE636EC7615C /* Pods_FotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2568872B37835C655A12FFB8 /* Pods_FotoApp.framework */; };
-		9659836D21AEE20B007E115A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659836C21AEE20B007E115A /* LoginViewController.swift */; };
-		B31A3DE621B584570014749E /* AuthScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DE521B584570014749E /* AuthScreenController.swift */; };
 		B31A3DEC21B584950014749E /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DE821B584950014749E /* UserInfoController.swift */; };
-		B31A3DED21B584950014749E /* ContractController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DE921B584950014749E /* ContractController.swift */; };
 		B31A3DEE21B584950014749E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DEA21B584950014749E /* SignupController.swift */; };
-		B31A3DEF21B584950014749E /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B31A3DEB21B584950014749E /* Signup.storyboard */; };
-		B31A3DF121B58DC80014749E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DF021B58DC80014749E /* R.generated.swift */; };
-		B399C11421B556E400ABB0F6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399C10F21B556E300ABB0F6 /* Extension.swift */; };
-		B399C11D21B556FB00ABB0F6 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399C11C21B556FA00ABB0F6 /* LaunchScreenController.swift */; };
-		B399C12021B576C000ABB0F6 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9659836A21AED798007E115A /* Login.storyboard */; };
-		B399C12121B576CC00ABB0F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B399C11B21B556FA00ABB0F6 /* LaunchScreen.storyboard */; };
-		B399C12221B576D700ABB0F6 /* AuthScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B399C11821B556F400ABB0F6 /* AuthScreen.storyboard */; };
-		B399C12321B5770A00ABB0F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399C10E21B556E300ABB0F6 /* AppDelegate.swift */; };
 		B399C12D21B578C800ABB0F6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399C12C21B578C800ABB0F6 /* NetworkManager.swift */; };
+		B3E953E521B6847600D60014 /* AuthScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E953E321B6847600D60014 /* AuthScreenController.swift */; };
+		B3E953E621B6847600D60014 /* AuthScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E953E421B6847600D60014 /* AuthScreen.storyboard */; };
+		B3E953E921B6849D00D60014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E953E821B6849D00D60014 /* AppDelegate.swift */; };
+		B3E953ED21B684CB00D60014 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E953EB21B684CB00D60014 /* LaunchScreenController.swift */; };
+		B3E953F521B6853C00D60014 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E953F421B6853C00D60014 /* Extensions.swift */; };
+		B3E953F821B68D2800D60014 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E953EF21B6850600D60014 /* Login.storyboard */; };
+		B3E953FB21B68DD200D60014 /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E953F921B68D6F00D60014 /* Signup.storyboard */; };
+		B3E9540121B68E2500D60014 /* ContractController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94DB91E21B29B0000DB2452 /* ContractController.swift */; };
+		B3E9540221B68E9500D60014 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE1721AEB24C00FBC875 /* Main.storyboard */; };
+		B3E9540621B690F700D60014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E9540521B690EC00D60014 /* LaunchScreen.storyboard */; };
+		B3E9540821B6913300D60014 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E9540721B6913300D60014 /* LoginViewController.swift */; };
+		B3E9540A21B6915A00D60014 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E9540921B6915A00D60014 /* R.generated.swift */; };
 		F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE1521AEB24C00FBC875 /* ViewController.swift */; };
-		F93EFE1921AEB24C00FBC875 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE1721AEB24C00FBC875 /* Main.storyboard */; };
 		F93EFE1B21AEB24D00FBC875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE1A21AEB24D00FBC875 /* Assets.xcassets */; };
 		F93EFE2921AEB24E00FBC875 /* FotoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE2821AEB24E00FBC875 /* FotoAppTests.swift */; };
 		F93EFE3421AEB24E00FBC875 /* FotoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE3321AEB24E00FBC875 /* FotoAppUITests.swift */; };
 		F93EFE4421AEB38F00FBC875 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE4321AEB38E00FBC875 /* GoogleService-Info.plist */; };
 		F93EFE4921AEB6E200FBC875 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE4B21AEB6E200FBC875 /* Localizable.strings */; };
 		F93EFE5421AED0CE00FBC875 /* Xcode.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE5321AED0CE00FBC875 /* Xcode.gitignore */; };
-		F93EFE5621AED6D600FBC875 /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE5521AED6D600FBC875 /* Signup.storyboard */; };
 		F93EFE5821AED79600FBC875 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE5721AED79600FBC875 /* R.generated.swift */; };
 		F93EFE5A21AED87000FBC875 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE5921AED87000FBC875 /* SignupController.swift */; };
-		F9442BA021B15BDD00F45C32 /* GeneralUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9442B9F21B15BDD00F45C32 /* GeneralUtils.swift */; };
 		F9442BA221B162D900F45C32 /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9442BA121B162D900F45C32 /* UserInfoController.swift */; };
-		F94DB91B21B2723400DB2452 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94DB91A21B2723400DB2452 /* User.swift */; };
-		F94DB91D21B2727F00DB2452 /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94DB91C21B2727F00DB2452 /* RealmUtils.swift */; };
-		F94DB91F21B29B0000DB2452 /* ContractController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94DB91E21B29B0000DB2452 /* ContractController.swift */; };
 		FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570221B576D000CED714 /* CreditsViewController.swift */; };
 		FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570421B5896E00CED714 /* UserInfoViewController.swift */; };
 		FF5C803821B52C6E0045EC1A /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF5C803721B52C6E0045EC1A /* Options.storyboard */; };
@@ -66,18 +61,22 @@
 		922402085D1303BC36DAD3BD /* Pods-FotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.release.xcconfig"; sourceTree = "<group>"; };
 		9659836A21AED798007E115A /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		9659836C21AEE20B007E115A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		B31A3DE521B584570014749E /* AuthScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreenController.swift; sourceTree = "<group>"; };
 		B31A3DE821B584950014749E /* UserInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfoController.swift; path = FotoApp/Register/UserInfoController.swift; sourceTree = SOURCE_ROOT; };
-		B31A3DE921B584950014749E /* ContractController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContractController.swift; path = FotoApp/Register/ContractController.swift; sourceTree = SOURCE_ROOT; };
 		B31A3DEA21B584950014749E /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupController.swift; path = FotoApp/Register/SignupController.swift; sourceTree = SOURCE_ROOT; };
-		B31A3DEB21B584950014749E /* Signup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Signup.storyboard; path = FotoApp/Register/Signup.storyboard; sourceTree = SOURCE_ROOT; };
-		B31A3DF021B58DC80014749E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		B399C10E21B556E300ABB0F6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B399C10F21B556E300ABB0F6 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		B399C11821B556F400ABB0F6 /* AuthScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthScreen.storyboard; sourceTree = "<group>"; };
-		B399C11B21B556FA00ABB0F6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B399C11C21B556FA00ABB0F6 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
 		B399C12C21B578C800ABB0F6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B3E953E321B6847600D60014 /* AuthScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenController.swift; sourceTree = "<group>"; };
+		B3E953E421B6847600D60014 /* AuthScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthScreen.storyboard; sourceTree = "<group>"; };
+		B3E953E821B6849D00D60014 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B3E953EB21B684CB00D60014 /* LaunchScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
+		B3E953EF21B6850600D60014 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		B3E953F421B6853C00D60014 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Other/Extensions.swift; sourceTree = "<group>"; };
+		B3E953F921B68D6F00D60014 /* Signup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
+		B3E9540521B690EC00D60014 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B3E9540721B6913300D60014 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B3E9540921B6915A00D60014 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		B695B4D1BD9EBC21E7D243C0 /* Pods-FotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F93EFE1021AEB24C00FBC875 /* FotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F93EFE1521AEB24C00FBC875 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,13 +93,9 @@
 		F93EFE4A21AEB6E200FBC875 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F93EFE4C21AEB6F100FBC875 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F93EFE5321AED0CE00FBC875 /* Xcode.gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = Xcode.gitignore; sourceTree = "<group>"; };
-		F93EFE5521AED6D600FBC875 /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		F93EFE5721AED79600FBC875 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		F93EFE5921AED87000FBC875 /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
-		F9442B9F21B15BDD00F45C32 /* GeneralUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralUtils.swift; sourceTree = "<group>"; };
 		F9442BA121B162D900F45C32 /* UserInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoController.swift; sourceTree = "<group>"; };
-		F94DB91A21B2723400DB2452 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		F94DB91C21B2727F00DB2452 /* RealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUtils.swift; sourceTree = "<group>"; };
 		F94DB91E21B29B0000DB2452 /* ContractController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractController.swift; sourceTree = "<group>"; };
 		FF1E570221B576D000CED714 /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		FF1E570421B5896E00CED714 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
@@ -134,16 +129,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9659836921AED773007E115A /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				9659836A21AED798007E115A /* Login.storyboard */,
-				9659836C21AEE20B007E115A /* LoginViewController.swift */,
-			);
-			name = Login;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		AF3EE70B921AAD5A93E64A5A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,36 +138,46 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		B31A3DE721B584830014749E /* Register */ = {
+		B3E953E221B6839100D60014 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				B31A3DEB21B584950014749E /* Signup.storyboard */,
-				B31A3DE921B584950014749E /* ContractController.swift */,
-				B31A3DEA21B584950014749E /* SignupController.swift */,
-				B31A3DE821B584950014749E /* UserInfoController.swift */,
-			);
-			name = Register;
-			path = "New Group3";
-			sourceTree = "<group>";
-		};
-		B399C11E21B5570600ABB0F6 /* LaunchScreen */ = {
-			isa = PBXGroup;
-			children = (
-				B399C11B21B556FA00ABB0F6 /* LaunchScreen.storyboard */,
+				9659836C21AEE20B007E115A /* LoginViewController.swift */,
 				B399C11C21B556FA00ABB0F6 /* LaunchScreenController.swift */,
+				B31A3DE821B584950014749E /* UserInfoController.swift */,
+				B31A3DEA21B584950014749E /* SignupController.swift */,
+				B399C10E21B556E300ABB0F6 /* AppDelegate.swift */,
+				F93EFE5721AED79600FBC875 /* R.generated.swift */,
+				9659836A21AED798007E115A /* Login.storyboard */,
+				B399C11821B556F400ABB0F6 /* AuthScreen.storyboard */,
 			);
-			name = LaunchScreen;
-			path = "New Group1";
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		B399C11F21B5571500ABB0F6 /* AuthScreen */ = {
+		B3E953E721B6847A00D60014 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				B399C11821B556F400ABB0F6 /* AuthScreen.storyboard */,
-				B31A3DE521B584570014749E /* AuthScreenController.swift */,
+				B3E953E421B6847600D60014 /* AuthScreen.storyboard */,
+				B3E953E321B6847600D60014 /* AuthScreenController.swift */,
 			);
-			name = AuthScreen;
-			path = "New Group2";
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		B3E953EE21B684CE00D60014 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B3E9540521B690EC00D60014 /* LaunchScreen.storyboard */,
+				B3E953EB21B684CB00D60014 /* LaunchScreenController.swift */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		B3E953F321B6850C00D60014 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B3E9540721B6913300D60014 /* LoginViewController.swift */,
+				B3E953EF21B6850600D60014 /* Login.storyboard */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		ED28BAD260096B4DDCF141AF /* Frameworks */ = {
@@ -202,6 +197,7 @@
 				F93EFE1121AEB24C00FBC875 /* Products */,
 				AF3EE70B921AAD5A93E64A5A /* Pods */,
 				ED28BAD260096B4DDCF141AF /* Frameworks */,
+				B3E953E221B6839100D60014 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,14 +214,17 @@
 		F93EFE1221AEB24C00FBC875 /* FotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				B3E953F321B6850C00D60014 /* Login */,
+				B3E953EE21B684CE00D60014 /* LaunchScreen */,
+				B3E953E721B6847A00D60014 /* Auth */,
 				FF5C803621B52BC00045EC1A /* Options */,
 				F93EFE5221AEB8B900FBC875 /* Register */,
-				F93EFE5121AEB8AE00FBC875 /* Other */,
-				F93EFE5021AEB89600FBC875 /* Models */,
 				F93EFE1721AEB24C00FBC875 /* Main.storyboard */,
+				B3E953F421B6853C00D60014 /* Extensions.swift */,
 				F93EFE1521AEB24C00FBC875 /* ViewController.swift */,
 				B399C12C21B578C800ABB0F6 /* NetworkManager.swift */,
-				B31A3DF021B58DC80014749E /* R.generated.swift */,
+				B3E953E821B6849D00D60014 /* AppDelegate.swift */,
+				B3E9540921B6915A00D60014 /* R.generated.swift */,
 				F93EFE1A21AEB24D00FBC875 /* Assets.xcassets */,
 				F93EFE4321AEB38E00FBC875 /* GoogleService-Info.plist */,
 				F93EFE1F21AEB24D00FBC875 /* Info.plist */,
@@ -253,29 +252,10 @@
 			path = FotoAppUITests;
 			sourceTree = "<group>";
 		};
-		F93EFE5021AEB89600FBC875 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				F94DB91A21B2723400DB2452 /* User.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		F93EFE5121AEB8AE00FBC875 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				F93EFE1321AEB24C00FBC875 /* AppDelegate.swift */,
-				F93EFE4D21AEB70200FBC875 /* Extensions.swift */,
-				F9442B9F21B15BDD00F45C32 /* GeneralUtils.swift */,
-				F94DB91C21B2727F00DB2452 /* RealmUtils.swift */,
-			);
-			path = Other;
-			sourceTree = "<group>";
-		};
 		F93EFE5221AEB8B900FBC875 /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				F93EFE5521AED6D600FBC875 /* Signup.storyboard */,
+				B3E953F921B68D6F00D60014 /* Signup.storyboard */,
 				F93EFE5921AED87000FBC875 /* SignupController.swift */,
 				F9442BA121B162D900F45C32 /* UserInfoController.swift */,
 				F94DB91E21B29B0000DB2452 /* ContractController.swift */,
@@ -402,14 +382,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3E9540221B68E9500D60014 /* Main.storyboard in Resources */,
+				B3E953E621B6847600D60014 /* AuthScreen.storyboard in Resources */,
 				F93EFE4921AEB6E200FBC875 /* Localizable.strings in Resources */,
+				B3E9540621B690F700D60014 /* LaunchScreen.storyboard in Resources */,
 				F93EFE4421AEB38F00FBC875 /* GoogleService-Info.plist in Resources */,
-				B399C12021B576C000ABB0F6 /* Login.storyboard in Resources */,
 				F93EFE1B21AEB24D00FBC875 /* Assets.xcassets in Resources */,
 				FF5C803821B52C6E0045EC1A /* Options.storyboard in Resources */,
 				F93EFE5421AED0CE00FBC875 /* Xcode.gitignore in Resources */,
-				B399C12221B576D700ABB0F6 /* AuthScreen.storyboard in Resources */,
-				F93EFE1921AEB24C00FBC875 /* Main.storyboard in Resources */,
+				B3E953FB21B68DD200D60014 /* Signup.storyboard in Resources */,
+				B3E953F821B68D2800D60014 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,23 +509,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9659836D21AEE20B007E115A /* LoginViewController.swift in Sources */,
-				B399C11D21B556FB00ABB0F6 /* LaunchScreenController.swift in Sources */,
+				B3E9540121B68E2500D60014 /* ContractController.swift in Sources */,
+				B3E953F521B6853C00D60014 /* Extensions.swift in Sources */,
 				B31A3DEC21B584950014749E /* UserInfoController.swift in Sources */,
+				B3E953E921B6849D00D60014 /* AppDelegate.swift in Sources */,
 				B31A3DEE21B584950014749E /* SignupController.swift in Sources */,
 				B399C12D21B578C800ABB0F6 /* NetworkManager.swift in Sources */,
-				B399C12321B5770A00ABB0F6 /* AppDelegate.swift in Sources */,
+				B3E953ED21B684CB00D60014 /* LaunchScreenController.swift in Sources */,
 				F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */,
-				F93EFE4E21AEB70200FBC875 /* Extensions.swift in Sources */,
+				B3E9540A21B6915A00D60014 /* R.generated.swift in Sources */,
 				FF5C803A21B5333D0045EC1A /* OptionsViewController.swift in Sources */,
-				F93EFE1421AEB24C00FBC875 /* AppDelegate.swift in Sources */,
 				FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */,
-				F94DB91D21B2727F00DB2452 /* RealmUtils.swift in Sources */,
 				FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */,
-				F94DB91B21B2723400DB2452 /* User.swift in Sources */,
 				F9442BA221B162D900F45C32 /* UserInfoController.swift in Sources */,
+				B3E9540821B6913300D60014 /* LoginViewController.swift in Sources */,
 				F93EFE5A21AED87000FBC875 /* SignupController.swift in Sources */,
 				F93EFE5821AED79600FBC875 /* R.generated.swift in Sources */,
+				B3E953E521B6847600D60014 /* AuthScreenController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

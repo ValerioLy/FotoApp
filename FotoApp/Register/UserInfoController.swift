@@ -26,11 +26,6 @@ class UserInfoController: UIViewController {
         
     }
     
-    
-    
-    
-    
-    
     @IBOutlet weak var lblContinue: UIBarButtonItem!{
         didSet {
             lblContinue.title = R.string.localizable.lblUserInfoContinue()
@@ -122,10 +117,8 @@ class UserInfoController: UIViewController {
     
     
     @IBAction func ContinueAction(_ sender: UIBarButtonItem) {
-        
         var name : String? = ""
         var surname : String? = ""
-        
         
         for textField in textFields {
             switch textField.tag {
@@ -140,82 +133,17 @@ class UserInfoController: UIViewController {
         }
         
         
-        pushUserData(name: name, surname: surname, image: image ?? UIImage()) { (success) in
-            
-            guard !(name?.isEmpty)! && !(surname?.isEmpty)! else {
-                let alert = UIAlertController(title: "Campi Vuoti", message: "Il nome o il cognome sono vuoti", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "ok", style: .cancel, handler: nil)
-                alert.addAction(ok)
-                self.present(alert, animated: true, completion: nil)
-                return }
-            
+        NetworkManager.pushUserData(name: name, surname: surname, image: image) { (success, err) in
             if success {
-                
-                print("caricato l'utente e l'immagine")
-                self.performSegue(withIdentifier: "segueTerms", sender: self)
-                
+                self.performSegue(withIdentifier: R.segue.userInfoController.segueTerms.identifier, sender: self)
             }
             else {
-                print("non ha caricato niente")
+                let alert = UIApplication.alertError(title: "Opss", message: err, closeAction: {})
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }
-    
-    
-    
-    
-    
-    func pushUserData(name: String? = nil, surname: String? = nil, email: String? = nil, image : UIImage? = nil, completion: @escaping(Bool) -> ()){
-        
-        guard let user = Auth.auth().currentUser else {
-            completion(false)
-            return
-            
-        }
-        var downloadImageExt : URL?
-        
-        if let userImage = image {
-            
-            let folderRef = storageRef.child("\(user.uid)/profile-pic.jpg")
-            if let image = userImage.pngData() {
-                _ = folderRef.putData(image, metadata: nil) { (metadata, error) in
-                    guard metadata != nil else {
-                        completion(false)
-                        debugPrint("metadata nullo")
-                        return
-                    }
-                    folderRef.downloadURL { (url, error) in
-                        guard let downloadURL = url else {
-                            completion(false)
-                            debugPrint("downloadurl nullo")
-                            downloadImageExt = url
-                            return
-                        }
-                        
-                    }
-                    
-                }
-                
-            }
-                    
-                    
-                    self.db.collection(self.collection).document(user.uid).setData([
-                        "id":user.uid,
-                        "name": name ,
-                        "surname": surname ,
-                        "image": downloadImageExt ?? ""
-                    ], merge: true) { error in
-                        if let error = error {
-                            completion(false)
-                            print("errore caricamento dati")
-                        } else {
-                            completion(true)
-                        }
-                    }
-                }
-            }
-        }
-
+}
 
 
 extension UserInfoController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

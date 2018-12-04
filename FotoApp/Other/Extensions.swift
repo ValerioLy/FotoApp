@@ -6,32 +6,7 @@
 //  Copyright © 2018 Valerio Ly. All rights reserved.
 //
 import UIKit
-import Foundation
 
-extension String {
-    
-    var localized: String {
-        return NSLocalizedString(self, comment: "")
-}
-    
-    func isValidEmail() -> Bool {
-        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
-        return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
-    }
-    
- 
-}
-extension UIButton {
-    
-func Circle(button : UIButton) {
-    
-    button.layer.cornerRadius = button.frame.width / 2
-    button.imageView?.contentMode = .scaleAspectFill
-    button.clipsToBounds = true
-}
-    
-    
-}
 extension UIImage {
     
     func resized(withPercentage percentage: CGFloat) -> UIImage? {
@@ -41,11 +16,45 @@ extension UIImage {
         draw(in: CGRect(origin: .zero, size: canvasSize))
         return UIGraphicsGetImageFromCurrentImageContext()
     }
+}
+
+extension UIButton {
     
+    func roundedCorners() {
+        self.layer.cornerRadius = CGFloat(8)
+        self.clipsToBounds = true
+    }
+    
+    func circle() {
+        self.layer.cornerRadius = self.frame.width / 2
+        self.clipsToBounds = true
+    }
+}
+
+extension String {
+    
+    var localized: String {
+        return NSLocalizedString(self, comment: "")
+    }
 }
 
 extension UIApplication {
-    class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+    
+    static func alertError(title: String?, message: String?, closeAction: @escaping () -> Void) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alert.addAction(ok)
+        return alert
+    }
+    
+    static func reloadGenericViewController(storyboardName : String, controllerIdentifier: String) {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let setViewController = mainStoryboard.instantiateViewController(withIdentifier: controllerIdentifier)
+        let rootViewController = UIApplication.shared.windows.last?.rootViewController
+        rootViewController?.present(setViewController, animated: true, completion: nil)
+    }
+    
+    static func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let navigationController = controller as? UINavigationController {
             return topViewController(controller: navigationController.visibleViewController)
         }
@@ -59,5 +68,5 @@ extension UIApplication {
         }
         return controller
     }
+    
 }
-
