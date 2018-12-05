@@ -31,6 +31,14 @@ import RealmSwift
         self.hasInsertedData = hasInsertedData
     }
     
+    func getName() -> String {
+        return self.name ?? ""
+    }
+    
+    func getSurname() -> String {
+        return self.surname ?? ""
+    }
+    
     override class func primaryKey() -> String? {
         return "id"
     }

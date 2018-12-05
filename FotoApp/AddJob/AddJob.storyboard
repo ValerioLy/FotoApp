@@ -28,6 +28,9 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" red="1" green="0.98806349569999996" blue="0.98121106650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KK4-ts-kkb" id="mUz-Vj-6Jr"/>
+                                </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click to select mutiple workers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWr-Yd-MFi">
                                 <rect key="frame" x="16" y="183" width="343" height="20.5"/>
@@ -109,7 +112,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="Q0y-Nd-hWy">
                         <barButtonItem key="leftBarButtonItem" id="0CA-d9-ItR"/>
-                        <barButtonItem key="rightBarButtonItem" title="Forward" id="dYi-K8-uHw"/>
+                        <barButtonItem key="rightBarButtonItem" title="Forward" id="dYi-K8-uHw">
+                            <connections>
+                                <action selector="descriptionSegue:" destination="KK4-ts-kkb" id="VXi-G0-7y0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="TLF-ib-QI6" id="00I-YC-6LV"/>
