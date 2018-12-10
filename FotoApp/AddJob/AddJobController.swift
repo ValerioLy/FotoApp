@@ -19,6 +19,7 @@ class AddJobController: UIViewController {
     
     
    
+    private var selectedEmployee : Users?
     
     var listUsers : [Users] = []
     
@@ -26,7 +27,7 @@ class AddJobController: UIViewController {
 
     var isSearching = false
 
-    var iniziali : [String] = []
+  
 
 
  
@@ -108,13 +109,25 @@ extension AddJobController : UITableViewDelegate, UITableViewDataSource, UISearc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+            
+            
         } else {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
-        
+          selectedEmployee = listUsers[indexPath.row]
         }
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        switch segue.identifier {
+        case "segueAddJob":
+            if let destinationController = segue.destination as? AddMissionController {
+                destinationController.worker = selectedEmployee ?? Users()
+                  }
+        default:
+            break
+        }
+    }
     
     
 }

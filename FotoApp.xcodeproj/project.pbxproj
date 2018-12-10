@@ -39,6 +39,7 @@
 		F94711E521B6D27E007F5019 /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711E421B6D27E007F5019 /* RealmUtils.swift */; };
 		F97475E821BA829600FF7B0F /* AddMissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97475E721BA829600FF7B0F /* AddMissionController.swift */; };
 		F97475EA21BA890900FF7B0F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97475E921BA890900FF7B0F /* R.generated.swift */; };
+		F9F4D81121BE77AB00E6F094 /* Topics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F4D81021BE77AB00E6F094 /* Topics.swift */; };
 		FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570221B576D000CED714 /* CreditsViewController.swift */; };
 		FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570421B5896E00CED714 /* UserInfoViewController.swift */; };
 		FF5C803821B52C6E0045EC1A /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF5C803721B52C6E0045EC1A /* Options.storyboard */; };
@@ -109,6 +110,7 @@
 		F94DB91E21B29B0000DB2452 /* ContractController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractController.swift; sourceTree = "<group>"; };
 		F97475E721BA829600FF7B0F /* AddMissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionController.swift; sourceTree = "<group>"; };
 		F97475E921BA890900FF7B0F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		F9F4D81021BE77AB00E6F094 /* Topics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topics.swift; sourceTree = "<group>"; };
 		FF1E570221B576D000CED714 /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		FF1E570421B5896E00CED714 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		FF5C803721B52C6E0045EC1A /* Options.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Options.storyboard; sourceTree = "<group>"; };
@@ -226,9 +228,9 @@
 		F93EFE1221AEB24C00FBC875 /* FotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				B3E953F321B6850C00D60014 /* Login */,
 				F94711E121B6CFEC007F5019 /* Models */,
 				F94711DA21B6B61F007F5019 /* AddJob */,
-				B3E953F321B6850C00D60014 /* Login */,
 				B3E953EE21B684CE00D60014 /* LaunchScreen */,
 				B3E953E721B6847A00D60014 /* Auth */,
 				FF5C803621B52BC00045EC1A /* Options */,
@@ -293,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				F94711E221B6D010007F5019 /* Users.swift */,
+				F9F4D81021BE77AB00E6F094 /* Topics.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				B399C12D21B578C800ABB0F6 /* NetworkManager.swift in Sources */,
 				F94711E021B6CB61007F5019 /* JobCell.swift in Sources */,
 				B3E953ED21B684CB00D60014 /* LaunchScreenController.swift in Sources */,
+				F9F4D81121BE77AB00E6F094 /* Topics.swift in Sources */,
 				F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */,
 				F97475EA21BA890900FF7B0F /* R.generated.swift in Sources */,
 				F97475E821BA829600FF7B0F /* AddMissionController.swift in Sources */,

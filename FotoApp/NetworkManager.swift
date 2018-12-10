@@ -11,6 +11,7 @@ import FirebaseStorage
 
 class NetworkManager: NSObject {
     private static let USERS_COLLECTION = "users"
+     private static let WORKER_COLLECTION = "workers"
     private static var db : Firestore = Firestore.firestore()
     private static var storageRef : StorageReference!
 
@@ -22,6 +23,26 @@ class NetworkManager: NSObject {
     
     
     
+    static func uploadWorkerInfo( title : String, description : String, data : String, completion: @escaping (Bool) -> ()) {
+        
+        guard let user = Auth.auth().currentUser else { completion(false); return}
+        
+        db.collection(self.WORKER_COLLECTION).document(user.uid).setData(["title" : title, "description" : description, "data": data], merge: true, completion: { (error) in
+            
+            if let err = error{
+               
+                
+                print("Job could not be saved: \(error).")
+            }
+            else {
+                print("Job saved successfully!")
+                completion(true)
+            }
+            
+        })
+        
+    }
+
     
     
     static func getData (completion: @escaping([Users])-> Void) {

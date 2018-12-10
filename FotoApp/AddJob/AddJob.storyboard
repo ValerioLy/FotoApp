@@ -205,7 +205,7 @@
                                 <color key="textColor" red="0.23529411759999999" green="0.6588235294" blue="0.34509803919999998" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="va5-CP-RCz">
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="va5-CP-RCz">
                                 <rect key="frame" x="16" y="426" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="B02-aK-VRq"/>
@@ -215,6 +215,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEv-cf-sBR">
+                                <rect key="frame" x="16" y="455" width="343" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="1mA-SQ-h7i"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -232,6 +239,7 @@
                             <constraint firstItem="s6e-7G-nIW" firstAttribute="trailing" secondItem="0eo-kL-jOk" secondAttribute="trailing" constant="16" id="KYR-gQ-QAy"/>
                             <constraint firstItem="s6e-7G-nIW" firstAttribute="trailing" secondItem="waX-Vl-F7U" secondAttribute="trailing" constant="206" id="Kwv-2u-yqj"/>
                             <constraint firstItem="xzE-IA-6Fh" firstAttribute="bottom" secondItem="0eo-kL-jOk" secondAttribute="bottom" id="O39-B5-NOa"/>
+                            <constraint firstItem="vEv-cf-sBR" firstAttribute="trailing" secondItem="va5-CP-RCz" secondAttribute="trailing" id="Sch-iQ-4OX"/>
                             <constraint firstItem="WhO-hT-bDx" firstAttribute="top" secondItem="sb3-IH-0Y2" secondAttribute="bottom" constant="8" id="XQA-qt-U2k"/>
                             <constraint firstItem="2OC-kZ-2MI" firstAttribute="top" secondItem="s6e-7G-nIW" secondAttribute="top" constant="8" id="Z1e-Ea-YaY"/>
                             <constraint firstItem="TeF-X9-3DY" firstAttribute="leading" secondItem="s6e-7G-nIW" secondAttribute="leading" constant="16" id="bN3-sJ-Ryc"/>
@@ -244,22 +252,31 @@
                             <constraint firstItem="sb3-IH-0Y2" firstAttribute="top" secondItem="0eo-kL-jOk" secondAttribute="bottom" constant="8" id="hLK-Ht-5HC"/>
                             <constraint firstItem="xzE-IA-6Fh" firstAttribute="trailing" secondItem="0eo-kL-jOk" secondAttribute="trailing" id="iY1-nd-A0o"/>
                             <constraint firstItem="0eo-kL-jOk" firstAttribute="top" secondItem="waX-Vl-F7U" secondAttribute="bottom" constant="8" id="ihb-Fv-7we"/>
+                            <constraint firstItem="vEv-cf-sBR" firstAttribute="bottom" secondItem="va5-CP-RCz" secondAttribute="bottom" id="kKP-Ui-YcZ"/>
                             <constraint firstItem="s6e-7G-nIW" firstAttribute="trailing" secondItem="sb3-IH-0Y2" secondAttribute="trailing" constant="206" id="l3h-fY-JIK"/>
                             <constraint firstItem="waX-Vl-F7U" firstAttribute="top" secondItem="GyF-Q3-TQr" secondAttribute="bottom" constant="8" id="qTf-yn-dQ7"/>
                             <constraint firstItem="2OC-kZ-2MI" firstAttribute="leading" secondItem="s6e-7G-nIW" secondAttribute="leading" constant="16" id="tat-eQ-eZr"/>
                             <constraint firstItem="s6e-7G-nIW" firstAttribute="trailing" secondItem="WhO-hT-bDx" secondAttribute="trailing" constant="16" id="wtv-zm-PsA"/>
+                            <constraint firstItem="vEv-cf-sBR" firstAttribute="leading" secondItem="va5-CP-RCz" secondAttribute="leading" id="xQs-EA-OAw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="s6e-7G-nIW"/>
                     </view>
                     <navigationItem key="navigationItem" id="rHw-JL-gbn">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="dmC-cm-fmb"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="dmC-cm-fmb">
+                            <connections>
+                                <action selector="addAction:" destination="kwY-eV-bze" id="gbM-jc-1gQ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dataLbl" destination="TeF-X9-3DY" id="PDS-lY-63P"/>
+                        <outlet property="descriptionField" destination="WhO-hT-bDx" id="UtA-ld-bHc"/>
                         <outlet property="descriptionLbl" destination="sb3-IH-0Y2" id="12d-ie-Cgx"/>
                         <outlet property="lblTitle" destination="2OC-kZ-2MI" id="h6V-G6-2lE"/>
                         <outlet property="lblnamedescription" destination="GyF-Q3-TQr" id="iFh-fg-SNM"/>
                         <outlet property="nameLbl" destination="waX-Vl-F7U" id="12f-Rt-BIa"/>
+                        <outletCollection property="textFields" destination="0eo-kL-jOk" collectionClass="NSMutableArray" id="f9T-NH-6OB"/>
+                        <outletCollection property="textFields" destination="va5-CP-RCz" collectionClass="NSMutableArray" id="KOV-pD-tlM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Dr-oU-4JG" userLabel="First Responder" sceneMemberID="firstResponder"/>
