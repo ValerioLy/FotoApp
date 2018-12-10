@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class ImageCellController: UICollectionViewCell {
     static let kIdentifier = "imageCell"
@@ -16,13 +17,18 @@ class ImageCellController: UICollectionViewCell {
     }
     
     func setup(with image : Photo) {
+        // skeleton cool effect
+        imageView.isSkeletonable = true
+        imageView.showAnimatedGradientSkeleton()
         imageView.roundedCorners()
         
         // load the image
         NetworkImageManager.image(from: image.link) { (imageData, success) in
             DispatchQueue.main.async {
                 if success {
+                    self.imageView.hideSkeleton()
                     self.imageView.image = UIImage(data: imageData!)
+                    self.imageView.roundedCorners()
                 }
             }
         }

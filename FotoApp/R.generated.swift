@@ -46,8 +46,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 5 images.
+  /// This `R.image` struct is generated, and contains static references to 6 images.
   struct image {
+    /// Image `close-icon`.
+    static let closeIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "close-icon")
     /// Image `email-icon`.
     static let emailIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "email-icon")
     /// Image `illustration2`.
@@ -58,6 +60,11 @@ struct R: Rswift.Validatable {
     static let rightArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "right-arrow")
     /// Image `trees`.
     static let trees = Rswift.ImageResource(bundle: R.hostingBundle, name: "trees")
+    
+    /// `UIImage(named: "close-icon", bundle: ..., traitCollection: ...)`
+    static func closeIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.closeIcon, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "email-icon", bundle: ..., traitCollection: ...)`
     static func emailIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -97,8 +104,23 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 4 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 5 view controllers.
   struct segue {
+    /// This struct is generated for `AlbumItemController`, and contains static references to 1 segues.
+    struct albumItemController {
+      /// Segue identifier `segueToFullImage`.
+      static let segueToFullImage: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumItemController, FullImageViewerController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToFullImage")
+      
+      /// Optionally returns a typed version of segue `segueToFullImage`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueToFullImage(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AlbumItemController, FullImageViewerController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.albumItemController.segueToFullImage, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
     /// This struct is generated for `LaunchScreenController`, and contains static references to 1 segues.
     struct launchScreenController {
       /// Segue identifier `segueToAuth`.
@@ -488,22 +510,23 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try options.validate()
       try albumItem.validate()
-      try launchScreen.validate()
-      try login.validate()
-      try authScreen.validate()
-      try main.validate()
       try signup.validate()
+      try launchScreen.validate()
+      try options.validate()
+      try login.validate()
+      try main.validate()
+      try authScreen.validate()
     }
     
     struct albumItem: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = AlbumItemController
+      typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
       let name = "AlbumItem"
       
       static func validate() throws {
+        if UIKit.UIImage(named: "close-icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'close-icon' is used in storyboard 'AlbumItem', but couldn't be loaded.") }
         if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'AlbumItem', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }

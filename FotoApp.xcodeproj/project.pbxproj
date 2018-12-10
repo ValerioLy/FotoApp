@@ -18,6 +18,7 @@
 		B34CF24221B6E1D600FC4CB4 /* NetworkImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34CF24121B6E1D600FC4CB4 /* NetworkImageManager.swift */; };
 		B371535121B69BA60069A5B0 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B371535021B69BA60069A5B0 /* R.generated.swift */; };
 		B371535221B69BC30069A5B0 /* R.generated.swift in Resources */ = {isa = PBXBuildFile; fileRef = B371535021B69BA60069A5B0 /* R.generated.swift */; };
+		B37B33F321B7D5FF005510B7 /* FullImageViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37B33F221B7D5FF005510B7 /* FullImageViewerController.swift */; };
 		B399C12D21B578C800ABB0F6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399C12C21B578C800ABB0F6 /* NetworkManager.swift */; };
 		B3E953E521B6847600D60014 /* AuthScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E953E321B6847600D60014 /* AuthScreenController.swift */; };
 		B3E953E621B6847600D60014 /* AuthScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E953E421B6847600D60014 /* AuthScreen.storyboard */; };
@@ -76,6 +77,7 @@
 		B34CF23F21B6CEE500FC4CB4 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		B34CF24121B6E1D600FC4CB4 /* NetworkImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImageManager.swift; sourceTree = "<group>"; };
 		B371535021B69BA60069A5B0 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		B37B33F221B7D5FF005510B7 /* FullImageViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageViewerController.swift; sourceTree = "<group>"; };
 		B399C10E21B556E300ABB0F6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B399C11821B556F400ABB0F6 /* AuthScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthScreen.storyboard; sourceTree = "<group>"; };
 		B399C11C21B556FA00ABB0F6 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				B34CF23821B6AABE00FC4CB4 /* ListCells */,
 				B34CF23421B6A9A900FC4CB4 /* AlbumItem.storyboard */,
 				B34CF23621B6AA4400FC4CB4 /* AlbumItemController.swift */,
+				B37B33F221B7D5FF005510B7 /* FullImageViewerController.swift */,
 			);
 			name = AlbumItemSpecs;
 			path = "New Group";
@@ -324,8 +327,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F93EFE3821AEB24E00FBC875 /* Build configuration list for PBXNativeTarget "FotoApp" */;
 			buildPhases = (
-				F93EFE4F21AEB7AD00FBC875 /* ShellScript */,
 				8544BE44B96ECC066230EF71 /* [CP] Check Pods Manifest.lock */,
+				F93EFE4F21AEB7AD00FBC875 /* ShellScript */,
 				F93EFE0C21AEB24C00FBC875 /* Sources */,
 				F93EFE0D21AEB24C00FBC875 /* Frameworks */,
 				F93EFE0E21AEB24C00FBC875 /* Resources */,
@@ -474,6 +477,7 @@
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -494,6 +498,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
@@ -569,6 +574,7 @@
 				FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */,
 				B371535121B69BA60069A5B0 /* R.generated.swift in Sources */,
 				F9442BA221B162D900F45C32 /* UserInfoController.swift in Sources */,
+				B37B33F321B7D5FF005510B7 /* FullImageViewerController.swift in Sources */,
 				B3E9540821B6913300D60014 /* LoginViewController.swift in Sources */,
 				F93EFE5A21AED87000FBC875 /* SignupController.swift in Sources */,
 				B34CF23721B6AA4400FC4CB4 /* AlbumItemController.swift in Sources */,
