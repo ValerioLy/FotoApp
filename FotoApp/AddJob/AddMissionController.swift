@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AddMissionController: UIViewController {
 
@@ -16,9 +17,10 @@ class AddMissionController: UIViewController {
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
     }
     
     @IBOutlet weak var lblTitle: UILabel!
@@ -32,14 +34,17 @@ class AddMissionController: UIViewController {
     
     @IBOutlet weak var dataLbl: UILabel!
     
-    var worker : Users = Users()
+    var worker : [Users] = []
     
-    private var jobs : [Topics] = []
+    private var workers : [Topics] = []
     
+     var idusers : [String]!
     
     @IBOutlet var textFields: [UITextField]!
 
     @IBOutlet weak var descriptionField: UITextView!
+    
+ 
     
     
     
@@ -53,17 +58,19 @@ class AddMissionController: UIViewController {
             case TagField.name.rawValue:
                 title = textfield.text!
             case TagField.data.rawValue:
-                description = textfield.text!
+                scadenza = textfield.text!
             default : break
             }
         }
-        scadenza  = dataLbl.text!
+        description  = descriptionField.text!
+        
         
     
+      
         
+      
         
-        
-        NetworkManager.uploadWorkerInfo(title: title, description: description, data: scadenza) { (success) in
+        NetworkManager.uploadWorkerInfo(title: title, description: description, data: scadenza, idUser: idusers ) { (success) in
             debugPrint("Job Info Caricato")
         }
         

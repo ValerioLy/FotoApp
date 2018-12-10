@@ -16,7 +16,7 @@ import RealmSwift
     dynamic var scadenza : Data?
     dynamic var createdby : String?
     
-   private let jobs : List<Users> = List<Users>()
+   private let workers : List<Users> = List<Users>()
 //   private let album : List<Album> = List<Album>()
     
     convenience init(titolo: String? = nil, descrizione: String? = nil, dataAgg: Data? = nil, scadenza : Data? = nil, createdby : String? = nil) {
@@ -29,6 +29,10 @@ import RealmSwift
         self.scadenza = scadenza
         self.createdby = createdby
        
+    }
+    
+    func getId() -> String {
+        return self.id
     }
     
     

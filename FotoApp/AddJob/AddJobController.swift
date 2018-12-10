@@ -19,7 +19,9 @@ class AddJobController: UIViewController {
     
     
    
-    private var selectedEmployee : Users?
+    private var selectedEmployee : [Users]?
+    
+    private var idUsers : [String] = []
     
     var listUsers : [Users] = []
     
@@ -29,10 +31,6 @@ class AddJobController: UIViewController {
 
   
 
-
- 
-
-    
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -82,7 +80,10 @@ extension AddJobController : UITableViewDelegate, UITableViewDataSource, UISearc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! JobCell
-
+    
+    
+        
+      
 
         if isSearching{
             cell.name.text = filterData[indexPath.row].fullName()
@@ -107,14 +108,57 @@ extension AddJobController : UITableViewDelegate, UITableViewDataSource, UISearc
  
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
+        
+        let userSelected = listUsers[indexPath.row]
+        let idExist = idUsers.filter({$0 == userSelected.id}).first
+        
+        if idExist != nil{
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+            let indexRemove = idUsers.firstIndex(of: idExist!)!
+            idUsers.remove(at: indexRemove)
+        }
+        else{
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+            idUsers.append(userSelected.id)
+        }
             
-            
+        
+        
+        /*var indexFound : Int? = nil
+        
+        
+        for (index, element) in idUsers.enumerated() { //non entra mai finchè non è riempito
+            if element == userSelected.id {
+                indexFound = index
+                
+                break
+            }
+        }
+        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
+        //if (tableView.cellForRow(at: indexPath)?.isSelected)! {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+            //if let i = indexFound{
+            idUsers.remove(at: indexFound!)
+            //}
         } else {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
-          selectedEmployee = listUsers[indexPath.row]
-        }
+//            if userSelected == nil{
+//            debugPrint("selectRow: nil")
+//            }
+//            else{
+//            debugPrint("selectRow: no nil")
+//            }
+//            if idUsers == nil{
+//                debugPrint("idUsers: nil")
+//            }
+//            else{
+//                debugPrint("idUsers: no nil")
+//            }
+            //debugPrint("userSelected: "+userSelected.id!)
+            idUsers.append(userSelected.id)
+            
+        }*/
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -122,7 +166,8 @@ extension AddJobController : UITableViewDelegate, UITableViewDataSource, UISearc
         switch segue.identifier {
         case "segueAddJob":
             if let destinationController = segue.destination as? AddMissionController {
-                destinationController.worker = selectedEmployee ?? Users()
+                //destinationController.worker = selectedEmployee!
+                destinationController.idusers  =  idUsers
                   }
         default:
             break

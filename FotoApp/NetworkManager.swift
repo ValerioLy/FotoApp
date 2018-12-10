@@ -23,11 +23,11 @@ class NetworkManager: NSObject {
     
     
     
-    static func uploadWorkerInfo( title : String, description : String, data : String, completion: @escaping (Bool) -> ()) {
+    static func uploadWorkerInfo( title : String, description : String, data : String, idUser : [String],     completion: @escaping (Bool) -> ()) {
         
         guard let user = Auth.auth().currentUser else { completion(false); return}
         
-        db.collection(self.WORKER_COLLECTION).document(user.uid).setData(["title" : title, "description" : description, "data": data], merge: true, completion: { (error) in
+        db.collection(self.WORKER_COLLECTION).document(user.uid).setData([ "id":user.uid, "title" : title, "description" : description, "data": data, "idUser": idUser], merge: true, completion: { (error) in
             
             if let err = error{
                
@@ -56,15 +56,39 @@ class NetworkManager: NSObject {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
                     
-                    let user = Users()
+                    //let user = Users()
                     let userData = document.data()
                     
-                   
-                    user.name = userData["name"] as? String ?? ""
-                    user.surname = userData["surname"] as? String ?? ""
+                    let idU = userData["id"] as? String ?? ""
+                    let nameU = userData["name"] as? String ?? ""
+                    let surnameU = userData["surname"] as? String ?? ""
+                    let email = userData["email"] as? String ?? ""
+                    let image = userData["image"] as? String ?? ""
+                    var admin : Bool, data : Bool, contract : Bool
+                    if userData["admin"] as? String == "true"{
+                        admin = true
+                    }else{
+                        admin = false
+                    }
+                    if userData["hasInsertedData"] as? String == "true"{
+                        data = true
+                    }else{
+                        data = false
+                    }
+                    if userData["hasAcceptedContract"] as? String == "true"{
+                        contract = true
+                    }else{
+                        contract = false
+                    }
                     
                     
-                    userList += [user]
+                    /*user.name = userData["name"] as? String ?? ""
+                    user.surname = userData["surname"] as? String ?? ""*/
+                    
+                    let user = Users(id: idU, email: email, name: nameU, surname: surnameU, image: image, admin: admin, hasAcceptedTerms: contract, hasInsertedData: data)
+                    
+                    //userList += [user]
+                    userList.append(user)
                 }
                 
             }

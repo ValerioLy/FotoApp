@@ -18,10 +18,10 @@ import RealmSwift
     dynamic var hasAcceptedTerms : Bool?
     dynamic var hasInsertedData : Bool?
     
-    convenience init(email : String, name: String? = nil, surname: String? = nil, image: String? = nil, admin : Bool? = nil, hasAcceptedTerms: Bool? = nil, hasInsertedData: Bool? = nil) {
+    convenience init(id: String? = nil,email : String, name: String? = nil, surname: String? = nil, image: String? = nil, admin : Bool? = nil, hasAcceptedTerms: Bool? = nil, hasInsertedData: Bool? = nil) {
         self.init()
         
-        self.id = email
+        self.id = id
         self.email = email
         self.name = name
         self.surname = surname
@@ -31,6 +31,9 @@ import RealmSwift
         self.hasInsertedData = hasInsertedData
     }
     
+    /*func getId() -> String {
+        return self.id
+    }*/
     
   
     func getName() -> String {
