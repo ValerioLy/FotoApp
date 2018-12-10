@@ -37,6 +37,10 @@
 		FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570421B5896E00CED714 /* UserInfoViewController.swift */; };
 		FF5C803821B52C6E0045EC1A /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF5C803721B52C6E0045EC1A /* Options.storyboard */; };
 		FF5C803A21B5333D0045EC1A /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5C803921B5333D0045EC1A /* OptionsViewController.swift */; };
+		FF8F43D221BE6B49003FFEE8 /* JobsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F43CF21BE6B49003FFEE8 /* JobsCell.swift */; };
+		FF8F43D321BE6B49003FFEE8 /* JobsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F43D021BE6B49003FFEE8 /* JobsListViewController.swift */; };
+		FF8F43D421BE6B49003FFEE8 /* Jobs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8F43D121BE6B49003FFEE8 /* Jobs.storyboard */; };
+		FF8F43D721BE6B95003FFEE8 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F43D621BE6B95003FFEE8 /* Mission.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,14 +63,9 @@
 /* Begin PBXFileReference section */
 		2568872B37835C655A12FFB8 /* Pods_FotoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FotoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		922402085D1303BC36DAD3BD /* Pods-FotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.release.xcconfig"; sourceTree = "<group>"; };
-		9659836A21AED798007E115A /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		9659836C21AEE20B007E115A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B31A3DE821B584950014749E /* UserInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfoController.swift; path = FotoApp/Register/UserInfoController.swift; sourceTree = SOURCE_ROOT; };
 		B31A3DEA21B584950014749E /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupController.swift; path = FotoApp/Register/SignupController.swift; sourceTree = SOURCE_ROOT; };
 		B371535021B69BA60069A5B0 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
-		B399C10E21B556E300ABB0F6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B399C11821B556F400ABB0F6 /* AuthScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthScreen.storyboard; sourceTree = "<group>"; };
-		B399C11C21B556FA00ABB0F6 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
 		B399C12C21B578C800ABB0F6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B3E953E321B6847600D60014 /* AuthScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenController.swift; sourceTree = "<group>"; };
 		B3E953E421B6847600D60014 /* AuthScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthScreen.storyboard; sourceTree = "<group>"; };
@@ -93,7 +92,6 @@
 		F93EFE4A21AEB6E200FBC875 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F93EFE4C21AEB6F100FBC875 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F93EFE5321AED0CE00FBC875 /* Xcode.gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = Xcode.gitignore; sourceTree = "<group>"; };
-		F93EFE5721AED79600FBC875 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		F93EFE5921AED87000FBC875 /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		F9442BA121B162D900F45C32 /* UserInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoController.swift; sourceTree = "<group>"; };
 		F94DB91E21B29B0000DB2452 /* ContractController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractController.swift; sourceTree = "<group>"; };
@@ -101,6 +99,10 @@
 		FF1E570421B5896E00CED714 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		FF5C803721B52C6E0045EC1A /* Options.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Options.storyboard; sourceTree = "<group>"; };
 		FF5C803921B5333D0045EC1A /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		FF8F43CF21BE6B49003FFEE8 /* JobsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsCell.swift; sourceTree = "<group>"; };
+		FF8F43D021BE6B49003FFEE8 /* JobsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsListViewController.swift; sourceTree = "<group>"; };
+		FF8F43D121BE6B49003FFEE8 /* Jobs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Jobs.storyboard; sourceTree = "<group>"; };
+		FF8F43D621BE6B95003FFEE8 /* Mission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,14 +143,8 @@
 		B3E953E221B6839100D60014 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				9659836C21AEE20B007E115A /* LoginViewController.swift */,
-				B399C11C21B556FA00ABB0F6 /* LaunchScreenController.swift */,
 				B31A3DE821B584950014749E /* UserInfoController.swift */,
 				B31A3DEA21B584950014749E /* SignupController.swift */,
-				B399C10E21B556E300ABB0F6 /* AppDelegate.swift */,
-				F93EFE5721AED79600FBC875 /* R.generated.swift */,
-				9659836A21AED798007E115A /* Login.storyboard */,
-				B399C11821B556F400ABB0F6 /* AuthScreen.storyboard */,
 			);
 			path = "Recovered References";
 			sourceTree = "<group>";
@@ -214,6 +210,8 @@
 		F93EFE1221AEB24C00FBC875 /* FotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				FF8F43D521BE6B95003FFEE8 /* Models */,
+				FF8F43CE21BE6B49003FFEE8 /* Jobs */,
 				B3E953F321B6850C00D60014 /* Login */,
 				B3E953EE21B684CE00D60014 /* LaunchScreen */,
 				B3E953E721B6847A00D60014 /* Auth */,
@@ -274,6 +272,24 @@
 			path = Options;
 			sourceTree = "<group>";
 		};
+		FF8F43CE21BE6B49003FFEE8 /* Jobs */ = {
+			isa = PBXGroup;
+			children = (
+				FF8F43CF21BE6B49003FFEE8 /* JobsCell.swift */,
+				FF8F43D021BE6B49003FFEE8 /* JobsListViewController.swift */,
+				FF8F43D121BE6B49003FFEE8 /* Jobs.storyboard */,
+			);
+			path = Jobs;
+			sourceTree = "<group>";
+		};
+		FF8F43D521BE6B95003FFEE8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF8F43D621BE6B95003FFEE8 /* Mission.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -281,8 +297,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F93EFE3821AEB24E00FBC875 /* Build configuration list for PBXNativeTarget "FotoApp" */;
 			buildPhases = (
-				F93EFE4F21AEB7AD00FBC875 /* ShellScript */,
 				8544BE44B96ECC066230EF71 /* [CP] Check Pods Manifest.lock */,
+				F93EFE4F21AEB7AD00FBC875 /* ShellScript */,
 				F93EFE0C21AEB24C00FBC875 /* Sources */,
 				F93EFE0D21AEB24C00FBC875 /* Frameworks */,
 				F93EFE0E21AEB24C00FBC875 /* Resources */,
@@ -382,6 +398,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF8F43D421BE6B49003FFEE8 /* Jobs.storyboard in Resources */,
 				B371535221B69BC30069A5B0 /* R.generated.swift in Resources */,
 				B3E9540221B68E9500D60014 /* Main.storyboard in Resources */,
 				B3E953E621B6847600D60014 /* AuthScreen.storyboard in Resources */,
@@ -512,6 +529,7 @@
 				B3E9540121B68E2500D60014 /* ContractController.swift in Sources */,
 				B3E953F521B6853C00D60014 /* Extensions.swift in Sources */,
 				B31A3DEC21B584950014749E /* UserInfoController.swift in Sources */,
+				FF8F43D221BE6B49003FFEE8 /* JobsCell.swift in Sources */,
 				B3E953E921B6849D00D60014 /* AppDelegate.swift in Sources */,
 				B31A3DEE21B584950014749E /* SignupController.swift in Sources */,
 				B399C12D21B578C800ABB0F6 /* NetworkManager.swift in Sources */,
@@ -520,10 +538,12 @@
 				FF5C803A21B5333D0045EC1A /* OptionsViewController.swift in Sources */,
 				FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */,
 				FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */,
+				FF8F43D321BE6B49003FFEE8 /* JobsListViewController.swift in Sources */,
 				B371535121B69BA60069A5B0 /* R.generated.swift in Sources */,
 				F9442BA221B162D900F45C32 /* UserInfoController.swift in Sources */,
 				B3E9540821B6913300D60014 /* LoginViewController.swift in Sources */,
 				F93EFE5A21AED87000FBC875 /* SignupController.swift in Sources */,
+				FF8F43D721BE6B95003FFEE8 /* Mission.swift in Sources */,
 				B3E953E521B6847600D60014 /* AuthScreenController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

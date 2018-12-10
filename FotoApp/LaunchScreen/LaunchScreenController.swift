@@ -24,7 +24,7 @@ class LaunchScreenController: UIViewController {
         // checked if user is logged
         checkedLoggedUser { (success) in
             if success {
-                self.performSegue(withIdentifier: "", sender: self)
+                self.performSegue(withIdentifier: "segueToHome", sender: self)
             }
             else {
                 self.performSegue(withIdentifier: R.segue.launchScreenController.segueToAuth.identifier, sender: self)
