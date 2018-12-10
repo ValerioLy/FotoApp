@@ -502,13 +502,13 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try signup.validate()
-      try login.validate()
-      try options.validate()
-      try authScreen.validate()
+      try main.validate()
       try launchScreen.validate()
       try jobs.validate()
-      try main.validate()
+      try options.validate()
+      try authScreen.validate()
+      try login.validate()
+      try signup.validate()
     }
     
     struct authScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -518,8 +518,8 @@ struct _R: Rswift.Validatable {
       let name = "AuthScreen"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "trees") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'trees' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
         if UIKit.UIImage(named: "email-icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'email-icon' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "trees") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'trees' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
