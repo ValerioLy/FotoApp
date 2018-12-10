@@ -31,12 +31,20 @@ import RealmSwift
         self.hasInsertedData = hasInsertedData
     }
     
+    
+  
     func getName() -> String {
         return self.name ?? ""
     }
     
     func getSurname() -> String {
         return self.surname ?? ""
+    }
+    
+    func fullName() -> String {
+        var fullname = ""
+        fullname += self.name! + " " + self.surname!
+        return fullname
     }
     
     override class func primaryKey() -> String? {

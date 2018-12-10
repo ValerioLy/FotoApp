@@ -10,8 +10,7 @@ import UIKit
 class JobCell: UITableViewCell {
 
     @IBOutlet weak var name: UILabel!
-    
-    @IBOutlet weak var surname: UILabel!
+ 
     override func awakeFromNib() {
         super.awakeFromNib()
         

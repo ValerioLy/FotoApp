@@ -22,7 +22,6 @@
 		B3E9540221B68E9500D60014 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE1721AEB24C00FBC875 /* Main.storyboard */; };
 		B3E9540621B690F700D60014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E9540521B690EC00D60014 /* LaunchScreen.storyboard */; };
 		B3E9540821B6913300D60014 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E9540721B6913300D60014 /* LoginViewController.swift */; };
-		B3E9540A21B6915A00D60014 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E9540921B6915A00D60014 /* R.generated.swift */; };
 		F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE1521AEB24C00FBC875 /* ViewController.swift */; };
 		F93EFE1B21AEB24D00FBC875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE1A21AEB24D00FBC875 /* Assets.xcassets */; };
 		F93EFE2921AEB24E00FBC875 /* FotoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE2821AEB24E00FBC875 /* FotoAppTests.swift */; };
@@ -38,6 +37,8 @@
 		F94711E021B6CB61007F5019 /* JobCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711DF21B6CB61007F5019 /* JobCell.swift */; };
 		F94711E321B6D010007F5019 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711E221B6D010007F5019 /* Users.swift */; };
 		F94711E521B6D27E007F5019 /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711E421B6D27E007F5019 /* RealmUtils.swift */; };
+		F97475E821BA829600FF7B0F /* AddMissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97475E721BA829600FF7B0F /* AddMissionController.swift */; };
+		F97475EA21BA890900FF7B0F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97475E921BA890900FF7B0F /* R.generated.swift */; };
 		FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570221B576D000CED714 /* CreditsViewController.swift */; };
 		FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570421B5896E00CED714 /* UserInfoViewController.swift */; };
 		FF5C803821B52C6E0045EC1A /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF5C803721B52C6E0045EC1A /* Options.storyboard */; };
@@ -81,7 +82,6 @@
 		B3E953F921B68D6F00D60014 /* Signup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		B3E9540521B690EC00D60014 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3E9540721B6913300D60014 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		B3E9540921B6915A00D60014 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		B695B4D1BD9EBC21E7D243C0 /* Pods-FotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F93EFE1021AEB24C00FBC875 /* FotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F93EFE1521AEB24C00FBC875 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +107,8 @@
 		F94711E221B6D010007F5019 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		F94711E421B6D27E007F5019 /* RealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUtils.swift; sourceTree = "<group>"; };
 		F94DB91E21B29B0000DB2452 /* ContractController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractController.swift; sourceTree = "<group>"; };
+		F97475E721BA829600FF7B0F /* AddMissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionController.swift; sourceTree = "<group>"; };
+		F97475E921BA890900FF7B0F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		FF1E570221B576D000CED714 /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		FF1E570421B5896E00CED714 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		FF5C803721B52C6E0045EC1A /* Options.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Options.storyboard; sourceTree = "<group>"; };
@@ -236,8 +238,8 @@
 				F93EFE1521AEB24C00FBC875 /* ViewController.swift */,
 				F94711E421B6D27E007F5019 /* RealmUtils.swift */,
 				B399C12C21B578C800ABB0F6 /* NetworkManager.swift */,
+				F97475E921BA890900FF7B0F /* R.generated.swift */,
 				B3E953E821B6849D00D60014 /* AppDelegate.swift */,
-				B3E9540921B6915A00D60014 /* R.generated.swift */,
 				F93EFE1A21AEB24D00FBC875 /* Assets.xcassets */,
 				F93EFE4321AEB38E00FBC875 /* GoogleService-Info.plist */,
 				F93EFE1F21AEB24D00FBC875 /* Info.plist */,
@@ -282,6 +284,7 @@
 				F94711DB21B6B642007F5019 /* AddJob.storyboard */,
 				F94711DD21B6C1E0007F5019 /* AddJobController.swift */,
 				F94711DF21B6CB61007F5019 /* JobCell.swift */,
+				F97475E721BA829600FF7B0F /* AddMissionController.swift */,
 			);
 			path = AddJob;
 			sourceTree = "<group>";
@@ -550,7 +553,8 @@
 				F94711E021B6CB61007F5019 /* JobCell.swift in Sources */,
 				B3E953ED21B684CB00D60014 /* LaunchScreenController.swift in Sources */,
 				F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */,
-				B3E9540A21B6915A00D60014 /* R.generated.swift in Sources */,
+				F97475EA21BA890900FF7B0F /* R.generated.swift in Sources */,
+				F97475E821BA829600FF7B0F /* AddMissionController.swift in Sources */,
 				FF5C803A21B5333D0045EC1A /* OptionsViewController.swift in Sources */,
 				FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */,
 				F94711E321B6D010007F5019 /* Users.swift in Sources */,
