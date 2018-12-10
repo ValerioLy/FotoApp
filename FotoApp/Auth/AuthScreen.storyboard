@@ -12,7 +12,7 @@
         <!--Auth Screen Controller-->
         <scene sceneID="b6x-gS-9Qz">
             <objects>
-                <viewController id="iFM-pM-la4" customClass="AuthScreenController" customModule="FotoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthScreen" id="iFM-pM-la4" customClass="AuthScreenController" customModule="FotoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="teY-NL-hfD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

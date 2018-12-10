@@ -15,12 +15,18 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var buttonOutlet: UIButton!
     private var db: Firestore! = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+            buttonOutlet.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
+            buttonOutlet.layer.cornerRadius = 0.5 * buttonOutlet.bounds.size.width
+            buttonOutlet.clipsToBounds = true
+        
         /*
+         
         inserisco i topic da Realm nel listOfMission
          
             scarico da firestore i topic legati all'utente e li inserisco
@@ -32,7 +38,9 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
 
     }
 
-
+    @IBAction func addAction(_ sender: Any) {
+    }
+    
      func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1

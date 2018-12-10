@@ -41,6 +41,7 @@
 		FF8F43D321BE6B49003FFEE8 /* JobsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F43D021BE6B49003FFEE8 /* JobsListViewController.swift */; };
 		FF8F43D421BE6B49003FFEE8 /* Jobs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8F43D121BE6B49003FFEE8 /* Jobs.storyboard */; };
 		FF8F43D721BE6B95003FFEE8 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F43D621BE6B95003FFEE8 /* Mission.swift */; };
+		FF8F43E921BEB58F003FFEE8 /* GeneralUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F43E821BEB58E003FFEE8 /* GeneralUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		FF8F43D021BE6B49003FFEE8 /* JobsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsListViewController.swift; sourceTree = "<group>"; };
 		FF8F43D121BE6B49003FFEE8 /* Jobs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Jobs.storyboard; sourceTree = "<group>"; };
 		FF8F43D621BE6B95003FFEE8 /* Mission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
+		FF8F43E821BEB58E003FFEE8 /* GeneralUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				F93EFE1521AEB24C00FBC875 /* ViewController.swift */,
 				B399C12C21B578C800ABB0F6 /* NetworkManager.swift */,
 				B3E953E821B6849D00D60014 /* AppDelegate.swift */,
+				FF8F43E821BEB58E003FFEE8 /* GeneralUtils.swift */,
 				B371535021B69BA60069A5B0 /* R.generated.swift */,
 				F93EFE1A21AEB24D00FBC875 /* Assets.xcassets */,
 				F93EFE4321AEB38E00FBC875 /* GoogleService-Info.plist */,
@@ -534,6 +537,7 @@
 				B31A3DEE21B584950014749E /* SignupController.swift in Sources */,
 				B399C12D21B578C800ABB0F6 /* NetworkManager.swift in Sources */,
 				B3E953ED21B684CB00D60014 /* LaunchScreenController.swift in Sources */,
+				FF8F43E921BEB58F003FFEE8 /* GeneralUtils.swift in Sources */,
 				F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */,
 				FF5C803A21B5333D0045EC1A /* OptionsViewController.swift in Sources */,
 				FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */,

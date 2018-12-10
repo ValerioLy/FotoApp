@@ -22,7 +22,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iFB-Rb-SLM">
-                                <rect key="frame" x="0.0" y="172" width="375" height="421"/>
+                                <rect key="frame" x="0.0" y="172" width="375" height="495"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="JobsCell" rowHeight="104" id="1Wx-Cb-B7O" customClass="JobsCell" customModule="FotoApp" customModuleProvider="target">
@@ -82,34 +82,71 @@
                                     <outlet property="delegate" destination="mMZ-f8-rWs" id="FH6-gL-ejQ"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oL-3O-4Rr">
-                                <rect key="frame" x="313" y="617" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOu-2S-81E">
+                                <rect key="frame" x="290" y="591" width="55" height="55"/>
+                                <color key="backgroundColor" red="1" green="0.85678744429999998" blue="0.32663633689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="addAction:" destination="mMZ-f8-rWs" eventType="touchUpInside" id="fOs-gX-vgI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="iFB-Rb-SLM" firstAttribute="trailing" secondItem="zu1-iC-3a6" secondAttribute="trailing" id="2G9-ol-M8M"/>
-                            <constraint firstItem="iFB-Rb-SLM" firstAttribute="top" secondItem="MOp-c8-yan" secondAttribute="bottom" id="6XQ-yS-stO"/>
-                            <constraint firstItem="6oL-3O-4Rr" firstAttribute="top" secondItem="iFB-Rb-SLM" secondAttribute="bottom" constant="24" id="9D0-Z0-Mhe"/>
+                            <constraint firstItem="iFB-Rb-SLM" firstAttribute="bottom" secondItem="zu1-iC-3a6" secondAttribute="bottom" id="4lc-Xy-LYa"/>
+                            <constraint firstItem="iFB-Rb-SLM" firstAttribute="top" secondItem="MOp-c8-yan" secondAttribute="bottom" id="CBT-xH-W41"/>
                             <constraint firstItem="MOp-c8-yan" firstAttribute="leading" secondItem="zu1-iC-3a6" secondAttribute="leading" id="CTS-mD-7aZ"/>
-                            <constraint firstItem="zu1-iC-3a6" firstAttribute="bottom" secondItem="6oL-3O-4Rr" secondAttribute="bottom" constant="20" id="EZb-AP-hO3"/>
+                            <constraint firstItem="iFB-Rb-SLM" firstAttribute="trailing" secondItem="zu1-iC-3a6" secondAttribute="trailing" id="QKW-8S-eRi"/>
+                            <constraint firstItem="zu1-iC-3a6" firstAttribute="bottom" secondItem="fOu-2S-81E" secondAttribute="bottom" constant="21" id="Yc2-6l-MYJ"/>
+                            <constraint firstItem="iFB-Rb-SLM" firstAttribute="leading" secondItem="zu1-iC-3a6" secondAttribute="leading" id="gfk-JZ-L16"/>
+                            <constraint firstItem="zu1-iC-3a6" firstAttribute="trailing" secondItem="fOu-2S-81E" secondAttribute="trailing" constant="30" id="h8E-pu-37k"/>
                             <constraint firstItem="MOp-c8-yan" firstAttribute="top" secondItem="zu1-iC-3a6" secondAttribute="top" id="hdw-eg-DCe"/>
                             <constraint firstItem="MOp-c8-yan" firstAttribute="trailing" secondItem="zu1-iC-3a6" secondAttribute="trailing" id="idE-Gw-FVs"/>
-                            <constraint firstItem="iFB-Rb-SLM" firstAttribute="leading" secondItem="zu1-iC-3a6" secondAttribute="leading" id="lse-sh-D5T"/>
-                            <constraint firstItem="zu1-iC-3a6" firstAttribute="trailing" secondItem="6oL-3O-4Rr" secondAttribute="trailing" constant="16" id="vdh-AN-YN5"/>
-                            <constraint firstItem="6oL-3O-4Rr" firstAttribute="leading" secondItem="zu1-iC-3a6" secondAttribute="leading" constant="313" id="xsD-49-PKS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zu1-iC-3a6"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Jobs" id="e0z-aq-XbV"/>
+                    <navigationItem key="navigationItem" title="Jobs" id="e0z-aq-XbV">
+                        <barButtonItem key="rightBarButtonItem" title="Options" id="jdu-9T-ha8">
+                            <connections>
+                                <segue destination="M0V-hB-fQK" kind="show" id="A7v-by-49J"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="buttonOutlet" destination="fOu-2S-81E" id="hMc-Xa-Aki"/>
                         <outlet property="tableView" destination="iFB-Rb-SLM" id="tSu-f4-OJm"/>
+                        <segue destination="l3a-fK-ypD" kind="show" identifier="addSegue" id="wfB-8c-5iq"/>
+                        <segue destination="EOt-cH-F6e" kind="show" identifier="jobSegue" id="O6Z-mY-ZPa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUV-1o-RHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1032.8" y="150.67466266866569"/>
+        </scene>
+        <!--Options-->
+        <scene sceneID="5gX-zM-JIr">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Options" storyboardName="Options" id="M0V-hB-fQK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fSF-FY-4mi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1726" y="-31"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="UfP-eU-gH8">
+            <objects>
+                <viewControllerPlaceholder id="EOt-cH-F6e" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KfK-Bd-ow1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1745" y="106"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="A0c-3Y-ETh">
+            <objects>
+                <viewControllerPlaceholder id="l3a-fK-ypD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WX6-Ta-N31" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1759" y="332"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="q8l-hG-RcE">

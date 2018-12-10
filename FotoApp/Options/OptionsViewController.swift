@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class OptionsViewController: UIViewController {
 
@@ -15,23 +16,14 @@ class OptionsViewController: UIViewController {
     }
     
     @IBAction func logoutAction(_ sender: Any) {
-        /*
-        let firebaseAuth = Auth.auth()
-        do{
-            try firebaseAuth.signOut()
-            completion(true)
-        }   catch let error as NSError {
-            print("Error signing out : %ç@", error)
-            
-            UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Error", message: error.localizedDescription, closeAction: {
-                completion(false)
-            }), animated: true, completion: nil)
+        NetworkManager.logout { (success) in
+            if success {
+                GeneralUtils.share.reloadGenericViewController(storyboardName: "AuthScreen", controllerIdentifier: "AuthScreen")
+                self.performSegue(withIdentifier: "authSegue", sender: nil)
+            }
         }
     }
-    */
-        
-        
-    }
+    
     @IBAction func creditsAction(_ sender: Any) {
         self.performSegue(withIdentifier: "toCreditSegue", sender: nil)
     }
@@ -39,4 +31,6 @@ class OptionsViewController: UIViewController {
         self.performSegue(withIdentifier: "toInfoSegue", sender: nil)
 
     }
+
+
 }

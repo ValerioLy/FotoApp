@@ -4,12 +4,27 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Jobs-->
+        <scene sceneID="LCh-n6-Uv8">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Jobs" storyboardName="Jobs" id="iEM-2c-eO2" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fjH-ku-cXi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2585" y="-381"/>
+        </scene>
+        <!--AuthScreen-->
+        <scene sceneID="wlB-2T-rjo">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="AuthScreen" storyboardName="AuthScreen" id="LVk-Ad-yCN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yc5-De-Rgj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2486" y="-300"/>
+        </scene>
         <!--Options-->
         <scene sceneID="oof-A6-GJM">
             <objects>
@@ -71,16 +86,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hh2-EP-mVl"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Options" id="NSO-dB-tHE">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="lRr-Fz-SPf">
+                    <navigationItem key="navigationItem" title="Options" id="w8R-wG-Qjl">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="j8C-FI-sg7">
                             <connections>
-                                <action selector="logoutAction:" destination="cVm-ZI-Zhi" id="Prf-Ij-5tl"/>
+                                <segue destination="iEM-2c-eO2" kind="show" id="ASR-L1-RS9"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="Rqi-a3-px6">
+                            <connections>
+                                <action selector="logoutAction:" destination="cVm-ZI-Zhi" id="SVV-EE-0l1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="ZwN-w1-yAZ" kind="show" identifier="toCreditSegue" id="WPO-g7-Znb"/>
                         <segue destination="po8-MN-eZ8" kind="show" identifier="toInfoSegue" id="svZ-db-qkG"/>
+                        <segue destination="LVk-Ad-yCN" kind="show" identifier="authSegue" id="vIc-7n-zGV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HBe-vP-wEr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -131,7 +152,7 @@
         <!--Navigation Controller-->
         <scene sceneID="x3c-u7-tr3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XVI-de-Kdk" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Options" automaticallyAdjustsScrollViewInsets="NO" id="XVI-de-Kdk" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ylm-7q-0WW">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
@@ -245,26 +266,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dwV-Z5-5fu">
-                                <rect key="frame" x="16" y="303" width="87" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Bgk-5f-w5c"/>
-                                    <constraint firstAttribute="width" constant="87" id="FvC-3r-VIz"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Dp2-CR-9aQ" firstAttribute="top" secondItem="8tZ-wx-8ZG" secondAttribute="bottom" constant="31" id="4vg-dw-5rp"/>
                             <constraint firstItem="XXj-MW-BjM" firstAttribute="top" secondItem="2cz-QC-Vx8" secondAttribute="bottom" constant="26" id="6sK-nM-6jg"/>
                             <constraint firstItem="2cz-QC-Vx8" firstAttribute="top" secondItem="50g-9Q-rHr" secondAttribute="bottom" constant="8" id="845-ZP-s75"/>
-                            <constraint firstItem="XXj-MW-BjM" firstAttribute="top" secondItem="dwV-Z5-5fu" secondAttribute="bottom" constant="25" id="8zT-UG-Uhh"/>
                             <constraint firstItem="xfg-KR-o82" firstAttribute="leading" secondItem="GLw-46-KyG" secondAttribute="leading" constant="25" id="9Lm-lC-TBb"/>
                             <constraint firstItem="GLw-46-KyG" firstAttribute="trailing" secondItem="2cz-QC-Vx8" secondAttribute="trailing" constant="16" id="Jd2-Rc-WmL"/>
-                            <constraint firstItem="dwV-Z5-5fu" firstAttribute="top" secondItem="Dp2-CR-9aQ" secondAttribute="bottom" constant="8" id="MSL-7a-KqW"/>
                             <constraint firstItem="GdB-9t-5B7" firstAttribute="leading" secondItem="GLw-46-KyG" secondAttribute="leading" constant="25" id="NOe-1R-Iqz"/>
                             <constraint firstItem="eUo-Ki-eeg" firstAttribute="top" secondItem="Nb8-f4-2UW" secondAttribute="bottom" constant="8" id="Nn1-yc-j9S"/>
                             <constraint firstItem="GdB-9t-5B7" firstAttribute="top" secondItem="XXj-MW-BjM" secondAttribute="bottom" constant="18" id="Rvb-ae-y09"/>
@@ -272,14 +281,12 @@
                             <constraint firstItem="8tZ-wx-8ZG" firstAttribute="leading" secondItem="GLw-46-KyG" secondAttribute="leading" constant="16" id="WPZ-lT-iRS"/>
                             <constraint firstItem="50g-9Q-rHr" firstAttribute="leading" secondItem="Dp2-CR-9aQ" secondAttribute="trailing" constant="15" id="Wye-kC-O4m"/>
                             <constraint firstItem="Nb8-f4-2UW" firstAttribute="top" secondItem="8tZ-wx-8ZG" secondAttribute="bottom" constant="10" id="YD0-Xc-WBG"/>
-                            <constraint firstItem="dwV-Z5-5fu" firstAttribute="leading" secondItem="GLw-46-KyG" secondAttribute="leading" constant="16" id="YKQ-UF-N5Q"/>
                             <constraint firstItem="GLw-46-KyG" firstAttribute="trailing" secondItem="eUo-Ki-eeg" secondAttribute="trailing" constant="16" id="bMc-m5-FWZ"/>
                             <constraint firstItem="XXj-MW-BjM" firstAttribute="leading" secondItem="GLw-46-KyG" secondAttribute="leading" constant="25" id="bRU-2y-ZPo"/>
                             <constraint firstItem="Ecm-w3-yVw" firstAttribute="top" secondItem="2cz-QC-Vx8" secondAttribute="bottom" constant="26" id="cX5-Dg-2mi"/>
                             <constraint firstItem="Ecm-w3-yVw" firstAttribute="leading" secondItem="XXj-MW-BjM" secondAttribute="trailing" constant="13" id="cYN-Kr-af9"/>
                             <constraint firstItem="2cz-QC-Vx8" firstAttribute="leading" secondItem="GLw-46-KyG" secondAttribute="leading" constant="118" id="dBm-7f-b79"/>
                             <constraint firstItem="50g-9Q-rHr" firstAttribute="top" secondItem="eUo-Ki-eeg" secondAttribute="bottom" constant="8" id="ehj-H9-7CL"/>
-                            <constraint firstItem="2cz-QC-Vx8" firstAttribute="leading" secondItem="dwV-Z5-5fu" secondAttribute="trailing" constant="15" id="etY-kX-LPy"/>
                             <constraint firstItem="GLw-46-KyG" firstAttribute="trailing" secondItem="xfg-KR-o82" secondAttribute="trailing" constant="16" id="gyA-5Y-jpd"/>
                             <constraint firstItem="8tZ-wx-8ZG" firstAttribute="top" secondItem="GLw-46-KyG" secondAttribute="top" constant="20" id="hJb-7B-1Uk"/>
                             <constraint firstItem="Nb8-f4-2UW" firstAttribute="leading" secondItem="GLw-46-KyG" secondAttribute="leading" constant="118" id="hm0-ds-v6i"/>

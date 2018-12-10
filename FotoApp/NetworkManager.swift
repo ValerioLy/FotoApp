@@ -42,6 +42,20 @@ class NetworkManager: NSObject {
         }
     }
     
+    static func logout(completion: @escaping (Bool) -> ()) {
+        let firebaseAuth = Auth.auth()
+        do{
+            try firebaseAuth.signOut()
+            completion(true)
+        }   catch let error as NSError {
+            print("Error signing out : %ç@", error)
+            
+            UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Error", message: error.localizedDescription, closeAction: {
+                completion(false)
+            }), animated: true, completion: nil)
+        }
+    }
+    
     static func pushUserData(name: String? = nil, surname: String? = nil, email: String? = nil, image : UIImage? = nil, completion: @escaping(Bool, String?) -> ()){
         
         guard let user = Auth.auth().currentUser else {
