@@ -10,6 +10,8 @@ import UIKit
 
 class ContractController: UIViewController {
 
+    var hasAcceptedContract : Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,6 +20,11 @@ class ContractController: UIViewController {
     }
 
     @IBAction func AcceptAction(_ sender: UIBarButtonItem) {
+        hasAcceptedContract = true
+        NetworkManager.updateTerms(hasAcceptedContract: hasAcceptedContract) { (success) in
+            print("hasAcceptedContract true")
+        }
         
+        self.performSegue(withIdentifier: "segueJobs", sender: self)
     }
 }

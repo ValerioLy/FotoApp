@@ -13,12 +13,12 @@ class NetworkManager: NSObject {
     private static let USERS_COLLECTION = "users"
      private static let WORKER_COLLECTION = "workers"
     private static var db : Firestore = Firestore.firestore()
-    private static var storageRef : StorageReference!
+    private static var storageRef : StorageReference = Storage.storage().reference()
 
     static func initFirebase() {
         FirebaseApp.configure()
         
-        storageRef = Storage().reference()
+      
     }
     
     
@@ -26,19 +26,59 @@ class NetworkManager: NSObject {
     
     
     
-    static func checkUserInfo(hasInsertedData: Bool, completion : @escaping(Bool)->() )
+    static func checkUserInfo(completion : @escaping(Bool)->() )
     {
         guard let user = Auth.auth().currentUser else {
             completion(false)
            print("Non prende l'utente")
             return
         }
-        guard hasInsertedData == true else {
-                completion(false)
-            print("Non ha inserito i dati")
-            return
+
+        db.collection(self.USERS_COLLECTION).document(user.uid).getDocument { (DocumentSnapshot, Error) in
+            if let err = Error {
+                print("Error getting documents: \(err)")
+            } else {
+                let dati = DocumentSnapshot?.data()
+                
+                let hasInsertedData = dati!["hasInsertedData"] as? Bool
+                    guard hasInsertedData == true else {
+                        completion(false)
+                        print("Non ha inserito i dati")
+                        return
+                    }
+                
+                
         }
-        completion(true)
+        
+        
+            
+            completion(true)
+        }}
+    
+    
+    
+    
+    static func checkTermsUser(completion : @escaping(Bool)->() )
+    {  guard let user = Auth.auth().currentUser else {
+        completion(false)
+        print("Non prende l'utente")
+        return
+        }
+        db.collection(self.USERS_COLLECTION).document(user.uid).getDocument { (DocumentSnapshot, Error) in
+            if let err = Error {
+                print("Error getting documents: \(err)")
+            } else {
+                let dati = DocumentSnapshot?.data()
+                
+                let hasAcceptedContract = dati!["hasAcceptedContract"] as? Bool
+                guard hasAcceptedContract == true else {
+                    completion(false)
+                    print("Non ha inserito i dati")
+                    return
+                }
+            }
+            completion(true)
+        }
     }
     
     
@@ -155,7 +195,29 @@ class NetworkManager: NSObject {
         }
     }
     
-    static func pushUserData(name: String? = nil, surname: String? = nil, email: String? = nil, image : UIImage? = nil, completion: @escaping(Bool, String?) -> ()){
+    static func pushUserData(email: String, hasInsertedData: Bool, hasAcceptedContract : Bool, completion: @escaping(Bool, String?) -> ()){
+        
+        guard let user = Auth.auth().currentUser else {
+            completion(false, "No such user")
+            return
+            
+        }
+            self.db.collection(USERS_COLLECTION).document(user.uid).setData([
+                "id":user.uid,
+                "email": email,
+                "hasInsertedData": hasInsertedData,
+                "hasAcceptedContract": hasAcceptedContract
+            ], merge: true) { error in
+                if let error = error {
+                    completion(false, error.localizedDescription)
+                } else {
+                    completion(true, nil)
+                }
+            }
+        }
+    
+
+    static func pushFinalUserData(name: String? = nil, surname: String? = nil, image : UIImage? = nil, hasInsertedData: Bool, hasAcceptedContract : Bool, admin: Bool, completion: @escaping(Bool, String?) -> ()){
         
         guard let user = Auth.auth().currentUser else {
             completion(false, "No such user")
@@ -178,11 +240,12 @@ class NetworkManager: NSObject {
                     }
                     
                     self.db.collection(USERS_COLLECTION).document(user.uid).setData([
-                        "id":user.uid,
                         "name": name ,
                         "surname": surname ,
-                        "email": email ,
-                        "image": downloadURL.absoluteString
+                        "image": downloadURL.absoluteString,
+                        "hasInsertedData": hasInsertedData,
+                        "hasAcceptedContract": hasAcceptedContract,
+                        "admin":admin
                     ], merge: true) { error in
                         if let error = error {
                             completion(false, error.localizedDescription)
@@ -193,13 +256,15 @@ class NetworkManager: NSObject {
                 }
             }
         }
+            
         else {
             self.db.collection(USERS_COLLECTION).document(user.uid).setData([
-                "id":user.uid,
                 "name": name ,
                 "surname": surname ,
-                "email": email ,
-                "image": nil
+                "image": "",
+                "hasInsertedData": hasInsertedData,
+                "hasAcceptedContract": hasAcceptedContract,
+                  "admin":admin
             ], merge: true) { error in
                 if let error = error {
                     completion(false, error.localizedDescription)
@@ -209,4 +274,23 @@ class NetworkManager: NSObject {
             }
         }
     }
+    
+
+
+static func updateTerms(hasAcceptedContract: Bool, completion: @escaping(Bool) -> ()){
+    
+    guard let user = Auth.auth().currentUser else {
+        completion(false)
+        return
+        
+    }
+    
+        self.db.collection(USERS_COLLECTION).document(user.uid).updateData([
+            "hasAcceptedContract": hasAcceptedContract
+        ])
+    
 }
+
+}
+
+
