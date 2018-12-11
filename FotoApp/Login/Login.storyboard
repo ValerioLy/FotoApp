@@ -115,7 +115,7 @@
                             <color key="tintColor" red="0.0" green="0.46691431449999998" blue="1" alpha="0.72474691899999999" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="registerAction:" destination="5e3-Id-tss" id="dxu-i7-uBy"/>
-                                <segue destination="aJ8-nN-b3n" kind="show" id="0AK-dn-RfL"/>
+                                <segue destination="aJ8-nN-b3n" kind="show" identifier="Settings" id="0AK-dn-RfL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

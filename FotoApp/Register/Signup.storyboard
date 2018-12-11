@@ -149,12 +149,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fir-RL-MuM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="936.79999999999995" y="106.59670164917542"/>
+            <point key="canvasLocation" x="1876" y="106.59670164917542"/>
         </scene>
         <!--User Info Controller-->
         <scene sceneID="HlR-hE-QGe">
             <objects>
-                <viewController id="37x-fP-Eqf" customClass="UserInfoController" customModule="FotoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="37x-fP-Eqf" customClass="UserInfoController" customModule="FotoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EYB-dz-pqZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -287,7 +287,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjr-6X-XjV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1824.8" y="109.29535232383809"/>
+            <point key="canvasLocation" x="2764" y="109.29535232383809"/>
         </scene>
         <!--Contract Controller-->
         <scene sceneID="heU-LH-wTk">
@@ -832,7 +832,7 @@ with full knowledge of its content and significance and intending to be legally 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kTi-VB-Z4C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2621.5999999999999" y="106.59670164917542"/>
+            <point key="canvasLocation" x="3560.8000000000002" y="106.59670164917542"/>
         </scene>
     </scenes>
     <resources>
