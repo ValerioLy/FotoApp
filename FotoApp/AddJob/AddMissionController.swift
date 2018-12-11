@@ -36,7 +36,7 @@ class AddMissionController: UIViewController {
     
     var worker : [Users] = []
     
-    private var workers : [Topics] = []
+    //private var workers : [Topics] = []
     
      var idusers : [String]!
     
@@ -70,9 +70,9 @@ class AddMissionController: UIViewController {
         
       
         
-        NetworkManager.uploadWorkerInfo(title: title, description: description, data: scadenza, idUser: idusers ) { (success) in
-            debugPrint("Job Info Caricato")
-        }
+//        NetworkManager.uploadWorkerInfo(title: title, description: description, data: scadenza, idUser: idusers ) { (success) in
+//            debugPrint("Job Info Caricato")
+//        }
         
     
     

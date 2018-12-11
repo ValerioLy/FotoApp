@@ -8,13 +8,12 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import RealmSwift
 
 class JobsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var listOfMission : [Mission] = [Mission(id: "85181", name: "fewvef", descriptio: "scvnwoidncw", date: "04/12/98", expiring: "15/07/54", creator: "Marco"), Mission(id: "5489422", name: "vcsduiweoewbw", descriptio: "cwncncownvwvn", date: "14/03/78", expiring: "09/11/44", creator: "vnewiohewoiv")]
-    
-    
-    
+    var listOfTopic : [Topic] = []
+
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var buttonOutlet: UIButton!
@@ -27,6 +26,12 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         
         buttonOutlet.layer.cornerRadius = 32
         buttonOutlet.clipsToBounds = true
+        
+        NetworkManager.getTopics()
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "topicListener"), object: nil)
+        
         
         /*
         buttonOutlet.frame = CGRect(x: 160, y: 100, width: 96, height: 96)
@@ -49,6 +54,10 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func addAction(_ sender: Any) {
     }
     
+    @objc private func notificationObserver(notification : Notification) {
+        self.listOfTopic = Topic.all()
+        tableView.reloadData()
+    }
     
     // Manage navbar
     func setupNavbar() {
@@ -69,16 +78,17 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
 
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return listOfMission.count
+        return listOfTopic.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JobsCell", for: indexPath) as! JobsCell
         
         
-        cell.missionName.text = listOfMission[indexPath.row].name
-        cell.missionDate.text = listOfMission[indexPath.row].date
+        cell.missionName.text = listOfTopic[indexPath.row].title
+        cell.missionDate.text = listOfTopic[indexPath.row].creation
         
+
         
         return cell
     }

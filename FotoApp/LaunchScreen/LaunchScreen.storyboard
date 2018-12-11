@@ -22,7 +22,7 @@
                     <navigationItem key="navigationItem" id="kEx-Ky-NJH"/>
                     <connections>
                         <segue destination="flh-CE-JOh" kind="show" identifier="segueToAuth" id="lsy-f0-QxW"/>
-                        <segue destination="SLP-GZ-8LL" kind="show" identifier="" id="Rr2-bi-EBM"/>
+                        <segue destination="SLP-GZ-8LL" kind="show" identifier="segueToHome" id="Rr2-bi-EBM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vUy-e0-TE7" userLabel="First Responder" sceneMemberID="firstResponder"/>

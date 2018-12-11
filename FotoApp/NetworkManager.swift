@@ -45,26 +45,6 @@ class NetworkManager: NSObject {
     
     
     
-    static func uploadWorkerInfo( title : String, description : String, data : String, idUser : [String],     completion: @escaping (Bool) -> ()) {
-        
-        guard let user = Auth.auth().currentUser else { completion(false); return}
-        
-        db.collection(self.WORKER_COLLECTION).document(user.uid).setData([ "id":user.uid, "title" : title, "description" : description, "data": data, "idUser": idUser], merge: true, completion: { (error) in
-            
-            if let err = error{
-               
-                
-                print("Job could not be saved: \(error).")
-            }
-            else {
-                print("Job saved successfully!")
-                completion(true)
-            }
-            
-        })
-        
-    }
-
     
     
     static func getData (completion: @escaping([Users])-> Void) {
@@ -140,6 +120,36 @@ class NetworkManager: NSObject {
             completion(true, nil)
         }
     }
+    
+    static func getTopics(){
+        db.collection("topics").whereField("workers", arrayContains:
+            
+            Auth.auth().currentUser?.uid).addSnapshotListener { (querySnapshot, error) in
+            
+            guard let docs = querySnapshot?.documents else {
+                return
+            }
+            
+            docs.forEach({ (item) in
+                let data = item.data()
+                
+                debugPrint(data)
+                
+                do {
+                    try FirebaseDecoder().decode(Topic.self, from: data).save()
+                }
+                catch let err {
+                    debugPrint(err.localizedDescription)
+                    return
+            }
+            })
+            
+
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "topicListener"), object: nil)
+        }
+    }
+    
+
     
     static func logout(completion: @escaping (Bool) -> ()) {
         let firebaseAuth = Auth.auth()
