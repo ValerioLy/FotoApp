@@ -18,8 +18,7 @@ import FirebaseFirestore
     dynamic var date : String!
     dynamic var expiring : String!
     dynamic var creator : String!
-    //workers
-    //albums
+    //dynamic var workers
     
     convenience init(id : String? = nil, name : String? = nil, descriptio : String? = nil, date : String? = nil, expiring : String? = nil, creator : String? = nil ){
         
