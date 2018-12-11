@@ -106,7 +106,7 @@
                     <connections>
                         <outlet property="searchBar" destination="TLF-ib-QI6" id="00I-YC-6LV"/>
                         <outlet property="tableView" destination="Ur5-tt-Bp3" id="wWG-sz-tyR"/>
-                        <segue destination="kwY-eV-bze" kind="show" identifier="segueAddJob" id="3Yn-8a-S5u"/>
+                        <segue destination="kwY-eV-bze" kind="show" identifier="" id="3Yn-8a-S5u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="msJ-ca-dd4" userLabel="First Responder" sceneMemberID="firstResponder"/>

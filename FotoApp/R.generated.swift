@@ -112,41 +112,31 @@ struct R: Rswift.Validatable {
   
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
-    /// Reuse identifier `imageCell`.
-    static let imageCell: Rswift.ReuseIdentifier<ImageCellController> = Rswift.ReuseIdentifier(identifier: "imageCell")
-    /// Reuse identifier `singleLineActionController`.
-    static let singleLineActionController: Rswift.ReuseIdentifier<SingleLineActionController> = Rswift.ReuseIdentifier(identifier: "singleLineActionController")
-    
-    fileprivate init() {}
-  }
-  
-  /// This `R.segue` struct is generated, and contains static references to 5 view controllers.
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
-  struct reuseIdentifier {
     /// Reuse identifier `JobsCell`.
     static let jobsCell: Rswift.ReuseIdentifier<JobsCell> = Rswift.ReuseIdentifier(identifier: "JobsCell")
+    /// Reuse identifier `cell`.
+    static let cell: Rswift.ReuseIdentifier<JobCell> = Rswift.ReuseIdentifier(identifier: "cell")
     
     fileprivate init() {}
   }
   
   /// This `R.segue` struct is generated, and contains static references to 5 view controllers.
   struct segue {
-    /// This struct is generated for `AlbumItemController`, and contains static references to 1 segues.
-    struct albumItemController {
-      /// Segue identifier `segueToFullImage`.
-      static let segueToFullImage: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumItemController, FullImageViewerController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToFullImage")
+    /// This struct is generated for `ContractController`, and contains static references to 1 segues.
+    struct contractController {
+      /// Segue identifier `segueJobs`.
+      static let segueJobs: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ContractController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "segueJobs")
       
-      /// Optionally returns a typed version of segue `segueToFullImage`.
+      /// Optionally returns a typed version of segue `segueJobs`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToFullImage(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AlbumItemController, FullImageViewerController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.albumItemController.segueToFullImage, segue: segue)
+      static func segueJobs(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ContractController, UIKit.UINavigationController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.contractController.segueJobs, segue: segue)
       }
       
       fileprivate init() {}
     }
     
-    /// This struct is generated for `LaunchScreenController`, and contains static references to 1 segues.
     /// This struct is generated for `LaunchScreenController`, and contains static references to 2 segues.
     struct launchScreenController {
       /// Segue identifier `segueToAuth`.
@@ -166,21 +156,6 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func segueToHome(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LaunchScreenController, UIKit.UINavigationController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.launchScreenController.segueToHome, segue: segue)
-      }
-      
-      fileprivate init() {}
-    }
-    
-    /// This struct is generated for `LoginViewController`, and contains static references to 1 segues.
-    struct loginViewController {
-      /// Segue identifier `jobsSegue`.
-      static let jobsSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LoginViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "jobsSegue")
-      
-      /// Optionally returns a typed version of segue `jobsSegue`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func jobsSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, UIKit.UINavigationController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.loginViewController.jobsSegue, segue: segue)
       }
       
       fileprivate init() {}
@@ -222,12 +197,12 @@ struct R: Rswift.Validatable {
     /// This struct is generated for `SignupController`, and contains static references to 1 segues.
     struct signupController {
       /// Segue identifier `segueUserInfo`.
-      static let segueUserInfo: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SignupController, UserInfoController> = Rswift.StoryboardSegueIdentifier(identifier: "segueUserInfo")
+      static let segueUserInfo: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SignupController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "segueUserInfo")
       
       /// Optionally returns a typed version of segue `segueUserInfo`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueUserInfo(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SignupController, UserInfoController>? {
+      static func segueUserInfo(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SignupController, UIKit.UINavigationController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.signupController.segueUserInfo, segue: segue)
       }
       
@@ -237,12 +212,12 @@ struct R: Rswift.Validatable {
     /// This struct is generated for `UserInfoController`, and contains static references to 1 segues.
     struct userInfoController {
       /// Segue identifier `segueTerms`.
-      static let segueTerms: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, UserInfoController, ContractController> = Rswift.StoryboardSegueIdentifier(identifier: "segueTerms")
+      static let segueTerms: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, UserInfoController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "segueTerms")
       
       /// Optionally returns a typed version of segue `segueTerms`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueTerms(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, UserInfoController, ContractController>? {
+      static func segueTerms(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, UserInfoController, UIKit.UINavigationController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.userInfoController.segueTerms, segue: segue)
       }
       
@@ -252,10 +227,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 8 storyboards.
   struct storyboard {
-    /// Storyboard `AlbumItem`.
-    static let albumItem = _R.storyboard.albumItem()
+    /// Storyboard `AddJob`.
+    static let addJob = _R.storyboard.addJob()
     /// Storyboard `AuthScreen`.
     static let authScreen = _R.storyboard.authScreen()
     /// Storyboard `Jobs`.
@@ -271,9 +246,9 @@ struct R: Rswift.Validatable {
     /// Storyboard `Signup`.
     static let signup = _R.storyboard.signup()
     
-    /// `UIStoryboard(name: "AlbumItem", bundle: ...)`
-    static func albumItem(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.albumItem)
+    /// `UIStoryboard(name: "AddJob", bundle: ...)`
+    static func addJob(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.addJob)
     }
     
     /// `UIStoryboard(name: "AuthScreen", bundle: ...)`
@@ -316,16 +291,36 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 21 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 28 localization keys.
     struct localizable {
+      /// en translation: Add Job
+      /// 
+      /// Locales: en, it
+      static let kAddJobTitle = Rswift.StringResource(key: "kAddJobTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Add Job
+      /// 
+      /// Locales: en, it
+      static let lblAddMissionTitle = Rswift.StringResource(key: "lblAddMissionTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Add a name and a descripion
+      /// 
+      /// Locales: en, it
+      static let lblAddMissionSubtitle = Rswift.StringResource(key: "lblAddMissionSubtitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Administrator
       /// 
       /// Locales: en, it
       static let lblUserInfoAdmin = Rswift.StringResource(key: "lblUserInfoAdmin", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Click to select multiple workers
+      /// 
+      /// Locales: en, it
+      static let kAddJobclicktoselectmultipleworkers = Rswift.StringResource(key: "kAddJobclicktoselectmultipleworkers", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Continue
       /// 
       /// Locales: en, it
       static let lblUserInfoContinue = Rswift.StringResource(key: "lblUserInfoContinue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Description
+      /// 
+      /// Locales: en, it
+      static let lblAddMissionlblDescription = Rswift.StringResource(key: "lblAddMissionlblDescription", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Different passwords
       /// 
       /// Locales: en, it
@@ -342,6 +337,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kAlertLoginFailedEmptyLabelsTitle = Rswift.StringResource(key: "kAlertLoginFailedEmptyLabelsTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Forward
+      /// 
+      /// Locales: en, it
+      static let kAddJobForward = Rswift.StringResource(key: "kAddJobForward", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Invalid mail
       /// 
       /// Locales: en, it
@@ -350,6 +349,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kAlertLoginFailedInvalidPasswordTitle = Rswift.StringResource(key: "kAlertLoginFailedInvalidPasswordTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Name
+      /// 
+      /// Locales: en, it
+      static let lblAddMissionlblName = Rswift.StringResource(key: "lblAddMissionlblName", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Name
       /// 
       /// Locales: en, it
@@ -403,6 +406,27 @@ struct R: Rswift.Validatable {
       /// Locales: en, it
       static let lblUserInfoinfo = Rswift.StringResource(key: "lblUserInfoinfo", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       
+      /// en translation: Add Job
+      /// 
+      /// Locales: en, it
+      static func kAddJobTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kAddJobTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Add Job
+      /// 
+      /// Locales: en, it
+      static func lblAddMissionTitle(_: Void = ()) -> String {
+        return NSLocalizedString("lblAddMissionTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Add a name and a descripion
+      /// 
+      /// Locales: en, it
+      static func lblAddMissionSubtitle(_: Void = ()) -> String {
+        return NSLocalizedString("lblAddMissionSubtitle", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Administrator
       /// 
       /// Locales: en, it
@@ -410,11 +434,25 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("lblUserInfoAdmin", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Click to select multiple workers
+      /// 
+      /// Locales: en, it
+      static func kAddJobclicktoselectmultipleworkers(_: Void = ()) -> String {
+        return NSLocalizedString("kAddJobclicktoselectmultipleworkers", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Continue
       /// 
       /// Locales: en, it
       static func lblUserInfoContinue(_: Void = ()) -> String {
         return NSLocalizedString("lblUserInfoContinue", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Description
+      /// 
+      /// Locales: en, it
+      static func lblAddMissionlblDescription(_: Void = ()) -> String {
+        return NSLocalizedString("lblAddMissionlblDescription", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Different passwords
@@ -445,6 +483,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("kAlertLoginFailedEmptyLabelsTitle", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Forward
+      /// 
+      /// Locales: en, it
+      static func kAddJobForward(_: Void = ()) -> String {
+        return NSLocalizedString("kAddJobForward", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Invalid mail
       /// 
       /// Locales: en, it
@@ -457,6 +502,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, it
       static func kAlertLoginFailedInvalidPasswordTitle(_: Void = ()) -> String {
         return NSLocalizedString("kAlertLoginFailedInvalidPasswordTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Name
+      /// 
+      /// Locales: en, it
+      static func lblAddMissionlblName(_: Void = ()) -> String {
+        return NSLocalizedString("lblAddMissionlblName", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Name
@@ -576,30 +628,23 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try launchScreen.validate()
-      try authScreen.validate()
-      try main.validate()
-      try albumItem.validate()
-      try login.validate()
-      try signup.validate()
-      try options.validate()
-      try launchScreen.validate()
-      try main.validate()
-      try signup.validate()
-      try authScreen.validate()
-      try login.validate()
       try jobs.validate()
+      try launchScreen.validate()
       try options.validate()
+      try addJob.validate()
+      try signup.validate()
+      try main.validate()
+      try authScreen.validate()
+      try login.validate()
     }
     
-    struct albumItem: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+    struct addJob: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
-      let name = "AlbumItem"
+      let name = "AddJob"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'AlbumItem', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
@@ -619,8 +664,8 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "trees") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'trees' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
         if UIKit.UIImage(named: "email-icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'email-icon' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "trees") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'trees' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
         if _R.storyboard.authScreen().authScreen() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'authScreen' could not be loaded from storyboard 'AuthScreen' as 'AuthScreenController'.") }
@@ -705,8 +750,8 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
         if _R.storyboard.options().options() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'options' could not be loaded from storyboard 'Options' as 'UIKit.UINavigationController'.") }
@@ -720,11 +765,23 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "Signup"
+      let termsController = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "TermsController")
+      let userInfoController = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "UserInfoController")
+      
+      func termsController(_: Void = ()) -> UIKit.UINavigationController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: termsController)
+      }
+      
+      func userInfoController(_: Void = ()) -> UIKit.UINavigationController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: userInfoController)
+      }
       
       static func validate() throws {
         if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Signup', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
+        if _R.storyboard.signup().userInfoController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userInfoController' could not be loaded from storyboard 'Signup' as 'UIKit.UINavigationController'.") }
+        if _R.storyboard.signup().termsController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'termsController' could not be loaded from storyboard 'Signup' as 'UIKit.UINavigationController'.") }
       }
       
       fileprivate init() {}

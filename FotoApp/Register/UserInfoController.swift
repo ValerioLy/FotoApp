@@ -17,7 +17,9 @@ class UserInfoController: UIViewController {
     private var pickerController:UIImagePickerController?
     
     var image : UIImage?
-    
+    var hasInsertedData : Bool = false
+    var hasAcceptedContract : Bool = false
+    var admin : Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -109,9 +111,9 @@ class UserInfoController: UIViewController {
     
     @IBAction func ChooseUser(_ sender: UISwitch) {
         if sender.isOn {
-            //            self.performSegue(withIdentifier: "", sender: self)
+            admin = true
         } else {
-            //            self.performSegue(withIdentifier: "", sender: self)
+            admin = false
         }
     }
     
@@ -132,8 +134,9 @@ class UserInfoController: UIViewController {
             }
         }
         
-        
-        NetworkManager.pushUserData(name: name, surname: surname, image: image) { (success, err) in
+        hasInsertedData = true
+    
+        NetworkManager.pushFinalUserData(name: name, surname: surname, image: image, hasInsertedData: hasInsertedData, hasAcceptedContract: hasAcceptedContract, admin: admin) { (success, err) in
             if success {
                 self.performSegue(withIdentifier: R.segue.userInfoController.segueTerms.identifier, sender: self)
             }

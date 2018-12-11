@@ -161,17 +161,17 @@ extension AddJobController : UITableViewDelegate, UITableViewDataSource, UISearc
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        switch segue.identifier {
-        case "segueAddJob":
-            if let destinationController = segue.destination as? AddMissionController {
-                destinationController.idusers  =  idUsers
-                  }
-        default:
-            break
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        
+//        switch segue.identifier {
+//        case "segueAddJob":
+//            if let destinationController = segue.destination as? AddMissionController {
+//                destinationController.idusers  =  idUsers
+//                  }
+//        default:
+//            break
+//        }
+//    }
     
     
 }
