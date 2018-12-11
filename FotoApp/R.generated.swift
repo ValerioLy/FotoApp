@@ -111,8 +111,23 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 5 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 6 view controllers.
   struct segue {
+    /// This struct is generated for `AddJobController`, and contains static references to 1 segues.
+    struct addJobController {
+      /// Segue identifier `segueMission`.
+      static let segueMission: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AddJobController, AddMissioneController> = Rswift.StoryboardSegueIdentifier(identifier: "segueMission")
+      
+      /// Optionally returns a typed version of segue `segueMission`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueMission(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AddJobController, AddMissioneController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.addJobController.segueMission, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
     /// This struct is generated for `ContractController`, and contains static references to 1 segues.
     struct contractController {
       /// Segue identifier `segueJobs`.
@@ -619,13 +634,13 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try jobs.validate()
       try launchScreen.validate()
-      try options.validate()
       try addJob.validate()
+      try options.validate()
+      try authScreen.validate()
       try signup.validate()
       try main.validate()
-      try authScreen.validate()
+      try jobs.validate()
       try login.validate()
     }
     
@@ -740,8 +755,8 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
         if _R.storyboard.options().options() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'options' could not be loaded from storyboard 'Options' as 'UIKit.UINavigationController'.") }

@@ -49,9 +49,8 @@ class AddJobController: UIViewController {
     }
        
     
-    
-    @IBAction func descriptionSegue(_ sender: Any) {
-   self.performSegue(withIdentifier: "segueAddJob", sender: self)
+    @IBAction func goMission(_ sender: Any) {
+self.performSegue(withIdentifier: "segueMission", sender: self)
     }
     
     
@@ -121,57 +120,7 @@ extension AddJobController : UITableViewDelegate, UITableViewDataSource, UISearc
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
             idUsers.append(userSelected.id)
         }
-            
-        
-        
-        /*var indexFound : Int? = nil
-        
-        
-        for (index, element) in idUsers.enumerated() { //non entra mai finchè non è riempito
-            if element == userSelected.id {
-                indexFound = index
-                
-                break
-            }
-        }
-        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
-        //if (tableView.cellForRow(at: indexPath)?.isSelected)! {
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
-            //if let i = indexFound{
-            idUsers.remove(at: indexFound!)
-            //}
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
-//            if userSelected == nil{
-//            debugPrint("selectRow: nil")
-//            }
-//            else{
-//            debugPrint("selectRow: no nil")
-//            }
-//            if idUsers == nil{
-//                debugPrint("idUsers: nil")
-//            }
-//            else{
-//                debugPrint("idUsers: no nil")
-//            }
-            //debugPrint("userSelected: "+userSelected.id!)
-            idUsers.append(userSelected.id)
-            
-        }*/
-        
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        
-//        switch segue.identifier {
-//        case "segueAddJob":
-//            if let destinationController = segue.destination as? AddMissionController {
-//                destinationController.idusers  =  idUsers
-//                  }
-//        default:
-//            break
-//        }
-//    }
-    
+   
     
 }
