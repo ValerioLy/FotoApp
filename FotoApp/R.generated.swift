@@ -46,12 +46,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 6 images.
+  /// This `R.image` struct is generated, and contains static references to 7 images.
   struct image {
     /// Image `Checkbox`.
     static let checkbox = Rswift.ImageResource(bundle: R.hostingBundle, name: "Checkbox")
     /// Image `UnCheckbox`.
     static let unCheckbox = Rswift.ImageResource(bundle: R.hostingBundle, name: "UnCheckbox")
+    /// Image `add`.
+    static let add = Rswift.ImageResource(bundle: R.hostingBundle, name: "add")
     /// Image `email-icon`.
     static let emailIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "email-icon")
     /// Image `illustration2`.
@@ -69,6 +71,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "UnCheckbox", bundle: ..., traitCollection: ...)`
     static func unCheckbox(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.unCheckbox, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "add", bundle: ..., traitCollection: ...)`
+    static func add(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.add, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "email-icon", bundle: ..., traitCollection: ...)`
@@ -511,12 +518,12 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try signup.validate()
-      try login.validate()
-      try main.validate()
-      try launchScreen.validate()
-      try options.validate()
       try authScreen.validate()
+      try launchScreen.validate()
+      try main.validate()
+      try options.validate()
+      try login.validate()
+      try signup.validate()
       try jobs.validate()
     }
     
@@ -554,6 +561,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "add") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'add' is used in storyboard 'Jobs', but couldn't be loaded.") }
         if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Jobs', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }

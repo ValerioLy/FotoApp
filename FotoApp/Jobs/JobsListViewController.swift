@@ -13,6 +13,8 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     
     var listOfMission : [Mission] = [Mission(id: "85181", name: "fewvef", descriptio: "scvnwoidncw", date: "04/12/98", expiring: "15/07/54", creator: "Marco"), Mission(id: "5489422", name: "vcsduiweoewbw", descriptio: "cwncncownvwvn", date: "14/03/78", expiring: "09/11/44", creator: "vnewiohewoiv")]
     
+    
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var buttonOutlet: UIButton!
@@ -21,11 +23,17 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-            buttonOutlet.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
-            buttonOutlet.layer.cornerRadius = 0.5 * buttonOutlet.bounds.size.width
-            buttonOutlet.clipsToBounds = true
+        setupNavbar()
+        
+        buttonOutlet.layer.cornerRadius = 32
+        buttonOutlet.clipsToBounds = true
         
         /*
+        buttonOutlet.frame = CGRect(x: 160, y: 100, width: 96, height: 96)
+        buttonOutlet.layer.cornerRadius = 1
+        buttonOutlet.clipsToBounds = true
+        
+        
          
         inserisco i topic da Realm nel listOfMission
          
@@ -40,6 +48,19 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBAction func addAction(_ sender: Any) {
     }
+    
+    
+    // Manage navbar
+    func setupNavbar() {
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        navigationItem.searchController = searchController
+        
+    }
+    
+    
     
      func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -60,6 +81,10 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 96
     }
 
 
