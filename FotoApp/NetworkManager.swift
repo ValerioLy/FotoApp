@@ -228,8 +228,7 @@ class NetworkManager: NSObject {
     
     static func getAlbumListener(albumId : String) -> ListenerRegistration? {
         guard let user = Auth.auth().currentUser else {
-            completion(false, "No such user")
-            return
+            return nil
         }
         
         return db.collection(ALBUMS_COLLECTION).document(albumId).addSnapshotListener(includeMetadataChanges: false) { documentSnapshot, error in
