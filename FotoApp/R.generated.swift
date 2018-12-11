@@ -510,13 +510,13 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try albumItem.validate()
-      try signup.validate()
       try launchScreen.validate()
-      try options.validate()
-      try login.validate()
-      try main.validate()
       try authScreen.validate()
+      try main.validate()
+      try albumItem.validate()
+      try login.validate()
+      try signup.validate()
+      try options.validate()
     }
     
     struct albumItem: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -526,7 +526,6 @@ struct _R: Rswift.Validatable {
       let name = "AlbumItem"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "close-icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'close-icon' is used in storyboard 'AlbumItem', but couldn't be loaded.") }
         if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'AlbumItem', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
@@ -542,8 +541,8 @@ struct _R: Rswift.Validatable {
       let name = "AuthScreen"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "email-icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'email-icon' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
         if UIKit.UIImage(named: "trees") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'trees' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "email-icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'email-icon' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }

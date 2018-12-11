@@ -43,6 +43,21 @@ extension String {
     var localized: String {
         return NSLocalizedString(self, comment: "")
     }
+    
+    var date : Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss +zzz"
+        return dateFormatter.date(from: self)
+    }
+}
+
+extension Date {
+    
+    var dateInString : String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss +zzz"
+        return dateFormatter.string(from: self)
+    }
 }
 
 extension UIApplication {
@@ -74,6 +89,18 @@ extension UIApplication {
             return topViewController(controller: presented)
         }
         return controller
+    }
+    
+    class func loadingAlert(title : String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating();
+        
+        alert.view.addSubview(loadingIndicator)
+        return alert
     }
     
 }

@@ -10,6 +10,8 @@
 		8E09E2A0D4D4BE636EC7615C /* Pods_FotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2568872B37835C655A12FFB8 /* Pods_FotoApp.framework */; };
 		B31A3DEC21B584950014749E /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DE821B584950014749E /* UserInfoController.swift */; };
 		B31A3DEE21B584950014749E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DEA21B584950014749E /* SignupController.swift */; };
+		B3416D7821BEB84100D44AB4 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3416D7721BEB84100D44AB4 /* Album.swift */; };
+		B3416D7A21BEC2EE00D44AB4 /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3416D7921BEC2EE00D44AB4 /* RealmUtils.swift */; };
 		B34CF23521B6A9A900FC4CB4 /* AlbumItem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34CF23421B6A9A900FC4CB4 /* AlbumItem.storyboard */; };
 		B34CF23721B6AA4400FC4CB4 /* AlbumItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34CF23621B6AA4400FC4CB4 /* AlbumItemController.swift */; };
 		B34CF23A21B6AD3300FC4CB4 /* ImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34CF23921B6AD3300FC4CB4 /* ImageCellController.swift */; };
@@ -70,6 +72,8 @@
 		9659836C21AEE20B007E115A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B31A3DE821B584950014749E /* UserInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfoController.swift; path = FotoApp/Register/UserInfoController.swift; sourceTree = SOURCE_ROOT; };
 		B31A3DEA21B584950014749E /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupController.swift; path = FotoApp/Register/SignupController.swift; sourceTree = SOURCE_ROOT; };
+		B3416D7721BEB84100D44AB4 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		B3416D7921BEC2EE00D44AB4 /* RealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUtils.swift; sourceTree = "<group>"; };
 		B34CF23421B6A9A900FC4CB4 /* AlbumItem.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlbumItem.storyboard; sourceTree = "<group>"; };
 		B34CF23621B6AA4400FC4CB4 /* AlbumItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumItemController.swift; sourceTree = "<group>"; };
 		B34CF23921B6AD3300FC4CB4 /* ImageCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCellController.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				B34CF23F21B6CEE500FC4CB4 /* Photo.swift */,
+				B3416D7721BEB84100D44AB4 /* Album.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 				F93EFE1F21AEB24D00FBC875 /* Info.plist */,
 				F93EFE4B21AEB6E200FBC875 /* Localizable.strings */,
 				F93EFE5321AED0CE00FBC875 /* Xcode.gitignore */,
+				B3416D7921BEC2EE00D44AB4 /* RealmUtils.swift */,
 			);
 			path = FotoApp;
 			sourceTree = "<group>";
@@ -564,12 +570,14 @@
 				B34CF23D21B6BDF600FC4CB4 /* SingleLineActionController.swift in Sources */,
 				B34CF24021B6CEE500FC4CB4 /* Photo.swift in Sources */,
 				B3E953E921B6849D00D60014 /* AppDelegate.swift in Sources */,
+				B3416D7821BEB84100D44AB4 /* Album.swift in Sources */,
 				B31A3DEE21B584950014749E /* SignupController.swift in Sources */,
 				B399C12D21B578C800ABB0F6 /* NetworkManager.swift in Sources */,
 				B34CF24221B6E1D600FC4CB4 /* NetworkImageManager.swift in Sources */,
 				B3E953ED21B684CB00D60014 /* LaunchScreenController.swift in Sources */,
 				F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */,
 				FF5C803A21B5333D0045EC1A /* OptionsViewController.swift in Sources */,
+				B3416D7A21BEC2EE00D44AB4 /* RealmUtils.swift in Sources */,
 				FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */,
 				FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */,
 				B371535121B69BA60069A5B0 /* R.generated.swift in Sources */,

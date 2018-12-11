@@ -9,14 +9,14 @@ import UIKit
 import RealmSwift
 import FirebaseFirestore
 
-@objcMembers class Photo: Object {
+@objcMembers class Photo: Object, Codable {
     dynamic var id : String!
     dynamic var author : String!
-    dynamic var date : Date!
+    dynamic var date : String!
     dynamic var link : String!
     dynamic var accepted : Bool! = true
     
-    convenience init(id : String, author : String, date : Date, link : String, accepted : Bool? = true) {
+    convenience init(id : String, author : String, date : String, link : String, accepted : Bool? = true) {
         self.init()
         
         self.id = id
@@ -42,4 +42,15 @@ import FirebaseFirestore
         return realm.object(ofType: Photo.self, forPrimaryKey: id)
     }
     
+    static func getObjects(in realm: Realm = try! Realm(), withId ids : [String]) -> [Photo] {
+        var list : [Photo] = []
+        
+        ids.forEach { (item) in
+            if let obj = realm.object(ofType : Photo.self, forPrimaryKey: item) {
+                list.append(obj)
+            }
+        }
+        
+        return list
+    }
 }
