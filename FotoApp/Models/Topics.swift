@@ -30,10 +30,10 @@ import RealmSwift
         self.createdby = createdby
        
     }
-    
-    func getId() -> String {
-        return self.id
-    }
+//    
+//    func getId() -> String {
+//        return self.id
+//    }
     
     
    

@@ -17,64 +17,52 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var buttonOutlet: UIButton!
+    @IBOutlet weak var buttonOutlet: UIButton! {
+        didSet {
+            buttonOutlet.circle()
+        }
+    }
     private var db: Firestore! = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // hide back button
+        self.navigationItem.setHidesBackButton(true, animated:true)
+        
         setupNavbar()
         
-        buttonOutlet.layer.cornerRadius = 32
-        buttonOutlet.clipsToBounds = true
-        
-        /*
-        buttonOutlet.frame = CGRect(x: 160, y: 100, width: 96, height: 96)
-        buttonOutlet.layer.cornerRadius = 1
-        buttonOutlet.clipsToBounds = true
-        
-        
-         
-        inserisco i topic da Realm nel listOfMission
-         
-            scarico da firestore i topic legati all'utente e li inserisco
-            nel listOfMission per poi sovvrascivere quelli che ho in Realm
-         
-         */
-        
-        
-
+//        inserisco i topic da Realm nel listOfMission
+//
+//        scarico da firestore i topic legati all'utente e li inserisco
+//        nel listOfMission per poi sovvrascivere quelli che ho in Realm
     }
 
     @IBAction func addAction(_ sender: Any) {
+        
     }
     
     
     // Manage navbar
     func setupNavbar() {
-        
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let searchController = UISearchController(searchResultsController: nil)
         navigationItem.searchController = searchController
-        
     }
     
     
     
      func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return listOfMission.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JobsCell", for: indexPath) as! JobsCell
-        
         
         cell.missionName.text = listOfMission[indexPath.row].name
         cell.missionDate.text = listOfMission[indexPath.row].date
@@ -86,7 +74,4 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 96
     }
-
-
-
 }

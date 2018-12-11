@@ -21,11 +21,6 @@ class NetworkManager: NSObject {
         FirebaseApp.configure()
     }
     
-    
-    
-    
-    
-    
     static func checkUserInfo(hasInsertedData: Bool, completion : @escaping(Bool)->() )
     {
         guard let user = Auth.auth().currentUser else {
@@ -39,33 +34,7 @@ class NetworkManager: NSObject {
             return
         }
         completion(true)
-    }
-    
-    
-    
-    
-    
-    static func uploadWorkerInfo( title : String, description : String, data : String, idUser : [String],     completion: @escaping (Bool) -> ()) {
-        
-        guard let user = Auth.auth().currentUser else { completion(false); return}
-        
-        db.collection(self.WORKER_COLLECTION).document(user.uid).setData([ "id":user.uid, "title" : title, "description" : description, "data": data, "idUser": idUser], merge: true, completion: { (error) in
-            
-            if let err = error{
-               
-                
-                print("Job could not be saved: \(error).")
-            }
-            else {
-                print("Job saved successfully!")
-                completion(true)
-            }
-            
-        })
-        
-    }
-
-    
+    }    
     
     static func getData (completion: @escaping([Users])-> Void) {
 
