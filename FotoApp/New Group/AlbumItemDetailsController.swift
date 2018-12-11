@@ -19,7 +19,7 @@ class AlbumItemDetailsController: UIViewController {
     }
 
     @IBAction func daEliminareAction(_ sender: Any) {
-        debugPrint("mark deletion pending")
+        
     }
 }
 

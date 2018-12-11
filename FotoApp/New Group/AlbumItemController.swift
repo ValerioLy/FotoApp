@@ -12,7 +12,7 @@ class AlbumItemController: UIViewController {
     private var pickerController:UIImagePickerController?
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private var currentAlbum : Album! = Album.getObject(withId: "NiMdU2biSSPgHV65bzL8")
+    private var currentAlbum : Album!
     private var selectedImage : Photo?
     private var photos : [Photo] = []
     private var realtimeListener : ListenerRegistration?

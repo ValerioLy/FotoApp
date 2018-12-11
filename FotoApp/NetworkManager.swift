@@ -179,12 +179,12 @@ class NetworkManager: NSObject {
     }
     
     static func uploadPhoto(image : UIImage, albumId : String, completion : @escaping(Bool, String?) -> ()) {
-//        guard let user = Auth.auth().currentUser else {
-//            completion(false, "No such user")
-//            return
-//        }
+        guard let user = Auth.auth().currentUser else {
+            completion(false, "No such user")
+            return
+        }
         
-        let userId = "cHDvdcf4aaVHFhbj9biI8gIeKim2"
+        let userId = user.uid
         let photoId = UUID().uuidString
         
         let folderRef = storageRef.child("\(albumId)/\(photoId).jpg")
@@ -227,10 +227,10 @@ class NetworkManager: NSObject {
     }
     
     static func getAlbumListener(albumId : String) -> ListenerRegistration? {
-//        guard let user = Auth.auth().currentUser else {
-//            completion(false, "No such user")
-//            return
-//        }
+        guard let user = Auth.auth().currentUser else {
+            completion(false, "No such user")
+            return
+        }
         
         return db.collection(ALBUMS_COLLECTION).document(albumId).addSnapshotListener(includeMetadataChanges: false) { documentSnapshot, error in
             
@@ -252,13 +252,12 @@ class NetworkManager: NSObject {
     }
     
     static func fetchAlbums(ids : [String], completion : @escaping (Bool, String?) -> ()) {
-//        guard let user = Auth.auth().currentUser else {
-//            completion(false, "No such user")
-//            return
-//        }
+        guard let user = Auth.auth().currentUser else {
+            completion(false, "No such user")
+            return
+        }
         
         var fetchCount = 0
-
         ids.forEach({ (item) in
             
             db.collection(PHOTOS_COLLECTION).whereField("id", isEqualTo : item)
