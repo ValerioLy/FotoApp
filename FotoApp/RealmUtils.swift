@@ -3,7 +3,7 @@ import RealmSwift
 
 class RealmUtils {
     
-    private static var REALM_SCHEMA_VERSION : UInt64 = 1
+    private static var REALM_SCHEMA_VERSION : UInt64 = 3
     
     /// Setup Realm Configuration
     static var config: Realm.Configuration {
@@ -21,7 +21,7 @@ class RealmUtils {
                     if (oldSchemaVersion < self.REALM_SCHEMA_VERSION) {
                         //
                     }
-            }, deleteRealmIfMigrationNeeded: false)
+            }, deleteRealmIfMigrationNeeded: true)
             
             return config
             

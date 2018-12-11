@@ -8,15 +8,11 @@
 import UIKit
 import Firebase
 
-class AddMissionController: UIViewController {
-
+class AddMissionController : UIViewController {
     enum TagField : Int {
     case name = 0
     case data
     }
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,14 +20,9 @@ class AddMissionController: UIViewController {
     }
     
     @IBOutlet weak var lblTitle: UILabel!
-   
-    
     @IBOutlet weak var lblnamedescription: UILabel!
-    
     @IBOutlet weak var nameLbl: UILabel!
-    
     @IBOutlet weak var descriptionLbl: UILabel!
-    
     @IBOutlet weak var dataLbl: UILabel!
     
     var worker : [Users] = []
@@ -63,18 +54,6 @@ class AddMissionController: UIViewController {
             }
         }
         description  = descriptionField.text!
-        
-        
-    
-      
-        
-      
-        
-//        NetworkManager.uploadWorkerInfo(title: title, description: description, data: scadenza, idUser: idusers ) { (success) in
-//            debugPrint("Job Info Caricato")
-//        }
-        
-    
-    
-}
+
+    }
 }
