@@ -23,6 +23,28 @@ class NetworkManager: NSObject {
     
     
     
+    
+    
+    
+    static func checkUserInfo(hasInsertedData: Bool, completion : @escaping(Bool)->() )
+    {
+        guard let user = Auth.auth().currentUser else {
+            completion(false)
+           print("Non prende l'utente")
+            return
+        }
+        guard hasInsertedData == true else {
+                completion(false)
+            print("Non ha inserito i dati")
+            return
+        }
+        completion(true)
+    }
+    
+    
+    
+    
+    
     static func uploadWorkerInfo( title : String, description : String, data : String, idUser : [String],     completion: @escaping (Bool) -> ()) {
         
         guard let user = Auth.auth().currentUser else { completion(false); return}

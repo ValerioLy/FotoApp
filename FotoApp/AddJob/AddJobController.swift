@@ -166,7 +166,6 @@ extension AddJobController : UITableViewDelegate, UITableViewDataSource, UISearc
         switch segue.identifier {
         case "segueAddJob":
             if let destinationController = segue.destination as? AddMissionController {
-                //destinationController.worker = selectedEmployee!
                 destinationController.idusers  =  idUsers
                   }
         default:
