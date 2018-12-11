@@ -155,7 +155,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add" width="27" height="27"/>
+        <image name="add" width="512" height="512"/>
         <image name="illustration2" width="249" height="150"/>
     </resources>
 </document>

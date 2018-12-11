@@ -33,6 +33,14 @@
 		F93EFE5421AED0CE00FBC875 /* Xcode.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE5321AED0CE00FBC875 /* Xcode.gitignore */; };
 		F93EFE5A21AED87000FBC875 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE5921AED87000FBC875 /* SignupController.swift */; };
 		F9442BA221B162D900F45C32 /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9442BA121B162D900F45C32 /* UserInfoController.swift */; };
+		F94711DC21B6B642007F5019 /* AddJob.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94711DB21B6B642007F5019 /* AddJob.storyboard */; };
+		F94711DE21B6C1E0007F5019 /* AddJobController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711DD21B6C1E0007F5019 /* AddJobController.swift */; };
+		F94711E021B6CB61007F5019 /* JobCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711DF21B6CB61007F5019 /* JobCell.swift */; };
+		F94711E321B6D010007F5019 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711E221B6D010007F5019 /* Users.swift */; };
+		F94711E521B6D27E007F5019 /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711E421B6D27E007F5019 /* RealmUtils.swift */; };
+		F97475E821BA829600FF7B0F /* AddMissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97475E721BA829600FF7B0F /* AddMissionController.swift */; };
+		F97475EA21BA890900FF7B0F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97475E921BA890900FF7B0F /* R.generated.swift */; };
+		F9F4D81121BE77AB00E6F094 /* Topics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F4D81021BE77AB00E6F094 /* Topics.swift */; };
 		FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570221B576D000CED714 /* CreditsViewController.swift */; };
 		FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570421B5896E00CED714 /* UserInfoViewController.swift */; };
 		FF5C803821B52C6E0045EC1A /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF5C803721B52C6E0045EC1A /* Options.storyboard */; };
@@ -95,7 +103,15 @@
 		F93EFE5321AED0CE00FBC875 /* Xcode.gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = Xcode.gitignore; sourceTree = "<group>"; };
 		F93EFE5921AED87000FBC875 /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		F9442BA121B162D900F45C32 /* UserInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoController.swift; sourceTree = "<group>"; };
+		F94711DB21B6B642007F5019 /* AddJob.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddJob.storyboard; sourceTree = "<group>"; };
+		F94711DD21B6C1E0007F5019 /* AddJobController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobController.swift; sourceTree = "<group>"; };
+		F94711DF21B6CB61007F5019 /* JobCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCell.swift; sourceTree = "<group>"; };
+		F94711E221B6D010007F5019 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		F94711E421B6D27E007F5019 /* RealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUtils.swift; sourceTree = "<group>"; };
 		F94DB91E21B29B0000DB2452 /* ContractController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractController.swift; sourceTree = "<group>"; };
+		F97475E721BA829600FF7B0F /* AddMissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionController.swift; sourceTree = "<group>"; };
+		F97475E921BA890900FF7B0F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		F9F4D81021BE77AB00E6F094 /* Topics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topics.swift; sourceTree = "<group>"; };
 		FF1E570221B576D000CED714 /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		FF1E570421B5896E00CED714 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		FF5C803721B52C6E0045EC1A /* Options.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Options.storyboard; sourceTree = "<group>"; };
@@ -215,6 +231,8 @@
 				FF8F43D521BE6B95003FFEE8 /* Models */,
 				FF8F43CE21BE6B49003FFEE8 /* Jobs */,
 				B3E953F321B6850C00D60014 /* Login */,
+				F94711E121B6CFEC007F5019 /* Models */,
+				F94711DA21B6B61F007F5019 /* AddJob */,
 				B3E953EE21B684CE00D60014 /* LaunchScreen */,
 				B3E953E721B6847A00D60014 /* Auth */,
 				FF5C803621B52BC00045EC1A /* Options */,
@@ -222,7 +240,9 @@
 				F93EFE1721AEB24C00FBC875 /* Main.storyboard */,
 				B3E953F421B6853C00D60014 /* Extensions.swift */,
 				F93EFE1521AEB24C00FBC875 /* ViewController.swift */,
+				F94711E421B6D27E007F5019 /* RealmUtils.swift */,
 				B399C12C21B578C800ABB0F6 /* NetworkManager.swift */,
+				F97475E921BA890900FF7B0F /* R.generated.swift */,
 				B3E953E821B6849D00D60014 /* AppDelegate.swift */,
 				FF8F43E821BEB58E003FFEE8 /* GeneralUtils.swift */,
 				B371535021B69BA60069A5B0 /* R.generated.swift */,
@@ -262,6 +282,26 @@
 				F94DB91E21B29B0000DB2452 /* ContractController.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		F94711DA21B6B61F007F5019 /* AddJob */ = {
+			isa = PBXGroup;
+			children = (
+				F94711DB21B6B642007F5019 /* AddJob.storyboard */,
+				F94711DD21B6C1E0007F5019 /* AddJobController.swift */,
+				F94711DF21B6CB61007F5019 /* JobCell.swift */,
+				F97475E721BA829600FF7B0F /* AddMissionController.swift */,
+			);
+			path = AddJob;
+			sourceTree = "<group>";
+		};
+		F94711E121B6CFEC007F5019 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F94711E221B6D010007F5019 /* Users.swift */,
+				F9F4D81021BE77AB00E6F094 /* Topics.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		FF5C803621B52BC00045EC1A /* Options */ = {
@@ -408,6 +448,7 @@
 				F93EFE4921AEB6E200FBC875 /* Localizable.strings in Resources */,
 				B3E9540621B690F700D60014 /* LaunchScreen.storyboard in Resources */,
 				F93EFE4421AEB38F00FBC875 /* GoogleService-Info.plist in Resources */,
+				F94711DC21B6B642007F5019 /* AddJob.storyboard in Resources */,
 				F93EFE1B21AEB24D00FBC875 /* Assets.xcassets in Resources */,
 				FF5C803821B52C6E0045EC1A /* Options.storyboard in Resources */,
 				F93EFE5421AED0CE00FBC875 /* Xcode.gitignore in Resources */,
@@ -536,15 +577,19 @@
 				B3E953E921B6849D00D60014 /* AppDelegate.swift in Sources */,
 				B31A3DEE21B584950014749E /* SignupController.swift in Sources */,
 				B399C12D21B578C800ABB0F6 /* NetworkManager.swift in Sources */,
+				F94711E021B6CB61007F5019 /* JobCell.swift in Sources */,
 				B3E953ED21B684CB00D60014 /* LaunchScreenController.swift in Sources */,
 				FF8F43E921BEB58F003FFEE8 /* GeneralUtils.swift in Sources */,
 				F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */,
 				FF5C803A21B5333D0045EC1A /* OptionsViewController.swift in Sources */,
 				FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */,
+				F94711E321B6D010007F5019 /* Users.swift in Sources */,
+				F94711E521B6D27E007F5019 /* RealmUtils.swift in Sources */,
 				FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */,
 				FF8F43D321BE6B49003FFEE8 /* JobsListViewController.swift in Sources */,
 				B371535121B69BA60069A5B0 /* R.generated.swift in Sources */,
 				F9442BA221B162D900F45C32 /* UserInfoController.swift in Sources */,
+				F94711DE21B6C1E0007F5019 /* AddJobController.swift in Sources */,
 				B3E9540821B6913300D60014 /* LoginViewController.swift in Sources */,
 				F93EFE5A21AED87000FBC875 /* SignupController.swift in Sources */,
 				FF8F43D721BE6B95003FFEE8 /* Mission.swift in Sources */,

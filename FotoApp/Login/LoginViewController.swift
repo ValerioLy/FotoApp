@@ -89,8 +89,7 @@ class LoginViewController: UIViewController {
         
         NetworkManager.login(email: email, password: password) { (success, err) in
             if success {
-                self.present(UIApplication.alertError(title: "Login Success", message: "Login success".localized, closeAction: {}),  animated: true, completion: nil)
-                /*self.performSegue(withIdentifier: R.segue.loginController.segueToMain, sender: self)*/
+                self.performSegue(withIdentifier: "jobsSegue", sender: nil)
             }
         }
     }
