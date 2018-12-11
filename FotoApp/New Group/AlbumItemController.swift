@@ -20,7 +20,6 @@ class AlbumItemController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // large title
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
         // load local data
@@ -88,6 +87,11 @@ class AlbumItemController: UIViewController {
                 destination.imageToShow = img
             }
         }
+        else if segue.identifier == R.segue.albumItemController.segueToDetails.identifier {
+            if let destination = segue.destination as? AlbumItemDetailsController {
+                destination.currentAlbum = self.currentAlbum
+            }
+        }
     }
 }
 
@@ -95,6 +99,7 @@ extension AlbumItemController : UICollectionViewDataSource, UICollectionViewDele
     enum Actions : Int {
         case AddPhoto = 0
         case OpenChat
+        case ViewDetails
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
@@ -106,7 +111,7 @@ extension AlbumItemController : UICollectionViewDataSource, UICollectionViewDele
         case 0:
             return photos.count
         case 1:
-            return 2
+            return 3
         default:
             return 0
         }
@@ -128,6 +133,9 @@ extension AlbumItemController : UICollectionViewDataSource, UICollectionViewDele
             else if indexPath.row == Actions.OpenChat.rawValue {
                 actionCell.setup(actionNameStr: "Apri chat")
             }
+            else if indexPath.row == Actions.ViewDetails.rawValue {
+                actionCell.setup(actionNameStr: "Vedi dettagli")
+            }
             
             return actionCell
         default:
@@ -147,6 +155,9 @@ extension AlbumItemController : UICollectionViewDataSource, UICollectionViewDele
             }
             else if indexPath.row == Actions.OpenChat.rawValue {
 //                self.performSegue(withIdentifier: "", sender: self)
+            }
+            else if indexPath.row == Actions.ViewDetails.rawValue {
+                self.performSegue(withIdentifier: R.segue.albumItemController.segueToDetails.identifier, sender: self)
             }
         default: break
         }

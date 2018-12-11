@@ -16,6 +16,8 @@ import Firebase
     dynamic var descr : String!
     dynamic var createdBy : String!
     dynamic var dateAdd : String!
+    dynamic var isPendingForDeletion : Bool! = false
+    dynamic var createdByName : String!
     var photos : List<String> = List()
     
     convenience init(id : String, title : String, descr : String, createdBy : String, dateAdd : String) {
