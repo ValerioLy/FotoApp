@@ -11,13 +11,112 @@ import FirebaseStorage
 
 class NetworkManager: NSObject {
     private static let USERS_COLLECTION = "users"
-    private static var db : Firestore!
+     private static let WORKER_COLLECTION = "workers"
+    private static var db : Firestore = Firestore.firestore()
     private static var storageRef : StorageReference!
 
     static func initFirebase() {
         FirebaseApp.configure()
-        db = Firestore.firestore()
+        
         storageRef = Storage().reference()
+    }
+    
+    
+    
+    
+    
+    
+    static func checkUserInfo(hasInsertedData: Bool, completion : @escaping(Bool)->() )
+    {
+        guard let user = Auth.auth().currentUser else {
+            completion(false)
+           print("Non prende l'utente")
+            return
+        }
+        guard hasInsertedData == true else {
+                completion(false)
+            print("Non ha inserito i dati")
+            return
+        }
+        completion(true)
+    }
+    
+    
+    
+    
+    
+    static func uploadWorkerInfo( title : String, description : String, data : String, idUser : [String],     completion: @escaping (Bool) -> ()) {
+        
+        guard let user = Auth.auth().currentUser else { completion(false); return}
+        
+        db.collection(self.WORKER_COLLECTION).document(user.uid).setData([ "id":user.uid, "title" : title, "description" : description, "data": data, "idUser": idUser], merge: true, completion: { (error) in
+            
+            if let err = error{
+               
+                
+                print("Job could not be saved: \(error).")
+            }
+            else {
+                print("Job saved successfully!")
+                completion(true)
+            }
+            
+        })
+        
+    }
+
+    
+    
+    static func getData (completion: @escaping([Users])-> Void) {
+
+        db.collection(self.USERS_COLLECTION).getDocuments() { (querySnapshot, err) in
+            
+            var userList = [Users]()
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    
+                    //let user = Users()
+                    let userData = document.data()
+                    
+                    let idU = userData["id"] as? String ?? ""
+                    let nameU = userData["name"] as? String ?? ""
+                    let surnameU = userData["surname"] as? String ?? ""
+                    let email = userData["email"] as? String ?? ""
+                    let image = userData["image"] as? String ?? ""
+                    var admin : Bool, data : Bool, contract : Bool
+                    if userData["admin"] as? String == "true"{
+                        admin = true
+                    }else{
+                        admin = false
+                    }
+                    if userData["hasInsertedData"] as? String == "true"{
+                        data = true
+                    }else{
+                        data = false
+                    }
+                    if userData["hasAcceptedContract"] as? String == "true"{
+                        contract = true
+                    }else{
+                        contract = false
+                    }
+                    
+                    
+                    /*user.name = userData["name"] as? String ?? ""
+                    user.surname = userData["surname"] as? String ?? ""*/
+                    
+                    let user = Users(id: idU, email: email, name: nameU, surname: surnameU, image: image, admin: admin, hasAcceptedTerms: contract, hasInsertedData: data)
+                    
+                    //userList += [user]
+                    userList.append(user)
+                }
+                
+            }
+            completion(userList)
+        }
+        
     }
     
     static func register(email:String, password: String, completion: @escaping (Bool, String?)->()) {

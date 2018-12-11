@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Im5-En-XwD">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Qo0-a3-TYY">
+            <objects>
+                <viewController id="erp-D4-5xy" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cgx-7z-8gz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2nP-zE-wHy">
+                                <rect key="frame" x="0.0" y="183" width="375" height="432"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="105" id="1h9-7E-py7">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="105"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1h9-7E-py7" id="x51-9X-Diy">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="104.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jobs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lxa-qM-WGF">
+                                <rect key="frame" x="16" y="64" width="343" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="Mka-ti-99Y"/>
+                                    <constraint firstAttribute="width" constant="343" id="PDg-k3-HzO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="kF4-0G-e8P">
+                                <rect key="frame" x="0.0" y="127" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="9H5-eQ-hHZ"/>
+                                    <constraint firstAttribute="width" constant="375" id="v0b-a4-pvS"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74V-VN-WTG">
+                                <rect key="frame" x="302" y="617" width="57" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="add"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Lxa-qM-WGF" firstAttribute="top" secondItem="QDI-gF-ydh" secondAttribute="top" id="6Rj-Aa-NXH"/>
+                            <constraint firstItem="Lxa-qM-WGF" firstAttribute="leading" secondItem="QDI-gF-ydh" secondAttribute="leading" constant="16" id="6nJ-oB-Ga1"/>
+                            <constraint firstItem="kF4-0G-e8P" firstAttribute="top" secondItem="Lxa-qM-WGF" secondAttribute="bottom" id="JRr-j6-KfL"/>
+                            <constraint firstItem="kF4-0G-e8P" firstAttribute="leading" secondItem="QDI-gF-ydh" secondAttribute="leading" id="NkA-qq-nX6"/>
+                            <constraint firstItem="kF4-0G-e8P" firstAttribute="trailing" secondItem="QDI-gF-ydh" secondAttribute="trailing" id="S7K-LK-8kM"/>
+                            <constraint firstItem="QDI-gF-ydh" firstAttribute="trailing" secondItem="Lxa-qM-WGF" secondAttribute="trailing" constant="16" id="WqJ-6o-OCV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QDI-gF-ydh"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bXf-rc-AR5">
+                        <barButtonItem key="rightBarButtonItem" title="Options" id="mjn-XQ-G2v">
+                            <color key="tintColor" red="0.23529411759999999" green="0.6588235294" blue="0.34509803919999998" alpha="1" colorSpace="deviceRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ca-U3-jLu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="911.20000000000005" y="168.6656671664168"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IOH-mK-yr0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Im5-En-XwD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4dw-aa-J5u">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="erp-D4-5xy" kind="relationship" relationship="rootViewController" id="rBD-dF-Wcd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mRI-mL-Ysq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-28" y="168.6656671664168"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="add" width="512" height="512"/>
+    </resources>
+</document>
