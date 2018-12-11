@@ -46,29 +46,40 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 6 images.
+  /// This `R.image` struct is generated, and contains static references to 7 images.
   struct image {
+    /// Image `close-icon`.
+    static let closeIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "close-icon")
     /// Image `Checkbox`.
     static let checkbox = Rswift.ImageResource(bundle: R.hostingBundle, name: "Checkbox")
     /// Image `UnCheckbox`.
     static let unCheckbox = Rswift.ImageResource(bundle: R.hostingBundle, name: "UnCheckbox")
+    /// Image `add`.
+    static let add = Rswift.ImageResource(bundle: R.hostingBundle, name: "add")
     /// Image `email-icon`.
     static let emailIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "email-icon")
     /// Image `illustration2`.
     static let illustration2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "illustration2")
     /// Image `placeholder`.
     static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder")
+    /// Image `right-arrow`.
+    static let rightArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "right-arrow")
     /// Image `trees`.
     static let trees = Rswift.ImageResource(bundle: R.hostingBundle, name: "trees")
     
-    /// `UIImage(named: "Checkbox", bundle: ..., traitCollection: ...)`
-    static func checkbox(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.checkbox, compatibleWith: traitCollection)
+    /// `UIImage(named: "close-icon", bundle: ..., traitCollection: ...)`
+    static func closeIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.closeIcon, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "UnCheckbox", bundle: ..., traitCollection: ...)`
     static func unCheckbox(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.unCheckbox, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "add", bundle: ..., traitCollection: ...)`
+    static func add(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.add, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "email-icon", bundle: ..., traitCollection: ...)`
@@ -86,6 +97,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.placeholder, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "right-arrow", bundle: ..., traitCollection: ...)`
+    static func rightArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.rightArrow, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "trees", bundle: ..., traitCollection: ...)`
     static func trees(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.trees, compatibleWith: traitCollection)
@@ -94,6 +110,17 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `imageCell`.
+    static let imageCell: Rswift.ReuseIdentifier<ImageCellController> = Rswift.ReuseIdentifier(identifier: "imageCell")
+    /// Reuse identifier `singleLineActionController`.
+    static let singleLineActionController: Rswift.ReuseIdentifier<SingleLineActionController> = Rswift.ReuseIdentifier(identifier: "singleLineActionController")
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.segue` struct is generated, and contains static references to 5 view controllers.
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `JobsCell`.
@@ -104,6 +131,22 @@ struct R: Rswift.Validatable {
   
   /// This `R.segue` struct is generated, and contains static references to 5 view controllers.
   struct segue {
+    /// This struct is generated for `AlbumItemController`, and contains static references to 1 segues.
+    struct albumItemController {
+      /// Segue identifier `segueToFullImage`.
+      static let segueToFullImage: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumItemController, FullImageViewerController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToFullImage")
+      
+      /// Optionally returns a typed version of segue `segueToFullImage`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueToFullImage(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AlbumItemController, FullImageViewerController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.albumItemController.segueToFullImage, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `LaunchScreenController`, and contains static references to 1 segues.
     /// This struct is generated for `LaunchScreenController`, and contains static references to 2 segues.
     struct launchScreenController {
       /// Segue identifier `segueToAuth`.
@@ -211,6 +254,8 @@ struct R: Rswift.Validatable {
   
   /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
   struct storyboard {
+    /// Storyboard `AlbumItem`.
+    static let albumItem = _R.storyboard.albumItem()
     /// Storyboard `AuthScreen`.
     static let authScreen = _R.storyboard.authScreen()
     /// Storyboard `Jobs`.
@@ -225,6 +270,11 @@ struct R: Rswift.Validatable {
     static let options = _R.storyboard.options()
     /// Storyboard `Signup`.
     static let signup = _R.storyboard.signup()
+    
+    /// `UIStoryboard(name: "AlbumItem", bundle: ...)`
+    static func albumItem(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.albumItem)
+    }
     
     /// `UIStoryboard(name: "AuthScreen", bundle: ...)`
     static func authScreen(_: Void = ()) -> UIKit.UIStoryboard {
@@ -527,12 +577,34 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try launchScreen.validate()
+      try authScreen.validate()
+      try main.validate()
+      try albumItem.validate()
+      try login.validate()
+      try signup.validate()
+      try options.validate()
+      try launchScreen.validate()
       try main.validate()
       try signup.validate()
       try authScreen.validate()
       try login.validate()
       try jobs.validate()
       try options.validate()
+    }
+    
+    struct albumItem: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
+      
+      let bundle = R.hostingBundle
+      let name = "AlbumItem"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'AlbumItem', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+        }
+      }
+      
+      fileprivate init() {}
     }
     
     struct authScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -569,6 +641,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "add") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'add' is used in storyboard 'Jobs', but couldn't be loaded.") }
         if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Jobs', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }

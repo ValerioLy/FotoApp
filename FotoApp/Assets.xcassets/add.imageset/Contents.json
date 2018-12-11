@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "UI__2-512.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "UnCheckbox@2x.png",
       "scale" : "2x"
     },
     {
