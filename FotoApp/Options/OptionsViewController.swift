@@ -33,7 +33,6 @@ class OptionsViewController: UIViewController {
 
     }
 
-
 }
 
 extension OptionsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -52,10 +51,27 @@ extension OptionsViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case OptionsItem.UserInfo.rawValue:
             cell.setup(actionName: "Informazioni utente")
+        case OptionsItem.Credits.rawValue:
+            cell.setup(actionName: "Crediti")
         default:
             return UITableViewCell()
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case OptionsItem.UserInfo.rawValue:
+            self.performSegue(withIdentifier: "toInfoSegue", sender: nil)
+        case OptionsItem.Credits.rawValue:
+            self.performSegue(withIdentifier: "toCreditSegue", sender: nil)
+        default:
+            break
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 56
     }
 }

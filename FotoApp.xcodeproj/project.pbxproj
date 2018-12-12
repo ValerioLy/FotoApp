@@ -27,7 +27,6 @@
 		B3861EA921C02016006118B6 /* AddAlbum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3861EA821C02016006118B6 /* AddAlbum.storyboard */; };
 		B3861EAB21C020E3006118B6 /* AddAlbumController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3861EAA21C020E3006118B6 /* AddAlbumController.swift */; };
 		B3861EB821C12F3D006118B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3861EB721C12F3C006118B6 /* User.swift */; };
-		B399C12D21B578C800ABB0F6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399C12C21B578C800ABB0F6 /* NetworkManager.swift */; };
 		B3A415A821BFD8990083F016 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A415A721BFD8980083F016 /* R.generated.swift */; };
 		B3A415A921BFD91D0083F016 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B3A415AD21BFE5290083F016 /* SingleDetailAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A415AC21BFE5290083F016 /* SingleDetailAlbumCell.swift */; };
@@ -145,7 +144,6 @@
 		F94711E421B6D27E007F5019 /* RealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUtils.swift; sourceTree = "<group>"; };
 		F94DB91E21B29B0000DB2452 /* ContractController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractController.swift; sourceTree = "<group>"; };
 		F982426B21C01326000A041E /* AddMissioneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissioneController.swift; sourceTree = "<group>"; };
-		F9F4D81021BE77AB00E6F094 /* Topics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topics.swift; sourceTree = "<group>"; };
 		FF1E570221B576D000CED714 /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		FF1E570421B5896E00CED714 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		FF5C803721B52C6E0045EC1A /* Options.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Options.storyboard; sourceTree = "<group>"; };
@@ -234,7 +232,6 @@
 				FF8F43D621BE6B95003FFEE8 /* Topic.swift */,
 				B34CF23F21B6CEE500FC4CB4 /* Photo.swift */,
 				B3416D7721BEB84100D44AB4 /* Album.swift */,
-				F9F4D81021BE77AB00E6F094 /* Topics.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

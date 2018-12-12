@@ -169,7 +169,7 @@ extension AlbumItemController : UICollectionViewDataSource, UICollectionViewDele
         case 0:
             return calcolateSizeOfImage(frameWidth: self.collectionView.frame.width, indexPath: indexPath)
         case 1:
-            return CGSize(width: self.collectionView.frame.width, height: 48.0)
+            return CGSize(width: self.collectionView.frame.width, height: 56.0)
         default:
             return CGSize(width: 0.0, height: 0.0)
         }
