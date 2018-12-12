@@ -13,6 +13,7 @@ import RealmSwift
 class JobsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var listOfTopic : [Topic] = []
+    var listOfAlbum : [Album] = []
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -42,23 +43,10 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         
         NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "topicListener"), object: nil)
         
+//        for topic in listOfTopic {
+//            NetworkManager.getRandomPhoto(topic: topic)
+//        }
         
-        /*
-        buttonOutlet.frame = CGRect(x: 160, y: 100, width: 96, height: 96)
-        buttonOutlet.layer.cornerRadius = 1
-        buttonOutlet.clipsToBounds = true
-        
-        
-         
-        inserisco i topic da Realm nel listOfMission
-         
-            scarico da firestore i topic legati all'utente e li inserisco
-            nel listOfMission per poi sovvrascivere quelli che ho in Realm
-         
-         */
-        
-        
-
     }
 
     @IBAction func addAction(_ sender: Any) {

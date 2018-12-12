@@ -27,7 +27,7 @@
 		B3861EA921C02016006118B6 /* AddAlbum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3861EA821C02016006118B6 /* AddAlbum.storyboard */; };
 		B3861EAB21C020E3006118B6 /* AddAlbumController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3861EAA21C020E3006118B6 /* AddAlbumController.swift */; };
 		B3861EB821C12F3D006118B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3861EB721C12F3C006118B6 /* User.swift */; };
-		B3A415A421BFD71B0083F016 /* Topics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F4D81021BE77AB00E6F094 /* Topics.swift */; };
+		B399C12D21B578C800ABB0F6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399C12C21B578C800ABB0F6 /* NetworkManager.swift */; };
 		B3A415A821BFD8990083F016 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A415A721BFD8980083F016 /* R.generated.swift */; };
 		B3A415A921BFD91D0083F016 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B3A415AD21BFE5290083F016 /* SingleDetailAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A415AC21BFE5290083F016 /* SingleDetailAlbumCell.swift */; };
@@ -695,7 +695,6 @@
 				B33C51BA21C134D70023C98E /* TopicTableViewCell.swift in Sources */,
 				B33C51B921C134D70023C98E /* TopicAlbumsTableViewCell.swift in Sources */,
 				B37B33F321B7D5FF005510B7 /* FullImageViewerController.swift in Sources */,
-				B3A415A421BFD71B0083F016 /* Topics.swift in Sources */,
 				B3E9540821B6913300D60014 /* LoginViewController.swift in Sources */,
 				F93EFE5A21AED87000FBC875 /* SignupController.swift in Sources */,
 				FF8F43D721BE6B95003FFEE8 /* Topic.swift in Sources */,
