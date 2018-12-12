@@ -16,6 +16,8 @@ class SignupController: UIViewController {
         case password
         case repeatpassword
     }
+    var hasInsertedData : Bool = false
+    var hasAcceptedContract : Bool = false
     
     @IBOutlet weak var lblTxt: UILabel!{
         didSet {
@@ -78,7 +80,15 @@ class SignupController: UIViewController {
         
         NetworkManager.register(email: email, password: password) { (success, err) in
             if success {
-                self.performSegue(withIdentifier: R.segue.signupController.segueUserInfo.identifier, sender: self)
+                NetworkManager.pushUserData(email: email, hasInsertedData: self.hasInsertedData, hasAcceptedContract : self.hasAcceptedContract, completion: { (success, err) in
+                    if success {
+                    self.performSegue(withIdentifier: R.segue.signupController.segueUserInfo.identifier, sender: self)
+                    }
+                    else {
+                        let alert = UIApplication.alertError(title: "Opss", message: err, closeAction: {})
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                })
             }
             else {
                 let alert = UIApplication.alertError(title: "Opss", message: err, closeAction: {})
