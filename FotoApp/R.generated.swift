@@ -649,14 +649,14 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try login.validate()
-      try options.validate()
-      try launchScreen.validate()
       try authScreen.validate()
-      try signup.validate()
-      try addJob.validate()
-      try main.validate()
+      try login.validate()
       try jobs.validate()
+      try addJob.validate()
+      try options.validate()
+      try signup.validate()
+      try main.validate()
+      try launchScreen.validate()
     }
     
     struct addJob: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
