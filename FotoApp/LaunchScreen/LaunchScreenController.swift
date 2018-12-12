@@ -25,6 +25,7 @@ class LaunchScreenController: UIViewController {
         NetworkManager.checkedLoggedUser { (success) in
             if success {
                 print("loggato")
+                
                 NetworkManager.checkUserInfo(completion: { (success) in
                     if success {
                          print("ha inserito i dati")

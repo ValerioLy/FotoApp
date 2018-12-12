@@ -20,11 +20,15 @@ class ContractController: UIViewController {
     }
 
     @IBAction func AcceptAction(_ sender: UIBarButtonItem) {
-        hasAcceptedContract = true
-        NetworkManager.updateTerms(hasAcceptedContract: hasAcceptedContract) { (success) in
-            print("hasAcceptedContract true")
+        NetworkManager.updateTerms(hasAcceptedContract: true) { (success) in
+            if success {
+                self.performSegue(withIdentifier: "segueJobs", sender: self)
+            }
+            else {
+                // error handling
+            }
         }
         
-        self.performSegue(withIdentifier: "segueJobs", sender: self)
+        
     }
 }

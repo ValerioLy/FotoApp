@@ -14,15 +14,15 @@ class NetworkManager: NSObject {
     private static let USERS_COLLECTION = "users"
     private static let ALBUMS_COLLECTION = "albums"
     private static let PHOTOS_COLLECTION = "photos"
-    private static let TOPIC_COLLECTION = "topics"
+    private static let TOPICS_COLLECTION = "topics"
     
     private static var db : Firestore = Firestore.firestore()
     private static var storageRef : StorageReference = Storage.storage().reference()
-
+    
     static func initFirebase() {
         FirebaseApp.configure()
         
-      
+        
     }
     
     static func checkedLoggedUser(completion : @escaping (Bool) -> ()) {
@@ -34,13 +34,13 @@ class NetworkManager: NSObject {
         }
     }
     
-    static func checkUserInfo(hasInsertedData: Bool, completion : @escaping(Bool)->() ) {
+    static func checkUserInfo(completion : @escaping(Bool)->() ) {
         guard let user = Auth.auth().currentUser else {
             completion(false)
-           print("Non prende l'utente")
+            print("Non prende l'utente")
             return
         }
-
+        
         db.collection(self.USERS_COLLECTION).document(user.uid).getDocument { (DocumentSnapshot, Error) in
             if let err = Error {
                 print("Error getting documents: \(err)")
@@ -48,17 +48,30 @@ class NetworkManager: NSObject {
                 let dati = DocumentSnapshot?.data()
                 
                 let hasInsertedData = dati!["hasInsertedData"] as? Bool
-                    guard hasInsertedData == true else {
-                        completion(false)
-                        print("Non ha inserito i dati")
-                        return
-                    }
+                guard hasInsertedData == true else {
+                    completion(false)
+                    print("Non ha inserito i dati")
+                    return
+                }
                 
                 
+            }
+            completion(true)
         }
-        completion(true)
     }
     
+    static func updateTerms(hasAcceptedContract : Bool, completion : @escaping(Bool) -> ()) {
+        guard let user = Auth.auth().currentUser else {
+            completion(false)
+            return
+        }
+        
+        self.db.collection(USERS_COLLECTION).document(user.uid).updateData([
+            "hasAcceptedContract": hasAcceptedContract
+        ]) { error in
+            completion(error == nil)
+        }
+    }
     
     
     static func checkTermsUser(completion : @escaping(Bool)->() )
@@ -66,6 +79,46 @@ class NetworkManager: NSObject {
         completion(false)
         print("Non prende l'utente")
         return
+        }
+        db.collection(self.USERS_COLLECTION).document(user.uid).getDocument { (DocumentSnapshot, Error) in
+            if let err = Error {
+                print("Error getting documents: \(err)")
+            } else {
+                let dati = DocumentSnapshot?.data()
+                
+                let hasAcceptedContract = dati!["hasAcceptedContract"] as? Bool
+                guard hasAcceptedContract == true else {
+                    completion(false)
+                    print("Non ha inserito i dati")
+                    return
+                }
+            }
+            completion(true)
+        }
+    }
+    
+    
+    
+    
+    
+    static func uploadTopics(title : String, descriptio : String, expiration : String, creator : String, workers : [String], albums : [String], completion: @escaping (Bool) -> ()) {
+        
+        guard let user = Auth.auth().currentUser else { completion(false); return}
+        
+        db.collection(self.TOPICS_COLLECTION).addDocument(data: ["id": UUID().uuidString, "title" : title, "descriptio" : descriptio, "expiration": expiration, "creation": Date().dateInString, "creator": user.uid, "workers": workers, "albums": albums], completion: { (error) in
+            
+            if let err = error{
+                print("Job could not be saved: \(error).")
+            }
+            else {
+                print("Job saved successfully!")
+                completion(true)
+            }
+        })
+    }
+    
+    
+    
     static func getUserData(completion: @escaping(Bool, String?) -> ())  {
         guard let user = Auth.auth().currentUser else {
             completion(false, "No such user")
@@ -117,7 +170,7 @@ class NetworkManager: NSObject {
                     }
                     catch {}
                 })
-               
+                
                 
                 completion(list, nil)
             }
@@ -147,34 +200,32 @@ class NetworkManager: NSObject {
     }
     
     static func getTopics(){
-        db.collection("topics").whereField("workers", arrayContains:
-            
-            Auth.auth().currentUser?.uid).addSnapshotListener { (querySnapshot, error) in
-            
-            guard let docs = querySnapshot?.documents else {
-                return
-            }
-            
-            docs.forEach({ (item) in
-                let data = item.data()
+        db.collection("topics").whereField("workers", arrayContains:Auth.auth().currentUser?.uid).addSnapshotListener { (querySnapshot, error) in
                 
-                debugPrint(data)
-                
-                do {
-                    try FirebaseDecoder().decode(Topic.self, from: data).save()
-                }
-                catch let err {
-                    debugPrint(err.localizedDescription)
+                guard let docs = querySnapshot?.documents else {
                     return
-            }
-            })
-            
-
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "topicListener"), object: nil)
+                }
+                
+                docs.forEach({ (item) in
+                    let data = item.data()
+                    
+                    debugPrint(data)
+                    
+                    do {
+                        try FirebaseDecoder().decode(Topic.self, from: data).save()
+                    }
+                    catch let err {
+                        debugPrint(err.localizedDescription)
+                        return
+                    }
+                })
+                
+                
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "topicListener"), object: nil)
         }
     }
     
-
+    
     
     static func logout(completion: @escaping (Bool) -> ()) {
         let firebaseAuth = Auth.auth()
@@ -196,21 +247,21 @@ class NetworkManager: NSObject {
             completion(false, "No such user")
             return
         }
-            self.db.collection(USERS_COLLECTION).document(user.uid).setData([
-                "id":user.uid,
-                "email": email,
-                "hasInsertedData": hasInsertedData,
-                "hasAcceptedContract": hasAcceptedContract
-            ], merge: true) { error in
-                if let error = error {
-                    completion(false, error.localizedDescription)
-                } else {
-                    completion(true, nil)
-                }
+        self.db.collection(USERS_COLLECTION).document(user.uid).setData([
+            "id":user.uid,
+            "email": email,
+            "hasInsertedData": hasInsertedData,
+            "hasAcceptedContract": hasAcceptedContract
+        ], merge: true) { error in
+            if let error = error {
+                completion(false, error.localizedDescription)
+            } else {
+                completion(true, nil)
             }
         }
+    }
     
-
+    
     static func pushFinalUserData(name: String? = nil, surname: String? = nil, image : UIImage? = nil, hasInsertedData: Bool, hasAcceptedContract : Bool, admin: Bool, completion: @escaping(Bool, String?) -> ()){
         
         guard let user = Auth.auth().currentUser else {
@@ -258,7 +309,7 @@ class NetworkManager: NSObject {
                 "image": "",
                 "hasInsertedData": hasInsertedData,
                 "hasAcceptedContract": hasAcceptedContract,
-                  "admin":admin
+                "admin":admin
             ], merge: true) { error in
                 if let error = error {
                     completion(false, error.localizedDescription)
@@ -340,7 +391,7 @@ class NetworkManager: NSObject {
                 return
             }
             
-            db.collection(TOPIC_COLLECTION).document(topicId).setData([
+            db.collection(TOPICS_COLLECTION).document(topicId).setData([
                 "albums" : FieldValue.arrayUnion([albumId])
             ], merge : true) { error in
                 guard error == nil else {
@@ -358,6 +409,23 @@ class NetworkManager: NSObject {
             return nil
         }
         
+        return db.collection(ALBUMS_COLLECTION).document(albumId).addSnapshotListener(includeMetadataChanges: false) { documentSnapshot, error in
+            
+            guard let data = documentSnapshot?.data() else {
+                return
+            }
+            
+            do {
+                try FirebaseDecoder().decode(Album.self, from: data).save()
+            }
+            catch let err {
+                debugPrint(err.localizedDescription)
+                return
+            }
+            
+            // send push notification to HomepageController
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "photoListener"), object: nil)
+        }
     }
     
     static func fetchAlbums(ids : [String], completion : @escaping (Bool, String?) -> ()) {
@@ -396,7 +464,6 @@ class NetworkManager: NSObject {
             
         })
     }
-
 }
 
 

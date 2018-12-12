@@ -8,7 +8,10 @@
 import UIKit
 
 class SingleLineActionCell: UITableViewCell {
+    static let kIdentifier = "singleLineActionCell"
 
+    @IBOutlet weak var labelText: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,7 +22,7 @@ class SingleLineActionCell: UITableViewCell {
     }
     
     func setup(actionName : String) {
-        
+        labelText.text = actionName
     }
 
 }

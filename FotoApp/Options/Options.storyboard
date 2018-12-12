@@ -29,13 +29,37 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="singleLineActionController" rowHeight="77" id="2qL-EL-gRC">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="77"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="singleLineActionCell" rowHeight="83" id="2qL-EL-gRC" customClass="SingleLineActionCell" customModule="FotoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="83"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2qL-EL-gRC" id="khz-nh-bx9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="82.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTI-Uf-Mp3">
+                                                    <rect key="frame" x="15" y="31" width="49" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="T9n-Tc-rDu">
+                                                    <rect key="frame" x="335" y="29.5" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="Iij-Qi-TWT"/>
+                                                        <constraint firstAttribute="width" constant="24" id="P0w-mU-o9u"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="T9n-Tc-rDu" firstAttribute="centerY" secondItem="khz-nh-bx9" secondAttribute="centerY" id="2Ex-G7-eP9"/>
+                                                <constraint firstItem="UTI-Uf-Mp3" firstAttribute="leading" secondItem="khz-nh-bx9" secondAttribute="leadingMargin" id="DET-BZ-20i"/>
+                                                <constraint firstAttribute="trailing" secondItem="T9n-Tc-rDu" secondAttribute="trailing" constant="16" id="R04-gW-s6p"/>
+                                                <constraint firstItem="UTI-Uf-Mp3" firstAttribute="centerY" secondItem="khz-nh-bx9" secondAttribute="centerY" id="UOj-Me-hkB"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelText" destination="UTI-Uf-Mp3" id="dMb-3Q-UJl"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -249,5 +273,6 @@
     <resources>
         <image name="illustration2" width="249" height="150"/>
         <image name="placeholder" width="500" height="500"/>
+        <image name="right-arrow" width="16" height="16"/>
     </resources>
 </document>

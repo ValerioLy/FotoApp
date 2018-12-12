@@ -37,13 +37,25 @@ class OptionsViewController: UIViewController {
 }
 
 extension OptionsViewController: UITableViewDelegate, UITableViewDataSource {
+    enum OptionsItem : Int {
+        case UserInfo = 0
+        case Credits
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: SingleLineActionCell.kIdentifier) as! SingleLineActionCell
+        
+        switch indexPath.row {
+        case OptionsItem.UserInfo.rawValue:
+            cell.setup(actionName: "Informazioni utente")
+        default:
+            return UITableViewCell()
+        }
+        
+        return cell
     }
-    
-    
 }
