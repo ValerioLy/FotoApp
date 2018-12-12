@@ -104,7 +104,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Register" id="AbP-QV-HiJ">
                             <color key="tintColor" red="0.1137254902" green="0.57254901960000004" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="aJ8-nN-b3n" kind="show" identifier="jobsSegue" id="R4f-Zz-9YW"/>
+                                <segue destination="wOa-4c-pXX" kind="show" id="cGT-Ed-ozU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -114,11 +114,20 @@
                         <outlet property="login" destination="8xm-Uo-g33" id="qO0-QL-C36"/>
                         <outletCollection property="textfields" destination="eRp-Au-SZd" collectionClass="NSMutableArray" id="zsg-RJ-l4F"/>
                         <outletCollection property="textfields" destination="Bmc-bm-d5E" collectionClass="NSMutableArray" id="lI2-gW-4CA"/>
+                        <segue destination="aJ8-nN-b3n" kind="show" identifier="segueToJobs" id="GFw-X0-AS5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PbZ-fQ-iSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="973.60000000000002" y="17.541229385307346"/>
+        </scene>
+        <!--Signup-->
+        <scene sceneID="pQY-MV-G1I">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Signup" id="wOa-4c-pXX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nLa-rC-8b6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1516" y="-270"/>
         </scene>
         <!--Jobs-->
         <scene sceneID="gju-MI-4nT">
@@ -126,7 +135,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="Jobs" storyboardName="Jobs" id="aJ8-nN-b3n" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IrS-Cv-bUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1507" y="-109"/>
+            <point key="canvasLocation" x="1541" y="69"/>
         </scene>
     </scenes>
 </document>
