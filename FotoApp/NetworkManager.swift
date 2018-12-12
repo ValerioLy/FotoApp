@@ -14,6 +14,7 @@ class NetworkManager: NSObject {
     private static let USERS_COLLECTION = "users"
     private static let ALBUMS_COLLECTION = "albums"
     private static let PHOTOS_COLLECTION = "photos"
+    private static let TOPICS_COLLECTION = "topics"
     private static var db : Firestore = Firestore.firestore()
     private static var storageRef : StorageReference = Storage.storage().reference()
 
@@ -316,5 +317,90 @@ class NetworkManager: NSObject {
             
         })
     }
-
+    
+    static func getTopic(completion: @escaping(Topic)-> Void) {
+        
+        let docRef = db.collection(TOPICS_COLLECTION).document("ATZiCTr0jhQKwHPrx0Lo")
+        var docx : Topic!
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("Document data: \(dataDescription)")
+                
+                let data = document.data()
+                
+                let id = data?["id"] as? String ?? ""
+                let creation = data?["creation"] as? String ?? ""
+                let creator = data?["creator"] as? String ?? ""
+                let description = data?["descriptio"] as? String ?? ""
+                let expiration = data?["expiration"] as? String ?? ""
+                let title = data?["title"] as? String ?? ""
+                let albums = data?["albums"] as? [String] ?? []
+                let workers = data?["workers"] as? [String] ?? []
+                
+                docx = Topic(id: id, title: title, descriptio: description, creation: creation, expiration: expiration, creator: creator)
+                
+                
+            } else {
+                print("Document does not exist")
+            }
+        }
+        
+        
+        
+    }
+    
+    static func getData2 (completion: @escaping([Users])-> Void) {
+        
+        db.collection(self.TOPICS_COLLECTION).getDocuments() { (querySnapshot, err) in
+            
+            var topicList = [Topic]()
+            if let err = err {
+                print("Error getting topics: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    
+                    //let user = Users()
+                    let userData = document.data()
+                    
+                    let idU = userData["id"] as? String ?? ""
+                    let nameU = userData["name"] as? String ?? ""
+                    let surnameU = userData["surname"] as? String ?? ""
+                    let email = userData["email"] as? String ?? ""
+                    let image = userData["image"] as? String ?? ""
+                    var admin : Bool, data : Bool, contract : Bool
+                    if userData["admin"] as? String == "true"{
+                        admin = true
+                    }else{
+                        admin = false
+                    }
+                    if userData["hasInsertedData"] as? String == "true"{
+                        data = true
+                    }else{
+                        data = false
+                    }
+                    if userData["hasAcceptedContract"] as? String == "true"{
+                        contract = true
+                    }else{
+                        contract = false
+                    }
+                    
+                    
+                    /*user.name = userData["name"] as? String ?? ""
+                     user.surname = userData["surname"] as? String ?? ""*/
+                    
+                    let user = Users(id: idU, email: email, name: nameU, surname: surnameU, image: image, admin: admin, hasAcceptedTerms: contract, hasInsertedData: data)
+                    
+                    //userList += [user]
+                    userList.append(user)
+                }
+                
+            }
+            completion(userList)
+        }
+        
+    }
 }

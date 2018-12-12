@@ -13,6 +13,8 @@ import RealmSwift
 class JobsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var listOfTopic : [Topic] = []
+    
+    var idTopic : String?
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -101,4 +103,27 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 96
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        idTopic = listOfTopic[indexPath.row].id
+               print("IDTOPIC\(idTopic)")
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        switch segue.identifier {
+        case "segueToTopic":
+            if let destinationController = segue.destination as? JobDetailsViewController {
+                destinationController.idTopicPassato = idTopic 
+                
+            }
+        default:
+            break
+        }
+        
+    }
+    
+    
+    
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mMZ-f8-rWs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mMZ-f8-rWs">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -61,7 +61,7 @@
                                             <outlet property="imageOutlet" destination="VL8-8R-2RG" id="Q4t-bQ-MAS"/>
                                             <outlet property="missionDate" destination="bLd-C0-ego" id="f5U-kz-dYc"/>
                                             <outlet property="missionName" destination="3U3-uN-xsf" id="s5Z-8h-ueB"/>
-                                            <segue destination="qkP-uv-O4d" kind="show" id="SGp-Qx-zKA"/>
+                                            <segue destination="qkP-uv-O4d" kind="show" identifier="segueToTopic" id="SGp-Qx-zKA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -145,7 +145,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add" width="40" height="40"/>
+        <image name="add" width="27" height="27"/>
         <image name="illustration2" width="249" height="150"/>
     </resources>
 </document>

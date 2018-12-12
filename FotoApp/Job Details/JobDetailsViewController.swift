@@ -12,12 +12,13 @@ class JobDetailsViewController: UIViewController {
     
     static let totallyFakeList : [[String : String]] = [["title": "An Album", "photos": "11 photos"],["title": "Another Album", "photos": "7 photos"],["title": "Yet another Album", "photos": "19 photos"]]
     
+    var idTopicPassato: String! = ""
     
     @IBOutlet weak var table: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("\(idTopicPassato)")
         setNeedsStatusBarAppearanceUpdate()
         
     }
