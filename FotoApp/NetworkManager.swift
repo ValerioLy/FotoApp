@@ -13,6 +13,8 @@ import CodableFirebase
 class NetworkManager: NSObject {
     private static let USERS_COLLECTION = "users"
      private static let TOPICS_COLLECTION = "topics"
+    private static let ALBUMS_COLLECTION = "albums"
+    private static let PHOTOS_COLLECTION = "photos"
     private static var db : Firestore = Firestore.firestore()
     private static var storageRef : StorageReference = Storage.storage().reference()
 
@@ -47,7 +49,7 @@ class NetworkManager: NSObject {
         }
         completion(true)
     }    
-    
+    }
     
     
     
@@ -82,7 +84,7 @@ class NetworkManager: NSObject {
         
         guard let user = Auth.auth().currentUser else { completion(false); return}
         
-        db.collection(self.TOPICS_COLLECTION).addDocument(data: ["id": UUID().uuidString, "title" : title, "descriptio" : descriptio, "expiration": expiration, "creation":  Date().dateInString, "creator": user.uid, "workers": workers, "albums": albums], completion: { (error) in
+        db.collection(self.TOPICS_COLLECTION).addDocument(data: ["id": UUID().uuidString, "title" : title, "descriptio" : descriptio, "expiration": expiration, "creation": Date().dateInString, "creator": user.uid, "workers": workers, "albums": albums], completion: { (error) in
             
             if let err = error{
                 print("Job could not be saved: \(error).")
