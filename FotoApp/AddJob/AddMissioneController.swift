@@ -59,7 +59,7 @@ class AddMissioneController: UIViewController {
         }
         
         
-        NetworkManager.uploadTopics(title: title, descriptio: description, expiration: scadenza, creator: "", workers: listaIdUsers!, albums: [""]) { (success) in
+        NetworkManager.uploadTopics(title: title, descriptio: description, expiration: scadenza, creator: "", workers: listaIdUsers!, albums: []) { (success) in
             if success {
                 print("Topic caricato")
             }

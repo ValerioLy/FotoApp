@@ -113,16 +113,31 @@ extension AddJobController : UITableViewDelegate, UITableViewDataSource, UISearc
         let selectedEmployee = listUsers[indexPath.row]
         let idExist = idUsers.filter({$0 == selectedEmployee.id}).first
         
-        if idExist != nil{
+//        if idExist != nil{
+//            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+//            let indexRemove = idUsers.firstIndex(of: idExist!)!
+//            idUsers.remove(at: indexRemove)
+//        }
+//        else{
+//            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+//            idUsers.append(selectedEmployee.id)
+//            print("IDUTENTI\(idUsers)")
+//        }
+        
+        if idExist == nil{
+            
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+            idUsers.append(selectedEmployee.id)
+            print("IDUTENTI\(idUsers)")
+           
+        }
+        else{
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
             let indexRemove = idUsers.firstIndex(of: idExist!)!
             idUsers.remove(at: indexRemove)
         }
-        else{
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
-            idUsers.append(selectedEmployee.id)
-            print("IDUTENTI\(idUsers)")
-        }
+        
+        
     }
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -89,7 +89,7 @@ class NetworkManager: NSObject {
         
         guard let user = Auth.auth().currentUser else { completion(false); return}
         
-        db.collection(self.TOPICS_COLLECTION).addDocument(data: ["id": UUID().uuidString, "title" : title, "descriptio" : descriptio, "expiration": expiration, "creation": Date(), "creator": user.uid, "workers": workers, "albums": albums], completion: { (error) in
+        db.collection(self.TOPICS_COLLECTION).addDocument(data: ["id": UUID().uuidString, "title" : title, "descriptio" : descriptio, "expiration": expiration, "creation":  Date().dateInString, "creator": user.uid, "workers": workers, "albums": albums], completion: { (error) in
             
             if let err = error{
                 print("Job could not be saved: \(error).")
