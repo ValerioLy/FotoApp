@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		8E09E2A0D4D4BE636EC7615C /* Pods_FotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2568872B37835C655A12FFB8 /* Pods_FotoApp.framework */; };
-		9CCC5CAF21C1006B007F4F04 /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC5CAC21C1006B007F4F04 /* JobDetailsViewController.swift */; };
-		9CCC5CB021C1006B007F4F04 /* JobDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CCC5CAD21C1006B007F4F04 /* JobDetails.storyboard */; };
-		9CCC5CB321C10894007F4F04 /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC5CB221C10894007F4F04 /* TopicTableViewCell.swift */; };
-		9CCC5CB521C108A8007F4F04 /* TopicAlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC5CB421C108A8007F4F04 /* TopicAlbumsTableViewCell.swift */; };
 		B31A3DEC21B584950014749E /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DE821B584950014749E /* UserInfoController.swift */; };
 		B31A3DEE21B584950014749E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DEA21B584950014749E /* SignupController.swift */; };
+		B33C51B721C134D70023C98E /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33C51B321C134D60023C98E /* JobDetailsViewController.swift */; };
+		B33C51B821C134D70023C98E /* JobDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B33C51B421C134D70023C98E /* JobDetails.storyboard */; };
+		B33C51B921C134D70023C98E /* TopicAlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33C51B521C134D70023C98E /* TopicAlbumsTableViewCell.swift */; };
+		B33C51BA21C134D70023C98E /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33C51B621C134D70023C98E /* TopicTableViewCell.swift */; };
 		B3416D7821BEB84100D44AB4 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3416D7721BEB84100D44AB4 /* Album.swift */; };
 		B3416D7A21BEC2EE00D44AB4 /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3416D7921BEC2EE00D44AB4 /* RealmUtils.swift */; };
 		B34CF23721B6AA4400FC4CB4 /* AlbumItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34CF23621B6AA4400FC4CB4 /* AlbumItemController.swift */; };
@@ -24,6 +24,7 @@
 		B37B33F321B7D5FF005510B7 /* FullImageViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37B33F221B7D5FF005510B7 /* FullImageViewerController.swift */; };
 		B3861EA921C02016006118B6 /* AddAlbum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3861EA821C02016006118B6 /* AddAlbum.storyboard */; };
 		B3861EAB21C020E3006118B6 /* AddAlbumController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3861EAA21C020E3006118B6 /* AddAlbumController.swift */; };
+		B3861EB821C12F3D006118B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3861EB721C12F3C006118B6 /* User.swift */; };
 		B399C12D21B578C800ABB0F6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399C12C21B578C800ABB0F6 /* NetworkManager.swift */; };
 		B3A415A421BFD71B0083F016 /* Topics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F4D81021BE77AB00E6F094 /* Topics.swift */; };
 		B3A415A821BFD8990083F016 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A415A721BFD8980083F016 /* R.generated.swift */; };
@@ -54,7 +55,6 @@
 		F94711DC21B6B642007F5019 /* AddJob.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94711DB21B6B642007F5019 /* AddJob.storyboard */; };
 		F94711DE21B6C1E0007F5019 /* AddJobController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711DD21B6C1E0007F5019 /* AddJobController.swift */; };
 		F94711E021B6CB61007F5019 /* JobCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711DF21B6CB61007F5019 /* JobCell.swift */; };
-		F94711E321B6D010007F5019 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711E221B6D010007F5019 /* Users.swift */; };
 		F94711E521B6D27E007F5019 /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711E421B6D27E007F5019 /* RealmUtils.swift */; };
 		FF15E4BD21C0104200E739F5 /* AddMissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97475E721BA829600FF7B0F /* AddMissionController.swift */; };
 		FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570221B576D000CED714 /* CreditsViewController.swift */; };
@@ -88,12 +88,12 @@
 /* Begin PBXFileReference section */
 		2568872B37835C655A12FFB8 /* Pods_FotoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FotoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		922402085D1303BC36DAD3BD /* Pods-FotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.release.xcconfig"; sourceTree = "<group>"; };
-		9CCC5CAC21C1006B007F4F04 /* JobDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
-		9CCC5CAD21C1006B007F4F04 /* JobDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JobDetails.storyboard; sourceTree = "<group>"; };
-		9CCC5CB221C10894007F4F04 /* TopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
-		9CCC5CB421C108A8007F4F04 /* TopicAlbumsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicAlbumsTableViewCell.swift; sourceTree = "<group>"; };
 		B31A3DE821B584950014749E /* UserInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfoController.swift; path = FotoApp/Register/UserInfoController.swift; sourceTree = SOURCE_ROOT; };
 		B31A3DEA21B584950014749E /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupController.swift; path = FotoApp/Register/SignupController.swift; sourceTree = SOURCE_ROOT; };
+		B33C51B321C134D60023C98E /* JobDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
+		B33C51B421C134D70023C98E /* JobDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JobDetails.storyboard; sourceTree = "<group>"; };
+		B33C51B521C134D70023C98E /* TopicAlbumsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicAlbumsTableViewCell.swift; sourceTree = "<group>"; };
+		B33C51B621C134D70023C98E /* TopicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
 		B3416D7721BEB84100D44AB4 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		B3416D7921BEC2EE00D44AB4 /* RealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUtils.swift; sourceTree = "<group>"; };
 		B34CF23421B6A9A900FC4CB4 /* AlbumItem.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlbumItem.storyboard; sourceTree = "<group>"; };
@@ -105,6 +105,7 @@
 		B37B33F221B7D5FF005510B7 /* FullImageViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageViewerController.swift; sourceTree = "<group>"; };
 		B3861EA821C02016006118B6 /* AddAlbum.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddAlbum.storyboard; sourceTree = "<group>"; };
 		B3861EAA21C020E3006118B6 /* AddAlbumController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlbumController.swift; sourceTree = "<group>"; };
+		B3861EB721C12F3C006118B6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B399C12C21B578C800ABB0F6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B3A415A721BFD8980083F016 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		B3A415AA21BFE25A0083F016 /* AlbumItemDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumItemDetailsController.swift; sourceTree = "<group>"; };
@@ -139,7 +140,6 @@
 		F94711DB21B6B642007F5019 /* AddJob.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddJob.storyboard; sourceTree = "<group>"; };
 		F94711DD21B6C1E0007F5019 /* AddJobController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobController.swift; sourceTree = "<group>"; };
 		F94711DF21B6CB61007F5019 /* JobCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCell.swift; sourceTree = "<group>"; };
-		F94711E221B6D010007F5019 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		F94711E421B6D27E007F5019 /* RealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUtils.swift; sourceTree = "<group>"; };
 		F94DB91E21B29B0000DB2452 /* ContractController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractController.swift; sourceTree = "<group>"; };
 		F97475E721BA829600FF7B0F /* AddMissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionController.swift; sourceTree = "<group>"; };
@@ -181,17 +181,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9CCC5CAB21C1006B007F4F04 /* Job Details */ = {
-			isa = PBXGroup;
-			children = (
-				9CCC5CAC21C1006B007F4F04 /* JobDetailsViewController.swift */,
-				9CCC5CAD21C1006B007F4F04 /* JobDetails.storyboard */,
-				9CCC5CB221C10894007F4F04 /* TopicTableViewCell.swift */,
-				9CCC5CB421C108A8007F4F04 /* TopicAlbumsTableViewCell.swift */,
-			);
-			path = "Job Details";
-			sourceTree = "<group>";
-		};
 		AF3EE70B921AAD5A93E64A5A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +188,18 @@
 				922402085D1303BC36DAD3BD /* Pods-FotoApp.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B33C51BB21C134D90023C98E /* JobDetails */ = {
+			isa = PBXGroup;
+			children = (
+				B33C51B421C134D70023C98E /* JobDetails.storyboard */,
+				B33C51B321C134D60023C98E /* JobDetailsViewController.swift */,
+				B33C51B521C134D70023C98E /* TopicAlbumsTableViewCell.swift */,
+				B33C51B621C134D70023C98E /* TopicTableViewCell.swift */,
+			);
+			name = JobDetails;
+			path = "New Group1";
 			sourceTree = "<group>";
 		};
 		B34CF23321B6A98800FC4CB4 /* AlbumItemSpecs */ = {
@@ -227,10 +228,10 @@
 		B34CF23E21B6CEB300FC4CB4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B3861EB721C12F3C006118B6 /* User.swift */,
 				FF8F43D621BE6B95003FFEE8 /* Topic.swift */,
 				B34CF23F21B6CEE500FC4CB4 /* Photo.swift */,
 				B3416D7721BEB84100D44AB4 /* Album.swift */,
-				F94711E221B6D010007F5019 /* Users.swift */,
 				F9F4D81021BE77AB00E6F094 /* Topics.swift */,
 			);
 			path = Models;
@@ -315,6 +316,7 @@
 		F93EFE1221AEB24C00FBC875 /* FotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				B33C51BB21C134D90023C98E /* JobDetails */,
 				B3861EA721C01FF7006118B6 /* AddAlbum */,
 				FF8F43CE21BE6B49003FFEE8 /* Jobs */,
 				B34CF23321B6A98800FC4CB4 /* AlbumItemSpecs */,
@@ -527,6 +529,7 @@
 				B3E953FB21B68DD200D60014 /* Signup.storyboard in Resources */,
 				B3E953F821B68D2800D60014 /* Login.storyboard in Resources */,
 				B3A415AF21BFE68D0083F016 /* AlbumItem.storyboard in Resources */,
+				B33C51B821C134D70023C98E /* JobDetails.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,13 +671,16 @@
 				FF5C803A21B5333D0045EC1A /* OptionsViewController.swift in Sources */,
 				B3416D7A21BEC2EE00D44AB4 /* RealmUtils.swift in Sources */,
 				FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */,
-				F94711E321B6D010007F5019 /* Users.swift in Sources */,
 				F94711E521B6D27E007F5019 /* RealmUtils.swift in Sources */,
 				B3A415A821BFD8990083F016 /* R.generated.swift in Sources */,
+				B33C51B721C134D70023C98E /* JobDetailsViewController.swift in Sources */,
+				B3861EB821C12F3D006118B6 /* User.swift in Sources */,
 				FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */,
 				FF8F43D321BE6B49003FFEE8 /* JobsListViewController.swift in Sources */,
 				F9442BA221B162D900F45C32 /* UserInfoController.swift in Sources */,
 				F94711DE21B6C1E0007F5019 /* AddJobController.swift in Sources */,
+				B33C51BA21C134D70023C98E /* TopicTableViewCell.swift in Sources */,
+				B33C51B921C134D70023C98E /* TopicAlbumsTableViewCell.swift in Sources */,
 				B37B33F321B7D5FF005510B7 /* FullImageViewerController.swift in Sources */,
 				B3A415A421BFD71B0083F016 /* Topics.swift in Sources */,
 				B3E9540821B6913300D60014 /* LoginViewController.swift in Sources */,

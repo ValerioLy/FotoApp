@@ -93,10 +93,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 5 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 7 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `JobsCell`.
     static let jobsCell: Rswift.ReuseIdentifier<JobsCell> = Rswift.ReuseIdentifier(identifier: "JobsCell")
+    /// Reuse identifier `TopicAlbumsTableViewCell`.
+    static let topicAlbumsTableViewCell: Rswift.ReuseIdentifier<TopicAlbumsTableViewCell> = Rswift.ReuseIdentifier(identifier: "TopicAlbumsTableViewCell")
+    /// Reuse identifier `TopicTableViewCell`.
+    static let topicTableViewCell: Rswift.ReuseIdentifier<TopicTableViewCell> = Rswift.ReuseIdentifier(identifier: "TopicTableViewCell")
     /// Reuse identifier `cell`.
     static let cell: Rswift.ReuseIdentifier<JobCell> = Rswift.ReuseIdentifier(identifier: "cell")
     /// Reuse identifier `imageCell`.
@@ -255,7 +259,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 10 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 11 storyboards.
   struct storyboard {
     /// Storyboard `AddAlbum`.
     static let addAlbum = _R.storyboard.addAlbum()
@@ -677,16 +681,17 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
+      try addJob.validate()
+      try launchScreen.validate()
+      try main.validate()
+      try jobs.validate()
+      try jobDetails.validate()
       try options.validate()
       try login.validate()
-      try addJob.validate()
       try authScreen.validate()
-      try albumItem.validate()
-      try main.validate()
-      try launchScreen.validate()
-      try jobs.validate()
-      try addAlbum.validate()
       try signup.validate()
+      try addAlbum.validate()
+      try albumItem.validate()
     }
     
     struct addAlbum: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -749,6 +754,20 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, *) {
         }
         if _R.storyboard.authScreen().authScreen() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'authScreen' could not be loaded from storyboard 'AuthScreen' as 'AuthScreenController'.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct jobDetails: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
+      
+      let bundle = R.hostingBundle
+      let name = "JobDetails"
+      
+      static func validate() throws {
+        if #available(iOS 11.0, *) {
+        }
       }
       
       fileprivate init() {}
@@ -819,8 +838,8 @@ struct _R: Rswift.Validatable {
       let name = "Options"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }

@@ -25,7 +25,7 @@ class AddMissionController : UIViewController {
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var dataLbl: UILabel!
     
-    var worker : [Users] = []
+    var worker : [User] = []
     
     //private var workers : [Topics] = []
     
