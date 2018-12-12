@@ -12,6 +12,7 @@ class JobDetailsViewController: UIViewController {
     
     static let totallyFakeList : [[String : String]] = [["title": "An Album", "photos": "11 photos"],["title": "Another Album", "photos": "7 photos"],["title": "Yet another Album", "photos": "19 photos"]]
     
+    private var trueList : [Topic]?
     
     @IBOutlet weak var table: UITableView!
     
@@ -19,6 +20,15 @@ class JobDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         setNeedsStatusBarAppearanceUpdate()
+        NetworkManager.getTopicsJobDetail(){ (success, lista) in
+            if success {
+                //self.trueList = lista
+                debugPrint("lista.count: "+String(lista!.count))
+                for topic in lista!{
+                    debugPrint("Topic: "+topic.getTitle())
+                }
+            }
+        }
         
     }
     

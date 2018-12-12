@@ -225,7 +225,39 @@ class NetworkManager: NSObject {
         }
     }
     
-    
+    static func getTopicsJobDetail(completion: @escaping(Bool, [Topic]?) -> ()){
+        db.collection("topics").whereField("workers", arrayContains:Auth.auth().currentUser?.uid).addSnapshotListener { (querySnapshot, error) in
+            var list : [Topic] = []
+            debugPrint("id di getTopics: "+(Auth.auth().currentUser?.uid)!)
+            guard let docs = querySnapshot?.documents else {
+                debugPrint("querySnapshot failed")
+                completion(false,nil)
+                return
+            }
+            debugPrint("guard superato")
+            docs.forEach({ (item) in
+                let data = item.data()
+                
+                debugPrint(data)
+                
+                do {
+                    let topic = try FirebaseDecoder().decode(Topic.self, from: data)
+                    //topic.save() non salva su realm
+                    list.append(topic)
+                }
+                catch let err {
+                    debugPrint("Error catch")
+                    debugPrint(err.localizedDescription)
+                    completion(false,nil)
+                    return
+                }
+            })
+            debugPrint("for each superato")
+            
+            //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "topicListener"), object: nil)
+            completion(true,list)
+        }
+    }
     
     static func logout(completion: @escaping (Bool) -> ()) {
         let firebaseAuth = Auth.auth()

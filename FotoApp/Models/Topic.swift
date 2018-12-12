@@ -52,4 +52,7 @@ import FirebaseFirestore
         } catch {}
     }
     
+    func getTitle() -> String{
+        return self.title ?? ""
+    }
 }
