@@ -634,14 +634,14 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try launchScreen.validate()
       try addJob.validate()
-      try options.validate()
-      try authScreen.validate()
-      try signup.validate()
       try main.validate()
       try jobs.validate()
+      try signup.validate()
+      try launchScreen.validate()
+      try authScreen.validate()
       try login.validate()
+      try options.validate()
     }
     
     struct addJob: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -755,8 +755,8 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
         if _R.storyboard.options().options() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'options' could not be loaded from storyboard 'Options' as 'UIKit.UINavigationController'.") }

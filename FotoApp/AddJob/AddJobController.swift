@@ -51,6 +51,8 @@ class AddJobController: UIViewController {
     
     @IBAction func goMission(_ sender: Any) {
 self.performSegue(withIdentifier: "segueMission", sender: self)
+        
+       
     }
     
     
@@ -108,8 +110,8 @@ extension AddJobController : UITableViewDelegate, UITableViewDataSource, UISearc
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let userSelected = listUsers[indexPath.row]
-        let idExist = idUsers.filter({$0 == userSelected.id}).first
+        let selectedEmployee = listUsers[indexPath.row]
+        let idExist = idUsers.filter({$0 == selectedEmployee.id}).first
         
         if idExist != nil{
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
@@ -118,9 +120,22 @@ extension AddJobController : UITableViewDelegate, UITableViewDataSource, UISearc
         }
         else{
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
-            idUsers.append(userSelected.id)
+            idUsers.append(selectedEmployee.id)
+            print("IDUTENTI\(idUsers)")
         }
     }
    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        switch segue.identifier {
+        case "segueMission":
+            if let destinationController = segue.destination as? AddMissioneController {
+                destinationController.listaIdUsers = idUsers
+            }
+        default:
+            break
+        }
+        
+    }
     
 }

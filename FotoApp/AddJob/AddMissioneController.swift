@@ -26,21 +26,12 @@ class AddMissioneController: UIViewController {
     
     @IBOutlet weak var fieldDescription: UITextView!
     
-    
-    var worker : [Users] = []
-    
-//    private var workers : [Topics] = []
-    
-    var idusers : [String]!
-    
-    
-    
+    var listaIdUsers : [String]!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        print("IDUTENTI\(listaIdUsers)")
     }
     
     @IBAction func addMission(_ sender: Any) {
@@ -59,17 +50,24 @@ class AddMissioneController: UIViewController {
         }
         description  = fieldDescription.text!
         
-        
-        
-        
-        
-        
-        
-        NetworkManager.uploadWorkerInfo(title: title, description: description, data: scadenza, idUser: idusers ) { (success) in
-            debugPrint("Job Info Caricato")
+        guard  !title.isEmpty && !description.isEmpty else {
+            let alert = UIAlertController(title: "Campi Vuoti", message: "Il titolo o la descrizione sono vuoti", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+            return
         }
-    }
+        
+        
+        NetworkManager.uploadTopics(title: title, description: description, scadenza: scadenza, createdBy: "", workers: listaIdUsers!, albums: [""]) { (success) in
+            if success {
+                print("Topic caricato")
+            }
+        }
+        
+        
+      
     
-   
+    }
 
 }
