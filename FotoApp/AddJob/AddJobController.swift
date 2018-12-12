@@ -19,13 +19,13 @@ class AddJobController: UIViewController {
     
     
    
-    private var selectedEmployee : [Users]?
+    private var selectedEmployee : [User]?
     
     private var idUsers : [String] = []
     
-    var listUsers : [Users] = []
+    var listUsers : [User] = []
     
-    var filterData = [Users]()
+    var filterData = [User]()
 
     var isSearching = false
 
@@ -36,14 +36,14 @@ class AddJobController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NetworkManager.getData(){ (list) in
-            self.listUsers = list
-            self.listUsers = self.listUsers.sorted(by: { $0.getName().lowercased() < $1.getName().lowercased() })
-     
-            self.tableView.reloadData()
+        NetworkManager.getAllUsers() { (list, err) in
+            if err != nil {
+                self.listUsers = list!
+                self.listUsers = self.listUsers.sorted(by: { $0.getName().lowercased() < $1.getName().lowercased() })
+                
+                self.tableView.reloadData()
 
-        
-            
+            }
         }
     
     }

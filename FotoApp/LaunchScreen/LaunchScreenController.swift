@@ -22,7 +22,7 @@ class LaunchScreenController: UIViewController {
         super.viewDidAppear(animated)
         
         // checked if user is logged
-        checkedLoggedUser { (success) in
+        NetworkManager.checkedLoggedUser { (success) in
             if success {
                 print("loggato")
                 NetworkManager.checkUserInfo(completion: { (success) in
@@ -56,15 +56,6 @@ class LaunchScreenController: UIViewController {
                 print("non si è loggato")
                 self.performSegue(withIdentifier: R.segue.launchScreenController.segueToAuth.identifier, sender: self)
             }
-        }
-    }
-    
-    func checkedLoggedUser(completion : @escaping (Bool) -> ()) {
-        if Auth.auth().currentUser != nil {
-            completion(true)
-        }
-        else {
-            completion(false)
         }
     }
 }

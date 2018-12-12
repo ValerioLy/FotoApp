@@ -40,21 +40,16 @@ import FirebaseFirestore
         return "id"
     }
     
-    static func all(in realm: Realm = try! Realm()) -> [Topic] {
+    static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Topic] {
         return Array(realm.objects(Topic.self))
     }
     
-    func save(in realm: Realm = try! Realm()) {
+    func save(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
             try realm.write {
                 realm.add(self, update: true)
             }
         } catch {}
     }
-    
-    
-    
-    
-    
     
 }
