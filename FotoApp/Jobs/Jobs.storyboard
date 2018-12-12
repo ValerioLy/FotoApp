@@ -69,13 +69,14 @@
                                     <outlet property="delegate" destination="mMZ-f8-rWs" id="FH6-gL-ejQ"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOu-2S-81E">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOu-2S-81E">
                                 <rect key="frame" x="304" y="596" width="56" height="56"/>
                                 <color key="backgroundColor" red="0.1137254902" green="0.57254901960000004" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="FQ1-bl-U43"/>
                                     <constraint firstAttribute="height" constant="56" id="Xao-M2-ddv"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" image="add"/>
                                 <connections>
                                     <action selector="addAction:" destination="mMZ-f8-rWs" eventType="touchUpInside" id="fOs-gX-vgI"/>
