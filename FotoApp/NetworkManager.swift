@@ -14,6 +14,8 @@ class NetworkManager: NSObject {
     private static let USERS_COLLECTION = "users"
     private static let ALBUMS_COLLECTION = "albums"
     private static let PHOTOS_COLLECTION = "photos"
+    private static let TOPIC_COLLECTION = "topics"
+    
     private static var db : Firestore = Firestore.firestore()
     private static var storageRef : StorageReference = Storage.storage().reference()
 
@@ -256,8 +258,44 @@ class NetworkManager: NSObject {
         }
     }
     
-    static func getAlbumListener(albumId : String) -> ListenerRegistration? {
+    static func uploadAlbum(topicId : String, title : String, descr : String, completion : @escaping(Bool, String?) -> ()) {
         guard let user = Auth.auth().currentUser else {
+            completion(false, "No such user")
+            return
+        }
+        
+        let userName = "Admin"
+        let albumId = UUID().uuidString
+        db.collection(ALBUMS_COLLECTION).document(albumId).setData([
+            "id" : albumId,
+            "title" : title,
+            "descr" : descr,
+            "createdBy" : user.uid,
+            "createdByName" : userName,
+            "isPendingForDelition" : false,
+            "dateAdd" : Date(),
+            "photos" : []
+        ]) { error in
+            guard error == nil else {
+                completion(false, error!.localizedDescription)
+                return
+            }
+            
+            db.collection(TOPIC_COLLECTION).document(topicId).setData([
+                "albums" : FieldValue.arrayUnion([albumId])
+            ], merge : true) { error in
+                guard error == nil else {
+                    completion(false, error!.localizedDescription)
+                    return
+                }
+                
+                completion(true, nil)
+            }
+        }
+    }
+    
+    static func getAlbumListener(albumId : String) -> ListenerRegistration? {
+        guard Auth.auth().currentUser != nil else {
             return nil
         }
         
@@ -281,7 +319,7 @@ class NetworkManager: NSObject {
     }
     
     static func fetchAlbums(ids : [String], completion : @escaping (Bool, String?) -> ()) {
-        guard let user = Auth.auth().currentUser else {
+        guard Auth.auth().currentUser != nil else {
             completion(false, "No such user")
             return
         }

@@ -94,7 +94,6 @@ struct R: Rswift.Validatable {
   }
   
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 5 reuse identifiers.
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `JobsCell`.
     static let jobsCell: Rswift.ReuseIdentifier<JobsCell> = Rswift.ReuseIdentifier(identifier: "JobsCell")
@@ -128,7 +127,6 @@ struct R: Rswift.Validatable {
     }
     
     /// This struct is generated for `AlbumItemController`, and contains static references to 2 segues.
-    /// This struct is generated for `AlbumItemController`, and contains static references to 1 segues.
     struct albumItemController {
       /// Segue identifier `segueToDetails`.
       static let segueToDetails: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumItemController, AlbumItemDetailsController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToDetails")
@@ -178,14 +176,14 @@ struct R: Rswift.Validatable {
     
     /// This struct is generated for `LoginViewController`, and contains static references to 1 segues.
     struct loginViewController {
-      /// Segue identifier `jobsSegue`.
-      static let jobsSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LoginViewController, JobsListViewController> = Rswift.StoryboardSegueIdentifier(identifier: "jobsSegue")
+      /// Segue identifier `segueToJobs`.
+      static let segueToJobs: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LoginViewController, JobsListViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToJobs")
       
-      /// Optionally returns a typed version of segue `jobsSegue`.
+      /// Optionally returns a typed version of segue `segueToJobs`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func jobsSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, JobsListViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.loginViewController.jobsSegue, segue: segue)
+      static func segueToJobs(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, JobsListViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.loginViewController.segueToJobs, segue: segue)
       }
       
       fileprivate init() {}
@@ -257,8 +255,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 9 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 10 storyboards.
   struct storyboard {
+    /// Storyboard `AddAlbum`.
+    static let addAlbum = _R.storyboard.addAlbum()
     /// Storyboard `AddJob`.
     static let addJob = _R.storyboard.addJob()
     /// Storyboard `AlbumItem`.
@@ -279,6 +279,11 @@ struct R: Rswift.Validatable {
     static let options = _R.storyboard.options()
     /// Storyboard `Signup`.
     static let signup = _R.storyboard.signup()
+    
+    /// `UIStoryboard(name: "AddAlbum", bundle: ...)`
+    static func addAlbum(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.addAlbum)
+    }
     
     /// `UIStoryboard(name: "AddJob", bundle: ...)`
     static func addJob(_: Void = ()) -> UIKit.UIStoryboard {
@@ -672,29 +677,23 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try launchScreen.validate()
+      try options.validate()
+      try login.validate()
       try addJob.validate()
       try authScreen.validate()
-      try addJob.validate()
+      try albumItem.validate()
       try main.validate()
-      try options.validate()
-      try jobs.validate()
-      try login.validate()
-      try albumItem.validate()
-      try signup.validate()
       try launchScreen.validate()
-      try albumItem.validate()
-      try authScreen.validate()
-      try login.validate()
-      try options.validate()
       try jobs.validate()
+      try addAlbum.validate()
+      try signup.validate()
     }
     
-    struct addJob: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = AddJobController
+    struct addAlbum: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = AddAlbumController
       
       let bundle = R.hostingBundle
-      let name = "AddJob"
+      let name = "AddAlbum"
       
       static func validate() throws {
         if #available(iOS 11.0, *) {
@@ -705,7 +704,7 @@ struct _R: Rswift.Validatable {
     }
     
     struct addJob: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UINavigationController
+      typealias InitialController = AddJobController
       
       let bundle = R.hostingBundle
       let name = "AddJob"
@@ -745,8 +744,8 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "trees") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'trees' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
         if UIKit.UIImage(named: "email-icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'email-icon' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "trees") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'trees' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
         if _R.storyboard.authScreen().authScreen() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'authScreen' could not be loaded from storyboard 'AuthScreen' as 'AuthScreenController'.") }
@@ -762,8 +761,8 @@ struct _R: Rswift.Validatable {
       let name = "Jobs"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "add") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'add' is used in storyboard 'Jobs', but couldn't be loaded.") }
         if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Jobs', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "add") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'add' is used in storyboard 'Jobs', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
@@ -820,8 +819,8 @@ struct _R: Rswift.Validatable {
       let name = "Options"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
