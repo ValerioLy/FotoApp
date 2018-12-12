@@ -50,6 +50,7 @@
 		F94711E021B6CB61007F5019 /* JobCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711DF21B6CB61007F5019 /* JobCell.swift */; };
 		F94711E321B6D010007F5019 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711E221B6D010007F5019 /* Users.swift */; };
 		F94711E521B6D27E007F5019 /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711E421B6D27E007F5019 /* RealmUtils.swift */; };
+		FF15E4BD21C0104200E739F5 /* AddMissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97475E721BA829600FF7B0F /* AddMissionController.swift */; };
 		FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570221B576D000CED714 /* CreditsViewController.swift */; };
 		FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570421B5896E00CED714 /* UserInfoViewController.swift */; };
 		FF5C803821B52C6E0045EC1A /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF5C803721B52C6E0045EC1A /* Options.storyboard */; };
@@ -57,7 +58,7 @@
 		FF8F43D221BE6B49003FFEE8 /* JobsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F43CF21BE6B49003FFEE8 /* JobsCell.swift */; };
 		FF8F43D321BE6B49003FFEE8 /* JobsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F43D021BE6B49003FFEE8 /* JobsListViewController.swift */; };
 		FF8F43D421BE6B49003FFEE8 /* Jobs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8F43D121BE6B49003FFEE8 /* Jobs.storyboard */; };
-		FF8F43D721BE6B95003FFEE8 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F43D621BE6B95003FFEE8 /* Mission.swift */; };
+		FF8F43D721BE6B95003FFEE8 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F43D621BE6B95003FFEE8 /* Topic.swift */; };
 		FF8F43E921BEB58F003FFEE8 /* GeneralUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F43E821BEB58E003FFEE8 /* GeneralUtils.swift */; };
 /* End PBXBuildFile section */
 
@@ -138,7 +139,7 @@
 		FF8F43CF21BE6B49003FFEE8 /* JobsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsCell.swift; sourceTree = "<group>"; };
 		FF8F43D021BE6B49003FFEE8 /* JobsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsListViewController.swift; sourceTree = "<group>"; };
 		FF8F43D121BE6B49003FFEE8 /* Jobs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Jobs.storyboard; sourceTree = "<group>"; };
-		FF8F43D621BE6B95003FFEE8 /* Mission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
+		FF8F43D621BE6B95003FFEE8 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		FF8F43E821BEB58E003FFEE8 /* GeneralUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -369,6 +370,14 @@
 				FF8F43D121BE6B49003FFEE8 /* Jobs.storyboard */,
 			);
 			path = Jobs;
+			sourceTree = "<group>";
+		};
+		FF8F43D521BE6B95003FFEE8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF8F43D621BE6B95003FFEE8 /* Topic.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -612,6 +621,7 @@
 			files = (
 				B3A415AD21BFE5290083F016 /* SingleDetailAlbumCell.swift in Sources */,
 				B3A415A921BFD91D0083F016 /* AddMissionController.swift in Sources */,
+				FF15E4BD21C0104200E739F5 /* AddMissionController.swift in Sources */,
 				B3E9540121B68E2500D60014 /* ContractController.swift in Sources */,
 				B3E953F521B6853C00D60014 /* Extensions.swift in Sources */,
 				B31A3DEC21B584950014749E /* UserInfoController.swift in Sources */,
@@ -642,7 +652,7 @@
 				B3A415A421BFD71B0083F016 /* Topics.swift in Sources */,
 				B3E9540821B6913300D60014 /* LoginViewController.swift in Sources */,
 				F93EFE5A21AED87000FBC875 /* SignupController.swift in Sources */,
-				FF8F43D721BE6B95003FFEE8 /* Mission.swift in Sources */,
+				FF8F43D721BE6B95003FFEE8 /* Topic.swift in Sources */,
 				B34CF23721B6AA4400FC4CB4 /* AlbumItemController.swift in Sources */,
 				B3E953E521B6847600D60014 /* AuthScreenController.swift in Sources */,
 				B34CF23A21B6AD3300FC4CB4 /* ImageCellController.swift in Sources */,

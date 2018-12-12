@@ -160,7 +160,7 @@ extension AddJobController : UITableViewDelegate, UITableViewDataSource, UISearc
         }*/
         
     }
-    
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
 //        switch segue.identifier {
@@ -173,5 +173,5 @@ extension AddJobController : UITableViewDelegate, UITableViewDataSource, UISearc
 //        }
     }
     
-    
+    */
 }

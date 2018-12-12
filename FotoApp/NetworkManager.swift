@@ -110,6 +110,36 @@ class NetworkManager: NSObject {
         }
     }
     
+    static func getTopics(){
+        db.collection("topics").whereField("workers", arrayContains:
+            
+            Auth.auth().currentUser?.uid).addSnapshotListener { (querySnapshot, error) in
+            
+            guard let docs = querySnapshot?.documents else {
+                return
+            }
+            
+            docs.forEach({ (item) in
+                let data = item.data()
+                
+                debugPrint(data)
+                
+                do {
+                    try FirebaseDecoder().decode(Topic.self, from: data).save()
+                }
+                catch let err {
+                    debugPrint(err.localizedDescription)
+                    return
+            }
+            })
+            
+
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "topicListener"), object: nil)
+        }
+    }
+    
+
+    
     static func logout(completion: @escaping (Bool) -> ()) {
         let firebaseAuth = Auth.auth()
         do{

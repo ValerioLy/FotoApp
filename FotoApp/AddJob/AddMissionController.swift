@@ -27,7 +27,7 @@ class AddMissionController : UIViewController {
     
     var worker : [Users] = []
     
-    private var workers : [Topics] = []
+    //private var workers : [Topics] = []
     
      var idusers : [String]!
     

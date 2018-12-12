@@ -94,6 +94,7 @@ struct R: Rswift.Validatable {
   }
   
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 5 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `JobsCell`.
     static let jobsCell: Rswift.ReuseIdentifier<JobsCell> = Rswift.ReuseIdentifier(identifier: "JobsCell")
@@ -127,6 +128,7 @@ struct R: Rswift.Validatable {
     }
     
     /// This struct is generated for `AlbumItemController`, and contains static references to 2 segues.
+    /// This struct is generated for `AlbumItemController`, and contains static references to 1 segues.
     struct albumItemController {
       /// Segue identifier `segueToDetails`.
       static let segueToDetails: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumItemController, AlbumItemDetailsController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToDetails")
@@ -666,16 +668,37 @@ struct _R: Rswift.Validatable {
       try launchScreen.validate()
       try addJob.validate()
       try authScreen.validate()
+      try addJob.validate()
       try main.validate()
       try options.validate()
       try jobs.validate()
       try login.validate()
       try albumItem.validate()
       try signup.validate()
+      try launchScreen.validate()
+      try albumItem.validate()
+      try authScreen.validate()
+      try login.validate()
+      try options.validate()
+      try jobs.validate()
     }
     
     struct addJob: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = AddJobController
+      
+      let bundle = R.hostingBundle
+      let name = "AddJob"
+      
+      static func validate() throws {
+        if #available(iOS 11.0, *) {
+        }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct addJob: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
       let name = "AddJob"
