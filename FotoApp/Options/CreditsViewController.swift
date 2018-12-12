@@ -9,12 +9,12 @@
 import UIKit
 
 class CreditsViewController: UIViewController {
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var creditsText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textField.text = """
+        creditsText.text = """
         Made with 🖤 by:
         Francesco Baldan
         Nicola Pagiaro

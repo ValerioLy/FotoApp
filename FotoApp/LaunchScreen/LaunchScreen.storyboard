@@ -23,7 +23,6 @@
                     <connections>
                         <segue destination="flh-CE-JOh" kind="show" identifier="segueToAuth" id="lsy-f0-QxW"/>
                         <segue destination="SLP-GZ-8LL" kind="show" identifier="segueToHome" id="Rr2-bi-EBM"/>
-                        <segue destination="Xcg-l0-i2N" kind="show" identifier="" id="9dA-iv-uxU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vUy-e0-TE7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -44,7 +43,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="Jobs" storyboardName="Jobs" id="SLP-GZ-8LL" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qk3-Ok-oCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2628" y="297.75112443778113"/>
+            <point key="canvasLocation" x="2546" y="302"/>
         </scene>
         <!--Signup-->
         <scene sceneID="AKw-ET-muh">

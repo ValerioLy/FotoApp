@@ -23,12 +23,7 @@ class NetworkManager: NSObject {
       
     }
     
-    
-    
-    
-    
-    
-    static func checkUserInfo(completion : @escaping(Bool)->() )
+    static func checkUserInfo(hasInsertedData: Bool, completion : @escaping(Bool)->() )
     {
         guard let user = Auth.auth().currentUser else {
             completion(false)
@@ -51,63 +46,8 @@ class NetworkManager: NSObject {
                 
                 
         }
-        
-        
-            
-            completion(true)
-        }}
-    
-    
-    
-    
-    static func checkTermsUser(completion : @escaping(Bool)->() )
-    {  guard let user = Auth.auth().currentUser else {
-        completion(false)
-        print("Non prende l'utente")
-        return
-        }
-        db.collection(self.USERS_COLLECTION).document(user.uid).getDocument { (DocumentSnapshot, Error) in
-            if let err = Error {
-                print("Error getting documents: \(err)")
-            } else {
-                let dati = DocumentSnapshot?.data()
-                
-                let hasAcceptedContract = dati!["hasAcceptedContract"] as? Bool
-                guard hasAcceptedContract == true else {
-                    completion(false)
-                    print("Non ha inserito i dati")
-                    return
-                }
-            }
-            completion(true)
-        }
-    }
-    
-    
-    
-    
-    
-    static func uploadWorkerInfo( title : String, description : String, data : String, idUser : [String],     completion: @escaping (Bool) -> ()) {
-        
-        guard let user = Auth.auth().currentUser else { completion(false); return}
-        
-        db.collection(self.WORKER_COLLECTION).document(user.uid).setData([ "id":user.uid, "title" : title, "description" : description, "data": data, "idUser": idUser], merge: true, completion: { (error) in
-            
-            if let err = error{
-               
-                
-                print("Job could not be saved: \(error).")
-            }
-            else {
-                print("Job saved successfully!")
-                completion(true)
-            }
-            
-        })
-        
-    }
-
-    
+        completion(true)
+    }    
     
     static func getData (completion: @escaping([Users])-> Void) {
 
@@ -182,6 +122,36 @@ class NetworkManager: NSObject {
             completion(true, nil)
         }
     }
+    
+    static func getTopics(){
+        db.collection("topics").whereField("workers", arrayContains:
+            
+            Auth.auth().currentUser?.uid).addSnapshotListener { (querySnapshot, error) in
+            
+            guard let docs = querySnapshot?.documents else {
+                return
+            }
+            
+            docs.forEach({ (item) in
+                let data = item.data()
+                
+                debugPrint(data)
+                
+                do {
+                    try FirebaseDecoder().decode(Topic.self, from: data).save()
+                }
+                catch let err {
+                    debugPrint(err.localizedDescription)
+                    return
+            }
+            })
+            
+
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "topicListener"), object: nil)
+        }
+    }
+    
+
     
     static func logout(completion: @escaping (Bool) -> ()) {
         let firebaseAuth = Auth.auth()
@@ -276,21 +246,97 @@ class NetworkManager: NSObject {
         }
     }
     
-
-
-static func updateTerms(hasAcceptedContract: Bool, completion: @escaping(Bool) -> ()){
+    static func uploadPhoto(image : UIImage, albumId : String, completion : @escaping(Bool, String?) -> ()) {
+        guard let user = Auth.auth().currentUser else {
+            completion(false, "No such user")
+            return
+        }
+        
+        let userId = user.uid
+        let photoId = UUID().uuidString
+        
+        let folderRef = storageRef.child("\(albumId)/\(photoId).jpg")
+        folderRef.putData(image.pngData() ?? Data(), metadata: nil) { (metadata, error) in
+            guard metadata != nil else {
+                completion(false, error!.localizedDescription)
+                return
+            }
+            folderRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    completion(false, error!.localizedDescription)
+                    return
+                }
+                
+                db.collection(PHOTOS_COLLECTION).document(photoId).setData([
+                    "id" : photoId,
+                    "author" : userId,
+                    "date" : Date().dateInString,
+                    "link" : downloadURL.absoluteString,
+                    "accepted" : true
+                ]) { error in
+                    guard error == nil else {
+                        completion(false, error!.localizedDescription)
+                        return
+                    }
+                    
+                    db.collection(ALBUMS_COLLECTION).document(albumId).setData([
+                        "photos" : FieldValue.arrayUnion([photoId])
+                    ], merge : true) { error in
+                        guard error == nil else {
+                            completion(false, error!.localizedDescription)
+                            return
+                        }
+                        
+                        completion(true, nil)
+                    }
+                }
+            }
+        }
+    }
     
-    guard let user = Auth.auth().currentUser else {
-        completion(false)
-        return
+    static func getAlbumListener(albumId : String) -> ListenerRegistration? {
+        guard let user = Auth.auth().currentUser else {
+            return nil
+        }
         
     }
     
-        self.db.collection(USERS_COLLECTION).document(user.uid).updateData([
-            "hasAcceptedContract": hasAcceptedContract
-        ])
-    
-}
+    static func fetchAlbums(ids : [String], completion : @escaping (Bool, String?) -> ()) {
+        guard let user = Auth.auth().currentUser else {
+            completion(false, "No such user")
+            return
+        }
+        
+        var fetchCount = 0
+        ids.forEach({ (item) in
+            
+            db.collection(PHOTOS_COLLECTION).whereField("id", isEqualTo : item)
+                .getDocuments() { (querySnapshot, err) in
+                    guard err == nil else {
+                        completion(false, err!.localizedDescription)
+                        return
+                    }
+                    
+                    if let elementFound = querySnapshot?.documents.first?.data() {
+                        do {
+                            try FirebaseDecoder().decode(Photo.self, from: elementFound).save()
+                            fetchCount = fetchCount + 1
+                        }
+                        catch let err {
+                            completion(false, err.localizedDescription)
+                        }
+                        
+                        if fetchCount == ids.count {
+                            completion(true, nil)
+                        }
+                    }
+                    else {
+                        debugPrint("not found with id: \(item)")
+                    }
+            }
+            
+        })
+    }
 
 }
 
