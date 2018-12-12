@@ -104,7 +104,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Register" id="AbP-QV-HiJ">
                             <color key="tintColor" red="0.1137254902" green="0.57254901960000004" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="wOa-4c-pXX" kind="show" id="cGT-Ed-ozU"/>
+                                <segue destination="0lp-hg-4Ut" kind="show" id="r0I-vg-vLB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -114,7 +114,7 @@
                         <outlet property="login" destination="8xm-Uo-g33" id="qO0-QL-C36"/>
                         <outletCollection property="textfields" destination="eRp-Au-SZd" collectionClass="NSMutableArray" id="zsg-RJ-l4F"/>
                         <outletCollection property="textfields" destination="Bmc-bm-d5E" collectionClass="NSMutableArray" id="lI2-gW-4CA"/>
-                        <segue destination="aJ8-nN-b3n" kind="show" identifier="segueToJobs" id="GFw-X0-AS5"/>
+                        <segue destination="aJ8-nN-b3n" kind="show" id="6rd-sm-Zjq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PbZ-fQ-iSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -136,6 +136,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IrS-Cv-bUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1506" y="37"/>
+        </scene>
+        <!--Signup-->
+        <scene sceneID="9oV-E0-HB3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Signup" id="0lp-hg-4Ut" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jbm-NN-3ng" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1537" y="53"/>
         </scene>
     </scenes>
 </document>

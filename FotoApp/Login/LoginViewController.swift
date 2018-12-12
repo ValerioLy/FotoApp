@@ -18,6 +18,17 @@ class LoginViewController: UIViewController {
     }
     @IBOutlet var textfields: [UITextField]!
     
+    
+    
+    
+   
+    
+    
+    
+       
+    
+    
+    
     @IBOutlet weak var register: UIBarButtonItem!{
         didSet{
             register.title = "Register"
@@ -60,6 +71,9 @@ class LoginViewController: UIViewController {
         
         // hide back button
         self.navigationItem.setHidesBackButton(true, animated:false)
+        
+      
+        
     }
     
     @IBAction func loginAction(_ sender: UIButton) {

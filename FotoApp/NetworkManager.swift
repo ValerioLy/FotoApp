@@ -21,6 +21,8 @@ class NetworkManager: NSObject {
 
     static func initFirebase() {
         FirebaseApp.configure()
+        
+      
     }
     
     static func checkedLoggedUser(completion : @escaping (Bool) -> ()) {
@@ -38,10 +40,21 @@ class NetworkManager: NSObject {
            print("Non prende l'utente")
             return
         }
-        guard hasInsertedData == true else {
-                completion(false)
-            print("Non ha inserito i dati")
-            return
+
+        db.collection(self.USERS_COLLECTION).document(user.uid).getDocument { (DocumentSnapshot, Error) in
+            if let err = Error {
+                print("Error getting documents: \(err)")
+            } else {
+                let dati = DocumentSnapshot?.data()
+                
+                let hasInsertedData = dati!["hasInsertedData"] as? Bool
+                    guard hasInsertedData == true else {
+                        completion(false)
+                        print("Non ha inserito i dati")
+                        return
+                    }
+                
+                
         }
         completion(true)
     }
@@ -170,11 +183,33 @@ class NetworkManager: NSObject {
         }
     }
     
-    static func pushUserData(name: String? = nil, surname: String? = nil, email: String? = nil, image : UIImage? = nil, completion: @escaping(Bool, String?) -> ()){
+    static func pushUserData(email: String, hasInsertedData: Bool, hasAcceptedContract : Bool, completion: @escaping(Bool, String?) -> ()){
         
         guard let user = Auth.auth().currentUser else {
             completion(false, "No such user")
             return
+        }
+            self.db.collection(USERS_COLLECTION).document(user.uid).setData([
+                "id":user.uid,
+                "email": email,
+                "hasInsertedData": hasInsertedData,
+                "hasAcceptedContract": hasAcceptedContract
+            ], merge: true) { error in
+                if let error = error {
+                    completion(false, error.localizedDescription)
+                } else {
+                    completion(true, nil)
+                }
+            }
+        }
+    
+
+    static func pushFinalUserData(name: String? = nil, surname: String? = nil, image : UIImage? = nil, hasInsertedData: Bool, hasAcceptedContract : Bool, admin: Bool, completion: @escaping(Bool, String?) -> ()){
+        
+        guard let user = Auth.auth().currentUser else {
+            completion(false, "No such user")
+            return
+            
         }
         
         if let userImage = image {
@@ -192,11 +227,12 @@ class NetworkManager: NSObject {
                     }
                     
                     self.db.collection(USERS_COLLECTION).document(user.uid).setData([
-                        "id":user.uid,
                         "name": name ,
                         "surname": surname ,
-                        "email": email ,
-                        "image": downloadURL.absoluteString
+                        "image": downloadURL.absoluteString,
+                        "hasInsertedData": hasInsertedData,
+                        "hasAcceptedContract": hasAcceptedContract,
+                        "admin":admin
                     ], merge: true) { error in
                         if let error = error {
                             completion(false, error.localizedDescription)
@@ -207,13 +243,15 @@ class NetworkManager: NSObject {
                 }
             }
         }
+            
         else {
             self.db.collection(USERS_COLLECTION).document(user.uid).setData([
-                "id":user.uid,
                 "name": name ,
                 "surname": surname ,
-                "email": email ,
-                "image": nil
+                "image": "",
+                "hasInsertedData": hasInsertedData,
+                "hasAcceptedContract": hasAcceptedContract,
+                  "admin":admin
             ], merge: true) { error in
                 if let error = error {
                     completion(false, error.localizedDescription)
@@ -313,23 +351,6 @@ class NetworkManager: NSObject {
             return nil
         }
         
-        return db.collection(ALBUMS_COLLECTION).document(albumId).addSnapshotListener(includeMetadataChanges: false) { documentSnapshot, error in
-            
-            guard let data = documentSnapshot?.data() else {
-                return
-            }
-            
-            do {
-                try FirebaseDecoder().decode(Album.self, from: data).save()
-            }
-            catch let err {
-                debugPrint(err.localizedDescription)
-                return
-            }
-            
-            // send push notification to HomepageController
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "photoListener"), object: nil)
-        }
     }
     
     static func fetchAlbums(ids : [String], completion : @escaping (Bool, String?) -> ()) {
@@ -370,3 +391,5 @@ class NetworkManager: NSObject {
     }
 
 }
+
+

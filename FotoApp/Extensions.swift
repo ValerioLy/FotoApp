@@ -151,3 +151,19 @@ extension UIColor {
     
     static var primaryColor = UIColor(hexString: "#1D9262")
 }
+
+extension Date {
+    
+    
+    
+    var dateInString : String {
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss +zzz"
+        
+        return dateFormatter.string(from: self)
+        
+    }
+    
+}
