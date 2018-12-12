@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -61,6 +61,7 @@
                                             <outlet property="imageOutlet" destination="VL8-8R-2RG" id="Q4t-bQ-MAS"/>
                                             <outlet property="missionDate" destination="bLd-C0-ego" id="f5U-kz-dYc"/>
                                             <outlet property="missionName" destination="3U3-uN-xsf" id="s5Z-8h-ueB"/>
+                                            <segue destination="qkP-uv-O4d" kind="show" id="SGp-Qx-zKA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -104,12 +105,19 @@
                         <outlet property="buttonOutlet" destination="fOu-2S-81E" id="hMc-Xa-Aki"/>
                         <outlet property="tableView" destination="iFB-Rb-SLM" id="tSu-f4-OJm"/>
                         <segue destination="l3a-fK-ypD" kind="show" identifier="addSegue" id="wfB-8c-5iq"/>
-                        <segue destination="EOt-cH-F6e" kind="show" identifier="jobSegue" id="O6Z-mY-ZPa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUV-1o-RHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1032.8" y="150.67466266866569"/>
+        </scene>
+        <!--JobDetails-->
+        <scene sceneID="M4I-UO-iEo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="JobDetails" id="qkP-uv-O4d" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ah-59-b1K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1599" y="150"/>
         </scene>
         <!--Options-->
         <scene sceneID="5gX-zM-JIr">

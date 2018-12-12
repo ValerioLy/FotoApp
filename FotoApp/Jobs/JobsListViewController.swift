@@ -17,12 +17,8 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var buttonOutlet: UIButton! {
-        didSet {
-            buttonOutlet.circle()
-        }
-    }
-    private var db: Firestore! = Firestore.firestore()
+    @IBOutlet weak var buttonOutlet: UIButton!
+//    private var db: Firestore! = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
