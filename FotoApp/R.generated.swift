@@ -195,21 +195,6 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `LoginViewController`, and contains static references to 1 segues.
-    struct loginViewController {
-      /// Segue identifier `segueResetPassword`.
-      static let segueResetPassword: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LoginViewController, ResetPasswordController> = Rswift.StoryboardSegueIdentifier(identifier: "segueResetPassword")
-      
-      /// Optionally returns a typed version of segue `segueResetPassword`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueResetPassword(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, ResetPasswordController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.loginViewController.segueResetPassword, segue: segue)
-      }
-      
-      fileprivate init() {}
-    }
-    
     /// This struct is generated for `OptionsViewController`, and contains static references to 3 segues.
     struct optionsViewController {
       /// Segue identifier `authSegue`.
@@ -698,24 +683,17 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try jobs.validate()
-      try albumItem.validate()
-      try options.validate()
       try addAlbum.validate()
-      try signup.validate()
       try launchScreen.validate()
-      try jobDetails.validate()
-      try authScreen.validate()
-      try addJob.validate()
-      try main.validate()
       try login.validate()
-      try signup.validate()
-      try launchScreen.validate()
-      try jobs.validate()
-      try main.validate()
+      try jobDetails.validate()
       try options.validate()
+      try main.validate()
       try addJob.validate()
       try authScreen.validate()
+      try jobs.validate()
+      try signup.validate()
+      try albumItem.validate()
     }
     
     struct addAlbum: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -773,8 +751,8 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "trees") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'trees' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
         if UIKit.UIImage(named: "email-icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'email-icon' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "trees") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'trees' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
         if _R.storyboard.authScreen().authScreen() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'authScreen' could not be loaded from storyboard 'AuthScreen' as 'AuthScreenController'.") }
@@ -862,8 +840,8 @@ struct _R: Rswift.Validatable {
       let name = "Options"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'Options', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }

@@ -71,9 +71,6 @@ class LoginViewController: UIViewController {
         
         // hide back button
         self.navigationItem.setHidesBackButton(true, animated:false)
-        
-      
-        
     }
     
     @IBAction func loginAction(_ sender: UIButton) {
@@ -107,11 +104,4 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
-    @IBAction func forgotAction(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "segueResetPassword", sender: self)
-    }
-    
-    
-
 }
