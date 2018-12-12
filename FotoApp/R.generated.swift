@@ -195,6 +195,21 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    /// This struct is generated for `LoginViewController`, and contains static references to 1 segues.
+    struct loginViewController {
+      /// Segue identifier `segueResetPassword`.
+      static let segueResetPassword: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LoginViewController, ResetPasswordController> = Rswift.StoryboardSegueIdentifier(identifier: "segueResetPassword")
+      
+      /// Optionally returns a typed version of segue `segueResetPassword`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueResetPassword(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, ResetPasswordController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.loginViewController.segueResetPassword, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
     /// This struct is generated for `OptionsViewController`, and contains static references to 3 segues.
     struct optionsViewController {
       /// Segue identifier `authSegue`.
@@ -694,6 +709,13 @@ struct _R: Rswift.Validatable {
       try addJob.validate()
       try main.validate()
       try login.validate()
+      try signup.validate()
+      try launchScreen.validate()
+      try jobs.validate()
+      try main.validate()
+      try options.validate()
+      try addJob.validate()
+      try authScreen.validate()
     }
     
     struct addAlbum: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {

@@ -50,6 +50,7 @@
                                 <state key="normal" title="Forgot password"/>
                                 <connections>
                                     <action selector="forgotAction:" destination="5e3-Id-tss" eventType="touchUpInside" id="fQH-s6-u7g"/>
+                                    <segue destination="fwx-Cl-uTB" kind="show" identifier="segueResetPassword" id="LoY-gl-pfH"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bmc-bm-d5E">
@@ -128,6 +129,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nLa-rC-8b6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1516" y="-270"/>
+        </scene>
+        <!--Reset Password Controller-->
+        <scene sceneID="tLu-4C-umT">
+            <objects>
+                <viewController id="fwx-Cl-uTB" customClass="ResetPasswordController" customModule="FotoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kJa-29-SZU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgj-jk-C4f">
+                                <rect key="frame" x="16" y="313" width="343" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.25930757558383327" green="0.54964783031088082" blue="0.43376179009469207" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Reset Password">
+                                    <color key="titleColor" red="1" green="0.98806349569999996" blue="0.98121106650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetPassword:" destination="fwx-Cl-uTB" eventType="touchUpInside" id="Hmn-Mv-IAL"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ROm-x3-mNE">
+                                <rect key="frame" x="16" y="252" width="343" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Inserisci la tua email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKF-J8-y1E">
+                                <rect key="frame" x="16" y="208" width="343" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOU-3Q-5Y7">
+                                <rect key="frame" x="16" y="361" width="343" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.2688023886" blue="0.15699232860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="1" green="0.98806349569999996" blue="0.98121106650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelAction:" destination="fwx-Cl-uTB" eventType="touchUpInside" id="1Tj-lA-ASj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="6AH-Fc-LEt"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelOutlet" destination="dOU-3Q-5Y7" id="feZ-hA-tfP"/>
+                        <outlet property="emailField" destination="ROm-x3-mNE" id="YSB-3t-n2a"/>
+                        <outlet property="labelTitle" destination="EKF-J8-y1E" id="PiV-3a-CM6"/>
+                        <outlet property="resetpasswordOutlet" destination="Pgj-jk-C4f" id="VgJ-ZB-Ygm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MEC-UT-mpM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2008.8" y="17.541229385307346"/>
         </scene>
         <!--Jobs-->
         <scene sceneID="gju-MI-4nT">
