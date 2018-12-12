@@ -12,8 +12,7 @@ import CodableFirebase
 
 class NetworkManager: NSObject {
     private static let USERS_COLLECTION = "users"
-    private static let ALBUMS_COLLECTION = "albums"
-    private static let PHOTOS_COLLECTION = "photos"
+     private static let TOPICS_COLLECTION = "topics"
     private static var db : Firestore = Firestore.firestore()
     private static var storageRef : StorageReference = Storage.storage().reference()
 
@@ -48,6 +47,56 @@ class NetworkManager: NSObject {
         }
         completion(true)
     }    
+    
+    
+    
+    
+    static func checkTermsUser(completion : @escaping(Bool)->() )
+    {  guard let user = Auth.auth().currentUser else {
+        completion(false)
+        print("Non prende l'utente")
+        return
+        }
+        db.collection(self.USERS_COLLECTION).document(user.uid).getDocument { (DocumentSnapshot, Error) in
+            if let err = Error {
+                print("Error getting documents: \(err)")
+            } else {
+                let dati = DocumentSnapshot?.data()
+                
+                let hasAcceptedContract = dati!["hasAcceptedContract"] as? Bool
+                guard hasAcceptedContract == true else {
+                    completion(false)
+                    print("Non ha inserito i dati")
+                    return
+                }
+            }
+            completion(true)
+        }
+    }
+    
+    
+    
+    
+    
+    static func uploadTopics(title : String, descriptio : String, expiration : String, creator : String, workers : [String], albums : [String], completion: @escaping (Bool) -> ()) {
+        
+        guard let user = Auth.auth().currentUser else { completion(false); return}
+        
+        db.collection(self.TOPICS_COLLECTION).addDocument(data: ["id": UUID().uuidString, "title" : title, "descriptio" : descriptio, "expiration": expiration, "creation":  Date().dateInString, "creator": user.uid, "workers": workers, "albums": albums], completion: { (error) in
+            
+            if let err = error{
+                print("Job could not be saved: \(error).")
+            }
+            else {
+                print("Job saved successfully!")
+                completion(true)
+            }
+        })
+    }
+        
+        
+      
+    
     
     static func getData (completion: @escaping([Users])-> Void) {
 

@@ -110,12 +110,27 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 7 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 6 view controllers.
   struct segue {
     /// This struct is generated for `AddJobController`, and contains static references to 1 segues.
     struct addJobController {
-      /// Segue identifier `segueAddJob`.
-      static let segueAddJob: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AddJobController, AddMissionController> = Rswift.StoryboardSegueIdentifier(identifier: "segueAddJob")
+      /// Segue identifier `segueMission`.
+      static let segueMission: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AddJobController, AddMissioneController> = Rswift.StoryboardSegueIdentifier(identifier: "segueMission")
+      
+      /// Optionally returns a typed version of segue `segueMission`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueMission(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AddJobController, AddMissioneController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.addJobController.segueMission, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `ContractController`, and contains static references to 1 segues.
+    struct contractController {
+      /// Segue identifier `segueJobs`.
+      static let segueJobs: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ContractController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "segueJobs")
       
       /// Optionally returns a typed version of segue `segueAddJob`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
@@ -672,23 +687,14 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try jobs.validate()
-      try launchScreen.validate()
       try addJob.validate()
-      try authScreen.validate()
-      try addJob.validate()
-      try main.validate()
-      try options.validate()
-      try jobs.validate()
       try login.validate()
-      try albumItem.validate()
+      try launchScreen.validate()
       try signup.validate()
-      try launchScreen.validate()
-      try albumItem.validate()
-      try authScreen.validate()
-      try login.validate()
-      try options.validate()
       try jobs.validate()
+      try main.validate()
+      try authScreen.validate()
+      try options.validate()
     }
     
     struct addJob: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
