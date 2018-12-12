@@ -109,11 +109,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func forgotAction(_ sender: UIButton) {
-        /*self.performSegue(withIdentifier: R.segue.loginController.segueToMain, sender: self)*/
+        self.performSegue(withIdentifier: "segueResetPassword", sender: self)
     }
     
     
-    @IBAction func registerAction(_ sender: UIBarButtonItem) {
-        /*self.performSegue(withIdentifier: R.segue.loginController.segueToMain, sender: self)*/
-    }
+
 }

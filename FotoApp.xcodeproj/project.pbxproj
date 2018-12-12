@@ -38,6 +38,7 @@
 		F94711E021B6CB61007F5019 /* JobCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711DF21B6CB61007F5019 /* JobCell.swift */; };
 		F94711E321B6D010007F5019 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711E221B6D010007F5019 /* Users.swift */; };
 		F94711E521B6D27E007F5019 /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711E421B6D27E007F5019 /* RealmUtils.swift */; };
+		F97DD71321C144E80007E18D /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DD71221C144E80007E18D /* ResetPasswordController.swift */; };
 		F982426C21C01326000A041E /* AddMissioneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F982426B21C01326000A041E /* AddMissioneController.swift */; };
 		FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570221B576D000CED714 /* CreditsViewController.swift */; };
 		FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570421B5896E00CED714 /* UserInfoViewController.swift */; };
@@ -107,6 +108,7 @@
 		F94711E221B6D010007F5019 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		F94711E421B6D27E007F5019 /* RealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUtils.swift; sourceTree = "<group>"; };
 		F94DB91E21B29B0000DB2452 /* ContractController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractController.swift; sourceTree = "<group>"; };
+		F97DD71221C144E80007E18D /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		F982426B21C01326000A041E /* AddMissioneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissioneController.swift; sourceTree = "<group>"; };
 		F9F4D81021BE77AB00E6F094 /* Topics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topics.swift; sourceTree = "<group>"; };
 		FF1E570221B576D000CED714 /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				B3E9540721B6913300D60014 /* LoginViewController.swift */,
 				B3E953EF21B6850600D60014 /* Login.storyboard */,
+				F97DD71221C144E80007E18D /* ResetPasswordController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				B3E953ED21B684CB00D60014 /* LaunchScreenController.swift in Sources */,
 				FF8F43E921BEB58F003FFEE8 /* GeneralUtils.swift in Sources */,
 				F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */,
+				F97DD71321C144E80007E18D /* ResetPasswordController.swift in Sources */,
 				FF5C803A21B5333D0045EC1A /* OptionsViewController.swift in Sources */,
 				FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */,
 				F94711E321B6D010007F5019 /* Users.swift in Sources */,

@@ -111,7 +111,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 6 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 7 view controllers.
   struct segue {
     /// This struct is generated for `AddJobController`, and contains static references to 1 segues.
     struct addJobController {
@@ -162,6 +162,21 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func segueToHome(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LaunchScreenController, UIKit.UINavigationController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.launchScreenController.segueToHome, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `LoginViewController`, and contains static references to 1 segues.
+    struct loginViewController {
+      /// Segue identifier `segueResetPassword`.
+      static let segueResetPassword: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LoginViewController, ResetPasswordController> = Rswift.StoryboardSegueIdentifier(identifier: "segueResetPassword")
+      
+      /// Optionally returns a typed version of segue `segueResetPassword`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueResetPassword(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, ResetPasswordController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.loginViewController.segueResetPassword, segue: segue)
       }
       
       fileprivate init() {}
@@ -636,12 +651,12 @@ struct _R: Rswift.Validatable {
     static func validate() throws {
       try login.validate()
       try options.validate()
-      try signup.validate()
       try launchScreen.validate()
       try authScreen.validate()
+      try signup.validate()
       try addJob.validate()
-      try jobs.validate()
       try main.validate()
+      try jobs.validate()
     }
     
     struct addJob: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -785,8 +800,8 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Signup', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
-        if _R.storyboard.signup().userInfoController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userInfoController' could not be loaded from storyboard 'Signup' as 'UIKit.UINavigationController'.") }
         if _R.storyboard.signup().termsController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'termsController' could not be loaded from storyboard 'Signup' as 'UIKit.UINavigationController'.") }
+        if _R.storyboard.signup().userInfoController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userInfoController' could not be loaded from storyboard 'Signup' as 'UIKit.UINavigationController'.") }
       }
       
       fileprivate init() {}
