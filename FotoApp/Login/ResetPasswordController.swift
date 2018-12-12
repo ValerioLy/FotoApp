@@ -17,6 +17,17 @@ class ResetPasswordController: UIViewController {
         
     }
     
+    @IBOutlet weak var cancelOutlet: UIButton! {
+        didSet {
+            cancelOutlet.roundedCorners()
+        }
+    }
+    
+    @IBOutlet weak var resetpasswordOutlet: UIButton!{
+        didSet {
+            resetpasswordOutlet.roundedCorners()
+        }
+    }
     
     @IBOutlet weak var labelTitle: UILabel!
     

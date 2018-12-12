@@ -173,8 +173,10 @@
                         <viewLayoutGuide key="safeArea" id="6AH-Fc-LEt"/>
                     </view>
                     <connections>
+                        <outlet property="cancelOutlet" destination="dOU-3Q-5Y7" id="feZ-hA-tfP"/>
                         <outlet property="emailField" destination="ROm-x3-mNE" id="YSB-3t-n2a"/>
                         <outlet property="labelTitle" destination="EKF-J8-y1E" id="PiV-3a-CM6"/>
+                        <outlet property="resetpasswordOutlet" destination="Pgj-jk-C4f" id="VgJ-ZB-Ygm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MEC-UT-mpM" userLabel="First Responder" sceneMemberID="firstResponder"/>
