@@ -85,11 +85,11 @@ class NetworkManager: NSObject {
     
     
     
-    static func uploadTopics(title : String, description : String, scadenza : String, createdBy : String, workers : [String], albums : [String], completion: @escaping (Bool) -> ()) {
+    static func uploadTopics(title : String, descriptio : String, expiration : String, creator : String, workers : [String], albums : [String], completion: @escaping (Bool) -> ()) {
         
         guard let user = Auth.auth().currentUser else { completion(false); return}
         
-        db.collection(self.TOPICS_COLLECTION).addDocument(data: ["id": UUID().uuidString, "title" : title, "description" : description, "scadenza": scadenza, "data": Date(), "createdBy": createdBy, "workers": workers, "albums": albums], completion: { (error) in
+        db.collection(self.TOPICS_COLLECTION).addDocument(data: ["id": UUID().uuidString, "title" : title, "descriptio" : descriptio, "expiration": expiration, "creation": Date(), "creator": user.uid, "workers": workers, "albums": albums], completion: { (error) in
             
             if let err = error{
                 print("Job could not be saved: \(error).")
