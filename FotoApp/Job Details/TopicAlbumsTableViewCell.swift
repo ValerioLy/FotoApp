@@ -1,18 +1,22 @@
 //
-//  TableViewCell.swift
+//  TopicAlbumsTableViewCell.swift
 //  FotoApp
 //
-//  Created by Alessio Lasta on 04/12/2018.
+//  Created by Alessio Lasta on 12/12/2018.
 //
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class TopicAlbumsTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var label: UILabel!
     
-    static let kIdentifier = "TableCell"
-
+    static let kIdentifier = "TopicAlbumsTableViewCell"
+    
+    
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var photos: UILabel!
+    @IBOutlet weak var divider: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

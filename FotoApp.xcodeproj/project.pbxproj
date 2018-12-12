@@ -8,11 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		8E09E2A0D4D4BE636EC7615C /* Pods_FotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2568872B37835C655A12FFB8 /* Pods_FotoApp.framework */; };
+		9CCC5CAF21C1006B007F4F04 /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC5CAC21C1006B007F4F04 /* JobDetailsViewController.swift */; };
+		9CCC5CB021C1006B007F4F04 /* JobDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CCC5CAD21C1006B007F4F04 /* JobDetails.storyboard */; };
+		9CCC5CB321C10894007F4F04 /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC5CB221C10894007F4F04 /* TopicTableViewCell.swift */; };
+		9CCC5CB521C108A8007F4F04 /* TopicAlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC5CB421C108A8007F4F04 /* TopicAlbumsTableViewCell.swift */; };
 		B31A3DEC21B584950014749E /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DE821B584950014749E /* UserInfoController.swift */; };
 		B31A3DEE21B584950014749E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DEA21B584950014749E /* SignupController.swift */; };
-		B371535121B69BA60069A5B0 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B371535021B69BA60069A5B0 /* R.generated.swift */; };
-		B371535221B69BC30069A5B0 /* R.generated.swift in Resources */ = {isa = PBXBuildFile; fileRef = B371535021B69BA60069A5B0 /* R.generated.swift */; };
+		B3416D7821BEB84100D44AB4 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3416D7721BEB84100D44AB4 /* Album.swift */; };
+		B3416D7A21BEC2EE00D44AB4 /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3416D7921BEC2EE00D44AB4 /* RealmUtils.swift */; };
+		B34CF23721B6AA4400FC4CB4 /* AlbumItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34CF23621B6AA4400FC4CB4 /* AlbumItemController.swift */; };
+		B34CF23A21B6AD3300FC4CB4 /* ImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34CF23921B6AD3300FC4CB4 /* ImageCellController.swift */; };
+		B34CF23D21B6BDF600FC4CB4 /* SingleLineActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34CF23B21B6BDA200FC4CB4 /* SingleLineActionController.swift */; };
+		B34CF24021B6CEE500FC4CB4 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34CF23F21B6CEE500FC4CB4 /* Photo.swift */; };
+		B34CF24221B6E1D600FC4CB4 /* NetworkImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34CF24121B6E1D600FC4CB4 /* NetworkImageManager.swift */; };
+		B37B33F321B7D5FF005510B7 /* FullImageViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37B33F221B7D5FF005510B7 /* FullImageViewerController.swift */; };
 		B399C12D21B578C800ABB0F6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399C12C21B578C800ABB0F6 /* NetworkManager.swift */; };
+		B3A415A421BFD71B0083F016 /* Topics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F4D81021BE77AB00E6F094 /* Topics.swift */; };
+		B3A415A821BFD8990083F016 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A415A721BFD8980083F016 /* R.generated.swift */; };
+		B3A415A921BFD91D0083F016 /* AddMissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97475E721BA829600FF7B0F /* AddMissionController.swift */; };
+		B3A415AD21BFE5290083F016 /* SingleDetailAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A415AC21BFE5290083F016 /* SingleDetailAlbumCell.swift */; };
+		B3A415AE21BFE5F60083F016 /* AlbumItemDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A415AA21BFE25A0083F016 /* AlbumItemDetailsController.swift */; };
+		B3A415AF21BFE68D0083F016 /* AlbumItem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34CF23421B6A9A900FC4CB4 /* AlbumItem.storyboard */; };
 		B3E953E521B6847600D60014 /* AuthScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E953E321B6847600D60014 /* AuthScreenController.swift */; };
 		B3E953E621B6847600D60014 /* AuthScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E953E421B6847600D60014 /* AuthScreen.storyboard */; };
 		B3E953E921B6849D00D60014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E953E821B6849D00D60014 /* AppDelegate.swift */; };
@@ -33,6 +49,12 @@
 		F93EFE5421AED0CE00FBC875 /* Xcode.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE5321AED0CE00FBC875 /* Xcode.gitignore */; };
 		F93EFE5A21AED87000FBC875 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE5921AED87000FBC875 /* SignupController.swift */; };
 		F9442BA221B162D900F45C32 /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9442BA121B162D900F45C32 /* UserInfoController.swift */; };
+		F94711DC21B6B642007F5019 /* AddJob.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94711DB21B6B642007F5019 /* AddJob.storyboard */; };
+		F94711DE21B6C1E0007F5019 /* AddJobController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711DD21B6C1E0007F5019 /* AddJobController.swift */; };
+		F94711E021B6CB61007F5019 /* JobCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711DF21B6CB61007F5019 /* JobCell.swift */; };
+		F94711E321B6D010007F5019 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711E221B6D010007F5019 /* Users.swift */; };
+		F94711E521B6D27E007F5019 /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711E421B6D27E007F5019 /* RealmUtils.swift */; };
+		FF15E4BD21C0104200E739F5 /* AddMissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97475E721BA829600FF7B0F /* AddMissionController.swift */; };
 		FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570221B576D000CED714 /* CreditsViewController.swift */; };
 		FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570421B5896E00CED714 /* UserInfoViewController.swift */; };
 		FF5C803821B52C6E0045EC1A /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF5C803721B52C6E0045EC1A /* Options.storyboard */; };
@@ -40,7 +62,7 @@
 		FF8F43D221BE6B49003FFEE8 /* JobsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F43CF21BE6B49003FFEE8 /* JobsCell.swift */; };
 		FF8F43D321BE6B49003FFEE8 /* JobsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F43D021BE6B49003FFEE8 /* JobsListViewController.swift */; };
 		FF8F43D421BE6B49003FFEE8 /* Jobs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8F43D121BE6B49003FFEE8 /* Jobs.storyboard */; };
-		FF8F43D721BE6B95003FFEE8 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F43D621BE6B95003FFEE8 /* Mission.swift */; };
+		FF8F43D721BE6B95003FFEE8 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F43D621BE6B95003FFEE8 /* Topic.swift */; };
 		FF8F43E921BEB58F003FFEE8 /* GeneralUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F43E821BEB58E003FFEE8 /* GeneralUtils.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,10 +86,25 @@
 /* Begin PBXFileReference section */
 		2568872B37835C655A12FFB8 /* Pods_FotoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FotoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		922402085D1303BC36DAD3BD /* Pods-FotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.release.xcconfig"; sourceTree = "<group>"; };
+		9CCC5CAC21C1006B007F4F04 /* JobDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
+		9CCC5CAD21C1006B007F4F04 /* JobDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JobDetails.storyboard; sourceTree = "<group>"; };
+		9CCC5CB221C10894007F4F04 /* TopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
+		9CCC5CB421C108A8007F4F04 /* TopicAlbumsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicAlbumsTableViewCell.swift; sourceTree = "<group>"; };
 		B31A3DE821B584950014749E /* UserInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfoController.swift; path = FotoApp/Register/UserInfoController.swift; sourceTree = SOURCE_ROOT; };
 		B31A3DEA21B584950014749E /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupController.swift; path = FotoApp/Register/SignupController.swift; sourceTree = SOURCE_ROOT; };
-		B371535021B69BA60069A5B0 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		B3416D7721BEB84100D44AB4 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		B3416D7921BEC2EE00D44AB4 /* RealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUtils.swift; sourceTree = "<group>"; };
+		B34CF23421B6A9A900FC4CB4 /* AlbumItem.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlbumItem.storyboard; sourceTree = "<group>"; };
+		B34CF23621B6AA4400FC4CB4 /* AlbumItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumItemController.swift; sourceTree = "<group>"; };
+		B34CF23921B6AD3300FC4CB4 /* ImageCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCellController.swift; sourceTree = "<group>"; };
+		B34CF23B21B6BDA200FC4CB4 /* SingleLineActionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineActionController.swift; sourceTree = "<group>"; };
+		B34CF23F21B6CEE500FC4CB4 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		B34CF24121B6E1D600FC4CB4 /* NetworkImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImageManager.swift; sourceTree = "<group>"; };
+		B37B33F221B7D5FF005510B7 /* FullImageViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageViewerController.swift; sourceTree = "<group>"; };
 		B399C12C21B578C800ABB0F6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B3A415A721BFD8980083F016 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		B3A415AA21BFE25A0083F016 /* AlbumItemDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumItemDetailsController.swift; sourceTree = "<group>"; };
+		B3A415AC21BFE5290083F016 /* SingleDetailAlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDetailAlbumCell.swift; sourceTree = "<group>"; };
 		B3E953E321B6847600D60014 /* AuthScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenController.swift; sourceTree = "<group>"; };
 		B3E953E421B6847600D60014 /* AuthScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthScreen.storyboard; sourceTree = "<group>"; };
 		B3E953E821B6849D00D60014 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +132,14 @@
 		F93EFE5321AED0CE00FBC875 /* Xcode.gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = Xcode.gitignore; sourceTree = "<group>"; };
 		F93EFE5921AED87000FBC875 /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		F9442BA121B162D900F45C32 /* UserInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoController.swift; sourceTree = "<group>"; };
+		F94711DB21B6B642007F5019 /* AddJob.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddJob.storyboard; sourceTree = "<group>"; };
+		F94711DD21B6C1E0007F5019 /* AddJobController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobController.swift; sourceTree = "<group>"; };
+		F94711DF21B6CB61007F5019 /* JobCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCell.swift; sourceTree = "<group>"; };
+		F94711E221B6D010007F5019 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		F94711E421B6D27E007F5019 /* RealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUtils.swift; sourceTree = "<group>"; };
 		F94DB91E21B29B0000DB2452 /* ContractController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractController.swift; sourceTree = "<group>"; };
+		F97475E721BA829600FF7B0F /* AddMissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionController.swift; sourceTree = "<group>"; };
+		F9F4D81021BE77AB00E6F094 /* Topics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topics.swift; sourceTree = "<group>"; };
 		FF1E570221B576D000CED714 /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		FF1E570421B5896E00CED714 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		FF5C803721B52C6E0045EC1A /* Options.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Options.storyboard; sourceTree = "<group>"; };
@@ -103,7 +147,7 @@
 		FF8F43CF21BE6B49003FFEE8 /* JobsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsCell.swift; sourceTree = "<group>"; };
 		FF8F43D021BE6B49003FFEE8 /* JobsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsListViewController.swift; sourceTree = "<group>"; };
 		FF8F43D121BE6B49003FFEE8 /* Jobs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Jobs.storyboard; sourceTree = "<group>"; };
-		FF8F43D621BE6B95003FFEE8 /* Mission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
+		FF8F43D621BE6B95003FFEE8 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		FF8F43E821BEB58E003FFEE8 /* GeneralUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +177,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9CCC5CAB21C1006B007F4F04 /* Job Details */ = {
+			isa = PBXGroup;
+			children = (
+				9CCC5CAC21C1006B007F4F04 /* JobDetailsViewController.swift */,
+				9CCC5CAD21C1006B007F4F04 /* JobDetails.storyboard */,
+				9CCC5CB221C10894007F4F04 /* TopicTableViewCell.swift */,
+				9CCC5CB421C108A8007F4F04 /* TopicAlbumsTableViewCell.swift */,
+			);
+			path = "Job Details";
+			sourceTree = "<group>";
+		};
 		AF3EE70B921AAD5A93E64A5A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +195,41 @@
 				922402085D1303BC36DAD3BD /* Pods-FotoApp.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B34CF23321B6A98800FC4CB4 /* AlbumItemSpecs */ = {
+			isa = PBXGroup;
+			children = (
+				B34CF23821B6AABE00FC4CB4 /* ListCells */,
+				B34CF23421B6A9A900FC4CB4 /* AlbumItem.storyboard */,
+				B34CF23621B6AA4400FC4CB4 /* AlbumItemController.swift */,
+				B37B33F221B7D5FF005510B7 /* FullImageViewerController.swift */,
+				B3A415AA21BFE25A0083F016 /* AlbumItemDetailsController.swift */,
+			);
+			name = AlbumItemSpecs;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		B34CF23821B6AABE00FC4CB4 /* ListCells */ = {
+			isa = PBXGroup;
+			children = (
+				B34CF23921B6AD3300FC4CB4 /* ImageCellController.swift */,
+				B34CF23B21B6BDA200FC4CB4 /* SingleLineActionController.swift */,
+				B3A415AC21BFE5290083F016 /* SingleDetailAlbumCell.swift */,
+			);
+			path = ListCells;
+			sourceTree = "<group>";
+		};
+		B34CF23E21B6CEB300FC4CB4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF8F43D621BE6B95003FFEE8 /* Topic.swift */,
+				B34CF23F21B6CEE500FC4CB4 /* Photo.swift */,
+				B3416D7721BEB84100D44AB4 /* Album.swift */,
+				F94711E221B6D010007F5019 /* Users.swift */,
+				F9F4D81021BE77AB00E6F094 /* Topics.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B3E953E221B6839100D60014 /* Recovered References */ = {
@@ -212,9 +302,12 @@
 		F93EFE1221AEB24C00FBC875 /* FotoApp */ = {
 			isa = PBXGroup;
 			children = (
-				FF8F43D521BE6B95003FFEE8 /* Models */,
+				9CCC5CAB21C1006B007F4F04 /* Job Details */,
 				FF8F43CE21BE6B49003FFEE8 /* Jobs */,
+				B34CF23321B6A98800FC4CB4 /* AlbumItemSpecs */,
+				B34CF23E21B6CEB300FC4CB4 /* Models */,
 				B3E953F321B6850C00D60014 /* Login */,
+				F94711DA21B6B61F007F5019 /* AddJob */,
 				B3E953EE21B684CE00D60014 /* LaunchScreen */,
 				B3E953E721B6847A00D60014 /* Auth */,
 				FF5C803621B52BC00045EC1A /* Options */,
@@ -222,15 +315,18 @@
 				F93EFE1721AEB24C00FBC875 /* Main.storyboard */,
 				B3E953F421B6853C00D60014 /* Extensions.swift */,
 				F93EFE1521AEB24C00FBC875 /* ViewController.swift */,
+				B3A415A721BFD8980083F016 /* R.generated.swift */,
+				F94711E421B6D27E007F5019 /* RealmUtils.swift */,
 				B399C12C21B578C800ABB0F6 /* NetworkManager.swift */,
 				B3E953E821B6849D00D60014 /* AppDelegate.swift */,
 				FF8F43E821BEB58E003FFEE8 /* GeneralUtils.swift */,
-				B371535021B69BA60069A5B0 /* R.generated.swift */,
+				B34CF24121B6E1D600FC4CB4 /* NetworkImageManager.swift */,
 				F93EFE1A21AEB24D00FBC875 /* Assets.xcassets */,
 				F93EFE4321AEB38E00FBC875 /* GoogleService-Info.plist */,
 				F93EFE1F21AEB24D00FBC875 /* Info.plist */,
 				F93EFE4B21AEB6E200FBC875 /* Localizable.strings */,
 				F93EFE5321AED0CE00FBC875 /* Xcode.gitignore */,
+				B3416D7921BEC2EE00D44AB4 /* RealmUtils.swift */,
 			);
 			path = FotoApp;
 			sourceTree = "<group>";
@@ -264,6 +360,17 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
+		F94711DA21B6B61F007F5019 /* AddJob */ = {
+			isa = PBXGroup;
+			children = (
+				F94711DB21B6B642007F5019 /* AddJob.storyboard */,
+				F94711DD21B6C1E0007F5019 /* AddJobController.swift */,
+				F94711DF21B6CB61007F5019 /* JobCell.swift */,
+				F97475E721BA829600FF7B0F /* AddMissionController.swift */,
+			);
+			path = AddJob;
+			sourceTree = "<group>";
+		};
 		FF5C803621B52BC00045EC1A /* Options */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,14 +390,6 @@
 				FF8F43D121BE6B49003FFEE8 /* Jobs.storyboard */,
 			);
 			path = Jobs;
-			sourceTree = "<group>";
-		};
-		FF8F43D521BE6B95003FFEE8 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				FF8F43D621BE6B95003FFEE8 /* Mission.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,17 +501,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF8F43D421BE6B49003FFEE8 /* Jobs.storyboard in Resources */,
-				B371535221B69BC30069A5B0 /* R.generated.swift in Resources */,
 				B3E9540221B68E9500D60014 /* Main.storyboard in Resources */,
 				B3E953E621B6847600D60014 /* AuthScreen.storyboard in Resources */,
 				F93EFE4921AEB6E200FBC875 /* Localizable.strings in Resources */,
 				B3E9540621B690F700D60014 /* LaunchScreen.storyboard in Resources */,
 				F93EFE4421AEB38F00FBC875 /* GoogleService-Info.plist in Resources */,
+				F94711DC21B6B642007F5019 /* AddJob.storyboard in Resources */,
+				9CCC5CB021C1006B007F4F04 /* JobDetails.storyboard in Resources */,
 				F93EFE1B21AEB24D00FBC875 /* Assets.xcassets in Resources */,
 				FF5C803821B52C6E0045EC1A /* Options.storyboard in Resources */,
 				F93EFE5421AED0CE00FBC875 /* Xcode.gitignore in Resources */,
 				B3E953FB21B68DD200D60014 /* Signup.storyboard in Resources */,
 				B3E953F821B68D2800D60014 /* Login.storyboard in Resources */,
+				B3A415AF21BFE68D0083F016 /* AlbumItem.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +551,7 @@
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -470,6 +572,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
@@ -529,26 +632,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3A415AD21BFE5290083F016 /* SingleDetailAlbumCell.swift in Sources */,
+				B3A415A921BFD91D0083F016 /* AddMissionController.swift in Sources */,
+				FF15E4BD21C0104200E739F5 /* AddMissionController.swift in Sources */,
 				B3E9540121B68E2500D60014 /* ContractController.swift in Sources */,
 				B3E953F521B6853C00D60014 /* Extensions.swift in Sources */,
 				B31A3DEC21B584950014749E /* UserInfoController.swift in Sources */,
 				FF8F43D221BE6B49003FFEE8 /* JobsCell.swift in Sources */,
+				B3A415AE21BFE5F60083F016 /* AlbumItemDetailsController.swift in Sources */,
+				B34CF23D21B6BDF600FC4CB4 /* SingleLineActionController.swift in Sources */,
+				B34CF24021B6CEE500FC4CB4 /* Photo.swift in Sources */,
 				B3E953E921B6849D00D60014 /* AppDelegate.swift in Sources */,
+				B3416D7821BEB84100D44AB4 /* Album.swift in Sources */,
 				B31A3DEE21B584950014749E /* SignupController.swift in Sources */,
 				B399C12D21B578C800ABB0F6 /* NetworkManager.swift in Sources */,
+				F94711E021B6CB61007F5019 /* JobCell.swift in Sources */,
+				B34CF24221B6E1D600FC4CB4 /* NetworkImageManager.swift in Sources */,
 				B3E953ED21B684CB00D60014 /* LaunchScreenController.swift in Sources */,
 				FF8F43E921BEB58F003FFEE8 /* GeneralUtils.swift in Sources */,
 				F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */,
 				FF5C803A21B5333D0045EC1A /* OptionsViewController.swift in Sources */,
+				B3416D7A21BEC2EE00D44AB4 /* RealmUtils.swift in Sources */,
 				FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */,
+				F94711E321B6D010007F5019 /* Users.swift in Sources */,
+				F94711E521B6D27E007F5019 /* RealmUtils.swift in Sources */,
+				B3A415A821BFD8990083F016 /* R.generated.swift in Sources */,
+				9CCC5CAF21C1006B007F4F04 /* JobDetailsViewController.swift in Sources */,
 				FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */,
 				FF8F43D321BE6B49003FFEE8 /* JobsListViewController.swift in Sources */,
-				B371535121B69BA60069A5B0 /* R.generated.swift in Sources */,
+				9CCC5CB321C10894007F4F04 /* TopicTableViewCell.swift in Sources */,
 				F9442BA221B162D900F45C32 /* UserInfoController.swift in Sources */,
+				F94711DE21B6C1E0007F5019 /* AddJobController.swift in Sources */,
+				9CCC5CB521C108A8007F4F04 /* TopicAlbumsTableViewCell.swift in Sources */,
+				B37B33F321B7D5FF005510B7 /* FullImageViewerController.swift in Sources */,
+				B3A415A421BFD71B0083F016 /* Topics.swift in Sources */,
 				B3E9540821B6913300D60014 /* LoginViewController.swift in Sources */,
 				F93EFE5A21AED87000FBC875 /* SignupController.swift in Sources */,
-				FF8F43D721BE6B95003FFEE8 /* Mission.swift in Sources */,
+				FF8F43D721BE6B95003FFEE8 /* Topic.swift in Sources */,
+				B34CF23721B6AA4400FC4CB4 /* AlbumItemController.swift in Sources */,
 				B3E953E521B6847600D60014 /* AuthScreenController.swift in Sources */,
+				B34CF23A21B6AD3300FC4CB4 /* ImageCellController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

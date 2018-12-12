@@ -10,6 +10,9 @@ import UIKit
 class JobDetailsViewController: UIViewController {
     
     
+    static let totallyFakeList : [[String : String]] = [["title": "An Album", "photos": "11 photos"],["title": "Another Album", "photos": "7 photos"],["title": "Yet another Album", "photos": "19 photos"]]
+    
+    
     @IBOutlet weak var table: UITableView!
     
     override func viewDidLoad() {
@@ -43,29 +46,34 @@ extension JobDetailsViewController : UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return JobDetailsViewController.totallyFakeList.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.kIdentifier, for: indexPath) as! TableViewCell
+        
         
         if indexPath.row == 0 {
-            cell.label.text = "Description"
-        } else if indexPath.row == 1 {
-            cell.label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        } else if indexPath.row == 2 {
-            cell.label.text = "Albums"
-        } else if indexPath.row == 3 {
-            cell.label.text = "An Album"
-        } else if indexPath.row == 4 {
-            cell.label.text = "11 Photos"
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: TopicTableViewCell.kIdentifier, for: indexPath) as! TopicTableViewCell
+            
+            cell.desc.text = "A long desc"
+            
+            return cell
+            
         }
-        return cell
-    }
+        else {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: TopicAlbumsTableViewCell.kIdentifier, for: indexPath) as! TopicAlbumsTableViewCell
+            
+            cell.title.text = JobDetailsViewController.totallyFakeList[indexPath.row - 1]["title"]
+            cell.photos.text = JobDetailsViewController.totallyFakeList[indexPath.row - 1]["photos"]
+            
+            return cell
+            
+        }
+        
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
     }
     
     

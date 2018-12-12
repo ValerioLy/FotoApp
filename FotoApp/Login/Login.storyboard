@@ -104,7 +104,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Register" id="AbP-QV-HiJ">
                             <color key="tintColor" red="0.1137254902" green="0.57254901960000004" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="aJ8-nN-b3n" kind="show" id="R4f-Zz-9YW"/>
+                                <segue destination="aJ8-nN-b3n" kind="show" identifier="jobsSegue" id="R4f-Zz-9YW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -120,13 +120,13 @@
             </objects>
             <point key="canvasLocation" x="973.60000000000002" y="17.541229385307346"/>
         </scene>
-        <!--Signup-->
+        <!--Jobs-->
         <scene sceneID="gju-MI-4nT">
             <objects>
-                <viewControllerPlaceholder storyboardName="Signup" id="aJ8-nN-b3n" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="Jobs" storyboardName="Jobs" id="aJ8-nN-b3n" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IrS-Cv-bUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1514" y="-124"/>
+            <point key="canvasLocation" x="1507" y="-109"/>
         </scene>
     </scenes>
 </document>

@@ -17,9 +17,13 @@ import FirebaseFirestore
     dynamic var descriptio : String!
     dynamic var date : String!
     dynamic var expiring : String!
+    
+    
     dynamic var creator : String!
-    //workers
-    //albums
+    var workers : List<String> = List()
+    var albums : List<String> = List()
+    
+
     
     convenience init(id : String? = nil, name : String? = nil, descriptio : String? = nil, date : String? = nil, expiring : String? = nil, creator : String? = nil ){
         

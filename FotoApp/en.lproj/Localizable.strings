@@ -41,3 +41,25 @@ TextFieldUserInfoName = "Name";
 TextFieldUserInfoSurname = "Surname";
 TextFieldUserInfoEmail = "Email";
 lblUserInfoAdmin = "Administrator";
+
+
+// AddJob
+
+kAddJobForward = "Forward";
+kAddJobTitle = "Add Job";
+kAddJobclicktoselectmultipleworkers = "Click to select multiple workers";
+
+
+
+
+
+
+// AddMission
+
+lblAddMissionTitle = "Add Job";
+lblAddMissionSubtitle = "Add a name and a descripion";
+lblAddMissionlblName = "Name";
+lblAddMissionlblDescription = "Description";
+
+
+

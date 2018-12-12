@@ -131,6 +131,7 @@ PODS:
   - Realm/Headers (3.11.1)
   - RealmSwift (3.11.1):
     - Realm (= 3.11.1)
+  - SkeletonView (1.4.1)
 
 DEPENDENCIES:
   - CodableFirebase
@@ -140,6 +141,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - R.swift (~> 5.0.0.alpha.2)
   - RealmSwift
+  - SkeletonView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -168,6 +170,7 @@ SPEC REPOS:
     - R.swift.Library
     - Realm
     - RealmSwift
+    - SkeletonView
 
 SPEC CHECKSUMS:
   BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
@@ -195,7 +198,8 @@ SPEC CHECKSUMS:
   R.swift.Library: 3c21b823839bf5a6769dc7f96cb44479dab51b1b
   Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
   RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
+  SkeletonView: 60d6ce7edb0cb4c7758db33c74add50392b3c475
 
-PODFILE CHECKSUM: 9b7902dc87f3624f522a020e824d3b0b7b13a200
+PODFILE CHECKSUM: beacf199fbbcbb043a1c54f5416b3417124ac83b
 
 COCOAPODS: 1.5.3
