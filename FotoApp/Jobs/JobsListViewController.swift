@@ -93,6 +93,8 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         cell.missionName.text = listOfTopic[indexPath.row].title
         cell.missionDate.text = listOfTopic[indexPath.row].creation
         
+
+        
         return cell
     }
     
