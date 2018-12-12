@@ -265,6 +265,8 @@ struct R: Rswift.Validatable {
     static let albumItem = _R.storyboard.albumItem()
     /// Storyboard `AuthScreen`.
     static let authScreen = _R.storyboard.authScreen()
+    /// Storyboard `JobDetails`.
+    static let jobDetails = _R.storyboard.jobDetails()
     /// Storyboard `Jobs`.
     static let jobs = _R.storyboard.jobs()
     /// Storyboard `LaunchScreen`.
@@ -291,6 +293,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "AuthScreen", bundle: ...)`
     static func authScreen(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.authScreen)
+    }
+    
+    /// `UIStoryboard(name: "JobDetails", bundle: ...)`
+    static func jobDetails(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.jobDetails)
     }
     
     /// `UIStoryboard(name: "Jobs", bundle: ...)`

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		8E09E2A0D4D4BE636EC7615C /* Pods_FotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2568872B37835C655A12FFB8 /* Pods_FotoApp.framework */; };
+		9CCC5CAF21C1006B007F4F04 /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC5CAC21C1006B007F4F04 /* JobDetailsViewController.swift */; };
+		9CCC5CB021C1006B007F4F04 /* JobDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CCC5CAD21C1006B007F4F04 /* JobDetails.storyboard */; };
+		9CCC5CB321C10894007F4F04 /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC5CB221C10894007F4F04 /* TopicTableViewCell.swift */; };
+		9CCC5CB521C108A8007F4F04 /* TopicAlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC5CB421C108A8007F4F04 /* TopicAlbumsTableViewCell.swift */; };
 		B31A3DEC21B584950014749E /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DE821B584950014749E /* UserInfoController.swift */; };
 		B31A3DEE21B584950014749E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DEA21B584950014749E /* SignupController.swift */; };
 		B3416D7821BEB84100D44AB4 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3416D7721BEB84100D44AB4 /* Album.swift */; };
@@ -82,6 +86,10 @@
 /* Begin PBXFileReference section */
 		2568872B37835C655A12FFB8 /* Pods_FotoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FotoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		922402085D1303BC36DAD3BD /* Pods-FotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.release.xcconfig"; sourceTree = "<group>"; };
+		9CCC5CAC21C1006B007F4F04 /* JobDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
+		9CCC5CAD21C1006B007F4F04 /* JobDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JobDetails.storyboard; sourceTree = "<group>"; };
+		9CCC5CB221C10894007F4F04 /* TopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
+		9CCC5CB421C108A8007F4F04 /* TopicAlbumsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicAlbumsTableViewCell.swift; sourceTree = "<group>"; };
 		B31A3DE821B584950014749E /* UserInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfoController.swift; path = FotoApp/Register/UserInfoController.swift; sourceTree = SOURCE_ROOT; };
 		B31A3DEA21B584950014749E /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupController.swift; path = FotoApp/Register/SignupController.swift; sourceTree = SOURCE_ROOT; };
 		B3416D7721BEB84100D44AB4 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
@@ -169,6 +177,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9CCC5CAB21C1006B007F4F04 /* Job Details */ = {
+			isa = PBXGroup;
+			children = (
+				9CCC5CAC21C1006B007F4F04 /* JobDetailsViewController.swift */,
+				9CCC5CAD21C1006B007F4F04 /* JobDetails.storyboard */,
+				9CCC5CB221C10894007F4F04 /* TopicTableViewCell.swift */,
+				9CCC5CB421C108A8007F4F04 /* TopicAlbumsTableViewCell.swift */,
+			);
+			path = "Job Details";
+			sourceTree = "<group>";
+		};
 		AF3EE70B921AAD5A93E64A5A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
