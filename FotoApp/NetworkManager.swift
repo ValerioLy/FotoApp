@@ -126,18 +126,37 @@ class NetworkManager: NSObject {
                 
                 do {
                     try FirebaseDecoder().decode(Topic.self, from: data).save()
+                    
                 }
                 catch let err {
                     debugPrint(err.localizedDescription)
                     return
             }
             })
+        
             
 
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "topicListener"), object: nil)
         }
     }
     
+//    static func getRandomPhoto(topic : Topic){
+//
+//        var randomN : Int = Int.random(in: 0 < topic.albums.count)
+//
+//        var randomIdAlbum : String = topic.albums[randomN]
+//
+//        let docRef = db.collection("albums").document(randomIdAlbum)
+//
+//        let doc = docRef.getDocument(completion: { (document, error) in
+//            if let document = document, document.exists {
+//                let dataDescription = document.data() ?? "nil"
+//                print("Document data: \(dataDescription)")
+//            } else {
+//                print("Document does not exist")
+//            })
+//        }
+//    }
 
     
     static func logout(completion: @escaping (Bool) -> ()) {
