@@ -8,7 +8,7 @@
 
 import RealmSwift
 
-@objcMembers class Users: Object, Codable {
+@objcMembers class User: Object, Codable {
     dynamic var id : String!
     dynamic var email : String!
     dynamic var name : String?
@@ -62,12 +62,12 @@ import RealmSwift
         } catch {}
     }
     
-    static func getObject(in realm: Realm = try! Realm(configuration: RealmUtils.config), withId id : String) -> Users? {
-        return realm.object(ofType: Users.self, forPrimaryKey: id)
+    static func getObject(in realm: Realm = try! Realm(configuration: RealmUtils.config), withId id : String) -> User? {
+        return realm.object(ofType: User.self, forPrimaryKey: id)
     }
     
-    static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Users] {
-        return  Array(realm.objects(Users.self))
+    static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [User] {
+        return  Array(realm.objects(User.self))
     }
     
     

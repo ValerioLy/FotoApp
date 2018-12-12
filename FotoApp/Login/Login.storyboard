@@ -121,13 +121,21 @@
             </objects>
             <point key="canvasLocation" x="973.60000000000002" y="17.541229385307346"/>
         </scene>
+        <!--Signup-->
+        <scene sceneID="pQY-MV-G1I">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Signup" id="wOa-4c-pXX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nLa-rC-8b6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1516" y="-270"/>
+        </scene>
         <!--Jobs-->
         <scene sceneID="gju-MI-4nT">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="Jobs" storyboardName="Jobs" id="aJ8-nN-b3n" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IrS-Cv-bUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1507" y="-109"/>
+            <point key="canvasLocation" x="1506" y="37"/>
         </scene>
         <!--Signup-->
         <scene sceneID="9oV-E0-HB3">

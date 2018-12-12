@@ -103,7 +103,7 @@ class LoginViewController: UIViewController {
         
         NetworkManager.login(email: email, password: password) { (success, err) in
             if success {
-                self.performSegue(withIdentifier: "jobsSegue", sender: nil)
+                self.performSegue(withIdentifier: "segueToJobs", sender: nil)
             }
         }
     }

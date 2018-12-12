@@ -26,6 +26,13 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         // hide back button
         self.navigationItem.setHidesBackButton(true, animated:true)
         
+        // update user info
+        NetworkManager.getUserData { (success, err) in
+            if !success {
+                debugPrint("Erro saving user info: \(err)")
+            }
+        }
+        
         setupNavbar()
         
         buttonOutlet.layer.cornerRadius = 32
