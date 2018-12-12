@@ -12,10 +12,9 @@ import CodableFirebase
 
 class NetworkManager: NSObject {
     private static let USERS_COLLECTION = "users"
+     private static let TOPICS_COLLECTION = "topics"
     private static let ALBUMS_COLLECTION = "albums"
     private static let PHOTOS_COLLECTION = "photos"
-    private static let TOPIC_COLLECTION = "topics"
-    
     private static var db : Firestore = Firestore.firestore()
     private static var storageRef : StorageReference = Storage.storage().reference()
 
@@ -25,16 +24,8 @@ class NetworkManager: NSObject {
       
     }
     
-    static func checkedLoggedUser(completion : @escaping (Bool) -> ()) {
-        if Auth.auth().currentUser != nil {
-            completion(true)
-        }
-        else {
-            completion(false)
-        }
-    }
-    
-    static func checkUserInfo(hasInsertedData: Bool, completion : @escaping(Bool)->() ) {
+    static func checkUserInfo(hasInsertedData: Bool, completion : @escaping(Bool)->() )
+    {
         guard let user = Auth.auth().currentUser else {
             completion(false)
            print("Non prende l'utente")
@@ -57,6 +48,7 @@ class NetworkManager: NSObject {
                 
         }
         completion(true)
+    }    
     }
     
     
@@ -66,62 +58,98 @@ class NetworkManager: NSObject {
         completion(false)
         print("Non prende l'utente")
         return
-    static func getUserData(completion: @escaping(Bool, String?) -> ())  {
-        guard let user = Auth.auth().currentUser else {
-            completion(false, "No such user")
-            return
         }
-        
-        db.collection(USERS_COLLECTION).document(user.uid).getDocument { (documentSnap, err) in
-            guard err == nil else {
-                completion(false, err?.localizedDescription)
-                return
-            }
-            
-            if let data = documentSnap?.data() {
-                do {
-                    try FirebaseDecoder().decode(User.self, from: data).save()
-                    completion(true, nil)
-                }
-                catch let err {
-                    completion(false, err.localizedDescription)
+        db.collection(self.USERS_COLLECTION).document(user.uid).getDocument { (DocumentSnapshot, Error) in
+            if let err = Error {
+                print("Error getting documents: \(err)")
+            } else {
+                let dati = DocumentSnapshot?.data()
+                
+                let hasAcceptedContract = dati!["hasAcceptedContract"] as? Bool
+                guard hasAcceptedContract == true else {
+                    completion(false)
+                    print("Non ha inserito i dati")
                     return
                 }
             }
-            else {
-                completion(false, "No such data")
-                return
-            }
+            completion(true)
         }
     }
     
-    static func getAllUsers(completion: @escaping([User]?, String?) -> ()) {
-        guard Auth.auth().currentUser != nil else {
-            completion(nil, "No such user")
-            return
+    
+    
+    
+    
+    static func uploadTopics(title : String, descriptio : String, expiration : String, creator : String, workers : [String], albums : [String], completion: @escaping (Bool) -> ()) {
+        
+        guard let user = Auth.auth().currentUser else { completion(false); return}
+        
+        db.collection(self.TOPICS_COLLECTION).addDocument(data: ["id": UUID().uuidString, "title" : title, "descriptio" : descriptio, "expiration": expiration, "creation": Date().dateInString, "creator": user.uid, "workers": workers, "albums": albums], completion: { (error) in
+            
+            if let err = error{
+                print("Job could not be saved: \(error).")
+            }
+            else {
+                print("Job saved successfully!")
+                completion(true)
+            }
+        })
+    }
+        
+        
+      
+    
+    
+    static func getData (completion: @escaping([Users])-> Void) {
+
+        db.collection(self.USERS_COLLECTION).getDocuments() { (querySnapshot, err) in
+            
+            var userList = [Users]()
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    
+                    //let user = Users()
+                    let userData = document.data()
+                    
+                    let idU = userData["id"] as? String ?? ""
+                    let nameU = userData["name"] as? String ?? ""
+                    let surnameU = userData["surname"] as? String ?? ""
+                    let email = userData["email"] as? String ?? ""
+                    let image = userData["image"] as? String ?? ""
+                    var admin : Bool, data : Bool, contract : Bool
+                    if userData["admin"] as? String == "true"{
+                        admin = true
+                    }else{
+                        admin = false
+                    }
+                    if userData["hasInsertedData"] as? String == "true"{
+                        data = true
+                    }else{
+                        data = false
+                    }
+                    if userData["hasAcceptedContract"] as? String == "true"{
+                        contract = true
+                    }else{
+                        contract = false
+                    }
+                    
+                    
+                    /*user.name = userData["name"] as? String ?? ""
+                    user.surname = userData["surname"] as? String ?? ""*/
+                    
+                    let user = Users(id: idU, email: email, name: nameU, surname: surnameU, image: image, admin: admin, hasAcceptedTerms: contract, hasInsertedData: data)
+                    
+                    //userList += [user]
+                    userList.append(user)
+                }
+                
+            }
+            completion(userList)
         }
         
-        db.collection(USERS_COLLECTION).getDocuments { (querySnap, err) in
-            guard err == nil else {
-                completion(nil, err?.localizedDescription)
-                return
-            }
-            
-            if let docs = querySnap?.documents {
-                
-                var list : [User] = []
-                
-                docs.forEach({ (doc) in
-                    do {
-                        list.append(try FirebaseDecoder().decode(User.self, from: doc.data()))
-                    }
-                    catch {}
-                })
-               
-                
-                completion(list, nil)
-            }
-        }
     }
     
     static func register(email:String, password: String, completion: @escaping (Bool, String?)->()) {
@@ -317,51 +345,15 @@ class NetworkManager: NSObject {
         }
     }
     
-    static func uploadAlbum(topicId : String, title : String, descr : String, completion : @escaping(Bool, String?) -> ()) {
-        guard let user = Auth.auth().currentUser else {
-            completion(false, "No such user")
-            return
-        }
-        
-        let userName = "Admin"
-        let albumId = UUID().uuidString
-        db.collection(ALBUMS_COLLECTION).document(albumId).setData([
-            "id" : albumId,
-            "title" : title,
-            "descr" : descr,
-            "createdBy" : user.uid,
-            "createdByName" : userName,
-            "isPendingForDelition" : false,
-            "dateAdd" : Date(),
-            "photos" : []
-        ]) { error in
-            guard error == nil else {
-                completion(false, error!.localizedDescription)
-                return
-            }
-            
-            db.collection(TOPIC_COLLECTION).document(topicId).setData([
-                "albums" : FieldValue.arrayUnion([albumId])
-            ], merge : true) { error in
-                guard error == nil else {
-                    completion(false, error!.localizedDescription)
-                    return
-                }
-                
-                completion(true, nil)
-            }
-        }
-    }
-    
     static func getAlbumListener(albumId : String) -> ListenerRegistration? {
-        guard Auth.auth().currentUser != nil else {
+        guard let user = Auth.auth().currentUser else {
             return nil
         }
         
     }
     
     static func fetchAlbums(ids : [String], completion : @escaping (Bool, String?) -> ()) {
-        guard Auth.auth().currentUser != nil else {
+        guard let user = Auth.auth().currentUser else {
             completion(false, "No such user")
             return
         }
