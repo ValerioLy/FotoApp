@@ -26,6 +26,8 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         // hide back button
         self.navigationItem.setHidesBackButton(true, animated:true)
         
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
         // update user info
         NetworkManager.getUserData { (success, err) in
             if !success {

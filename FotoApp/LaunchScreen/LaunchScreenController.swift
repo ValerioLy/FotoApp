@@ -10,12 +10,15 @@ import UIKit
 import FirebaseAuth
 
 class LaunchScreenController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // large titles
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        // hide navigation bar
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -28,28 +31,30 @@ class LaunchScreenController: UIViewController {
                 
                 NetworkManager.checkUserInfo(completion: { (success) in
                     if success {
-                         print("ha inserito i dati")
+                        print("ha inserito i dati")
                         
                         NetworkManager.checkTermsUser(completion: { (success) in
                             if success {
-                                 self.performSegue(withIdentifier: "segueToHome", sender: self)
+                                self.performSegue(withIdentifier: "segueToHome", sender: self)
                             }
                             else {
-                                                        let viewController : UIViewController = UIStoryboard(name: "Signup", bundle: nil).instantiateViewController(withIdentifier: "TermsController")
-                                                        self.present(viewController, animated: true, completion: nil)
+                                let viewController : UIViewController = UIStoryboard(name: "Signup", bundle: nil).instantiateViewController(withIdentifier: "TermsController")
+                                
+                                
+                                self.navigationController?.pushViewController(viewController, animated: true)
                             }
                         })
-
-                      
-
+                        
+                        
+                        
                     }
                     else {
-                         print("non ha inserito i dati")
+                        print("non ha inserito i dati")
                         let viewController : UIViewController = UIStoryboard(name: "Signup", bundle: nil).instantiateViewController(withIdentifier: "UserInfoController")
-                        self.present(viewController, animated: true, completion: nil)
+                        self.navigationController?.pushViewController(viewController, animated: true)
                     }
-                   
-                   
+                    
+                    
                 })
                 
             }

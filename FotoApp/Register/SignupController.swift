@@ -82,7 +82,7 @@ class SignupController: UIViewController {
             if success {
                 NetworkManager.pushUserData(email: email, hasInsertedData: self.hasInsertedData, hasAcceptedContract : self.hasAcceptedContract, completion: { (success, err) in
                     if success {
-                    self.performSegue(withIdentifier: R.segue.signupController.segueUserInfo.identifier, sender: self)
+                    self.performSegue(withIdentifier:"segueToUserInfo", sender: self)
                     }
                     else {
                         let alert = UIApplication.alertError(title: "Opss", message: err, closeAction: {})

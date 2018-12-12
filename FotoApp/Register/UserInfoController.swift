@@ -26,6 +26,9 @@ class UserInfoController: UIViewController {
         // Nasconde il back
         self.navigationItem.setHidesBackButton(true, animated:true)
         
+        // show navigation bar
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
     }
     
     @IBOutlet weak var lblContinue: UIBarButtonItem!{
@@ -136,14 +139,21 @@ class UserInfoController: UIViewController {
         
         hasInsertedData = true
     
+        // loading alert
+        let loadingAlert = UIApplication.loadingAlert(title: "Uploading")
+        self.present(loadingAlert, animated: true, completion: {})
+        
         NetworkManager.pushFinalUserData(name: name, surname: surname, image: image, hasInsertedData: hasInsertedData, hasAcceptedContract: hasAcceptedContract, admin: admin) { (success, err) in
-            if success {
-                self.performSegue(withIdentifier: R.segue.userInfoController.segueTerms.identifier, sender: self)
-            }
-            else {
-                let alert = UIApplication.alertError(title: "Opss", message: err, closeAction: {})
-                self.present(alert, animated: true, completion: nil)
-            }
+            
+            loadingAlert.dismiss(animated: true, completion: {
+                if success {
+                    self.performSegue(withIdentifier: "segueToTerms", sender: self)
+                }
+                else {
+                    let alert = UIApplication.alertError(title: "Opss", message: err, closeAction: {})
+                    self.present(alert, animated: true, completion: nil)
+                }
+            })
         }
     }
 }

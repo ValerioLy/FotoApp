@@ -17,6 +17,9 @@ class ContractController: UIViewController {
         
         // hide back button
          self.navigationItem.setHidesBackButton(true, animated:true)
+        
+        // show navigation bar
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
     @IBAction func AcceptAction(_ sender: UIBarButtonItem) {

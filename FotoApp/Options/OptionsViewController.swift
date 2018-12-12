@@ -19,18 +19,9 @@ class OptionsViewController: UIViewController {
     @IBAction func logoutAction(_ sender: Any) {
         NetworkManager.logout { (success) in
             if success {
-                GeneralUtils.share.reloadGenericViewController(storyboardName: "AuthScreen", controllerIdentifier: "AuthScreen")
-                self.performSegue(withIdentifier: "authSegue", sender: nil)
+                self.navigationController?.popToRootViewController(animated: true)
             }
         }
-    }
-    
-    @IBAction func creditsAction(_ sender: Any) {
-        self.performSegue(withIdentifier: "toCreditSegue", sender: nil)
-    }
-    @IBAction func infoAction(_ sender: Any) {
-        self.performSegue(withIdentifier: "toInfoSegue", sender: nil)
-
     }
 
 }
