@@ -101,25 +101,24 @@ class NetworkManager: NSObject {
     
     
     
-    static func uploadTopics(title : String, descriptio : String, expiration : String, workers : [String], albums : [String], completion: @escaping (Bool) -> ()) {
+    static func uploadTopics(title : String, descriptio : String, expiration : String, workers : [String], completion: @escaping (Bool) -> ()) {
         guard let user = Auth.auth().currentUser else { completion(false); return}
         
         let id = UUID().uuidString
         
-        db.collection(TOPICS_COLLECTION).document(id).setData(["id": id, "title" : title, "descriptio" : descriptio, "expiration": expiration, "creation": Date().dateInString, "creator": user.uid, "workers": workers, "albums": albums]) { error in
-            
-            if error != nil{
-                print("Job could not be saved: \(error).")
-                completion(false)
-            }
-            else {
-                print("Job saved successfully!")
-                completion(true)
-            }
+        db.collection(TOPICS_COLLECTION).document(id).setData([
+            "id": id,
+            "title" : title,
+            "descriptio" : descriptio,
+            "expiration": expiration,
+            "creation": Date().dateInString,
+            "creator": user.uid,
+            "workers": workers,
+            "albums": [:]
+        ]) { error in
+            completion(error == nil)
         }
     }
-    
-    
     
     static func getUserData(completion: @escaping(Bool, String?) -> ())  {
         guard let user = Auth.auth().currentUser else {
@@ -156,7 +155,7 @@ class NetworkManager: NSObject {
             return
         }
         
-        db.collection(USERS_COLLECTION).getDocuments { (querySnap, err) in
+        db.collection(USERS_COLLECTION).whereField("admin", isEqualTo: false).getDocuments { (querySnap, err) in
             guard err == nil else {
                 completion(nil, err?.localizedDescription)
                 return

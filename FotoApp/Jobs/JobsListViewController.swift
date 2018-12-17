@@ -27,10 +27,12 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavbar()
         
         var currentUser : User = User()
         
         listOfTopic.removeAll()
+        
         // hide back button
         self.navigationItem.setHidesBackButton(true, animated:true)
 
@@ -49,8 +51,6 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
                 }
             }
         }
-//        
-//        setupNavbar()
         
         buttonOutlet.layer.cornerRadius = 32
         buttonOutlet.clipsToBounds = true
@@ -58,10 +58,6 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         NetworkManager.getTopics()
         
         NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "topicListener"), object: nil)
-        
-//        for topic in listOfTopic {
-//            NetworkManager.getRandomPhoto(topic: topic)
-//        }
     }
 
     @IBAction func addAction(_ sender: Any) {
@@ -76,16 +72,12 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     // Manage navbar
-//    func setupNavbar() {
-//        navigationController?.navigationBar.prefersLargeTitles = true
-//
-//        let searchController = UISearchController(searchResultsController: nil)
-//        navigationItem.searchController = searchController
-//
-//
-//    }
-    
+    func setupNavbar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
 
+        let searchController = UISearchController(searchResultsController: nil)
+        navigationItem.searchController = searchController
+    }
     
      func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -127,6 +119,5 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         isSearching = true
         tableView.reloadData()
     }
-    
 
 }

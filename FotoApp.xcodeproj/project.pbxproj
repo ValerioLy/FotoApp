@@ -390,9 +390,9 @@
 			isa = PBXGroup;
 			children = (
 				F94711DB21B6B642007F5019 /* AddJob.storyboard */,
-				F94711DD21B6C1E0007F5019 /* AddJobController.swift */,
 				F94711DF21B6CB61007F5019 /* JobCell.swift */,
 				F982426B21C01326000A041E /* AddMissioneController.swift */,
+				F94711DD21B6C1E0007F5019 /* AddJobController.swift */,
 			);
 			path = AddJob;
 			sourceTree = "<group>";
