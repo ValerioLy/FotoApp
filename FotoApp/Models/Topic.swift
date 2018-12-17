@@ -36,6 +36,12 @@ import FirebaseFirestore
         self.creator = creator
     }
     
+    func getTitle() -> String {
+        return self.title ?? ""
+    }
+    
+    
+  
     override class func primaryKey() -> String? {
         return "id"
     }
