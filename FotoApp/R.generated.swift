@@ -115,7 +115,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 7 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 8 view controllers.
   struct segue {
     /// This struct is generated for `AddJobController`, and contains static references to 1 segues.
     struct addJobController {
@@ -190,6 +190,30 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func segueToHome(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LaunchScreenController, JobsListViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.launchScreenController.segueToHome, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `LoginViewController`, and contains static references to 2 segues.
+    struct loginViewController {
+      /// Segue identifier `segueResetPassword`.
+      static let segueResetPassword: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LoginViewController, ResetPasswordController> = Rswift.StoryboardSegueIdentifier(identifier: "segueResetPassword")
+      /// Segue identifier `segueToJobs`.
+      static let segueToJobs: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LoginViewController, JobsListViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToJobs")
+      
+      /// Optionally returns a typed version of segue `segueResetPassword`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueResetPassword(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, ResetPasswordController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.loginViewController.segueResetPassword, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `segueToJobs`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueToJobs(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, JobsListViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.loginViewController.segueToJobs, segue: segue)
       }
       
       fileprivate init() {}
@@ -685,6 +709,11 @@ struct _R: Rswift.Validatable {
     static func validate() throws {
       try signup.validate()
       try login.validate()
+      try authScreen.validate()
+      try addAlbum.validate()
+      try login.validate()
+      try launchScreen.validate()
+      try albumItem.validate()
       try jobDetails.validate()
       try options.validate()
       try authScreen.validate()
@@ -694,6 +723,11 @@ struct _R: Rswift.Validatable {
       try albumItem.validate()
       try launchScreen.validate()
       try jobs.validate()
+      try signup.validate()
+      try main.validate()
+      try options.validate()
+      try jobs.validate()
+      try addJob.validate()
     }
     
     struct addAlbum: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -840,6 +874,7 @@ struct _R: Rswift.Validatable {
       let name = "Options"
       
       static func validate() throws {
+        if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'Options', but couldn't be loaded.") }

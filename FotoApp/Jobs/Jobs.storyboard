@@ -103,6 +103,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="fOu-2S-81E" id="79m-BV-N0j"/>
                         <outlet property="buttonOutlet" destination="fOu-2S-81E" id="hMc-Xa-Aki"/>
                         <outlet property="tableView" destination="iFB-Rb-SLM" id="tSu-f4-OJm"/>
                         <segue destination="l3a-fK-ypD" kind="show" identifier="addSegue" id="wfB-8c-5iq"/>
