@@ -55,4 +55,8 @@ import FirebaseFirestore
     func getTitle() -> String{
         return self.title ?? ""
     }
+    
+    func getAlbum() -> [String]{
+        return Array(albums)
+    }
 }

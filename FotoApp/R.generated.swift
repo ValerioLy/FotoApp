@@ -683,17 +683,17 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try signup.validate()
-      try jobs.validate()
-      try login.validate()
-      try main.validate()
-      try jobDetails.validate()
-      try launchScreen.validate()
-      try albumItem.validate()
-      try addJob.validate()
       try addAlbum.validate()
-      try options.validate()
+      try login.validate()
+      try albumItem.validate()
       try authScreen.validate()
+      try jobDetails.validate()
+      try addJob.validate()
+      try options.validate()
+      try jobs.validate()
+      try signup.validate()
+      try main.validate()
+      try launchScreen.validate()
     }
     
     struct addAlbum: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -840,8 +840,8 @@ struct _R: Rswift.Validatable {
       let name = "Options"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'Options', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
@@ -870,8 +870,8 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Signup', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
-        if _R.storyboard.signup().termsController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'termsController' could not be loaded from storyboard 'Signup' as 'UIKit.UINavigationController'.") }
         if _R.storyboard.signup().userInfoController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userInfoController' could not be loaded from storyboard 'Signup' as 'UIKit.UINavigationController'.") }
+        if _R.storyboard.signup().termsController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'termsController' could not be loaded from storyboard 'Signup' as 'UIKit.UINavigationController'.") }
       }
       
       fileprivate init() {}
