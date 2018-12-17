@@ -26,8 +26,8 @@ class SingleDetailAlbumCell: UITableViewCell {
 
     func setup(album : Album)  {
         descrLabel.text = album.descr
-        let date = album.dateAdd.date?.dateInString ?? ""
+        let date = album.dateAdd.date?.stringFormatted ?? ""
         otherInfoLabel.text = "Creato da " + album.createdByName + " il " + date
-        pendingDeletion.isOn = album.isPendingForDeletion
+        pendingDeletion.isOn = album.isPendingForDeletion ?? false
     }
 }

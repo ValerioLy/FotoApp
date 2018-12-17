@@ -16,9 +16,7 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     var listOfAlbum : [Album] = []
 
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var buttonOutlet: UIButton!
-//    private var db: Firestore! = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,13 +40,15 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         
         NetworkManager.getTopics()
         
-        
         NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "topicListener"), object: nil)
         
 //        for topic in listOfTopic {
 //            NetworkManager.getRandomPhoto(topic: topic)
 //        }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+            self.performSegue(withIdentifier: "test", sender: self)
+        })
     }
 
     @IBAction func addAction(_ sender: Any) {
@@ -67,8 +67,7 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         let searchController = UISearchController(searchResultsController: nil)
         navigationItem.searchController = searchController
     }
-    
-    
+
     
      func numberOfSections(in tableView: UITableView) -> Int {
         return 1

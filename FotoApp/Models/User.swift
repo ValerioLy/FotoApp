@@ -14,11 +14,11 @@ import RealmSwift
     dynamic var name : String?
     dynamic var surname : String?
     dynamic var image : String?
-    dynamic var admin : Bool?
-    dynamic var hasAcceptedTerms : Bool?
-    dynamic var hasInsertedData : Bool?
+    dynamic var admin : Bool = false
+    dynamic var hasAcceptedTerms : Bool = false
+    dynamic var hasInsertedData : Bool = false
     
-    convenience init(id: String? = nil,email : String, name: String? = nil, surname: String? = nil, image: String? = nil, admin : Bool? = nil, hasAcceptedTerms: Bool? = nil, hasInsertedData: Bool? = nil) {
+    convenience init(id: String? = nil,email : String, name: String? = nil, surname: String? = nil, image: String? = nil) {
         self.init()
         
         self.id = id
@@ -26,14 +26,11 @@ import RealmSwift
         self.name = name
         self.surname = surname
         self.image = image
-        self.admin = admin
-        self.hasAcceptedTerms = hasAcceptedTerms
-        self.hasInsertedData = hasInsertedData
-    }
     
     /*func getId() -> String {
         return self.id
     }*/
+    }
     
   
     func getName() -> String {

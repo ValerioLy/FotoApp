@@ -27,14 +27,14 @@ class AlbumItemController: UIViewController {
 //        self.photos = Photo.getObjects(withId: Array(self.currentAlbum.photos))
         
         // create the listener
-        realtimeListener = NetworkManager.getAlbumListener(albumId: "NiMdU2biSSPgHV65bzL8")
+        realtimeListener = NetworkManager.getAlbumListener(albumId: "4093F9E7-7011-49BA-9F05-4540528B8600")
         
         // Add the notification observer
         NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "photoListener"), object: nil)
     }
     
     @objc private func notificationObserver(notification : Notification) {
-        self.currentAlbum = Album.getObject(withId: "NiMdU2biSSPgHV65bzL8")
+        self.currentAlbum = Album.getObject(withId: "4093F9E7-7011-49BA-9F05-4540528B8600")
         self.title = self.currentAlbum.title
         
         let ids = Array(self.currentAlbum!.photos)

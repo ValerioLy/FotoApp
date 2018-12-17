@@ -14,7 +14,7 @@ import FirebaseFirestore
     dynamic var author : String!
     dynamic var date : String!
     dynamic var link : String!
-    dynamic var accepted : Bool! = true
+    dynamic var accepted : Bool = true
     
     convenience init(id : String, author : String, date : String, link : String, accepted : Bool? = true) {
         self.init()
@@ -23,7 +23,6 @@ import FirebaseFirestore
         self.author = author
         self.date = date
         self.link = link
-        self.accepted = accepted
     }    
     
     override class func primaryKey() -> String? {
