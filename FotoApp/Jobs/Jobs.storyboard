@@ -81,7 +81,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" image="add"/>
                                 <connections>
-                                    <action selector="addAction:" destination="mMZ-f8-rWs" eventType="touchUpInside" id="fOs-gX-vgI"/>
+                                    <segue destination="csG-da-fQe" kind="show" identifier="toAddSegue" id="v2Z-u1-jXt"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jobs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jg-6m-lyY">
@@ -117,7 +117,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addButton" destination="fOu-2S-81E" id="79m-BV-N0j"/>
                         <outlet property="buttonOutlet" destination="fOu-2S-81E" id="hMc-Xa-Aki"/>
                         <outlet property="searchBar" destination="mhi-76-MXS" id="rZw-Rp-R8u"/>
                         <outlet property="tableView" destination="iFB-Rb-SLM" id="tSu-f4-OJm"/>
@@ -151,6 +150,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WX6-Ta-N31" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1654" y="353"/>
+        </scene>
+        <!--AddJob-->
+        <scene sceneID="7hb-RU-Obq">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="AddJob" storyboardName="AddJob" id="csG-da-fQe" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uDg-pQ-Ft5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1487" y="549"/>
         </scene>
     </scenes>
     <resources>
