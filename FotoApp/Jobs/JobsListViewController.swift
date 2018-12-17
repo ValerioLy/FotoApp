@@ -44,6 +44,7 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
                 debugPrint("Erro saving user info: \(err)")
             }
             else{
+                debugPrint("--------------")
                 currentUser = User.getObject(withId: Auth.auth().currentUser!.uid)!
                 debugPrint(currentUser)
                 if !currentUser.admin {
