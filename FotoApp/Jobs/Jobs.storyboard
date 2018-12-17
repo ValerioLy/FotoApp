@@ -81,6 +81,7 @@
                                 <state key="normal" image="add"/>
                                 <connections>
                                     <action selector="addAction:" destination="mMZ-f8-rWs" eventType="touchUpInside" id="fOs-gX-vgI"/>
+                                    <segue destination="l3a-fK-ypD" kind="show" identifier="addSegue" id="3gf-rp-zDp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -106,7 +107,6 @@
                         <outlet property="addButton" destination="fOu-2S-81E" id="79m-BV-N0j"/>
                         <outlet property="buttonOutlet" destination="fOu-2S-81E" id="hMc-Xa-Aki"/>
                         <outlet property="tableView" destination="iFB-Rb-SLM" id="tSu-f4-OJm"/>
-                        <segue destination="l3a-fK-ypD" kind="show" identifier="addSegue" id="wfB-8c-5iq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUV-1o-RHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -129,13 +129,13 @@
             </objects>
             <point key="canvasLocation" x="1586" y="-95"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--AddJob-->
         <scene sceneID="A0c-3Y-ETh">
             <objects>
-                <viewControllerPlaceholder id="l3a-fK-ypD" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="AddJob" id="l3a-fK-ypD" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WX6-Ta-N31" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1654" y="353"/>
+            <point key="canvasLocation" x="1583" y="360"/>
         </scene>
     </scenes>
     <resources>

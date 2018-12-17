@@ -102,15 +102,15 @@ class NetworkManager: NSObject {
     
     
     static func uploadTopics(title : String, descriptio : String, expiration : String, workers : [String], albums : [String], completion: @escaping (Bool) -> ()) {
-        
         guard let user = Auth.auth().currentUser else { completion(false); return}
         
         let id = UUID().uuidString
         
-        db.collection(TOPICS_COLLECTION).document(id).setData(["id": UUID().uuidString, "title" : title, "descriptio" : descriptio, "expiration": expiration, "creation": Date().dateInString, "creator": user.uid, "workers": workers, "albums": albums]) { error in
+        db.collection(TOPICS_COLLECTION).document(id).setData(["id": id, "title" : title, "descriptio" : descriptio, "expiration": expiration, "creation": Date().dateInString, "creator": user.uid, "workers": workers, "albums": albums]) { error in
             
             if error != nil{
                 print("Job could not be saved: \(error).")
+                completion(false)
             }
             else {
                 print("Job saved successfully!")
@@ -163,17 +163,17 @@ class NetworkManager: NSObject {
             }
             
             if let docs = querySnap?.documents {
-                
                 var list : [User] = []
-                
                 docs.forEach({ (doc) in
                     do {
                         list.append(try FirebaseDecoder().decode(User.self, from: doc.data()))
                     }
-                    catch {}
+                    catch {
+                        completion(nil, error.localizedDescription)
+                        return
+                    }
                 })
-                
-                
+        
                 completion(list, nil)
             }
         }

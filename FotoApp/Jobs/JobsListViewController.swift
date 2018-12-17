@@ -35,10 +35,12 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
             if !success {
                 debugPrint("Erro saving user info: \(err)")
             }
-            currentUser = User.getObject(withId: Auth.auth().currentUser!.uid)!
-            debugPrint(currentUser)
-            if !currentUser.admin {
-                self.addButton.isHidden = true
+            else {
+                currentUser = User.getObject(withId: Auth.auth().currentUser!.uid)!
+                debugPrint(currentUser)
+                if !currentUser.admin {
+                    self.addButton.isHidden = true
+                }
             }
         }
         

@@ -31,7 +31,6 @@ class AddMissioneController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("IDUTENTI\(listaIdUsers)")
     }
     
     @IBAction func addMission(_ sender: Any) {
