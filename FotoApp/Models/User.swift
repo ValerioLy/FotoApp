@@ -14,11 +14,11 @@ import RealmSwift
     dynamic var name : String?
     dynamic var surname : String?
     dynamic var image : String?
-    dynamic var admin : Bool?
+    dynamic var admin : Bool = false
     dynamic var hasAcceptedTerms : Bool?
     dynamic var hasInsertedData : Bool?
     
-    convenience init(id: String? = nil,email : String, name: String? = nil, surname: String? = nil, image: String? = nil, admin : Bool? = nil, hasAcceptedTerms: Bool? = nil, hasInsertedData: Bool? = nil) {
+    convenience init(id: String? = nil,email : String, name: String? = nil, surname: String? = nil, image: String? = nil, admin : Bool = false, hasAcceptedTerms: Bool? = nil, hasInsertedData: Bool? = nil) {
         self.init()
         
         self.id = id

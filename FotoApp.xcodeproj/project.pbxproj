@@ -207,6 +207,7 @@
 		B34CF23321B6A98800FC4CB4 /* AlbumItemSpecs */ = {
 			isa = PBXGroup;
 			children = (
+				B3E953E721B6847A00D60014 /* Auth */,
 				B34CF23821B6AABE00FC4CB4 /* ListCells */,
 				B34CF23421B6A9A900FC4CB4 /* AlbumItem.storyboard */,
 				B34CF23621B6AA4400FC4CB4 /* AlbumItemController.swift */,
@@ -335,7 +336,6 @@
 				B3E953F321B6850C00D60014 /* Login */,
 				F94711DA21B6B61F007F5019 /* AddJob */,
 				B3E953EE21B684CE00D60014 /* LaunchScreen */,
-				B3E953E721B6847A00D60014 /* Auth */,
 				FF5C803621B52BC00045EC1A /* Options */,
 				F93EFE5221AEB8B900FBC875 /* Register */,
 				F93EFE1721AEB24C00FBC875 /* Main.storyboard */,

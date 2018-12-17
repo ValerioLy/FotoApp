@@ -14,7 +14,8 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     
     var listOfTopic : [Topic] = []
     var listOfAlbum : [Album] = []
-
+    @IBOutlet weak var addButton: UIButton!
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var buttonOutlet: UIButton!
@@ -23,6 +24,9 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var currentUser : User = User()
+        
+        listOfTopic.removeAll()
         // hide back button
         self.navigationItem.setHidesBackButton(true, animated:true)
         
@@ -32,6 +36,11 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         NetworkManager.getUserData { (success, err) in
             if !success {
                 debugPrint("Erro saving user info: \(err)")
+            }
+            currentUser = User.getObject(withId: Auth.auth().currentUser!.uid)!
+            debugPrint(currentUser)
+            if !currentUser.admin {
+                self.addButton.isHidden = true
             }
         }
         
