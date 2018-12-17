@@ -117,6 +117,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="fOu-2S-81E" id="79m-BV-N0j"/>
                         <outlet property="buttonOutlet" destination="fOu-2S-81E" id="hMc-Xa-Aki"/>
                         <outlet property="searchBar" destination="mhi-76-MXS" id="rZw-Rp-R8u"/>
                         <outlet property="tableView" destination="iFB-Rb-SLM" id="tSu-f4-OJm"/>
@@ -142,14 +143,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fSF-FY-4mi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1597" y="-105"/>
-        </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="UfP-eU-gH8">
-            <objects>
-                <viewControllerPlaceholder id="EOt-cH-F6e" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KfK-Bd-ow1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1830" y="55"/>
         </scene>
         <!--Storyboard Reference-->
         <scene sceneID="A0c-3Y-ETh">

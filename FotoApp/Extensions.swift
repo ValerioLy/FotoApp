@@ -58,6 +58,12 @@ extension Date {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss +zzz"
         return dateFormatter.string(from: self)
     }
+    
+    var stringFormatted : String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM, yyyy"
+        return dateFormatter.string(from: self)
+    }
 }
 
 extension UIApplication {

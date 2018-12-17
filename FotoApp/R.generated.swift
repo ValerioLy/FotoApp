@@ -707,17 +707,27 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try jobDetails.validate()
-      try main.validate()
-      try authScreen.validate()
-      try options.validate()
-      try launchScreen.validate()
-      try login.validate()
-      try jobs.validate()
-      try albumItem.validate()
       try signup.validate()
-      try addJob.validate()
+      try login.validate()
+      try authScreen.validate()
       try addAlbum.validate()
+      try login.validate()
+      try launchScreen.validate()
+      try albumItem.validate()
+      try jobDetails.validate()
+      try options.validate()
+      try authScreen.validate()
+      try addJob.validate()
+      try main.validate()
+      try addAlbum.validate()
+      try albumItem.validate()
+      try launchScreen.validate()
+      try jobs.validate()
+      try signup.validate()
+      try main.validate()
+      try options.validate()
+      try jobs.validate()
+      try addJob.validate()
     }
     
     struct addAlbum: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -806,8 +816,8 @@ struct _R: Rswift.Validatable {
       let name = "Jobs"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "add") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'add' is used in storyboard 'Jobs', but couldn't be loaded.") }
         if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Jobs', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "add") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'add' is used in storyboard 'Jobs', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
@@ -864,9 +874,10 @@ struct _R: Rswift.Validatable {
       let name = "Options"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'Options', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }

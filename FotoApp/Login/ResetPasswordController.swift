@@ -53,7 +53,6 @@ class ResetPasswordController: UIViewController {
             }
         }
         
-        
     }
     
     
@@ -89,9 +88,5 @@ class ResetPasswordController: UIViewController {
         })
 
     }
-    
-    
-
-   
 
 }

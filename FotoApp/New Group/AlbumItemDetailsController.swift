@@ -18,8 +18,14 @@ class AlbumItemDetailsController: UIViewController {
         self.title = currentAlbum.title
     }
 
-    @IBAction func daEliminareAction(_ sender: Any) {
+    @IBAction func daEliminareAction(_ sender: UISwitch) {
         
+        NetworkManager.changePendingDeletionForAlbum(pending: sender.isOn, albumId: currentAlbum.id) { (success, err) in
+            if !success {
+                let alert = UIApplication.alertError(title: "Opss", message: err, closeAction: {})
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
 }
 

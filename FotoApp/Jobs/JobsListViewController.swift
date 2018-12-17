@@ -17,9 +17,7 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var buttonOutlet: UIButton!
-//    private var db: Firestore! = Firestore.firestore()
     
     
     var filterData = [Topic]()
@@ -30,6 +28,9 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var currentUser : User = User()
+        
+        listOfTopic.removeAll()
         // hide back button
         self.navigationItem.setHidesBackButton(true, animated:true)
 
@@ -40,6 +41,11 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
             if !success {
                 debugPrint("Erro saving user info: \(err)")
             }
+            currentUser = User.getObject(withId: Auth.auth().currentUser!.uid)!
+            debugPrint(currentUser)
+            if !currentUser.admin {
+                self.addButton.isHidden = true
+            }
         }
 //        
 //        setupNavbar()
@@ -49,13 +55,11 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         
         NetworkManager.getTopics()
         
-        
         NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "topicListener"), object: nil)
         
 //        for topic in listOfTopic {
 //            NetworkManager.getRandomPhoto(topic: topic)
 //        }
-        
     }
 
     @IBAction func addAction(_ sender: Any) {
