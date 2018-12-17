@@ -71,7 +71,8 @@ import FirebaseFirestore
             }
         } catch {}
     }
-    
-    
-    
+
+    func getAlbum() -> [String]{
+        return Array(albums)
+    }
 }

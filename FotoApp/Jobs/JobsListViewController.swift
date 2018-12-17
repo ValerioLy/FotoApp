@@ -17,20 +17,26 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var buttonOutlet: UIButton!
+    @IBOutlet weak var buttonOutlet: UIButton! {
+        didSet {
+            buttonOutlet.circle()
+        }
+    }
     
     
     var filterData = [Topic]()
-    
+    private var selectedJobId : String? = nil
     var isSearching = false
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavbar()
         
         var currentUser : User = User()
         
         listOfTopic.removeAll()
+        
         // hide back button
         self.navigationItem.setHidesBackButton(true, animated:true)
 
@@ -42,33 +48,27 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
                 debugPrint("Erro saving user info: \(err)")
             }
             else{
-                debugPrint("--------------")
                 currentUser = User.getObject(withId: Auth.auth().currentUser!.uid)!
-                debugPrint(currentUser)
                 if !currentUser.admin {
                     self.buttonOutlet.isHidden = true
                 }
             }
         }
-//        
-//        setupNavbar()
-        
-        buttonOutlet.layer.cornerRadius = 32
-        buttonOutlet.clipsToBounds = true
         
         NetworkManager.getTopics()
         
         NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "topicListener"), object: nil)
-        
-//        for topic in listOfTopic {
-//            NetworkManager.getRandomPhoto(topic: topic)
-//        }
-    }
-
-    @IBAction func addAction(_ sender: Any) {
-        
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToDetails" {
+            if let destination = segue.destination as? JobDetailsViewController,
+                let id = selectedJobId {
+                destination.id = id
+            }
+        }
+    }
+
     @objc private func notificationObserver(notification : Notification) {
         self.listOfTopic = Topic.all()
         self.listOfTopic = self.listOfTopic.sorted(by: { $0.getTitle().lowercased() < $1.getTitle().lowercased() })
@@ -77,16 +77,12 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     // Manage navbar
-//    func setupNavbar() {
-//        navigationController?.navigationBar.prefersLargeTitles = true
-//
-//        let searchController = UISearchController(searchResultsController: nil)
-//        navigationItem.searchController = searchController
-//
-//
-//    }
-    
+    func setupNavbar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
 
+        let searchController = UISearchController(searchResultsController: nil)
+        navigationItem.searchController = searchController
+    }
     
      func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -106,11 +102,11 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         
         if isSearching{
             cell.missionName.text = filterData[indexPath.row].title
-            cell.missionDate.text = filterData[indexPath.row].creation
+            cell.missionDate.text = filterData[indexPath.row].creation.date?.stringFormatted
         }
         else{
             cell.missionName.text = listOfTopic[indexPath.row].title
-            cell.missionDate.text = listOfTopic[indexPath.row].creation
+            cell.missionDate.text = listOfTopic[indexPath.row].creation.date?.stringFormatted
             
         }
 
@@ -118,16 +114,15 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 96
-    }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedJobId = self.listOfTopic[indexPath.row].id
+        self.performSegue(withIdentifier: "segueToDetails", sender: self)
+    }    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filterData = self.listOfTopic.filter({$0.getTitle().prefix(searchText.count).lowercased() == searchBar.text?.lowercased() })
         isSearching = true
         tableView.reloadData()
     }
-    
 
 }

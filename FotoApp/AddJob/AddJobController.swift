@@ -10,30 +10,22 @@ import UIKit
 class AddJobController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
-    
     @IBOutlet weak var forwardItem: UIBarButtonItem!
-    
     @IBOutlet weak var addjobTitle: UILabel!
-    
     @IBOutlet weak var clicktoselectmultipleworkers: UILabel!
     
-    
-    
     private var selectedEmployee : [User]?
-    
     private var idUsers : [String] = []
-    
     var listUsers : [User] = []
-    
     var filterData = [User]()
-    
     var isSearching = false
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        // show back button
+        self.navigationItem.setHidesBackButton(false, animated:true)
         
         // show search bar in navigation
         let searchController = UISearchController(searchResultsController: nil)
@@ -126,6 +118,10 @@ extension AddJobController : UITableViewDelegate, UITableViewDataSource, UISearc
             let indexRemove = idUsers.firstIndex(of: idExist!)!
             idUsers.remove(at: indexRemove)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 48
     }
     
 }
