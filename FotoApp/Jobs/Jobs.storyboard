@@ -21,11 +21,11 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="JobsCell" rowHeight="104" id="1Wx-Cb-B7O" customClass="JobsCell" customModule="FotoApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="104"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="JobsCell" rowHeight="138" id="1Wx-Cb-B7O" customClass="JobsCell" customModule="FotoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="138"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Wx-Cb-B7O" id="4eL-Ye-oRs">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="103.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="137.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration2" translatesAutoresizingMaskIntoConstraints="NO" id="VL8-8R-2RG">
@@ -35,25 +35,28 @@
                                                         <constraint firstAttribute="height" constant="60" id="o6S-bf-Whe"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3U3-uN-xsf">
-                                                    <rect key="frame" x="106" y="26" width="52.5" height="26"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3U3-uN-xsf">
+                                                    <rect key="frame" x="106" y="26" width="48" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLd-C0-ego">
-                                                    <rect key="frame" x="105" y="60" width="37.5" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLd-C0-ego">
+                                                    <rect key="frame" x="105" y="58" width="39.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="3U3-uN-xsf" firstAttribute="leading" secondItem="VL8-8R-2RG" secondAttribute="trailing" constant="16" id="3ST-ee-uTR"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="bLd-C0-ego" secondAttribute="trailing" constant="16" id="3cm-9G-GVi"/>
                                                 <constraint firstItem="bLd-C0-ego" firstAttribute="leading" secondItem="VL8-8R-2RG" secondAttribute="trailing" constant="15" id="JdE-mp-JKu"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="bLd-C0-ego" secondAttribute="bottom" constant="16" id="Pt4-z5-FvZ"/>
                                                 <constraint firstItem="bLd-C0-ego" firstAttribute="top" secondItem="3U3-uN-xsf" secondAttribute="bottom" constant="8" id="Rum-eX-j7M"/>
                                                 <constraint firstItem="VL8-8R-2RG" firstAttribute="leading" secondItem="4eL-Ye-oRs" secondAttribute="leadingMargin" constant="15" id="UxB-VR-opf"/>
                                                 <constraint firstItem="VL8-8R-2RG" firstAttribute="top" secondItem="4eL-Ye-oRs" secondAttribute="topMargin" constant="15" id="smF-LW-kUB"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="3U3-uN-xsf" secondAttribute="trailing" constant="16" id="uNr-23-Jhc"/>
                                                 <constraint firstItem="3U3-uN-xsf" firstAttribute="top" secondItem="4eL-Ye-oRs" secondAttribute="topMargin" constant="15" id="xnL-Qx-awe"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -61,7 +64,6 @@
                                             <outlet property="imageOutlet" destination="VL8-8R-2RG" id="Q4t-bQ-MAS"/>
                                             <outlet property="missionDate" destination="bLd-C0-ego" id="f5U-kz-dYc"/>
                                             <outlet property="missionName" destination="3U3-uN-xsf" id="s5Z-8h-ueB"/>
-                                            <segue destination="qkP-uv-O4d" kind="show" id="SGp-Qx-zKA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -105,6 +107,7 @@
                     <connections>
                         <outlet property="buttonOutlet" destination="fOu-2S-81E" id="hMc-Xa-Aki"/>
                         <outlet property="tableView" destination="iFB-Rb-SLM" id="tSu-f4-OJm"/>
+                        <segue destination="qkP-uv-O4d" kind="show" identifier="segueToDetails" id="4nQ-M9-xcd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUV-1o-RHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
