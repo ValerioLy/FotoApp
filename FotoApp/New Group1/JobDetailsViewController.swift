@@ -10,6 +10,8 @@ import UIKit
 class JobDetailsViewController: UIViewController {
     
     
+    @IBOutlet weak var titleTopic: UINavigationItem!
+    
     static let totallyFakeList : [[String : String]] = [["title": "An Album", "photos": "11 photos"],["title": "Another Album", "photos": "7 photos"],["title": "Yet another Album", "photos": "19 photos"]]
     
     var trueListAlbum : [Album] = []
@@ -29,6 +31,7 @@ class JobDetailsViewController: UIViewController {
         NetworkManager.getTopicsJobDetail(id: id){ (success, topic) in
             if success {
                 self.trueTopic = topic!
+                self.titleTopic.title = self.trueTopic?.title
                 self.stringaAlbums = topic!.getAlbum()
                 for idAlbum in self.stringaAlbums{
                     NetworkManager.getAlbumPhoto(id: idAlbum){(success, titleAlbum, numPhoto) in
