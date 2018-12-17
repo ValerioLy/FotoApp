@@ -136,6 +136,7 @@ class NetworkManager: NSObject {
             if let data = documentSnap?.data() {
                 do {
                     try FirebaseDecoder().decode(User.self, from: data).save()
+                    debugPrint(data)
                     completion(true, nil)
                 }
                 catch let err {
@@ -207,7 +208,8 @@ class NetworkManager: NSObject {
                 guard let docs = querySnapshot?.documents else {
                     return
                 }
-                
+                let tpo : Topic = Topic()
+                tpo.deleteAllTopic()
                 docs.forEach({ (item) in
                     let data = item.data()
                     
