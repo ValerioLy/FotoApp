@@ -106,7 +106,6 @@
                         <outlet property="buttonOutlet" destination="fOu-2S-81E" id="hMc-Xa-Aki"/>
                         <outlet property="tableView" destination="iFB-Rb-SLM" id="tSu-f4-OJm"/>
                         <segue destination="l3a-fK-ypD" kind="show" identifier="addSegue" id="wfB-8c-5iq"/>
-                        <segue destination="EOt-cH-F6e" kind="show" identifier="test" id="v9d-Hu-RZP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUV-1o-RHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -128,14 +127,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fSF-FY-4mi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1586" y="-95"/>
-        </scene>
-        <!--AlbumItem-->
-        <scene sceneID="UfP-eU-gH8">
-            <objects>
-                <viewControllerPlaceholder storyboardName="AlbumItem" id="EOt-cH-F6e" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KfK-Bd-ow1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1830" y="55"/>
         </scene>
         <!--Storyboard Reference-->
         <scene sceneID="A0c-3Y-ETh">

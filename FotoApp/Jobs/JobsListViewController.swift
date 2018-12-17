@@ -45,10 +45,6 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
 //        for topic in listOfTopic {
 //            NetworkManager.getRandomPhoto(topic: topic)
 //        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
-            self.performSegue(withIdentifier: "test", sender: self)
-        })
     }
 
     @IBAction func addAction(_ sender: Any) {

@@ -64,10 +64,6 @@ class AddMissioneController: UIViewController {
                 print("Topic caricato")
             }
         }
-        
-        
-      
-    
     }
 
 }
