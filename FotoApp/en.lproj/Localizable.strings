@@ -13,11 +13,14 @@ kWelcomeContinue = "Continue with your email";
 // AUTH ERROR
 kNoSuchUser = "No such user found";
 
+// MISSING INFO ERROR
+kMissingInfoError = "No information available";
 
 // SIGN UP
 kSignuplbl = "Sign Up";
 kSignupButton = "Sign Up";
 kForgotPssw = "Forgot Password";
+kResetPwwq = "Reset Password"
 
 // Alert
 kAlertOkButton = "Ok";
