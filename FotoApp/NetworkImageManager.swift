@@ -24,7 +24,7 @@ class NetworkImageManager {
             }
         }
     }
-    
+ 
     
     //
     // Function that fetch data from internet

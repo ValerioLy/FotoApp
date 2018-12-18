@@ -23,7 +23,7 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    
+    var imagesArray: [String] = []
     var filterData = [Topic]()
     private var selectedJobId : String? = nil
     var isSearching = false
@@ -58,7 +58,11 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         NetworkManager.getTopics()
         
         NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "topicListener"), object: nil)
+        
+
+       
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToDetails" {
@@ -108,6 +112,19 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
             cell.missionName.text = listOfTopic[indexPath.row].title
             cell.missionDate.text = listOfTopic[indexPath.row].creation.date?.stringFormatted
             
+            
+            NetworkManager.getImageData { (success, urlString) in
+                let checkedUrl = URL(string: urlString)
+                
+                if success {
+                    cell.downloadImage(url: checkedUrl!)
+                 debugPrint("boia\(checkedUrl)")
+                }
+            }
+
+            
+          
+            
         }
 
         
@@ -124,5 +141,9 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         isSearching = true
         tableView.reloadData()
     }
+    
 
+    
+    
+   
 }
