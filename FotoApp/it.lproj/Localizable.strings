@@ -6,6 +6,10 @@
   Copyright © 2018 Valerio Ly. All rights reserved.
 */
 
+// WELCOME VIEW
+kWelcomeTitle = "Benvenuti All'Inferno";
+kWelcomeContinue = "Continua con la tua email";
+
 // AUTH ERROR
 kNoSuchUser = "Nessun utente trovato";
 
@@ -13,7 +17,7 @@ kNoSuchUser = "Nessun utente trovato";
 // SIGN UP
 kSignuplbl = "Registrati";
 kSignupButton = "Registrati";
-
+kForgotPssw = "Password Dimenticata";
 
 // Alert
 kAlertOkButton = "Ok";
@@ -30,6 +34,12 @@ kAlertLoginFailedDifferentPasswordsMessage = "Le due password inserite non coinc
 kAlertLoginFailedInvalidPasswordTitle = "Password non valida";
 kAlertLoginFailedInvalidPasswordMessage = "La password deve essere lunga almeno sei caratteri";
 
+// Register
+
+kSignUpTitle = "Registrazione";
+kSignUplbl = "Inserisci Email";
+kRepeatPassword = "Ripeti Password";
+
 // User Info
 
 lblUserInfoContinue = "Continua";
@@ -41,6 +51,38 @@ TextFieldUserInfoName = "Nome";
 TextFieldUserInfoSurname = "Cognome";
 TextFieldUserInfoEmail = "Email";
 lblUserInfoAdmin = "Amministratore";
+
+// Terms and Contract
+
+kTermsContractTitle = "Termini di Contratto";
+kTermsContractAccept = "Accetta";
+
+// Jobs List
+
+kJobsListTitle = "Lavori";
+kJobsListSearch = "Cerca";
+kJobsListOptions = "Opzioni";
+
+// Jobs Details
+
+kJobsDetailsEditJobs = "Modifica I Lavori";
+kJobsDetailsDescription = "Descrizione";
+kJobsDetailsAlbum = "Album";
+
+// Albums Details
+kAlbumDetailsTitle= "An Album";
+kAlbumDetailsEditAlbum = "Modifica Album";
+kAlbumDetailsAddPhoto = "Aggiungi Foto";
+kAlbumDetailsOpenChat = "Apri Chat";
+kAlbumDetailsShowDetails = "Mostra I Dettagli";
+
+// Chat
+
+kChatBack = "Un Album";
+
+// SelectWorkers
+
+kSelectWorkers = "Seleziona Lavoratori";
 
 // AddJob
 
@@ -54,3 +96,16 @@ lblAddMissionTitle = "Aggiungi lavoro";
 lblAddMissionSubtitle = "Aggiungi un nome e una descrizione";
 lblAddMissionlblName = "Nome";
 lblAddMissionlblDescription = "Descrizione";
+
+// AddAlbum
+
+kAddAlbumTitle = "Aggiungi Un Album";
+kAddAlbumName = "Nome";
+kAddAlbumDescription = "Descrizione";
+kAddAlbumAdd= "Aggiungi";
+
+// Options
+
+kOptionsTitle = "Opzioni";
+kUserInformation = "Informazioni Utente";
+kCredits = "Crediti";

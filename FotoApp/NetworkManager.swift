@@ -116,7 +116,7 @@ class NetworkManager: NSObject {
             "creation": Date().dateInString,
             "creator": user.uid,
             "workers": workers,
-            "albums": [:]
+            "albums": []
         ]) { error in
             completion(error == nil)
         }
@@ -204,16 +204,20 @@ class NetworkManager: NSObject {
     }
     
     static func getTopics(){
-        db.collection("topics").whereField("workers", arrayContains:Auth.auth().currentUser?.uid).addSnapshotListener { (querySnapshot, error) in
+        var currentUser : User = User.getObject(withId: Auth.auth().currentUser!.uid)!
+        if currentUser.admin {
+            db.collection("topics").whereField("creator", isEqualTo: Auth.auth().currentUser?.uid).addSnapshotListener { (querySnapshot, error) in
                 
                 guard let docs = querySnapshot?.documents else {
                     return
                 }
+                
+                debugPrint(docs)
                 let tpo : Topic = Topic()
                 tpo.deleteAllTopic()
                 docs.forEach({ (item) in
                     let data = item.data()
-                    
+                    debugPrint("PROVA LATO ADMIN")
                     debugPrint(data)
                     
                     do {
@@ -227,6 +231,35 @@ class NetworkManager: NSObject {
                 
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "topicListener"), object: nil)
+            }
+        }
+            
+        else{
+        db.collection("topics").whereField("workers", arrayContains:Auth.auth().currentUser?.uid).addSnapshotListener { (querySnapshot, error) in
+                
+                guard let docs = querySnapshot?.documents else {
+                    return
+                }
+                let tpo : Topic = Topic()
+                tpo.deleteAllTopic()
+                docs.forEach({ (item) in
+                    let data = item.data()
+                    
+                    debugPrint("PROVA LATO USER")
+                    debugPrint(data)
+                    
+                    do {
+                        try FirebaseDecoder().decode(Topic.self, from: data).save()
+                    }
+                    catch let err {
+                        debugPrint(err.localizedDescription)
+                        return
+                    }
+                })
+                
+                
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "topicListener"), object: nil)
+        }
         }
     }
     
