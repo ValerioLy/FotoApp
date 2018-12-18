@@ -207,7 +207,6 @@
 		B34CF23321B6A98800FC4CB4 /* AlbumItemSpecs */ = {
 			isa = PBXGroup;
 			children = (
-				B3E953E721B6847A00D60014 /* Auth */,
 				B34CF23821B6AABE00FC4CB4 /* ListCells */,
 				B34CF23421B6A9A900FC4CB4 /* AlbumItem.storyboard */,
 				B34CF23621B6AA4400FC4CB4 /* AlbumItemController.swift */,
@@ -330,6 +329,7 @@
 			children = (
 				B33C51BB21C134D90023C98E /* JobDetails */,
 				B3861EA721C01FF7006118B6 /* AddAlbum */,
+				B3E953E721B6847A00D60014 /* Auth */,
 				FF8F43CE21BE6B49003FFEE8 /* Jobs */,
 				B34CF23321B6A98800FC4CB4 /* AlbumItemSpecs */,
 				B34CF23E21B6CEB300FC4CB4 /* Models */,
@@ -390,9 +390,9 @@
 			isa = PBXGroup;
 			children = (
 				F94711DB21B6B642007F5019 /* AddJob.storyboard */,
-				F94711DD21B6C1E0007F5019 /* AddJobController.swift */,
 				F94711DF21B6CB61007F5019 /* JobCell.swift */,
 				F982426B21C01326000A041E /* AddMissioneController.swift */,
+				F94711DD21B6C1E0007F5019 /* AddJobController.swift */,
 			);
 			path = AddJob;
 			sourceTree = "<group>";

@@ -15,7 +15,7 @@ import RealmSwift
     dynamic var surname : String?
     dynamic var image : String?
     dynamic var admin : Bool = false
-    dynamic var hasAcceptedTerms : Bool = false
+    dynamic var hasAcceptedContract : Bool = false
     dynamic var hasInsertedData : Bool = false
     
     convenience init(id: String? = nil,email : String, name: String? = nil, surname: String? = nil, image: String? = nil) {

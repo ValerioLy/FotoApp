@@ -58,4 +58,21 @@ import FirebaseFirestore
         } catch {}
     }
     
+    func deleteAllTopic(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
+                for topic in Topic.all() {
+                    topic.delete()
+                }
+    }
+    
+    func delete(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
+        do {
+            try realm.write {
+                realm.delete(self)
+            }
+        } catch {}
+    }
+
+    func getAlbum() -> [String]{
+        return Array(albums)
+    }
 }

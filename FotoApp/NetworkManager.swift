@@ -101,25 +101,24 @@ class NetworkManager: NSObject {
     
     
     
-    static func uploadTopics(title : String, descriptio : String, expiration : String, workers : [String], albums : [String], completion: @escaping (Bool) -> ()) {
-        
+    static func uploadTopics(title : String, descriptio : String, expiration : String, workers : [String], completion: @escaping (Bool) -> ()) {
         guard let user = Auth.auth().currentUser else { completion(false); return}
         
         let id = UUID().uuidString
         
-        db.collection(TOPICS_COLLECTION).document(id).setData(["id": UUID().uuidString, "title" : title, "descriptio" : descriptio, "expiration": expiration, "creation": Date().dateInString, "creator": user.uid, "workers": workers, "albums": albums]) { error in
-            
-            if error != nil{
-                print("Job could not be saved: \(error).")
-            }
-            else {
-                print("Job saved successfully!")
-                completion(true)
-            }
+        db.collection(TOPICS_COLLECTION).document(id).setData([
+            "id": id,
+            "title" : title,
+            "descriptio" : descriptio,
+            "expiration": expiration,
+            "creation": Date().dateInString,
+            "creator": user.uid,
+            "workers": workers,
+            "albums": [:]
+        ]) { error in
+            completion(error == nil)
         }
     }
-    
-    
     
     static func getUserData(completion: @escaping(Bool, String?) -> ())  {
         guard let user = Auth.auth().currentUser else {
@@ -136,6 +135,7 @@ class NetworkManager: NSObject {
             if let data = documentSnap?.data() {
                 do {
                     try FirebaseDecoder().decode(User.self, from: data).save()
+                    debugPrint(data)
                     completion(true, nil)
                 }
                 catch let err {
@@ -156,24 +156,24 @@ class NetworkManager: NSObject {
             return
         }
         
-        db.collection(USERS_COLLECTION).getDocuments { (querySnap, err) in
+        db.collection(USERS_COLLECTION).whereField("admin", isEqualTo: false).getDocuments { (querySnap, err) in
             guard err == nil else {
                 completion(nil, err?.localizedDescription)
                 return
             }
             
             if let docs = querySnap?.documents {
-                
                 var list : [User] = []
-                
                 docs.forEach({ (doc) in
                     do {
                         list.append(try FirebaseDecoder().decode(User.self, from: doc.data()))
                     }
-                    catch {}
+                    catch {
+                        completion(nil, error.localizedDescription)
+                        return
+                    }
                 })
-                
-                
+        
                 completion(list, nil)
             }
         }
@@ -207,7 +207,8 @@ class NetworkManager: NSObject {
                 guard let docs = querySnapshot?.documents else {
                     return
                 }
-                
+                let tpo : Topic = Topic()
+                tpo.deleteAllTopic()
                 docs.forEach({ (item) in
                     let data = item.data()
                     
@@ -227,7 +228,92 @@ class NetworkManager: NSObject {
         }
     }
     
+    static func getTopicsJobDetail(id: String,completion: @escaping(Bool, Topic?) -> ()){
+        db.collection("topics").whereField("id", isEqualTo:id).addSnapshotListener { (querySnapshot, error) in
+            var topic : Topic?
+            debugPrint("id di getTopics: "+id)
+            guard let docs = querySnapshot?.documents else {
+                debugPrint("querySnapshot failed")
+                completion(false,nil)
+                return
+            }
+            
+            debugPrint("guard superato")
+           
+            docs.forEach({(item) in
+                let data = item.data()
+                do {
+                   topic = try FirebaseDecoder().decode(Topic.self, from: data)
+                }
+                catch let error{
+                    debugPrint("Error catch")
+                    debugPrint(error.localizedDescription)
+                    completion(false,nil)
+                    return
+                }
+            })
+            if topic == nil{
+                completion(false,nil)
+            }
+            
+            /*docs.forEach({ (item) in
+                let data = item.data()
+                
+                debugPrint(data)
+                
+                do {
+                    let topic = try FirebaseDecoder().decode(Topic.self, from: data)
+                    //topic.save() non salva su realm
+                    list.append(topic)
+                }
+                catch let err {
+                    debugPrint("Error catch")
+                    debugPrint(err.localizedDescription)
+                    completion(false,nil)
+                    return
+                }
+            })*/
+            debugPrint("for each superato")
+            
+            //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "topicListener"), object: nil)
+            completion(true,topic)
+        }
+    }
     
+    static func getAlbumPhoto(id: String, completion: @escaping (Bool,String, Int) ->()){
+        db.collection("albums").whereField("id", isEqualTo:id).addSnapshotListener { (querySnapshot, error) in
+            var album : Album?
+            guard let docs = querySnapshot?.documents else {
+                debugPrint("querySnapshot failed")
+                completion(false,"",0)
+                return
+            }
+            print("guard1 superato")
+            docs.forEach({(item) in
+                let data = item.data()
+                do {
+                    album = try FirebaseDecoder().decode(Album.self, from: data)
+                }
+                catch let error{
+                    debugPrint("Error catch")
+                    debugPrint(error.localizedDescription)
+                    completion(false,"",0)
+                    return
+                }
+            })
+            guard album?.title != nil else{
+                print("album.title == nil")
+                completion(false,"",0)
+                return
+            }
+            guard album?.photos != nil else{
+                print("album.photos == nil")
+                completion(false,"",0)
+                return
+            }
+            completion(true,album!.title,album!.photos.count)
+        }
+    }
     
     static func logout(completion: @escaping (Bool) -> ()) {
         let firebaseAuth = Auth.auth()
