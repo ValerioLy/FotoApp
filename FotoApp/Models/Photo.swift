@@ -12,6 +12,7 @@ import FirebaseFirestore
 @objcMembers class Photo: Object, Codable {
     dynamic var id : String!
     dynamic var author : String!
+    dynamic var authorName : String!
     dynamic var date : String!
     dynamic var link : String!
     dynamic var accepted : Bool = true
@@ -37,11 +38,11 @@ import FirebaseFirestore
         } catch {}
     }
     
-    static func getObject(in realm: Realm = try! Realm(), withId id : String) -> Photo? {
+    static func getObject(in realm: Realm = try! Realm(configuration: RealmUtils.config), withId id : String) -> Photo? {
         return realm.object(ofType: Photo.self, forPrimaryKey: id)
     }
     
-    static func getObjects(in realm: Realm = try! Realm(), withId ids : [String]) -> [Photo] {
+    static func getObjects(in realm: Realm = try! Realm(configuration: RealmUtils.config), withId ids : [String]) -> [Photo] {
         var list : [Photo] = []
         
         ids.forEach { (item) in

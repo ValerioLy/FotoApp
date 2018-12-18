@@ -14,8 +14,6 @@ class AlbumItemDetailsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = currentAlbum.title
     }
 
     @IBAction func daEliminareAction(_ sender: UISwitch) {

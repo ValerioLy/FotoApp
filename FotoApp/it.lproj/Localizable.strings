@@ -7,7 +7,8 @@
 */
 
 // WELCOME VIEW
-kWelcomeTitle = "Benvenuti All'Inferno"
+kWelcomeTitle = "Benvenuti All'Inferno";
+kWelcomeContinue = "Continua con la tua email";
 
 // AUTH ERROR
 kNoSuchUser = "Nessun utente trovato";
@@ -35,9 +36,9 @@ kAlertLoginFailedInvalidPasswordMessage = "La password deve essere lunga almeno 
 
 // Register
 
-kSignUpTitle = "Registrazione"
-kSignUplbl = "Inserisci Email"
-kRepeatPassword = "Ripeti Password"
+kSignUpTitle = "Registrazione";
+kSignUplbl = "Inserisci Email";
+kRepeatPassword = "Ripeti Password";
 
 // User Info
 
@@ -105,6 +106,6 @@ kAddAlbumAdd= "Aggiungi";
 
 // Options
 
-kOptionsTitle = "Opzioni"
-kUserInformation = "Informazioni Utente"
-kCredits = "Crediti"
+kOptionsTitle = "Opzioni";
+kUserInformation = "Informazioni Utente";
+kCredits = "Crediti";
