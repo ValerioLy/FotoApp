@@ -43,6 +43,7 @@
 		B3E9540221B68E9500D60014 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE1721AEB24C00FBC875 /* Main.storyboard */; };
 		B3E9540621B690F700D60014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E9540521B690EC00D60014 /* LaunchScreen.storyboard */; };
 		B3E9540821B6913300D60014 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E9540721B6913300D60014 /* LoginViewController.swift */; };
+		B3ECCE2421C90DC90085C1CB /* DownloadedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ECCE2321C90DC90085C1CB /* DownloadedImage.swift */; };
 		F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE1521AEB24C00FBC875 /* ViewController.swift */; };
 		F93EFE1B21AEB24D00FBC875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE1A21AEB24D00FBC875 /* Assets.xcassets */; };
 		F93EFE2921AEB24E00FBC875 /* FotoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE2821AEB24E00FBC875 /* FotoAppTests.swift */; };
@@ -121,6 +122,7 @@
 		B3E953F921B68D6F00D60014 /* Signup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		B3E9540521B690EC00D60014 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3E9540721B6913300D60014 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B3ECCE2321C90DC90085C1CB /* DownloadedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedImage.swift; sourceTree = "<group>"; };
 		B695B4D1BD9EBC21E7D243C0 /* Pods-FotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F93EFE1021AEB24C00FBC875 /* FotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F93EFE1521AEB24C00FBC875 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				FF8F43D621BE6B95003FFEE8 /* Topic.swift */,
 				B34CF23F21B6CEE500FC4CB4 /* Photo.swift */,
 				B3416D7721BEB84100D44AB4 /* Album.swift */,
+				B3ECCE2321C90DC90085C1CB /* DownloadedImage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 			files = (
 				B37922DB21C14EA300BA1EB1 /* Album.swift in Sources */,
 				B3A415AD21BFE5290083F016 /* SingleDetailAlbumCell.swift in Sources */,
+				B3ECCE2421C90DC90085C1CB /* DownloadedImage.swift in Sources */,
 				B3A415A921BFD91D0083F016 /* (null) in Sources */,
 				B3E9540121B68E2500D60014 /* ContractController.swift in Sources */,
 				B3E953F521B6853C00D60014 /* Extensions.swift in Sources */,

@@ -21,8 +21,10 @@ class NetworkManager: NSObject {
     
     static func initFirebase() {
         FirebaseApp.configure()
-        
-        
+    }
+    
+    static func getUserId() -> String {
+        return Auth.auth().currentUser!.uid
     }
     
     static func checkedLoggedUser(completion : @escaping (Bool) -> ()) {
@@ -231,14 +233,10 @@ class NetworkManager: NSObject {
     static func getTopicsJobDetail(id: String,completion: @escaping(Bool, Topic?) -> ()){
         db.collection("topics").whereField("id", isEqualTo:id).addSnapshotListener { (querySnapshot, error) in
             var topic : Topic?
-            debugPrint("id di getTopics: "+id)
             guard let docs = querySnapshot?.documents else {
-                debugPrint("querySnapshot failed")
                 completion(false,nil)
                 return
             }
-            
-            debugPrint("guard superato")
            
             docs.forEach({(item) in
                 let data = item.data()
@@ -246,7 +244,6 @@ class NetworkManager: NSObject {
                    topic = try FirebaseDecoder().decode(Topic.self, from: data)
                 }
                 catch let error{
-                    debugPrint("Error catch")
                     debugPrint(error.localizedDescription)
                     completion(false,nil)
                     return
@@ -256,64 +253,77 @@ class NetworkManager: NSObject {
                 completion(false,nil)
             }
             
-            /*docs.forEach({ (item) in
-                let data = item.data()
-                
-                debugPrint(data)
-                
-                do {
-                    let topic = try FirebaseDecoder().decode(Topic.self, from: data)
-                    //topic.save() non salva su realm
-                    list.append(topic)
-                }
-                catch let err {
-                    debugPrint("Error catch")
-                    debugPrint(err.localizedDescription)
-                    completion(false,nil)
-                    return
-                }
-            })*/
-            debugPrint("for each superato")
-            
             //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "topicListener"), object: nil)
             completion(true,topic)
         }
     }
     
-    static func getAlbumPhoto(id: String, completion: @escaping (Bool,String, Int) ->()){
-        db.collection("albums").whereField("id", isEqualTo:id).addSnapshotListener { (querySnapshot, error) in
-            var album : Album?
-            guard let docs = querySnapshot?.documents else {
-                debugPrint("querySnapshot failed")
-                completion(false,"",0)
-                return
-            }
-            print("guard1 superato")
-            docs.forEach({(item) in
-                let data = item.data()
-                do {
-                    album = try FirebaseDecoder().decode(Album.self, from: data)
-                }
-                catch let error{
-                    debugPrint("Error catch")
-                    debugPrint(error.localizedDescription)
-                    completion(false,"",0)
-                    return
-                }
-            })
-            guard album?.title != nil else{
-                print("album.title == nil")
-                completion(false,"",0)
-                return
-            }
-            guard album?.photos != nil else{
-                print("album.photos == nil")
-                completion(false,"",0)
-                return
-            }
-            completion(true,album!.title,album!.photos.count)
+    static func getAlbums(ids : [String], completion : @escaping (Bool, String?) -> ()) {
+        guard Auth.auth().currentUser != nil else {
+            completion(false, "No such user")
+            return
         }
+        
+        var fetchCount = 0
+        ids.forEach({ (item) in
+            
+            db.collection(ALBUMS_COLLECTION).whereField("id", isEqualTo : item)
+                .getDocuments() { (querySnapshot, err) in
+                    guard err == nil else {
+                        completion(false, err!.localizedDescription)
+                        return
+                    }
+                    
+                    if let elementFound = querySnapshot?.documents.first?.data() {
+                        do {
+                            try FirebaseDecoder().decode(Album.self, from: elementFound).save()
+                            fetchCount = fetchCount + 1
+                        }
+                        catch let err {
+                            completion(false, err.localizedDescription)
+                        }
+                        
+                        if fetchCount == ids.count {
+                            completion(true, nil)
+                        }
+                    }
+                    else {
+                        debugPrint("not found with id: \(item)")
+                    }
+            }
+            
+        })
     }
+    
+//    static func getAlbumPhoto(id: String, completion: @escaping (Bool,String, Int) ->()) {
+//        db.collection(ALBUMS_COLLECTION).whereField("id", isEqualTo:id).addSnapshotListener { (querySnapshot, error) in
+//            var album : Album?
+//            guard let docs = querySnapshot?.documents else {
+//                completion(false,"",0)
+//                return
+//            }
+//            docs.forEach({(item) in
+//                let data = item.data()
+//                do {
+//                    album = try FirebaseDecoder().decode(Album.self, from: data)
+//                }
+//                catch let error{
+//                    debugPrint(error.localizedDescription)
+//                    completion(false,"",0)
+//                    return
+//                }
+//            })
+//            guard album?.title != nil else{
+//                completion(false,"",0)
+//                return
+//            }
+//            guard album?.photos != nil else{
+//                completion(false,"",0)
+//                return
+//            }
+//            completion(true,album!.title,album!.photos.count)
+//        }
+//    }
     
     static func logout(completion: @escaping (Bool) -> ()) {
         let firebaseAuth = Auth.auth()
@@ -432,6 +442,7 @@ class NetworkManager: NSObject {
                 db.collection(PHOTOS_COLLECTION).document(photoId).setData([
                     "id" : photoId,
                     "author" : userId,
+                    "authorName" : User.getObject(withId: userId)?.fullName(),
                     "date" : Date().dateInString,
                     "link" : downloadURL.absoluteString,
                     "accepted" : true
@@ -534,7 +545,7 @@ class NetworkManager: NSObject {
         }
     }
     
-    static func fetchAlbums(ids : [String], completion : @escaping (Bool, String?) -> ()) {
+    static func fetchPhotos(ids : [String], completion : @escaping (Bool, String?) -> ()) {
         guard Auth.auth().currentUser != nil else {
             completion(false, "No such user")
             return

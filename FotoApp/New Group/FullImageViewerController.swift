@@ -33,26 +33,11 @@ class FullImageViewerController: UIViewController {
         self.imageView.addGestureRecognizer(pinchGesture)
         
         // show metadata
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMMM, yyyy"
         if let imageDate = image.date.date {
-            self.metaDate.text = dateFormatter.string(from: imageDate)
+            self.metaDate.text = imageDate.stringFormatted
         }
         else {
             self.metaDate.text = "Informazione non disponibile"
-        }
-        self.metaUser.text = "User"
-        
-        // load the image
-        NetworkImageManager.image(from: image.link) { (imageData, success) in
-            DispatchQueue.main.async {
-                if success {
-                    self.imageView.image = UIImage(data: imageData!)
-                }
-                else {
-                    // error handling
-                }
-            }
         }
     }
 }
