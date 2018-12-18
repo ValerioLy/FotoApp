@@ -114,7 +114,7 @@ class NetworkManager: NSObject {
             "creation": Date().dateInString,
             "creator": user.uid,
             "workers": workers,
-            "albums": [:]
+            "albums": []
         ]) { error in
             completion(error == nil)
         }
