@@ -6,6 +6,9 @@
   Copyright © 2018 Valerio Ly. All rights reserved.
 */
 
+// WELCOME VIEW
+kWelcomeTitle = "Welcome To Hell"
+
 // AUTH ERROR
 kNoSuchUser = "No such user found";
 
@@ -13,7 +16,7 @@ kNoSuchUser = "No such user found";
 // SIGN UP
 kSignuplbl = "Sign Up";
 kSignupButton = "Sign Up";
-
+kForgotPssw = "Forgot Password";
 
 // Alert
 kAlertOkButton = "Ok";
@@ -30,6 +33,13 @@ kAlertLoginFailedDifferentPasswordsMessage = "The confirmation password is diffe
 kAlertLoginFailedInvalidPasswordTitle = "Invalid password";
 kAlertLoginFailedInvalidPasswordMessage = "Password must be six characters long";
 
+
+// Register
+
+kSignUpTitle = "Registration"
+kSignUplbl = "Insert Email"
+kRepeatPassword = "Repeat Password"
+
 // User Info
 
 lblUserInfoContinue = "Continue";
@@ -42,17 +52,42 @@ TextFieldUserInfoSurname = "Surname";
 TextFieldUserInfoEmail = "Email";
 lblUserInfoAdmin = "Administrator";
 
+// Terms and Contract
+
+kTermsContractTitle = "Terms of Contract";
+kTermsContractAccept = "Accept";
+
+// Jobs List
+
+kJobsListTitle = "Jobs";
+kJobsListSearch = "Search";
+kJobsListOptions = "Options";
+
+// Jobs Details
+
+kJobsDetailsEditJobs = "Edit Jobs";
+kJobsDetailsDescription = "Description";
+kJobsDetailsAlbum = "Albums";
+
+// Albums Details
+kAlbumDetailsTitle= "An Album";
+kAlbumDetailsEditAlbum = "Edit Album";
+kAlbumDetailsAddPhoto = "Add Photo";
+kAlbumDetailsOpenChat = "Open Chat";
+kAlbumDetailsShowDetails = "Show Details";
+
+// Chat
+kChatBack = "An Album";
+
+// Select Workers
+
+kSelectWorkers = "Select Workers";
 
 // AddJob
 
 kAddJobForward = "Forward";
 kAddJobTitle = "Add Job";
 kAddJobclicktoselectmultipleworkers = "Click to select multiple workers";
-
-
-
-
-
 
 // AddMission
 
@@ -61,5 +96,15 @@ lblAddMissionSubtitle = "Add a name and a descripion";
 lblAddMissionlblName = "Name";
 lblAddMissionlblDescription = "Description";
 
+// AddAlbum
 
+kAddAlbumTitle = "Add An Album";
+kAddAlbumName = "Name";
+kAddAlbumDescription = "Description";
+kAddAlbumAdd= "Add";
 
+// Options
+
+kOptionsTitle = "Options"
+kUserInformation = "User's Informations"
+kCredits = "Credits"
