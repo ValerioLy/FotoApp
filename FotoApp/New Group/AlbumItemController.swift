@@ -26,8 +26,6 @@ class AlbumItemController: UIViewController {
     // full screen image variables
     private var selectedX : CGFloat?
     private var selectedY : CGFloat?
-    private var selectedWidth : CGFloat?
-    private var selectedHeight : CGFloat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -164,10 +162,11 @@ extension AlbumItemController : UICollectionViewDataSource, UICollectionViewDele
         case 0:
             self.selectedImage = photos[indexPath.row]
             if let selectedCell = self.collectionView.cellForItem(at: indexPath) {
-                self.selectedX = (selectedCell.frame.maxX - selectedCell.frame.minX) / 2
-                self.selectedY = (selectedCell.frame.maxY - selectedCell.frame.minY) / 2
-                self.selectedHeight = selectedCell.frame.height
-                self.selectedWidth = selectedCell.frame.width
+                self.selectedX = selectedCell.frame.origin.x + (selectedCell.frame.width / 2)
+                self.selectedY = selectedCell.frame.origin.y + (selectedCell.frame.width / 2)
+                
+                debugPrint(self.selectedY)
+                debugPrint(selectedCell.frame.origin.y)
                 
                 openFullScreen()
             }
@@ -264,7 +263,7 @@ extension AlbumItemController {
                     // set initial bounds of the image
                     self.fullImageView.image = UIImage(data: data!)
                     self.fullImageView.contentMode = .scaleAspectFit
-                    self.fullImageView.frame = CGRect(x: self.selectedX ?? 0, y: self.selectedY ?? 0, width: self.selectedWidth ?? 0, height: self.selectedHeight ?? 0)
+                    self.fullImageView.frame = CGRect(x: self.selectedX ?? 0, y: self.selectedY ?? 0, width: 0, height:0)
                     
                     // show metadata
                     if let imageDate = self.selectedImage?.date.date {
@@ -277,12 +276,15 @@ extension AlbumItemController {
                     
                     // animate the view to full screen
                     UIView.animate(withDuration: 0.3, animations: {
-                        // hide navigation bar
-                        self.navigationController?.setNavigationBarHidden(true, animated: true)
-                        
+                        self.fullImageView.backgroundColor = UIColor.white
                         self.fullImageView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                         self.metadataContainer.transform = CGAffineTransform(translationX: 0, y: 0)
                         self.isMetadataHidden = false
+                    })
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                        // hide navigation bar
+                        self.navigationController?.setNavigationBarHidden(true, animated: true)
                     })
                 }
             }
@@ -303,8 +305,7 @@ extension AlbumItemController {
                 // show navigation bar
                 self.navigationController?.setNavigationBarHidden(false, animated: true)
                 
-                self.fullImageView.contentMode = .scaleAspectFill
-                
+                self.fullImageView.backgroundColor = UIColor.clear
                 self.fullImageView.frame = CGRect(x: self.selectedX ?? 0, y: self.selectedY ?? 0, width: 0, height: 0)
                 self.metadataContainer.transform = CGAffineTransform(translationX: 0, y: self.metadataContainer.frame.height)
                 self.isMetadataHidden = false

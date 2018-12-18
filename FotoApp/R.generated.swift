@@ -728,17 +728,17 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try jobDetails.validate()
-      try main.validate()
-      try authScreen.validate()
-      try login.validate()
-      try options.validate()
-      try addJob.validate()
-      try launchScreen.validate()
-      try addAlbum.validate()
-      try signup.validate()
-      try jobs.validate()
       try albumItem.validate()
+      try main.validate()
+      try addJob.validate()
+      try authScreen.validate()
+      try signup.validate()
+      try addAlbum.validate()
+      try options.validate()
+      try login.validate()
+      try launchScreen.validate()
+      try jobDetails.validate()
+      try jobs.validate()
     }
     
     struct addAlbum: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -916,8 +916,8 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Signup', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
-        if _R.storyboard.signup().userInfoController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userInfoController' could not be loaded from storyboard 'Signup' as 'UserInfoController'.") }
         if _R.storyboard.signup().termsController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'termsController' could not be loaded from storyboard 'Signup' as 'ContractController'.") }
+        if _R.storyboard.signup().userInfoController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userInfoController' could not be loaded from storyboard 'Signup' as 'UserInfoController'.") }
       }
       
       fileprivate init() {}
