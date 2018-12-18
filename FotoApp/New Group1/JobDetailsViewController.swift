@@ -10,13 +10,11 @@ import UIKit
 class JobDetailsViewController: UIViewController {
     @IBOutlet weak var titleTopic: UINavigationItem!
     
-    var trueListAlbum : [Album] = []
-    var trueTopic : Topic?
-    var stringaAlbums : [String] = []
-    var titleAlbums : [String] = []
-    var numPhotos : [Int] = []
+    private var trueListAlbum : [Album] = []
+    private var trueTopic : Topic!
+    private var selectedAlbumId : String?
     
-    var id = "" //da modificare
+    var id = ""
     
     @IBOutlet weak var table: UITableView!
     
@@ -26,23 +24,37 @@ class JobDetailsViewController: UIViewController {
         NetworkManager.getTopicsJobDetail(id: id){ (success, topic) in
             if success {
                 self.trueTopic = topic!
-                self.titleTopic.title = self.trueTopic?.title
-                self.stringaAlbums = topic!.getAlbum()
-                for idAlbum in self.stringaAlbums{
-                    NetworkManager.getAlbumPhoto(id: idAlbum){(success, titleAlbum, numPhoto) in
-                        if success {
-                            self.titleAlbums.append(titleAlbum)
-                            self.numPhotos.append(numPhoto)
-                            
-                            self.table.reloadData()
-                        }
-                    }
-                }
+                self.title = self.trueTopic.title
                 
-                self.table.reloadSections(IndexSet(arrayLiteral: 0), with: .automatic)
+                let ids = Array(self.trueTopic.albums)
+                NetworkManager.getAlbums(ids: ids, completion: { (success, err) in
+                    if success {
+                        
+                        // take from realm
+                        ids.forEach({ (item) in
+                            let albumFound = Album.getObject(withId: item)
+                            
+                            if albumFound != nil {
+                                self.trueListAlbum.append(albumFound!)
+                            }
+                        })
+                        
+                        // reload table
+                        self.table.reloadSections(IndexSet(arrayLiteral: 0,1), with: .automatic)
+                    }
+                })
             }
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToAlbumSpecs" {
+            if let destination = segue.destination as? AlbumItemController,
+                let id = self.selectedAlbumId {
+                destination.albumId = id
+            }
+        }
     }
 }
 
@@ -51,20 +63,18 @@ class JobDetailsViewController: UIViewController {
 extension JobDetailsViewController : UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return titleAlbums.count + 1
+        return (section == 0) ? 1 : self.trueListAlbum.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        if indexPath.row == 0 {
+        if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: TopicTableViewCell.kIdentifier, for: indexPath) as! TopicTableViewCell
             cell.desc.text = trueTopic?.descriptio ?? ""
             return cell
@@ -73,12 +83,17 @@ extension JobDetailsViewController : UITableViewDelegate, UITableViewDataSource 
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: TopicAlbumsTableViewCell.kIdentifier, for: indexPath) as! TopicAlbumsTableViewCell
             
-            cell.title.text = titleAlbums[indexPath.row - 1]
-            cell.photos.text = String(numPhotos[indexPath.row - 1])
+            cell.title.text = self.trueListAlbum[indexPath.row].title
+            cell.photos.text = String(self.trueListAlbum[indexPath.row].photos.count) + " photos"
             
             return cell
             
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedAlbumId = self.trueListAlbum[indexPath.row].id
+        self.performSegue(withIdentifier: "segueToAlbumSpecs", sender: self)
     }
 }
 

@@ -11,46 +11,65 @@ import FirebaseFirestore
 class AlbumItemController: UIViewController {
     private var pickerController:UIImagePickerController?
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var metadataContainer: UIView!
+    @IBOutlet weak var fullImageView: UIImageView!
+    @IBOutlet weak var metaDate: UILabel!
+    @IBOutlet weak var metaUser: UILabel!
     
+    var albumId : String!
+    private var isMetadataHidden : Bool = false
     private var currentAlbum : Album!
     private var selectedImage : Photo?
     private var photos : [Photo] = []
     private var realtimeListener : ListenerRegistration?
     
+    // full screen image variables
+    private var selectedX : CGFloat?
+    private var selectedY : CGFloat?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        // hide metadata
+        self.metadataContainer.transform = CGAffineTransform(translationX: 0, y: self.metadataContainer.bounds.height)
+        
+        // add the image to the view
+        self.fullImageView.isUserInteractionEnabled = true
+        self.fullImageView.backgroundColor = UIColor.white
+        self.fullImageView.contentMode = .scaleAspectFit
+        self.fullImageView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        
+        // zoom and tap gesture
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissFullScreen(_:)))
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(zoomImage(_:)))
+        self.fullImageView.addGestureRecognizer(tapGesture)
+        self.fullImageView.addGestureRecognizer(pinchGesture)
         
         // load local data
-//        self.title = self.currentAlbum.title
-//        self.photos = Photo.getObjects(withId: Array(self.currentAlbum.photos))
+        self.currentAlbum = Album.getObject(withId: albumId)
+        if self.currentAlbum != nil {
+            self.title = self.currentAlbum.title
+            self.photos = Photo.getObjects(withId: Array(self.currentAlbum.photos))
+        }
         
         // create the listener
-        realtimeListener = NetworkManager.getAlbumListener(albumId: "4093F9E7-7011-49BA-9F05-4540528B8600")
+        realtimeListener = NetworkManager.getAlbumListener(albumId: albumId)
         
         // Add the notification observer
         NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "photoListener"), object: nil)
     }
     
     @objc private func notificationObserver(notification : Notification) {
-        self.currentAlbum = Album.getObject(withId: "4093F9E7-7011-49BA-9F05-4540528B8600")
+        self.currentAlbum = Album.getObject(withId: albumId)
         self.title = self.currentAlbum.title
         
         let ids = Array(self.currentAlbum!.photos)
-        NetworkManager.fetchAlbums(ids: ids, completion: { (success, err) in
+        NetworkManager.fetchPhotos(ids: ids, completion: { (success, err) in
             if success {
                 self.photos = Photo.getObjects(withId: ids)
                 self.collectionView.reloadSections(IndexSet(arrayLiteral: 0))
             }
         })
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // show navigation bar
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     private func openPickerDialog() {
@@ -81,13 +100,7 @@ class AlbumItemController: UIViewController {
     
     // Navigation stuff
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if let img = selectedImage, let identifier = segue.identifier, identifier == R.segue.albumItemController.segueToFullImage.identifier  {
-            if let destination = segue.destination as? FullImageViewerController {
-                destination.imageToShow = img
-            }
-        }
-        else if segue.identifier == R.segue.albumItemController.segueToDetails.identifier {
+        if segue.identifier == R.segue.albumItemController.segueToDetails.identifier {
             if let destination = segue.destination as? AlbumItemDetailsController {
                 destination.currentAlbum = self.currentAlbum
             }
@@ -148,7 +161,15 @@ extension AlbumItemController : UICollectionViewDataSource, UICollectionViewDele
         switch indexPath.section {
         case 0:
             self.selectedImage = photos[indexPath.row]
-            self.performSegue(withIdentifier: R.segue.albumItemController.segueToFullImage, sender: self)
+            if let selectedCell = self.collectionView.cellForItem(at: indexPath) {
+                self.selectedX = selectedCell.frame.origin.x + (selectedCell.frame.width / 2)
+                self.selectedY = selectedCell.frame.origin.y + (selectedCell.frame.width / 2)
+                
+                debugPrint(self.selectedY)
+                debugPrint(selectedCell.frame.origin.y)
+                
+                openFullScreen()
+            }
         case 1:
             if indexPath.row == Actions.AddPhoto.rawValue {
                 self.openPickerDialog()
@@ -231,4 +252,88 @@ extension AlbumItemController : UIImagePickerControllerDelegate, UINavigationCon
         return image
     }
     
+}
+
+extension AlbumItemController {
+    
+    func openFullScreen() {
+        NetworkImageManager.image(with: selectedImage!.id, from: selectedImage!.link) { (data, success) in
+            if success {
+                DispatchQueue.main.async {
+                    // set initial bounds of the image
+                    self.fullImageView.image = UIImage(data: data!)
+                    self.fullImageView.contentMode = .scaleAspectFit
+                    self.fullImageView.frame = CGRect(x: self.selectedX ?? 0, y: self.selectedY ?? 0, width: 0, height:0)
+                    
+                    // show metadata
+                    if let imageDate = self.selectedImage?.date.date {
+                        self.metaDate.text = imageDate.stringFormatted
+                    }
+                    else {
+                        self.metaDate.text = "Informazione non disponibile"
+                    }
+                    self.metaUser.text = self.selectedImage?.authorName
+                    
+                    // animate the view to full screen
+                    UIView.animate(withDuration: 0.3, animations: {
+                        self.fullImageView.backgroundColor = UIColor.white
+                        self.fullImageView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                        self.metadataContainer.transform = CGAffineTransform(translationX: 0, y: 0)
+                        self.isMetadataHidden = false
+                    })
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                        // hide navigation bar
+                        self.navigationController?.setNavigationBarHidden(true, animated: true)
+                    })
+                }
+            }
+        }
+    }
+    
+    @objc func dismissFullScreen(_ sender : UITapGestureRecognizer) {
+        if isMetadataHidden {
+            UIView.animate(withDuration: 0.3) { () -> Void in
+                self.fullImageView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                self.metadataContainer.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.isMetadataHidden = false
+            }
+        }
+        else {
+            // reset all
+            UIView.animate(withDuration: 0.3, animations: {
+                // show navigation bar
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                
+                self.fullImageView.backgroundColor = UIColor.clear
+                self.fullImageView.frame = CGRect(x: self.selectedX ?? 0, y: self.selectedY ?? 0, width: 0, height: 0)
+                self.metadataContainer.transform = CGAffineTransform(translationX: 0, y: self.metadataContainer.frame.height)
+                self.isMetadataHidden = false
+            })
+        }
+    }
+    
+    @objc func zoomImage(_ sender : UIPinchGestureRecognizer) {
+        guard sender.scale <= 1.5, let scale = sender.view?.transform.scaledBy(x: sender.scale, y: sender.scale) else { return }
+        sender.view?.transform = scale
+        
+        if sender.scale <= 1 && isMetadataHidden {
+            //slide up the view
+            UIView.animate(withDuration: 0.3) { () -> Void in
+                self.metadataContainer.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.isMetadataHidden = false
+            }
+        }
+        else if !isMetadataHidden {
+            // slide down the view
+            UIView.animate(withDuration: 0.3) { () -> Void in
+                self.metadataContainer.transform = CGAffineTransform(translationX: 0, y: self.metadataContainer.frame.height)
+                self.isMetadataHidden = true
+            }
+        }
+        
+        if let view = sender.view?.frame, view.width < UIScreen.main.bounds.width || view.height < UIScreen.main.bounds.height {
+            sender.view?.frame = UIScreen.main.bounds
+        }
+    }
 }
