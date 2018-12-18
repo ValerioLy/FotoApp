@@ -40,7 +40,7 @@ class AddJobController: UIViewController {
             if err != nil {
                 self.listUsers = list!
                 self.listUsers = self.listUsers.sorted(by: { $0.getName().lowercased() < $1.getName().lowercased() })
-                
+                print("\(self.listUsers)")
                 self.tableView.reloadData()
 
             }
@@ -113,16 +113,6 @@ extension AddJobController : UITableViewDelegate, UITableViewDataSource, UISearc
         let selectedEmployee = listUsers[indexPath.row]
         let idExist = idUsers.filter({$0 == selectedEmployee.id}).first
         
-//        if idExist != nil{
-//            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
-//            let indexRemove = idUsers.firstIndex(of: idExist!)!
-//            idUsers.remove(at: indexRemove)
-//        }
-//        else{
-//            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
-//            idUsers.append(selectedEmployee.id)
-//            print("IDUTENTI\(idUsers)")
-//        }
         
         if idExist == nil{
             

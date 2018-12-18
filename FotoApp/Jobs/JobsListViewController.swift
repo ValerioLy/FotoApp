@@ -44,7 +44,7 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
             currentUser = User.getObject(withId: Auth.auth().currentUser!.uid)!
             debugPrint(currentUser)
             if !currentUser.admin {
-                self.addButton.isHidden = true
+//                self.addButton.isHidden = true
             }
         }
 //        
