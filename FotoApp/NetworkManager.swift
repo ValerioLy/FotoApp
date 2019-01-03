@@ -27,6 +27,37 @@ class NetworkManager: NSObject {
         return Auth.auth().currentUser!.uid
     }
     
+    
+    static func getImageData(completion: @escaping(Bool, String) -> ())  {
+  
+        self.db.collection("photos").getDocuments { (snapshot, err) in
+            
+            if let err = err {
+                print("Non prende i documenti: \(err)")
+                completion(false, "")
+            } else {
+                let firstDocument = snapshot!.documents.first
+              
+                let docId = firstDocument!.documentID.first
+                let link = firstDocument!.get("link") as! String
+                    
+                    print(link)
+                
+                completion(true, link)
+                }
+            
+            }
+    }
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
     static func checkedLoggedUser(completion : @escaping (Bool) -> ()) {
         if Auth.auth().currentUser != nil {
             completion(true)

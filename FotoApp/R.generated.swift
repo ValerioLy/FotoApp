@@ -1045,17 +1045,28 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try addAlbum.validate()
+<<<<<<< HEAD
       try authScreen.validate()
-      try login.validate()
-      try jobs.validate()
       try launchScreen.validate()
+      try addJob.validate()
+      try jobs.validate()
+      try signup.validate()
+      try main.validate()
+      try albumItem.validate()
+      try jobDetails.validate()
+      try options.validate()
+      try addAlbum.validate()
+      try login.validate()
+=======
+      try albumItem.validate()
       try main.validate()
       try signup.validate()
       try albumItem.validate()
       try options.validate()
       try addJob.validate()
       try jobDetails.validate()
+      try jobs.validate()
+>>>>>>> develop
     }
     
     struct addAlbum: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
