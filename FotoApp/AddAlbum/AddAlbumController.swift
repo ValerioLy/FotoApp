@@ -11,7 +11,7 @@ class AddAlbumController: UIViewController {
     @IBOutlet weak var albumTitle: UITextField!
     @IBOutlet weak var albumDescr: UITextView!
     
-    var topicId : String = "ATZiCTr0jhQKwHPrx0Lo"
+    var topicId : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

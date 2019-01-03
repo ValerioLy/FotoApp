@@ -165,9 +165,6 @@ extension AlbumItemController : UICollectionViewDataSource, UICollectionViewDele
                 self.selectedX = selectedCell.frame.origin.x + (selectedCell.frame.width / 2)
                 self.selectedY = selectedCell.frame.origin.y + (selectedCell.frame.width / 2)
                 
-                debugPrint(self.selectedY)
-                debugPrint(selectedCell.frame.origin.y)
-                
                 openFullScreen()
             }
         case 1:
@@ -218,7 +215,6 @@ extension AlbumItemController : UIImagePickerControllerDelegate, UINavigationCon
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         guard let image = info[.editedImage] as? UIImage else {
-            debugPrint("No image found")
             return
         }
         

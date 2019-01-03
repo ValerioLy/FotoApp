@@ -42,6 +42,14 @@ import Firebase
         } catch {}
     }
     
+    static func removeAll(in realm: Realm = try! Realm()) {
+        do {
+            try realm.write {
+                realm.delete(realm.objects(Album.self))
+            }
+        } catch {}
+    }
+    
     static func getObject(in realm: Realm = try! Realm(configuration: RealmUtils.config), withId id : String) -> Album? {
         return realm.object(ofType: Album.self, forPrimaryKey: id)
     }

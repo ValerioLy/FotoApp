@@ -165,7 +165,6 @@ extension UserInfoController: UIImagePickerControllerDelegate, UINavigationContr
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         guard let image = info[.editedImage] as? UIImage  else {
-            debugPrint("No image found")
             return
         }
         

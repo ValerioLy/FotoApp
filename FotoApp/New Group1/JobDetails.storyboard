@@ -114,18 +114,33 @@
                                     <outlet property="delegate" destination="Yms-OO-q9a" id="v3W-nQ-GLk"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQB-n7-Hnl">
+                                <rect key="frame" x="303" y="595" width="56" height="56"/>
+                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="5d5-9a-VPo"/>
+                                    <constraint firstAttribute="width" constant="56" id="EoP-Mz-eVf"/>
+                                </constraints>
+                                <state key="normal" image="add"/>
+                                <connections>
+                                    <segue destination="QrM-Up-dTt" kind="show" identifier="segueToAddAlbum" id="kO1-cf-hGN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vdX-u5-Flb" firstAttribute="trailing" secondItem="QOo-Hs-MC9" secondAttribute="trailing" id="7Hp-jq-ho3"/>
                             <constraint firstItem="QOo-Hs-MC9" firstAttribute="leading" secondItem="vdX-u5-Flb" secondAttribute="leading" id="amY-BC-ISn"/>
+                            <constraint firstItem="vdX-u5-Flb" firstAttribute="bottom" secondItem="nQB-n7-Hnl" secondAttribute="bottom" constant="16" id="apb-rh-zv0"/>
                             <constraint firstItem="vdX-u5-Flb" firstAttribute="bottom" secondItem="QOo-Hs-MC9" secondAttribute="bottom" id="b08-P8-JhZ"/>
                             <constraint firstItem="QOo-Hs-MC9" firstAttribute="top" secondItem="vdX-u5-Flb" secondAttribute="top" id="d4e-S0-QPO"/>
+                            <constraint firstItem="vdX-u5-Flb" firstAttribute="trailing" secondItem="nQB-n7-Hnl" secondAttribute="trailing" constant="16" id="vJS-GI-bdo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vdX-u5-Flb"/>
                     </view>
                     <navigationItem key="navigationItem" id="rNc-72-4Kr"/>
                     <connections>
+                        <outlet property="buttonAdd" destination="nQB-n7-Hnl" id="zCu-3j-dnu"/>
                         <outlet property="table" destination="QOo-Hs-MC9" id="YpQ-7c-ejU"/>
                         <outlet property="titleTopic" destination="rNc-72-4Kr" id="WgR-14-AK9"/>
                         <segue destination="QO1-5n-5BE" kind="show" identifier="segueToAlbumSpecs" id="t4j-wX-ODI"/>
@@ -143,8 +158,17 @@
             </objects>
             <point key="canvasLocation" x="1222" y="-408"/>
         </scene>
+        <!--AddAlbum-->
+        <scene sceneID="xk7-gA-tmm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddAlbum" id="QrM-Up-dTt" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z7X-0i-CjQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1257" y="-227"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="add" width="40" height="40"/>
         <image name="right-arrow" width="16" height="16"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

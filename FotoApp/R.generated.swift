@@ -162,10 +162,19 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `JobDetailsViewController`, and contains static references to 1 segues.
+    /// This struct is generated for `JobDetailsViewController`, and contains static references to 2 segues.
     struct jobDetailsViewController {
+      /// Segue identifier `segueToAddAlbum`.
+      static let segueToAddAlbum: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, JobDetailsViewController, AddAlbumController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddAlbum")
       /// Segue identifier `segueToAlbumSpecs`.
       static let segueToAlbumSpecs: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, JobDetailsViewController, AlbumItemController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAlbumSpecs")
+      
+      /// Optionally returns a typed version of segue `segueToAddAlbum`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueToAddAlbum(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, JobDetailsViewController, AddAlbumController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.jobDetailsViewController.segueToAddAlbum, segue: segue)
+      }
       
       /// Optionally returns a typed version of segue `segueToAlbumSpecs`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
@@ -391,8 +400,20 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 28 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 56 localization keys.
     struct localizable {
+      /// en translation: Accept
+      /// 
+      /// Locales: en, it
+      static let kTermsContractAccept = Rswift.StringResource(key: "kTermsContractAccept", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Add
+      /// 
+      /// Locales: en, it
+      static let kAddAlbumAdd = Rswift.StringResource(key: "kAddAlbumAdd", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Add An Album
+      /// 
+      /// Locales: en, it
+      static let kAddAlbumTitle = Rswift.StringResource(key: "kAddAlbumTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Add Job
       /// 
       /// Locales: en, it
@@ -401,6 +422,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let lblAddMissionTitle = Rswift.StringResource(key: "lblAddMissionTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Add Photo
+      /// 
+      /// Locales: en, it
+      static let kAlbumDetailsAddPhoto = Rswift.StringResource(key: "kAlbumDetailsAddPhoto", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Add a name and a descripion
       /// 
       /// Locales: en, it
@@ -409,6 +434,18 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let lblUserInfoAdmin = Rswift.StringResource(key: "lblUserInfoAdmin", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Albums
+      /// 
+      /// Locales: en, it
+      static let kJobsDetailsAlbum = Rswift.StringResource(key: "kJobsDetailsAlbum", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: An Album
+      /// 
+      /// Locales: en, it
+      static let kAlbumDetailsTitle = Rswift.StringResource(key: "kAlbumDetailsTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: An Album
+      /// 
+      /// Locales: en, it
+      static let kChatBack = Rswift.StringResource(key: "kChatBack", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Click to select multiple workers
       /// 
       /// Locales: en, it
@@ -417,6 +454,22 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let lblUserInfoContinue = Rswift.StringResource(key: "lblUserInfoContinue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Continue with your email
+      /// 
+      /// Locales: en, it
+      static let kWelcomeContinue = Rswift.StringResource(key: "kWelcomeContinue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Credits
+      /// 
+      /// Locales: en, it
+      static let kCredits = Rswift.StringResource(key: "kCredits", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Description
+      /// 
+      /// Locales: en, it
+      static let kAddAlbumDescription = Rswift.StringResource(key: "kAddAlbumDescription", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Description
+      /// 
+      /// Locales: en, it
+      static let kJobsDetailsDescription = Rswift.StringResource(key: "kJobsDetailsDescription", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Description
       /// 
       /// Locales: en, it
@@ -425,6 +478,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kAlertLoginFailedDifferentPasswordsTitle = Rswift.StringResource(key: "kAlertLoginFailedDifferentPasswordsTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Edit Album
+      /// 
+      /// Locales: en, it
+      static let kAlbumDetailsEditAlbum = Rswift.StringResource(key: "kAlbumDetailsEditAlbum", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Edit Jobs
+      /// 
+      /// Locales: en, it
+      static let kJobsDetailsEditJobs = Rswift.StringResource(key: "kJobsDetailsEditJobs", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Email
       /// 
       /// Locales: en, it
@@ -437,10 +498,18 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kAlertLoginFailedEmptyLabelsTitle = Rswift.StringResource(key: "kAlertLoginFailedEmptyLabelsTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Forgot Password
+      /// 
+      /// Locales: en, it
+      static let kForgotPssw = Rswift.StringResource(key: "kForgotPssw", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Forward
       /// 
       /// Locales: en, it
       static let kAddJobForward = Rswift.StringResource(key: "kAddJobForward", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Insert Email
+      /// 
+      /// Locales: en, it
+      static let kSignUplbl = Rswift.StringResource(key: "kSignUplbl", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Invalid mail
       /// 
       /// Locales: en, it
@@ -449,6 +518,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kAlertLoginFailedInvalidPasswordTitle = Rswift.StringResource(key: "kAlertLoginFailedInvalidPasswordTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Jobs
+      /// 
+      /// Locales: en, it
+      static let kJobsListTitle = Rswift.StringResource(key: "kJobsListTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Name
+      /// 
+      /// Locales: en, it
+      static let kAddAlbumName = Rswift.StringResource(key: "kAddAlbumName", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Name
       /// 
       /// Locales: en, it
@@ -469,10 +546,42 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kAlertOkButton = Rswift.StringResource(key: "kAlertOkButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Open Chat
+      /// 
+      /// Locales: en, it
+      static let kAlbumDetailsOpenChat = Rswift.StringResource(key: "kAlbumDetailsOpenChat", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Options
+      /// 
+      /// Locales: en, it
+      static let kJobsListOptions = Rswift.StringResource(key: "kJobsListOptions", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Options
+      /// 
+      /// Locales: en, it
+      static let kOptionsTitle = Rswift.StringResource(key: "kOptionsTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Password must be six characters long
       /// 
       /// Locales: en, it
       static let kAlertLoginFailedInvalidPasswordMessage = Rswift.StringResource(key: "kAlertLoginFailedInvalidPasswordMessage", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Registration
+      /// 
+      /// Locales: en, it
+      static let kSignUpTitle = Rswift.StringResource(key: "kSignUpTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Repeat Password
+      /// 
+      /// Locales: en, it
+      static let kRepeatPassword = Rswift.StringResource(key: "kRepeatPassword", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Search
+      /// 
+      /// Locales: en, it
+      static let kJobsListSearch = Rswift.StringResource(key: "kJobsListSearch", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Select Workers
+      /// 
+      /// Locales: en, it
+      static let kSelectWorkers = Rswift.StringResource(key: "kSelectWorkers", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Show Details
+      /// 
+      /// Locales: en, it
+      static let kAlbumDetailsShowDetails = Rswift.StringResource(key: "kAlbumDetailsShowDetails", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Sign Up
       /// 
       /// Locales: en, it
@@ -489,10 +598,22 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let textFieldUserInfoSurname = Rswift.StringResource(key: "TextFieldUserInfoSurname", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Terms of Contract
+      /// 
+      /// Locales: en, it
+      static let kTermsContractTitle = Rswift.StringResource(key: "kTermsContractTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: The confirmation password is different
       /// 
       /// Locales: en, it
       static let kAlertLoginFailedDifferentPasswordsMessage = Rswift.StringResource(key: "kAlertLoginFailedDifferentPasswordsMessage", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: User's Informations
+      /// 
+      /// Locales: en, it
+      static let kUserInformation = Rswift.StringResource(key: "kUserInformation", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Welcome To Hell
+      /// 
+      /// Locales: en, it
+      static let kWelcomeTitle = Rswift.StringResource(key: "kWelcomeTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: You left one or more fields empty
       /// 
       /// Locales: en, it
@@ -506,6 +627,27 @@ struct R: Rswift.Validatable {
       /// Locales: en, it
       static let lblUserInfoinfo = Rswift.StringResource(key: "lblUserInfoinfo", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       
+      /// en translation: Accept
+      /// 
+      /// Locales: en, it
+      static func kTermsContractAccept(_: Void = ()) -> String {
+        return NSLocalizedString("kTermsContractAccept", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Add
+      /// 
+      /// Locales: en, it
+      static func kAddAlbumAdd(_: Void = ()) -> String {
+        return NSLocalizedString("kAddAlbumAdd", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Add An Album
+      /// 
+      /// Locales: en, it
+      static func kAddAlbumTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kAddAlbumTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Add Job
       /// 
       /// Locales: en, it
@@ -518,6 +660,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, it
       static func lblAddMissionTitle(_: Void = ()) -> String {
         return NSLocalizedString("lblAddMissionTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Add Photo
+      /// 
+      /// Locales: en, it
+      static func kAlbumDetailsAddPhoto(_: Void = ()) -> String {
+        return NSLocalizedString("kAlbumDetailsAddPhoto", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Add a name and a descripion
@@ -534,6 +683,27 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("lblUserInfoAdmin", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Albums
+      /// 
+      /// Locales: en, it
+      static func kJobsDetailsAlbum(_: Void = ()) -> String {
+        return NSLocalizedString("kJobsDetailsAlbum", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: An Album
+      /// 
+      /// Locales: en, it
+      static func kAlbumDetailsTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kAlbumDetailsTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: An Album
+      /// 
+      /// Locales: en, it
+      static func kChatBack(_: Void = ()) -> String {
+        return NSLocalizedString("kChatBack", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Click to select multiple workers
       /// 
       /// Locales: en, it
@@ -548,6 +718,34 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("lblUserInfoContinue", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Continue with your email
+      /// 
+      /// Locales: en, it
+      static func kWelcomeContinue(_: Void = ()) -> String {
+        return NSLocalizedString("kWelcomeContinue", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Credits
+      /// 
+      /// Locales: en, it
+      static func kCredits(_: Void = ()) -> String {
+        return NSLocalizedString("kCredits", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Description
+      /// 
+      /// Locales: en, it
+      static func kAddAlbumDescription(_: Void = ()) -> String {
+        return NSLocalizedString("kAddAlbumDescription", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Description
+      /// 
+      /// Locales: en, it
+      static func kJobsDetailsDescription(_: Void = ()) -> String {
+        return NSLocalizedString("kJobsDetailsDescription", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Description
       /// 
       /// Locales: en, it
@@ -560,6 +758,20 @@ struct R: Rswift.Validatable {
       /// Locales: en, it
       static func kAlertLoginFailedDifferentPasswordsTitle(_: Void = ()) -> String {
         return NSLocalizedString("kAlertLoginFailedDifferentPasswordsTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Edit Album
+      /// 
+      /// Locales: en, it
+      static func kAlbumDetailsEditAlbum(_: Void = ()) -> String {
+        return NSLocalizedString("kAlbumDetailsEditAlbum", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Edit Jobs
+      /// 
+      /// Locales: en, it
+      static func kJobsDetailsEditJobs(_: Void = ()) -> String {
+        return NSLocalizedString("kJobsDetailsEditJobs", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Email
@@ -583,11 +795,25 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("kAlertLoginFailedEmptyLabelsTitle", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Forgot Password
+      /// 
+      /// Locales: en, it
+      static func kForgotPssw(_: Void = ()) -> String {
+        return NSLocalizedString("kForgotPssw", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Forward
       /// 
       /// Locales: en, it
       static func kAddJobForward(_: Void = ()) -> String {
         return NSLocalizedString("kAddJobForward", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Insert Email
+      /// 
+      /// Locales: en, it
+      static func kSignUplbl(_: Void = ()) -> String {
+        return NSLocalizedString("kSignUplbl", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Invalid mail
@@ -602,6 +828,20 @@ struct R: Rswift.Validatable {
       /// Locales: en, it
       static func kAlertLoginFailedInvalidPasswordTitle(_: Void = ()) -> String {
         return NSLocalizedString("kAlertLoginFailedInvalidPasswordTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Jobs
+      /// 
+      /// Locales: en, it
+      static func kJobsListTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kJobsListTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Name
+      /// 
+      /// Locales: en, it
+      static func kAddAlbumName(_: Void = ()) -> String {
+        return NSLocalizedString("kAddAlbumName", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Name
@@ -639,11 +879,67 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("kAlertOkButton", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Open Chat
+      /// 
+      /// Locales: en, it
+      static func kAlbumDetailsOpenChat(_: Void = ()) -> String {
+        return NSLocalizedString("kAlbumDetailsOpenChat", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Options
+      /// 
+      /// Locales: en, it
+      static func kJobsListOptions(_: Void = ()) -> String {
+        return NSLocalizedString("kJobsListOptions", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Options
+      /// 
+      /// Locales: en, it
+      static func kOptionsTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kOptionsTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Password must be six characters long
       /// 
       /// Locales: en, it
       static func kAlertLoginFailedInvalidPasswordMessage(_: Void = ()) -> String {
         return NSLocalizedString("kAlertLoginFailedInvalidPasswordMessage", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Registration
+      /// 
+      /// Locales: en, it
+      static func kSignUpTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kSignUpTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Repeat Password
+      /// 
+      /// Locales: en, it
+      static func kRepeatPassword(_: Void = ()) -> String {
+        return NSLocalizedString("kRepeatPassword", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Search
+      /// 
+      /// Locales: en, it
+      static func kJobsListSearch(_: Void = ()) -> String {
+        return NSLocalizedString("kJobsListSearch", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Select Workers
+      /// 
+      /// Locales: en, it
+      static func kSelectWorkers(_: Void = ()) -> String {
+        return NSLocalizedString("kSelectWorkers", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Show Details
+      /// 
+      /// Locales: en, it
+      static func kAlbumDetailsShowDetails(_: Void = ()) -> String {
+        return NSLocalizedString("kAlbumDetailsShowDetails", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Sign Up
@@ -674,11 +970,32 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("TextFieldUserInfoSurname", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Terms of Contract
+      /// 
+      /// Locales: en, it
+      static func kTermsContractTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kTermsContractTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: The confirmation password is different
       /// 
       /// Locales: en, it
       static func kAlertLoginFailedDifferentPasswordsMessage(_: Void = ()) -> String {
         return NSLocalizedString("kAlertLoginFailedDifferentPasswordsMessage", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: User's Informations
+      /// 
+      /// Locales: en, it
+      static func kUserInformation(_: Void = ()) -> String {
+        return NSLocalizedString("kUserInformation", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Welcome To Hell
+      /// 
+      /// Locales: en, it
+      static func kWelcomeTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kWelcomeTitle", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: You left one or more fields empty
@@ -728,17 +1045,17 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try albumItem.validate()
-      try main.validate()
-      try addJob.validate()
-      try authScreen.validate()
-      try signup.validate()
       try addAlbum.validate()
-      try options.validate()
+      try authScreen.validate()
       try login.validate()
-      try launchScreen.validate()
-      try jobDetails.validate()
       try jobs.validate()
+      try launchScreen.validate()
+      try main.validate()
+      try signup.validate()
+      try albumItem.validate()
+      try options.validate()
+      try addJob.validate()
+      try jobDetails.validate()
     }
     
     struct addAlbum: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -796,8 +1113,8 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "email-icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'email-icon' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
         if UIKit.UIImage(named: "trees") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'trees' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "email-icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'email-icon' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
         if _R.storyboard.authScreen().authScreen() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'authScreen' could not be loaded from storyboard 'AuthScreen' as 'AuthScreenController'.") }
@@ -813,6 +1130,7 @@ struct _R: Rswift.Validatable {
       let name = "JobDetails"
       
       static func validate() throws {
+        if UIKit.UIImage(named: "add") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'add' is used in storyboard 'JobDetails', but couldn't be loaded.") }
         if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'JobDetails', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
@@ -886,8 +1204,8 @@ struct _R: Rswift.Validatable {
       let name = "Options"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }

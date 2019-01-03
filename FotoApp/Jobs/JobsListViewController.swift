@@ -13,8 +13,7 @@ import RealmSwift
 class JobsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     var listOfTopic : [Topic] = []
-    var listOfAlbum : [Album] = []
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var buttonOutlet: UIButton! {
@@ -35,27 +34,21 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         
         var currentUser : User = User()
         
-        listOfTopic.removeAll()
-        
         // hide back button
         self.navigationItem.setHidesBackButton(true, animated:true)
-
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.buttonOutlet.isHidden = true
         
         // update user info
         NetworkManager.getUserData { (success, err) in
-            if !success {
-                debugPrint("Erro saving user info: \(err)")
-            }
-            else{
+            if success {
                 currentUser = User.getObject(withId: Auth.auth().currentUser!.uid)!
-                if !currentUser.admin {
-                    self.buttonOutlet.isHidden = true
+                if currentUser.admin {
+                    self.buttonOutlet.isHidden = false
                 }
+                NetworkManager.getTopics()
             }
         }
-        
-        NetworkManager.getTopics()
         
         NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "topicListener"), object: nil)
     }
@@ -70,10 +63,8 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     @objc private func notificationObserver(notification : Notification) {
-        self.listOfTopic = Topic.all()
-        self.listOfTopic = self.listOfTopic.sorted(by: { $0.getTitle().lowercased() < $1.getTitle().lowercased() })
-        tableView.reloadData()
-       
+        self.listOfTopic = Topic.all().sorted(by: { $0.getTitle().lowercased() < $1.getTitle().lowercased() })
+        tableView.reloadSections(IndexSet(arrayLiteral: 0), with: .automatic)
     }
     
     // Manage navbar
@@ -107,9 +98,7 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         else{
             cell.missionName.text = listOfTopic[indexPath.row].title
             cell.missionDate.text = listOfTopic[indexPath.row].creation.date?.stringFormatted
-            
         }
-
         
         return cell
     }
@@ -124,5 +113,4 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         isSearching = true
         tableView.reloadData()
     }
-
 }
