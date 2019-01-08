@@ -134,6 +134,7 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedJobId = self.listOfTopic[indexPath.row].id
         self.performSegue(withIdentifier: "segueToDetails", sender: self)
+        
     }    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
