@@ -104,8 +104,10 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
                 let checkedUrl = URL(string: urlString)
                 
                 if success {
+                    debugPrint("Immagine Scaricata")
                     cell.downloadImage(url: checkedUrl!)
                 } else {
+                      debugPrint("Non prende l'immagine")
                     cell.imageOutlet.image = UIImage(named: "illustration2")
                 }
             }
