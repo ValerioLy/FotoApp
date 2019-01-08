@@ -100,13 +100,13 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
             cell.missionDate.text = listOfTopic[indexPath.row].creation.date?.stringFormatted
             
             
-            NetworkManager.getImageData { (success, urlString) in
-                let checkedUrl = URL(string: urlString)
-                
-                if success {
-                    cell.downloadImage(url: checkedUrl!)
-                }
-            }
+//            NetworkManager.getImageData { (success, urlString) in
+//                let checkedUrl = URL(string: urlString)
+//                
+//                if success {
+//                    cell.downloadImage(url: checkedUrl!)
+//                }
+//            }
 
             
           

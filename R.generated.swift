@@ -1163,11 +1163,17 @@ struct _R: Rswift.Validatable {
       typealias InitialController = JobsListViewController
       
       let bundle = R.hostingBundle
+      let job = StoryboardViewControllerResource<JobsListViewController>(identifier: "job")
       let name = "Jobs"
+      
+      func job(_: Void = ()) -> JobsListViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: job)
+      }
       
       static func validate() throws {
         if UIKit.UIImage(named: "add") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'add' is used in storyboard 'Jobs', but couldn't be loaded.") }
         if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Jobs', but couldn't be loaded.") }
+        if _R.storyboard.jobs().job() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'job' could not be loaded from storyboard 'Jobs' as 'JobsListViewController'.") }
       }
       
       fileprivate init() {}

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E09E2A0D4D4BE636EC7615C /* Pods_FotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2568872B37835C655A12FFB8 /* Pods_FotoApp.framework */; };
+		3CED0C2376F801CF08824ECB /* Pods_FotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2EEA156DFACF1A6079BADC /* Pods_FotoApp.framework */; };
 		B31A3DEC21B584950014749E /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DE821B584950014749E /* UserInfoController.swift */; };
 		B31A3DEE21B584950014749E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DEA21B584950014749E /* SignupController.swift */; };
 		B33127F821E35EE30089EAD8 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33127F721E35EE20089EAD8 /* R.generated.swift */; };
@@ -83,8 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2568872B37835C655A12FFB8 /* Pods_FotoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FotoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		922402085D1303BC36DAD3BD /* Pods-FotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.release.xcconfig"; sourceTree = "<group>"; };
+		5D2EEA156DFACF1A6079BADC /* Pods_FotoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FotoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31A3DE821B584950014749E /* UserInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfoController.swift; path = FotoApp/Register/UserInfoController.swift; sourceTree = SOURCE_ROOT; };
 		B31A3DEA21B584950014749E /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupController.swift; path = FotoApp/Register/SignupController.swift; sourceTree = SOURCE_ROOT; };
 		B33127F721E35EE20089EAD8 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
@@ -117,7 +116,8 @@
 		B3E9540521B690EC00D60014 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3E9540721B6913300D60014 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B3ECCE2321C90DC90085C1CB /* DownloadedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedImage.swift; sourceTree = "<group>"; };
-		B695B4D1BD9EBC21E7D243C0 /* Pods-FotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.debug.xcconfig"; sourceTree = "<group>"; };
+		DF0164B32D4FCD27FC76DD06 /* Pods-FotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.release.xcconfig"; sourceTree = "<group>"; };
+		EA33564C2B6854DDCA5B18F7 /* Pods-FotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F93EFE1021AEB24C00FBC875 /* FotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F93EFE1521AEB24C00FBC875 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F93EFE1821AEB24C00FBC875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E09E2A0D4D4BE636EC7615C /* Pods_FotoApp.framework in Frameworks */,
+				3CED0C2376F801CF08824ECB /* Pods_FotoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,13 +179,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AF3EE70B921AAD5A93E64A5A /* Pods */ = {
+		37A11C9780C177236EE2151B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B695B4D1BD9EBC21E7D243C0 /* Pods-FotoApp.debug.xcconfig */,
-				922402085D1303BC36DAD3BD /* Pods-FotoApp.release.xcconfig */,
+				5D2EEA156DFACF1A6079BADC /* Pods_FotoApp.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		B33C51BB21C134D90023C98E /* JobDetails */ = {
@@ -289,12 +288,13 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		ED28BAD260096B4DDCF141AF /* Frameworks */ = {
+		D8790DEC452EFFC7B8DB82EC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2568872B37835C655A12FFB8 /* Pods_FotoApp.framework */,
+				EA33564C2B6854DDCA5B18F7 /* Pods-FotoApp.debug.xcconfig */,
+				DF0164B32D4FCD27FC76DD06 /* Pods-FotoApp.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		F93EFE0721AEB24C00FBC875 = {
@@ -304,9 +304,9 @@
 				F93EFE2721AEB24E00FBC875 /* FotoAppTests */,
 				F93EFE3221AEB24E00FBC875 /* FotoAppUITests */,
 				F93EFE1121AEB24C00FBC875 /* Products */,
-				AF3EE70B921AAD5A93E64A5A /* Pods */,
-				ED28BAD260096B4DDCF141AF /* Frameworks */,
 				B3E953E221B6839100D60014 /* Recovered References */,
+				D8790DEC452EFFC7B8DB82EC /* Pods */,
+				37A11C9780C177236EE2151B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -422,12 +422,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F93EFE3821AEB24E00FBC875 /* Build configuration list for PBXNativeTarget "FotoApp" */;
 			buildPhases = (
-				8544BE44B96ECC066230EF71 /* [CP] Check Pods Manifest.lock */,
+				A7279FB4A2B53E280EEAAEE7 /* [CP] Check Pods Manifest.lock */,
 				F93EFE4F21AEB7AD00FBC875 /* ShellScript */,
 				F93EFE0C21AEB24C00FBC875 /* Sources */,
 				F93EFE0D21AEB24C00FBC875 /* Frameworks */,
 				F93EFE0E21AEB24C00FBC875 /* Resources */,
-				4EB4754358BD780CDC3E00AC /* [CP] Embed Pods Frameworks */,
+				3E92E28E7A1C10D6B8DD92E1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -558,7 +558,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4EB4754358BD780CDC3E00AC /* [CP] Embed Pods Frameworks */ = {
+		3E92E28E7A1C10D6B8DD92E1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -610,7 +610,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8544BE44B96ECC066230EF71 /* [CP] Check Pods Manifest.lock */ = {
+		A7279FB4A2B53E280EEAAEE7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -645,7 +645,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/R.generated.swift,
+				"$SRCROOT/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -873,7 +873,7 @@
 		};
 		F93EFE3921AEB24E00FBC875 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B695B4D1BD9EBC21E7D243C0 /* Pods-FotoApp.debug.xcconfig */;
+			baseConfigurationReference = EA33564C2B6854DDCA5B18F7 /* Pods-FotoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -894,7 +894,7 @@
 		};
 		F93EFE3A21AEB24E00FBC875 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 922402085D1303BC36DAD3BD /* Pods-FotoApp.release.xcconfig */;
+			baseConfigurationReference = DF0164B32D4FCD27FC76DD06 /* Pods-FotoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
