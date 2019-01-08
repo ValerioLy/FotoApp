@@ -17,7 +17,7 @@ class AddJobController: UIViewController {
     private var selectedEmployee : [User]?
     private var idUsers : [String] = []
     var listUsers : [User] = []
-    var filterData = [User]()
+    var filterData : [User] = []
     var isSearching = false
     
     @IBOutlet weak var tableView: UITableView!
