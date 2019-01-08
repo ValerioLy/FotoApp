@@ -35,11 +35,10 @@ class LaunchScreenController: UIViewController {
                         
                         NetworkManager.checkTermsUser(completion: { (success) in
                             if success {
-                                self.performSegue(withIdentifier: "segueToHome", sender: self)
+                                self.performSegue(withIdentifier: R.segue.launchScreenController.segueToHome.identifier, sender: self)
                             }
                             else {
                                 let viewController : UIViewController = UIStoryboard(name: "Signup", bundle: nil).instantiateViewController(withIdentifier: "TermsController")
-                                
                                 
                                 self.navigationController?.pushViewController(viewController, animated: true)
                             }

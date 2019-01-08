@@ -20,7 +20,7 @@ kMissingInfoError = "Nessuna informazione disponibile";
 kSignuplbl = "Registrati";
 kSignupButton = "Registrati";
 kForgotPssw = "Password Dimenticata";
-kResetPwwq = "Resetta Password"
+kResetPwwq = "Resetta Password";
 
 // Alert
 kAlertOkButton = "Ok";

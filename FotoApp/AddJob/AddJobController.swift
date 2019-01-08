@@ -80,7 +80,6 @@ extension AddJobController : UITableViewDelegate, UITableViewDataSource, UISearc
         }
         else{
             cell.name.text = listUsers[indexPath.row].fullName()
-            
         }
         
         return cell

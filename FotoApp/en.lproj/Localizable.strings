@@ -20,7 +20,7 @@ kMissingInfoError = "No information available";
 kSignuplbl = "Sign Up";
 kSignupButton = "Sign Up";
 kForgotPssw = "Forgot Password";
-kResetPwwq = "Reset Password"
+kResetPwwq = "Reset Password";
 
 // Alert
 kAlertOkButton = "Ok";

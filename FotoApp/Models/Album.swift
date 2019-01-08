@@ -41,7 +41,7 @@ import Firebase
             }
         } catch {}
     }
-    
+
     static func getObject(in realm: Realm = try! Realm(configuration: RealmUtils.config), withId id : String) -> Album? {
         return realm.object(ofType: Album.self, forPrimaryKey: id)
     }

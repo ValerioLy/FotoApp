@@ -33,7 +33,7 @@ class UserInfoController: UIViewController {
     
     @IBOutlet weak var lblContinue: UIBarButtonItem!{
         didSet {
-            lblContinue.title = R.string.localizable.lblUserInfoContinue()
+//            lblContinue.title = R.string.localizable.lblUserInfoContinue()
         }
     }
     
@@ -165,7 +165,6 @@ extension UserInfoController: UIImagePickerControllerDelegate, UINavigationContr
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         guard let image = info[.editedImage] as? UIImage  else {
-            debugPrint("No image found")
             return
         }
         

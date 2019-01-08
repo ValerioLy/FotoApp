@@ -58,6 +58,10 @@ import FirebaseFirestore
         } catch {}
     }
     
+    static func getObject(in realm: Realm = try! Realm(configuration: RealmUtils.config), withId id : String) -> Topic? {
+        return realm.object(ofType: Topic.self, forPrimaryKey: id)
+    }
+    
     func deleteAllTopic(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
                 for topic in Topic.all() {
                     topic.delete()

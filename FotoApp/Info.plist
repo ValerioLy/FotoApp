@@ -27,7 +27,11 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
+<<<<<<< HEAD
 	<string>Signup</string>
+=======
+	<string>LaunchScreen</string>
+>>>>>>> develop
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

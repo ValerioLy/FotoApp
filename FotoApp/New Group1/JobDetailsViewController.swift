@@ -6,13 +6,20 @@
 //
 
 import UIKit
+import Firebase
 
 class JobDetailsViewController: UIViewController {
     @IBOutlet weak var titleTopic: UINavigationItem!
+    @IBOutlet weak var buttonAdd: UIButton! {
+        didSet {
+            buttonAdd.circle()
+        }
+    }
     
     private var trueListAlbum : [Album] = []
     private var trueTopic : Topic!
     private var selectedAlbumId : String?
+    private var listeners : [ListenerRegistration?]?
     
     var id = ""
     
@@ -21,31 +28,42 @@ class JobDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetworkManager.getTopicsJobDetail(id: id){ (success, topic) in
-            if success {
-                self.trueTopic = topic!
-                self.title = self.trueTopic.title
-                
-                let ids = Array(self.trueTopic.albums)
-                NetworkManager.getAlbums(ids: ids, completion: { (success, err) in
-                    if success {
-                        
-                        // take from realm
-                        ids.forEach({ (item) in
-                            let albumFound = Album.getObject(withId: item)
-                            
-                            if albumFound != nil {
-                                self.trueListAlbum.append(albumFound!)
-                            }
-                        })
-                        
-                        // reload table
-                        self.table.reloadSections(IndexSet(arrayLiteral: 0,1), with: .automatic)
-                    }
-                })
-            }
+        // hide the button if admin si logged
+        if let user = User.getObject(withId: NetworkManager.getUserId()) {
+            buttonAdd.isHidden = user.admin
         }
         
+        self.trueTopic = Topic.getObject(withId: id)
+        self.title = self.trueTopic.title
+        let ids = Array(self.trueTopic.albums)
+        
+        // take from realm
+        ids.forEach({ (item) in
+            let albumFound = Album.getObject(withId: item)
+            if albumFound != nil {
+                self.trueListAlbum.append(albumFound!)
+            }
+        })
+        
+        listener = NetworkManager.getAlbumsListener(idTopic: id)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "albumsListener"), object: nil)
+    }
+    
+    @objc private func notificationObserver(notification : Notification) {
+        self.trueTopic = Topic.getObject(withId: id)
+        self.title = self.trueTopic.title
+        let ids = Array(self.trueTopic.albums)
+        
+        // take from realm
+        ids.forEach({ (item) in
+            let albumFound = Album.getObject(withId: item)
+            if albumFound != nil {
+                self.trueListAlbum.append(albumFound!)
+            }
+        })
+        
+        self.table.reloadSections(IndexSet(arrayLiteral: 1), with: .automatic)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,6 +71,11 @@ class JobDetailsViewController: UIViewController {
             if let destination = segue.destination as? AlbumItemController,
                 let id = self.selectedAlbumId {
                 destination.albumId = id
+            }
+        }
+        else if segue.identifier == "segueToAddAlbum" {
+            if let destination = segue.destination as? AddAlbumController {
+                destination.topicId = self.id
             }
         }
     }
@@ -92,6 +115,10 @@ extension JobDetailsViewController : UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.section != 0 else {
+            return
+        }
+        
         self.selectedAlbumId = self.trueListAlbum[indexPath.row].id
         self.performSegue(withIdentifier: "segueToAlbumSpecs", sender: self)
     }
