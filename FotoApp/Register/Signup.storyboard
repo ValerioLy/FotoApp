@@ -241,23 +241,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Ih-oz-R5s">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="w0V-Rt-1Ev">
+                                <rect key="frame" x="20" y="20" width="339" height="563"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="577" id="ehn-gX-ku6" customClass="ContractCell" customModule="FotoApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="577"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ehn-gX-ku6" id="e4t-IQ-8t3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="576.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4MO-pk-b2o">
-                                                    <rect key="frame" x="16" y="16" width="343" height="544.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <mutableString key="text">1. DEFINITIONS
+                                <mutableString key="text">1. DEFINITIONS
 When used in this Agreement, the following terms shall have the respective meanings indicated, such
 meanings to be applicable to both the singular and plural forms of the terms defined:
 "Acceptance" of Software means completion of the acceptance testing process set forth in Section 3
@@ -749,20 +736,17 @@ regarding the subject matter hereof and supersedes and merges all prior proposal
 all other agreements, oral, and written between the parties relating to the Agreement.
 IN WITNESS WHEREOF, the parties have executed this Agreement on the dates set forth first above,
 with full knowledge of its content and significance and intending to be legally bound by the terms hereof.</mutableString>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="l6z-Fa-c9I" id="108-vE-A1D"/>
-                                    <outlet property="delegate" destination="l6z-Fa-c9I" id="mlA-lQ-0K7"/>
-                                </connections>
-                            </tableView>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="w0V-Rt-1Ev" firstAttribute="top" secondItem="UjM-sl-osA" secondAttribute="top" constant="20" id="KW8-Rq-TFw"/>
+                            <constraint firstItem="UjM-sl-osA" firstAttribute="trailing" secondItem="w0V-Rt-1Ev" secondAttribute="trailing" constant="16" id="UQa-l4-ZAO"/>
+                            <constraint firstItem="UjM-sl-osA" firstAttribute="bottom" secondItem="w0V-Rt-1Ev" secondAttribute="bottom" constant="20" id="gJ9-c1-weq"/>
+                            <constraint firstItem="w0V-Rt-1Ev" firstAttribute="leading" secondItem="UjM-sl-osA" secondAttribute="leading" constant="20" id="q3q-UU-8FT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="UjM-sl-osA"/>
                     </view>
                     <navigationItem key="navigationItem" title="Terms and contract" id="uUD-xE-jJb">

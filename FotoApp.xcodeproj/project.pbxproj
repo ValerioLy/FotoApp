@@ -42,7 +42,6 @@
 		B3E9540621B690F700D60014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E9540521B690EC00D60014 /* LaunchScreen.storyboard */; };
 		B3E9540821B6913300D60014 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E9540721B6913300D60014 /* LoginViewController.swift */; };
 		B3ECCE2421C90DC90085C1CB /* DownloadedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ECCE2321C90DC90085C1CB /* DownloadedImage.swift */; };
-		F908D45621E4D925008503E4 /* ContractCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F908D45521E4D925008503E4 /* ContractCell.swift */; };
 		F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE1521AEB24C00FBC875 /* ViewController.swift */; };
 		F93EFE1B21AEB24D00FBC875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE1A21AEB24D00FBC875 /* Assets.xcassets */; };
 		F93EFE2921AEB24E00FBC875 /* FotoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE2821AEB24E00FBC875 /* FotoAppTests.swift */; };
@@ -119,7 +118,6 @@
 		B3ECCE2321C90DC90085C1CB /* DownloadedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedImage.swift; sourceTree = "<group>"; };
 		DF0164B32D4FCD27FC76DD06 /* Pods-FotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.release.xcconfig"; sourceTree = "<group>"; };
 		EA33564C2B6854DDCA5B18F7 /* Pods-FotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.debug.xcconfig"; sourceTree = "<group>"; };
-		F908D45521E4D925008503E4 /* ContractCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractCell.swift; sourceTree = "<group>"; };
 		F93EFE1021AEB24C00FBC875 /* FotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F93EFE1521AEB24C00FBC875 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F93EFE1821AEB24C00FBC875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -380,7 +378,6 @@
 				F93EFE5921AED87000FBC875 /* SignupController.swift */,
 				F9442BA121B162D900F45C32 /* UserInfoController.swift */,
 				F94DB91E21B29B0000DB2452 /* ContractController.swift */,
-				F908D45521E4D925008503E4 /* ContractCell.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -691,7 +688,6 @@
 				B3861EB821C12F3D006118B6 /* User.swift in Sources */,
 				FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */,
 				FF8F43D321BE6B49003FFEE8 /* JobsListViewController.swift in Sources */,
-				F908D45621E4D925008503E4 /* ContractCell.swift in Sources */,
 				F94711DE21B6C1E0007F5019 /* AddJobController.swift in Sources */,
 				B33C51BA21C134D70023C98E /* TopicTableViewCell.swift in Sources */,
 				B33C51B921C134D70023C98E /* TopicAlbumsTableViewCell.swift in Sources */,

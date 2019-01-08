@@ -9,6 +9,9 @@
 import UIKit
 
 class ContractController: UIViewController {
+    
+    
+
 
     var hasAcceptedContract : Bool = false
     
