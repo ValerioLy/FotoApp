@@ -32,19 +32,25 @@ class NetworkManager: NSObject {
   
         self.db.collection("photos").getDocuments { (snapshot, err) in
             
-            if let err = err {
+            guard let error = err else {
                 print("Non prende i documenti: \(err)")
                 completion(false, "")
-            } else {
+                return
+            }
+            if !(snapshot?.isEmpty)!  {
                 let firstDocument = snapshot!.documents.first
-              
+                
                 let docId = firstDocument!.documentID.first
                 let link = firstDocument!.get("link") as! String
-                    
-                    print(link)
+                
+                print(link)
                 
                 completion(true, link)
-                }
+                
+            } else {
+                print("Documenti con foto vuote: \(err)")
+                completion(false, "")
+            }
             
             }
     }
@@ -217,7 +223,7 @@ class NetworkManager: NSObject {
             if error == nil {
                 completion(true, nil)
             } else {
-                UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Error", message: "Register not Correct", closeAction: {
+                UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Error", message: "Registration not Correct", closeAction: {
                     completion(false, error?.localizedDescription)
                 }), animated: true, completion: nil)
             }

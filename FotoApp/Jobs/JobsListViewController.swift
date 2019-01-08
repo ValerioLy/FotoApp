@@ -105,6 +105,8 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 if success {
                     cell.downloadImage(url: checkedUrl!)
+                } else {
+                    cell.imageOutlet.image = UIImage(named: "illustration2")
                 }
             }
 
