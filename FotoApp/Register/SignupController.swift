@@ -77,12 +77,17 @@ class SignupController: UIViewController {
             return
         }
         
+        let loadingAlert = UIApplication.loadingAlert(title: "Registration")
+        self.present(loadingAlert, animated: true, completion: {})
         
         NetworkManager.register(email: email, password: password) { (success, err) in
+            loadingAlert.dismiss(animated: true, completion: {
             if success {
+                
                 NetworkManager.pushUserData(email: email, hasInsertedData: self.hasInsertedData, hasAcceptedContract : self.hasAcceptedContract, completion: { (success, err) in
                     if success {
                     self.performSegue(withIdentifier:"segueToUserInfo", sender: self)
+                       
                     }
                     else {
                         let alert = UIApplication.alertError(title: "Opss", message: err, closeAction: {})
@@ -94,6 +99,7 @@ class SignupController: UIViewController {
                 let alert = UIApplication.alertError(title: "Opss", message: err, closeAction: {})
                 self.present(alert, animated: true, completion: nil)
             }
+                })
         }
     }
     

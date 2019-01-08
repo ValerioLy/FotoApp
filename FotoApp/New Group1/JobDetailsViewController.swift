@@ -19,7 +19,7 @@ class JobDetailsViewController: UIViewController {
     private var trueListAlbum : [Album] = []
     private var trueTopic : Topic!
     private var selectedAlbumId : String?
-    private var listeners : [ListenerRegistration?]?
+//    private var listeners : [ListenerRegistration?]?
     
     var id = ""
     
