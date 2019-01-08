@@ -32,11 +32,10 @@ class NetworkManager: NSObject {
         
         self.db.collection("photos").getDocuments { (snapshot, err) in
             
-            guard let error = err else {
+            if let error = err {
                 print("Non prende i documenti: \(err)")
                 completion(false, "")
-                return
-            }
+            } else {
             if !(snapshot?.isEmpty)!  {
                 let firstDocument = snapshot!.documents.first
                 

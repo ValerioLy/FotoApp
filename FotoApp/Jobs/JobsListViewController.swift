@@ -16,6 +16,7 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var emptyImage: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var buttonOutlet: UIButton! {
         didSet {
@@ -27,6 +28,7 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     var filterData = [Topic]()
     private var selectedJobId : String? = nil
     var isSearching = false
+    var searchController : UISearchController?
     
     
     override func viewDidLoad() {
@@ -81,6 +83,11 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let searchController = UISearchController(searchResultsController: nil)
+
+        searchController = UISearchController(searchResultsController: nil)
+        searchController?.delegate = self as? UISearchControllerDelegate
+        searchController?.searchResultsUpdater = self as? UISearchResultsUpdating
+        searchController?.searchBar.delegate = self
         navigationItem.searchController = searchController
     }
     
@@ -113,8 +120,10 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
                 let checkedUrl = URL(string: urlString)
                 
                 if success {
+                    debugPrint("Immagine Scaricata")
                     cell.downloadImage(url: checkedUrl!)
                 } else {
+                      debugPrint("Non prende l'immagine")
                     cell.imageOutlet.image = UIImage(named: "illustration2")
                 }
             }
