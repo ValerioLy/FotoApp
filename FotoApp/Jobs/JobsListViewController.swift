@@ -13,8 +13,7 @@ import RealmSwift
 class JobsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     var listOfTopic : [Topic] = []
-    
-    @IBOutlet weak var searchBar: UISearchBar!
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var buttonOutlet: UIButton! {
         didSet {
@@ -26,7 +25,7 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     var filterData = [Topic]()
     private var selectedJobId : String? = nil
     var isSearching = false
-
+    var searchController : UISearchController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +70,10 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     func setupNavbar() {
         navigationController?.navigationBar.prefersLargeTitles = true
 
-        let searchController = UISearchController(searchResultsController: nil)
+        searchController = UISearchController(searchResultsController: nil)
+        searchController?.delegate = self as? UISearchControllerDelegate
+        searchController?.searchResultsUpdater = self as? UISearchResultsUpdating
+        searchController?.searchBar.delegate = self
         navigationItem.searchController = searchController
     }
     
