@@ -29,7 +29,7 @@ class NetworkManager: NSObject {
     
     
     static func getImageData(completion: @escaping(Bool, String) -> ())  {
-  
+        
         self.db.collection("photos").getDocuments { (snapshot, err) in
             
             guard let error = err else {
@@ -53,9 +53,11 @@ class NetworkManager: NSObject {
             }
             
             }
+            
+        }
     }
     
-   
+    
     
     
     
@@ -136,10 +138,6 @@ class NetworkManager: NSObject {
         }
     }
     
-    
-    
-    
-    
     static func uploadTopics(title : String, descriptio : String, expiration : String, workers : [String], completion: @escaping (Bool) -> ()) {
         guard let user = Auth.auth().currentUser else { completion(false); return}
         
@@ -211,7 +209,7 @@ class NetworkManager: NSObject {
                         return
                     }
                 })
-        
+                
                 completion(list, nil)
             }
         }
@@ -271,7 +269,7 @@ class NetworkManager: NSObject {
         }
             
         else{
-        db.collection("topics").whereField("workers", arrayContains:Auth.auth().currentUser?.uid).addSnapshotListener { (querySnapshot, error) in
+            db.collection("topics").whereField("workers", arrayContains:Auth.auth().currentUser?.uid).addSnapshotListener { (querySnapshot, error) in
                 
                 guard let docs = querySnapshot?.documents else {
                     return
@@ -291,7 +289,7 @@ class NetworkManager: NSObject {
                 
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "topicListener"), object: nil)
-        }
+            }
         }
     }
     
@@ -302,11 +300,11 @@ class NetworkManager: NSObject {
                 completion(false,nil)
                 return
             }
-           
+            
             docs.forEach({(item) in
                 let data = item.data()
                 do {
-                   topic = try FirebaseDecoder().decode(Topic.self, from: data)
+                    topic = try FirebaseDecoder().decode(Topic.self, from: data)
                 }
                 catch let error{
                     completion(false,nil)
@@ -322,64 +320,58 @@ class NetworkManager: NSObject {
         }
     }
     
-    static func getAlbumsListener(idTopic : String) -> [ListenerRegistration?]? {
+    static func getTopicListeners(idTopic : String) -> [ListenerRegistration?]? {
         guard Auth.auth().currentUser != nil else {
             return nil
         }
         
         let topicListener = db.collection(TOPICS_COLLECTION).document(idTopic)
             .addSnapshotListener { documentSnapshot, error in
+                
+                guard let data = documentSnapshot?.data() else {
+                    return
+                }
+                
+                do {
+                    try FirebaseDecoder().decode(Topic.self, from: data).save()
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "albumsListener"), object: nil)
+                }
+                catch {
+                    return
+                }
+        }
+        
+        let albumsListener = db.collection(ALBUMS_COLLECTION).whereField("topicId", isEqualTo: idTopic).addSnapshotListener { (querySnap, err) in
             
-            guard let data = documentSnapshot?.data() else {
-                return
+            if let snap = querySnap {
+                snap.documentChanges.forEach({ (item) in
+                    var album : Album?
+                    
+                    do {
+                        album = try FirebaseDecoder().decode(Album.self, from: item.document.data())
+                    }
+                    catch let err {
+                        debugPrint(err)
+                        return
+                    }
+                    
+                    if item.type == .removed {
+                        album?.delete()
+                    }
+                    else {
+                        album?.save()
+                    }
+                    
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "albumsListener"), object: nil)
+                })
             }
-            
-            do {
-                try FirebaseDecoder().decode(Topic.self, from: data).save()
-            }
-            catch {
-                return
+            else {
+                debugPrint(err?.localizedDescription ?? "No error")
             }
         }
         
-        let albumListener = db.collection(ALBUMS_COLLECTION)
-        
-        return [topicListener]
+        return [topicListener, albumsListener]
     }
-    
-//    static func getAlbums(ids : [String], completion : @escaping (Bool, String?) -> ()) {
-//        guard Auth.auth().currentUser != nil else {
-//            completion(false, "No such user")
-//            return
-//        }
-//
-//        var fetchCount = 0
-//        ids.forEach({ (item) in
-//
-//            db.collection(ALBUMS_COLLECTION).whereField("id", isEqualTo : item)
-//                .getDocuments() { (querySnapshot, err) in
-//                    guard err == nil else {
-//                        completion(false, err!.localizedDescription)
-//                        return
-//                    }
-//
-//                    if let elementFound = querySnapshot?.documents.first?.data() {
-//                        do {
-//                            try FirebaseDecoder().decode(Album.self, from: elementFound).save()
-//                            fetchCount = fetchCount + 1
-//                        }
-//                        catch let err {
-//                            completion(false, err.localizedDescription)
-//                        }
-//
-//                        if fetchCount == ids.count {
-//                            completion(true, nil)
-//                        }
-//                    }
-//            }
-//
-//        })
-//    }
     
     static func logout(completion: @escaping (Bool) -> ()) {
         let firebaseAuth = Auth.auth()
@@ -535,6 +527,7 @@ class NetworkManager: NSObject {
             "title" : title,
             "descr" : descr,
             "createdBy" : user.uid,
+            "topicId" : topicId,
             "createdByName" : userName,
             "isPendingForDeletion" : false,
             "dateAdd" : Date().dateInString,
@@ -545,16 +538,7 @@ class NetworkManager: NSObject {
                 return
             }
             
-            db.collection(TOPICS_COLLECTION).document(topicId).setData([
-                "albums" : FieldValue.arrayUnion([albumId])
-            ], merge : true) { error in
-                guard error == nil else {
-                    completion(false, error!.localizedDescription)
-                    return
-                }
-                
-                completion(true, nil)
-            }
+            completion(true, nil)
         }
     }
     
@@ -594,7 +578,6 @@ class NetworkManager: NSObject {
                 return
             }
             
-            // send push notification to HomepageController
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "photoListener"), object: nil)
         }
     }

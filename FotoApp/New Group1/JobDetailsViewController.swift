@@ -19,7 +19,7 @@ class JobDetailsViewController: UIViewController {
     private var trueListAlbum : [Album] = []
     private var trueTopic : Topic!
     private var selectedAlbumId : String?
-//    private var listeners : [ListenerRegistration?]?
+    private var listeners : [ListenerRegistration?]?
     
     var id = ""
     
@@ -35,17 +35,9 @@ class JobDetailsViewController: UIViewController {
         
         self.trueTopic = Topic.getObject(withId: id)
         self.title = self.trueTopic.title
-        let ids = Array(self.trueTopic.albums)
+        self.trueListAlbum = Album.getObject(forTopic: id)
         
-        // take from realm
-        ids.forEach({ (item) in
-            let albumFound = Album.getObject(withId: item)
-            if albumFound != nil {
-                self.trueListAlbum.append(albumFound!)
-            }
-        })
-        
-//        listener = NetworkManager.getAlbumsListener(idTopic: id)
+        listeners = NetworkManager.getTopicListeners(idTopic: id)
         
         NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "albumsListener"), object: nil)
     }
@@ -53,17 +45,16 @@ class JobDetailsViewController: UIViewController {
     @objc private func notificationObserver(notification : Notification) {
         self.trueTopic = Topic.getObject(withId: id)
         self.title = self.trueTopic.title
-        let ids = Array(self.trueTopic.albums)
+        self.trueListAlbum = Album.getObject(forTopic: self.trueTopic.id)
         
-        // take from realm
-        ids.forEach({ (item) in
-            let albumFound = Album.getObject(withId: item)
-            if albumFound != nil {
-                self.trueListAlbum.append(albumFound!)
-            }
+        self.table.reloadSections(IndexSet(arrayLiteral: 0, 1), with: .automatic)
+    }
+    
+    deinit {
+        // clear the listeners
+        listeners?.forEach({ (item) in
+            item?.remove()
         })
-        
-        self.table.reloadSections(IndexSet(arrayLiteral: 1), with: .automatic)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

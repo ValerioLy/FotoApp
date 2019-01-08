@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class SignupController: UIViewController {
-
+    
     enum TagFields : Int {
         case email = 0
         case password
@@ -33,7 +33,7 @@ class SignupController: UIViewController {
             signupOutlet.setTitle(R.string.localizable.kSignupButton(), for: .normal)
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,7 +42,7 @@ class SignupController: UIViewController {
     }
     
     
-   
+    
     @IBAction func signupAction(_ sender: Any) {
         var email : String = ""
         var password : String = ""
@@ -82,24 +82,24 @@ class SignupController: UIViewController {
         
         NetworkManager.register(email: email, password: password) { (success, err) in
             loadingAlert.dismiss(animated: true, completion: {
-            if success {
-                
-                NetworkManager.pushUserData(email: email, hasInsertedData: self.hasInsertedData, hasAcceptedContract : self.hasAcceptedContract, completion: { (success, err) in
-                    if success {
-                    self.performSegue(withIdentifier:"segueToUserInfo", sender: self)
-                       
-                    }
-                    else {
-                        let alert = UIApplication.alertError(title: "Opss", message: err, closeAction: {})
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                })
-            }
-            else {
-                let alert = UIApplication.alertError(title: "Opss", message: err, closeAction: {})
-                self.present(alert, animated: true, completion: nil)
-            }
-                })
+                if success {
+                    
+                    NetworkManager.pushUserData(email: email, hasInsertedData: self.hasInsertedData, hasAcceptedContract : self.hasAcceptedContract, completion: { (success, err) in
+                        if success {
+                            self.performSegue(withIdentifier:"segueToUserInfo", sender: self)
+                            
+                        }
+                        else {
+                            let alert = UIApplication.alertError(title: "Opss", message: err, closeAction: {})
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    })
+                }
+                else {
+                    let alert = UIApplication.alertError(title: "Opss", message: err, closeAction: {})
+                    self.present(alert, animated: true, completion: nil)
+                }
+            })
         }
     }
     
