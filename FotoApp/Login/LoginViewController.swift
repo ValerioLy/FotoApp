@@ -97,11 +97,17 @@ class LoginViewController: UIViewController {
             self.present(UIApplication.alertError(title: "Login Failed Invalid Password", message: "Login Failed Invalid Password".localized, closeAction: {}),  animated: true, completion: nil)
             return
         }
+       
+        let loadingAlert = UIApplication.loadingAlert(title: "Login")
+        self.present(loadingAlert, animated: true, completion: {})
         
         NetworkManager.login(email: email, password: password) { (success, err) in
+                 loadingAlert.dismiss(animated: true, completion: {
             if success {
+
                 self.performSegue(withIdentifier: "segueToJobs", sender: nil)
             }
+            })
         }
     }
 }
