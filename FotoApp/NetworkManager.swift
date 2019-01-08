@@ -312,12 +312,12 @@ class NetworkManager: NSObject {
         }
     }
     
-    static func getAlbumsListener(idTopic : String) -> ListenerRegistration?{
+    static func getAlbumsListener(idTopic : String) -> [ListenerRegistration?]? {
         guard Auth.auth().currentUser != nil else {
             return nil
         }
         
-        return db.collection(TOPICS_COLLECTION).document(idTopic)
+        let topicListener = db.collection(TOPICS_COLLECTION).document(idTopic)
             .addSnapshotListener { documentSnapshot, error in
             
             guard let data = documentSnapshot?.data() else {
@@ -325,45 +325,16 @@ class NetworkManager: NSObject {
             }
             
             do {
-                let t = try FirebaseDecoder().decode(Topic.self, from: data)
-                t.save()
-                
-                var count = 1
-                
-                // get all albums
-                var albums : [Album] = []
-                t.albums.forEach({ (id) in
-                    db.collection(ALBUMS_COLLECTION).document(id).addSnapshotListener({ (doc, err) in
-                        guard let data = doc?.data() else {
-                            return
-                        }
-                        
-                        do {
-                            albums.append(try FirebaseDecoder().decode(Album.self, from: data))
-                            count = count + 1
-                        } catch let err {
-                            debugPrint(err)
-                        }
-                        
-                        if count == t.albums.count {
-                            // delete all from realm
-                            Album.removeAll()
-                            
-                            // re-save all
-//                            albums.forEach({ (a) in
-//                                a.save()
-//                            })
-                            
-                            // send push notification to HomepageController
-                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "albumsListener"), object: nil)
-                        }
-                    })
-                })
+                try FirebaseDecoder().decode(Topic.self, from: data).save()
             }
             catch {
                 return
             }
         }
+        
+        let albumListener = db.collection(ALBUMS_COLLECTION)
+        
+        return [topicListener]
     }
     
 //    static func getAlbums(ids : [String], completion : @escaping (Bool, String?) -> ()) {
@@ -555,7 +526,7 @@ class NetworkManager: NSObject {
             "descr" : descr,
             "createdBy" : user.uid,
             "createdByName" : userName,
-            "isPendingForDelition" : false,
+            "isPendingForDeletion" : false,
             "dateAdd" : Date().dateInString,
             "photos" : []
         ]) { error in

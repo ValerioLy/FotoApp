@@ -33,7 +33,7 @@ class UserInfoController: UIViewController {
     
     @IBOutlet weak var lblContinue: UIBarButtonItem!{
         didSet {
-            lblContinue.title = R.string.localizable.lblUserInfoContinue()
+//            lblContinue.title = R.string.localizable.lblUserInfoContinue()
         }
     }
     

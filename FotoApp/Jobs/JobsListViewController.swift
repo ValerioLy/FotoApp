@@ -34,9 +34,8 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         
         var currentUser : User = User()
         
-        // hide back button
+        self.navigationController!.setNavigationBarHidden(false, animated: true)
         self.navigationItem.setHidesBackButton(true, animated:true)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.buttonOutlet.isHidden = true
         
         // update user info
@@ -50,10 +49,7 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "topicListener"), object: nil)
-        
-
-       
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "topicListener"), object: nil)       
     }
     
     
@@ -109,7 +105,6 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 if success {
                     cell.downloadImage(url: checkedUrl!)
-                 debugPrint("boia\(checkedUrl)")
                 }
             }
 

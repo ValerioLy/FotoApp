@@ -19,7 +19,7 @@ class JobDetailsViewController: UIViewController {
     private var trueListAlbum : [Album] = []
     private var trueTopic : Topic!
     private var selectedAlbumId : String?
-    private var listener : ListenerRegistration?
+    private var listeners : [ListenerRegistration?]?
     
     var id = ""
     
@@ -44,23 +44,6 @@ class JobDetailsViewController: UIViewController {
                 self.trueListAlbum.append(albumFound!)
             }
         })
-
-        //        NetworkManager.getAlbums(ids: ids, completion: { (success, err) in
-//            if success {
-//                
-//                // take from realm
-//                ids.forEach({ (item) in
-//                    let albumFound = Album.getObject(withId: item)
-//                    debugPrint(albumFound)
-//                    if albumFound != nil {
-//                        self.trueListAlbum.append(albumFound!)
-//                    }
-//                })
-//                
-//                // reload table
-//                self.table.reloadSections(IndexSet(arrayLiteral: 0,1), with: .automatic)
-//            }
-//        })
         
         listener = NetworkManager.getAlbumsListener(idTopic: id)
         

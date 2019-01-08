@@ -12,7 +12,7 @@
         <!--Jobs-->
         <scene sceneID="ZYo-GO-fbz">
             <objects>
-                <viewController id="mMZ-f8-rWs" customClass="JobsListViewController" customModule="FotoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="job" id="mMZ-f8-rWs" customClass="JobsListViewController" customModule="FotoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gZS-6q-Eqd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,7 +120,7 @@
                 <viewControllerPlaceholder storyboardName="JobDetails" id="qkP-uv-O4d" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ah-59-b1K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1599" y="150"/>
+            <point key="canvasLocation" x="1570" y="176"/>
         </scene>
         <!--Options-->
         <scene sceneID="5gX-zM-JIr">
@@ -128,7 +128,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="Options" storyboardName="Options" id="M0V-hB-fQK" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fSF-FY-4mi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1597" y="-105"/>
+            <point key="canvasLocation" x="1584" y="-103"/>
         </scene>
         <!--AddJob-->
         <scene sceneID="7hb-RU-Obq">
@@ -136,7 +136,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="AddJob" storyboardName="AddJob" id="csG-da-fQe" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uDg-pQ-Ft5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1487" y="549"/>
+            <point key="canvasLocation" x="1033" y="651"/>
         </scene>
     </scenes>
     <resources>

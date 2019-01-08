@@ -12,7 +12,7 @@ target 'FotoApp' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'CodableFirebase'
-  pod 'R.swift', '~> 5.0.0.alpha.2'
   pod 'SkeletonView'
+  pod 'R.swift'
 
 end
