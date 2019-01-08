@@ -52,17 +52,9 @@ class NetworkManager: NSObject {
                 completion(false, "")
             }
             
-            }
-            
         }
+        
     }
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -520,8 +512,9 @@ class NetworkManager: NSObject {
             return
         }
         
-        let userName = "Admin"
+        let userName = User.getObject(withId: user.uid)?.fullName() ?? "Undefined"
         let albumId = UUID().uuidString
+        
         db.collection(ALBUMS_COLLECTION).document(albumId).setData([
             "id" : albumId,
             "title" : title,
