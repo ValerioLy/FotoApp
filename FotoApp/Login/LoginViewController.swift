@@ -21,11 +21,11 @@ class LoginViewController: UIViewController {
     
     
     
-   
     
     
     
-       
+    
+    
     
     
     
@@ -48,18 +48,18 @@ class LoginViewController: UIViewController {
             login.roundedCorners()
             login.setTitle("Sign in", for: .normal)
             
-//            let start : CGPoint = CGPoint(x: 1.0, y: 1.0)
-//            let end : CGPoint = CGPoint(x: 1.0, y: 0.0)
-//            let gradient: CAGradientLayer = CAGradientLayer(layer: login)
-//            gradient.colors = [(UIColor(red: 0.0/255.0, green: 150.0/255.0, blue: 136.0/255.0, alpha: 1.00).cgColor), (UIColor(red: 29.0/255.0, green: 146.0/255.0, blue: 98.0/255.0, alpha: 1.00).cgColor)]
-//            gradient.locations = [0.0 , 1.0]
-//
-//            gradient.startPoint = start
-//            gradient.endPoint = end
-//            gradient.frame = CGRect(x: 0.0, y: 0.0, width: login.frame.size.width, height: login.frame.size.height)
-//
-//
-//            login.layer.insertSublayer(gradient, at: 0)
+            //            let start : CGPoint = CGPoint(x: 1.0, y: 1.0)
+            //            let end : CGPoint = CGPoint(x: 1.0, y: 0.0)
+            //            let gradient: CAGradientLayer = CAGradientLayer(layer: login)
+            //            gradient.colors = [(UIColor(red: 0.0/255.0, green: 150.0/255.0, blue: 136.0/255.0, alpha: 1.00).cgColor), (UIColor(red: 29.0/255.0, green: 146.0/255.0, blue: 98.0/255.0, alpha: 1.00).cgColor)]
+            //            gradient.locations = [0.0 , 1.0]
+            //
+            //            gradient.startPoint = start
+            //            gradient.endPoint = end
+            //            gradient.frame = CGRect(x: 0.0, y: 0.0, width: login.frame.size.width, height: login.frame.size.height)
+            //
+            //
+            //            login.layer.insertSublayer(gradient, at: 0)
         }
     }
     
@@ -97,16 +97,15 @@ class LoginViewController: UIViewController {
             self.present(UIApplication.alertError(title: "Login Failed Invalid Password", message: "Login Failed Invalid Password".localized, closeAction: {}),  animated: true, completion: nil)
             return
         }
-       
+        
         let loadingAlert = UIApplication.loadingAlert(title: "Login")
         self.present(loadingAlert, animated: true, completion: {})
         
         NetworkManager.login(email: email, password: password) { (success, err) in
-                 loadingAlert.dismiss(animated: true, completion: {
-            if success {
-
-                self.performSegue(withIdentifier: "segueToJobs", sender: nil)
-            }
+            loadingAlert.dismiss(animated: true, completion: {
+                if success {
+                    self.performSegue(withIdentifier: "segueToJobs", sender: nil)
+                }
             })
         }
     }
