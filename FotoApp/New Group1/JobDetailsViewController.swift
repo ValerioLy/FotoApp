@@ -19,7 +19,7 @@ class JobDetailsViewController: UIViewController {
     private var trueListAlbum : [Album] = []
     private var trueTopic : Topic!
     private var selectedAlbumId : String?
-    private var listeners : [ListenerRegistration?]?
+//    private var listeners : [ListenerRegistration?]?
     
     var id = ""
     
@@ -45,7 +45,7 @@ class JobDetailsViewController: UIViewController {
             }
         })
         
-        listener = NetworkManager.getAlbumsListener(idTopic: id)
+//        listener = NetworkManager.getAlbumsListener(idTopic: id)
         
         NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "albumsListener"), object: nil)
     }

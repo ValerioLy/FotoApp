@@ -413,8 +413,6 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-<<<<<<< HEAD:FotoApp/R.generated.swift
-=======
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
     /// This `R.string.localizable` struct is generated, and contains static references to 58 localization keys.
@@ -1064,7 +1062,6 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
->>>>>>> develop:R.generated.swift
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()
@@ -1089,26 +1086,12 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-<<<<<<< HEAD:FotoApp/R.generated.swift
-      try signup.validate()
-      try jobDetails.validate()
-      try authScreen.validate()
-      try jobs.validate()
-      try addAlbum.validate()
-      try login.validate()
-      try albumItem.validate()
-      try launchScreen.validate()
-      try addJob.validate()
-      try main.validate()
-      try options.validate()
-=======
       try options.validate()
       try albumItem.validate()
       try jobDetails.validate()
       try jobs.validate()
       try signup.validate()
       try authScreen.validate()
->>>>>>> develop:R.generated.swift
     }
     
     struct addAlbum: Rswift.StoryboardResourceWithInitialControllerType {
@@ -1156,11 +1139,6 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "trees") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'trees' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
         if UIKit.UIImage(named: "email-icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'email-icon' is used in storyboard 'AuthScreen', but couldn't be loaded.") }
-<<<<<<< HEAD:FotoApp/R.generated.swift
-        if #available(iOS 11.0, *) {
-        }
-=======
->>>>>>> develop:R.generated.swift
         if _R.storyboard.authScreen().authScreen() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'authScreen' could not be loaded from storyboard 'AuthScreen' as 'AuthScreenController'.") }
       }
       
@@ -1185,11 +1163,17 @@ struct _R: Rswift.Validatable {
       typealias InitialController = JobsListViewController
       
       let bundle = R.hostingBundle
+      let job = StoryboardViewControllerResource<JobsListViewController>(identifier: "job")
       let name = "Jobs"
+      
+      func job(_: Void = ()) -> JobsListViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: job)
+      }
       
       static func validate() throws {
         if UIKit.UIImage(named: "add") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'add' is used in storyboard 'Jobs', but couldn't be loaded.") }
         if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Jobs', but couldn't be loaded.") }
+        if _R.storyboard.jobs().job() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'job' could not be loaded from storyboard 'Jobs' as 'JobsListViewController'.") }
       }
       
       fileprivate init() {}
@@ -1230,15 +1214,8 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Options', but couldn't be loaded.") }
-<<<<<<< HEAD:FotoApp/R.generated.swift
-        if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'Options', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
-        if #available(iOS 11.0, *) {
-        }
-=======
         if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Options', but couldn't be loaded.") }
         if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'Options', but couldn't be loaded.") }
->>>>>>> develop:R.generated.swift
       }
       
       fileprivate init() {}
@@ -1262,11 +1239,6 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder' is used in storyboard 'Signup', but couldn't be loaded.") }
-<<<<<<< HEAD:FotoApp/R.generated.swift
-        if #available(iOS 11.0, *) {
-        }
-=======
->>>>>>> develop:R.generated.swift
         if _R.storyboard.signup().userInfoController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userInfoController' could not be loaded from storyboard 'Signup' as 'UserInfoController'.") }
         if _R.storyboard.signup().termsController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'termsController' could not be loaded from storyboard 'Signup' as 'ContractController'.") }
       }

@@ -14,7 +14,7 @@ class GeneralUtils: NSObject {
     
     func alertError(title: String?, message: String?, closeAction: @escaping () -> Void) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "AAA", style: .default, handler: {
+        let ok = UIAlertAction(title: "OK", style: .default, handler: {
             action in
             closeAction()
         } )

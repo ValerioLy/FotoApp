@@ -80,6 +80,7 @@ class SignupController: UIViewController {
         
         NetworkManager.register(email: email, password: password) { (success, err) in
             if success {
+    
                 NetworkManager.pushUserData(email: email, hasInsertedData: self.hasInsertedData, hasAcceptedContract : self.hasAcceptedContract, completion: { (success, err) in
                     if success {
                     self.performSegue(withIdentifier:"segueToUserInfo", sender: self)

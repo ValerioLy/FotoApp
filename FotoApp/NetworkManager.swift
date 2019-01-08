@@ -217,7 +217,9 @@ class NetworkManager: NSObject {
             if error == nil {
                 completion(true, nil)
             } else {
-                completion(false, error!.localizedDescription)
+                UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Error", message: "Register not Correct", closeAction: {
+                    completion(false, error?.localizedDescription)
+                }), animated: true, completion: nil)
             }
         }
     }
@@ -226,7 +228,9 @@ class NetworkManager: NSObject {
         
         Auth.auth().signIn(withEmail: email, password : password) { (user, error) in
             guard let _ = user else {
-                completion(false, error!.localizedDescription)
+                UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Error", message: "The User Not Exists", closeAction: {
+                    completion(false, error?.localizedDescription)
+                }), animated: true, completion: nil)
                 return
             }
             completion(true, nil)
