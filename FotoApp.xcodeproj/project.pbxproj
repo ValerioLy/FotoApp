@@ -57,10 +57,14 @@
 		F94711E021B6CB61007F5019 /* JobCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94711DF21B6CB61007F5019 /* JobCell.swift */; };
 		F97DD71321C144E80007E18D /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DD71221C144E80007E18D /* ResetPasswordController.swift */; };
 		F982426C21C01326000A041E /* AddMissioneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F982426B21C01326000A041E /* AddMissioneController.swift */; };
+		FF06419021E605BD0091FF3F /* BasicChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF06418F21E605BD0091FF3F /* BasicChatViewController.swift */; };
 		FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570221B576D000CED714 /* CreditsViewController.swift */; };
 		FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E570421B5896E00CED714 /* UserInfoViewController.swift */; };
 		FF5C803821B52C6E0045EC1A /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF5C803721B52C6E0045EC1A /* Options.storyboard */; };
 		FF5C803A21B5333D0045EC1A /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5C803921B5333D0045EC1A /* OptionsViewController.swift */; };
+		FF664EF121E4EB0400F47934 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF664EF021E4EB0400F47934 /* ChatMessage.swift */; };
+		FF664EF321E4EBB700F47934 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF664EF221E4EBB700F47934 /* Message.swift */; };
+		FF664EF921E4F00F00F47934 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF664EF821E4F00F00F47934 /* ChatViewController.swift */; };
 		FF8F43D221BE6B49003FFEE8 /* JobsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F43CF21BE6B49003FFEE8 /* JobsCell.swift */; };
 		FF8F43D321BE6B49003FFEE8 /* JobsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F43D021BE6B49003FFEE8 /* JobsListViewController.swift */; };
 		FF8F43D421BE6B49003FFEE8 /* Jobs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8F43D121BE6B49003FFEE8 /* Jobs.storyboard */; };
@@ -148,10 +152,14 @@
 		F94DB91E21B29B0000DB2452 /* ContractController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractController.swift; sourceTree = "<group>"; };
 		F97DD71221C144E80007E18D /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		F982426B21C01326000A041E /* AddMissioneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissioneController.swift; sourceTree = "<group>"; };
+		FF06418F21E605BD0091FF3F /* BasicChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicChatViewController.swift; sourceTree = "<group>"; };
 		FF1E570221B576D000CED714 /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		FF1E570421B5896E00CED714 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		FF5C803721B52C6E0045EC1A /* Options.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Options.storyboard; sourceTree = "<group>"; };
 		FF5C803921B5333D0045EC1A /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		FF664EF021E4EB0400F47934 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		FF664EF221E4EBB700F47934 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		FF664EF821E4F00F00F47934 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		FF8F43CF21BE6B49003FFEE8 /* JobsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsCell.swift; sourceTree = "<group>"; };
 		FF8F43D021BE6B49003FFEE8 /* JobsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsListViewController.swift; sourceTree = "<group>"; };
 		FF8F43D121BE6B49003FFEE8 /* Jobs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Jobs.storyboard; sourceTree = "<group>"; };
@@ -233,6 +241,7 @@
 				B3861EB721C12F3C006118B6 /* User.swift */,
 				FF8F43D621BE6B95003FFEE8 /* Topic.swift */,
 				B34CF23F21B6CEE500FC4CB4 /* Photo.swift */,
+				FF664EF221E4EBB700F47934 /* Message.swift */,
 				B3416D7721BEB84100D44AB4 /* Album.swift */,
 				B3ECCE2321C90DC90085C1CB /* DownloadedImage.swift */,
 			);
@@ -339,7 +348,11 @@
 		F93EFE1221AEB24C00FBC875 /* FotoApp */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				F93B52E221E603880008CFB3 /* JobEdit */,
+=======
+				FF664EEE21E4EAD500F47934 /* Chat */,
+>>>>>>> develop
 				B33C51BB21C134D90023C98E /* JobDetails */,
 				B3861EA721C01FF7006118B6 /* AddAlbum */,
 				B3E953E721B6847A00D60014 /* Auth */,
@@ -420,6 +433,24 @@
 				FF1E570421B5896E00CED714 /* UserInfoViewController.swift */,
 			);
 			path = Options;
+			sourceTree = "<group>";
+		};
+		FF664EEE21E4EAD500F47934 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				FF664EEF21E4EADE00F47934 /* Models */,
+				FF664EF821E4F00F00F47934 /* ChatViewController.swift */,
+				FF06418F21E605BD0091FF3F /* BasicChatViewController.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		FF664EEF21E4EADE00F47934 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF664EF021E4EB0400F47934 /* ChatMessage.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		FF8F43CE21BE6B49003FFEE8 /* Jobs */ = {
@@ -589,6 +620,8 @@
 				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageInputBar/MessageInputBar.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -610,6 +643,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageInputBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -691,6 +726,7 @@
 				B37922E121C1526500BA1EB1 /* SingleLineActionCell.swift in Sources */,
 				B3E953E921B6849D00D60014 /* AppDelegate.swift in Sources */,
 				F982426C21C01326000A041E /* AddMissioneController.swift in Sources */,
+				FF664EF121E4EB0400F47934 /* ChatMessage.swift in Sources */,
 				F94711E021B6CB61007F5019 /* JobCell.swift in Sources */,
 				B34CF24221B6E1D600FC4CB4 /* NetworkImageManager.swift in Sources */,
 				B3E953ED21B684CB00D60014 /* LaunchScreenController.swift in Sources */,
@@ -702,6 +738,7 @@
 				B3416D7A21BEC2EE00D44AB4 /* RealmUtils.swift in Sources */,
 				FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */,
 				B33127F821E35EE30089EAD8 /* R.generated.swift in Sources */,
+				FF06419021E605BD0091FF3F /* BasicChatViewController.swift in Sources */,
 				B33C51B721C134D70023C98E /* JobDetailsViewController.swift in Sources */,
 				B3861EB821C12F3D006118B6 /* User.swift in Sources */,
 				FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */,
@@ -714,6 +751,8 @@
 				B3E9540821B6913300D60014 /* LoginViewController.swift in Sources */,
 				FF8F43D721BE6B95003FFEE8 /* Topic.swift in Sources */,
 				B34CF23721B6AA4400FC4CB4 /* AlbumItemController.swift in Sources */,
+				FF664EF921E4F00F00F47934 /* ChatViewController.swift in Sources */,
+				FF664EF321E4EBB700F47934 /* Message.swift in Sources */,
 				B3E953E521B6847600D60014 /* AuthScreenController.swift in Sources */,
 				B34CF23A21B6AD3300FC4CB4 /* ImageCellController.swift in Sources */,
 			);

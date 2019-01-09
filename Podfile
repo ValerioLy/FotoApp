@@ -14,5 +14,6 @@ target 'FotoApp' do
   pod 'CodableFirebase'
   pod 'SkeletonView'
   pod 'R.swift'
+  pod 'MessageKit'
 
 end
