@@ -15,8 +15,8 @@ import FirebaseFirestore
     dynamic var id : String!
     dynamic var title : String!
     dynamic var descriptio : String!
-    dynamic var creation : String!
-    dynamic var expiration : String!
+    dynamic var creation : String = ""
+    dynamic var expiration : String = ""
     dynamic var creator : String!
     
     var workers : List<String> = List()
@@ -31,8 +31,8 @@ import FirebaseFirestore
         self.title = title
         self.id = id
         self.descriptio = descriptio
-        self.creation = creation
-        self.expiration = expiration
+        self.creation = creation ?? ""
+        self.expiration = expiration ?? ""
         self.creator = creator
     }
     
@@ -60,6 +60,10 @@ import FirebaseFirestore
     
     static func getObject(in realm: Realm = try! Realm(configuration: RealmUtils.config), withId id : String) -> Topic? {
         return realm.object(ofType: Topic.self, forPrimaryKey: id)
+    }
+    
+    static func getObjects(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Topic] {
+        return Array(realm.objects(Topic.self))
     }
     
     func deleteAllTopic(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {

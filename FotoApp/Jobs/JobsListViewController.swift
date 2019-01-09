@@ -14,7 +14,9 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     
     var listOfTopic : [Topic] = []
     
+    @IBOutlet weak var emptyImage: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var buttonOutlet: UIButton! {
         didSet {
@@ -26,7 +28,8 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     var filterData = [Topic]()
     private var selectedJobId : String? = nil
     var isSearching = false
-
+    var searchController : UISearchController?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +41,10 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationItem.setHidesBackButton(true, animated:true)
         self.buttonOutlet.isHidden = true
         
-        // update user info
+        // load local data
+        fetchTopic()
+        
+        // update user info and update list of topics
         NetworkManager.getUserData { (success, err) in
             if success {
                 currentUser = User.getObject(withId: Auth.auth().currentUser!.uid)!
@@ -61,25 +67,35 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
     }
-
+    
     @objc private func notificationObserver(notification : Notification) {
-        self.listOfTopic = Topic.all().sorted(by: { $0.getTitle().lowercased() < $1.getTitle().lowercased() })
+        fetchTopic()
         tableView.reloadSections(IndexSet(arrayLiteral: 0), with: .automatic)
+    }
+    
+    private func fetchTopic() {
+        self.listOfTopic = Topic.all().sorted(by: { $0.getTitle().lowercased() < $1.getTitle().lowercased() })
+        self.emptyImage.isHidden = self.listOfTopic.count != 0
     }
     
     // Manage navbar
     func setupNavbar() {
         navigationController?.navigationBar.prefersLargeTitles = true
-
+        
         let searchController = UISearchController(searchResultsController: nil)
+
+        searchController = UISearchController(searchResultsController: nil)
+        searchController?.delegate = self as? UISearchControllerDelegate
+        searchController?.searchResultsUpdater = self as? UISearchResultsUpdating
+        searchController?.searchBar.delegate = self
         navigationItem.searchController = searchController
     }
     
-     func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if isSearching {
             return filterData.count
@@ -89,30 +105,28 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JobsCell", for: indexPath) as! JobsCell
-
+        
         
         if isSearching{
             cell.missionName.text = filterData[indexPath.row].title
-            cell.missionDate.text = filterData[indexPath.row].creation.date?.stringFormatted
+            cell.missionDate.text = filterData[indexPath.row].expiration.date?.stringFormatted ?? "\(listOfTopic[indexPath.row].expiration)"
         }
-        else{
+        else {
             cell.missionName.text = listOfTopic[indexPath.row].title
-            cell.missionDate.text = listOfTopic[indexPath.row].creation.date?.stringFormatted
+            cell.missionDate.text = listOfTopic[indexPath.row].expiration.date?.stringFormatted ?? "\(listOfTopic[indexPath.row].expiration)"
             
             
             NetworkManager.getImageData { (success, urlString) in
                 let checkedUrl = URL(string: urlString)
                 
                 if success {
+                    debugPrint("Immagine Scaricata")
                     cell.downloadImage(url: checkedUrl!)
                 } else {
+                      debugPrint("Non prende l'immagine")
                     cell.imageOutlet.image = UIImage(named: "illustration2")
                 }
             }
-
-            
-          
-            
         }
         
         return cell
@@ -130,8 +144,8 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.reloadData()
     }
     
-
     
     
-   
+    
+    
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class AddJobController: UIViewController {
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    var searchController : UISearchController?
     @IBOutlet weak var forwardItem: UIBarButtonItem!
     @IBOutlet weak var addjobTitle: UILabel!
     @IBOutlet weak var clicktoselectmultipleworkers: UILabel!
@@ -17,7 +17,7 @@ class AddJobController: UIViewController {
     private var selectedEmployee : [User]?
     private var idUsers : [String] = []
     var listUsers : [User] = []
-    var filterData = [User]()
+    var filterData : [User] = []
     var isSearching = false
     
     @IBOutlet weak var tableView: UITableView!
@@ -28,7 +28,10 @@ class AddJobController: UIViewController {
         self.navigationItem.setHidesBackButton(false, animated:true)
         
         // show search bar in navigation
-        let searchController = UISearchController(searchResultsController: nil)
+        searchController = UISearchController(searchResultsController: nil)
+        searchController?.delegate = self as? UISearchControllerDelegate
+        searchController?.searchResultsUpdater = self as? UISearchResultsUpdating
+        searchController?.searchBar.delegate = self
         navigationItem.searchController = searchController
         
         NetworkManager.getAllUsers() { (list, err) in
@@ -120,7 +123,7 @@ extension AddJobController : UITableViewDelegate, UITableViewDataSource, UISearc
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 48
+        return 56
     }
     
 }

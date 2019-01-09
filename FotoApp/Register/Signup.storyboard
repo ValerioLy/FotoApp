@@ -241,10 +241,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1fw-kl-Nam">
-                                <rect key="frame" x="22" y="24" width="333" height="555"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="w0V-Rt-1Ev">
+                                <rect key="frame" x="20" y="20" width="339" height="563"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">1. DEFINITIONS
+                                <mutableString key="text">1. DEFINITIONS
 When used in this Agreement, the following terms shall have the respective meanings indicated, such
 meanings to be applicable to both the singular and plural forms of the terms defined:
 "Acceptance" of Software means completion of the acceptance testing process set forth in Section 3
@@ -735,17 +735,17 @@ This Agreement and its Riders and Schedules comprise the entire agreement betwee
 regarding the subject matter hereof and supersedes and merges all prior proposals, understandings, and
 all other agreements, oral, and written between the parties relating to the Agreement.
 IN WITNESS WHEREOF, the parties have executed this Agreement on the dates set forth first above,
-with full knowledge of its content and significance and intending to be legally bound by the terms hereof.</string>
+with full knowledge of its content and significance and intending to be legally bound by the terms hereof.</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="1fw-kl-Nam" firstAttribute="leading" secondItem="UjM-sl-osA" secondAttribute="leading" constant="22" id="S9k-2z-M1e"/>
-                            <constraint firstItem="1fw-kl-Nam" firstAttribute="top" secondItem="UjM-sl-osA" secondAttribute="top" constant="24" id="WO3-QO-lOt"/>
-                            <constraint firstItem="UjM-sl-osA" firstAttribute="trailing" secondItem="1fw-kl-Nam" secondAttribute="trailing" constant="20" id="afY-iY-L87"/>
-                            <constraint firstItem="UjM-sl-osA" firstAttribute="bottom" secondItem="1fw-kl-Nam" secondAttribute="bottom" constant="24" id="bge-uM-xO8"/>
+                            <constraint firstItem="w0V-Rt-1Ev" firstAttribute="top" secondItem="UjM-sl-osA" secondAttribute="top" constant="20" id="KW8-Rq-TFw"/>
+                            <constraint firstItem="UjM-sl-osA" firstAttribute="trailing" secondItem="w0V-Rt-1Ev" secondAttribute="trailing" constant="16" id="UQa-l4-ZAO"/>
+                            <constraint firstItem="UjM-sl-osA" firstAttribute="bottom" secondItem="w0V-Rt-1Ev" secondAttribute="bottom" constant="20" id="gJ9-c1-weq"/>
+                            <constraint firstItem="w0V-Rt-1Ev" firstAttribute="leading" secondItem="UjM-sl-osA" secondAttribute="leading" constant="20" id="q3q-UU-8FT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UjM-sl-osA"/>
                     </view>
@@ -763,7 +763,7 @@ with full knowledge of its content and significance and intending to be legally 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kTi-VB-Z4C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4964" y="107"/>
+            <point key="canvasLocation" x="4964" y="106.59670164917542"/>
         </scene>
         <!--Jobs-->
         <scene sceneID="ZgY-x3-qW0">

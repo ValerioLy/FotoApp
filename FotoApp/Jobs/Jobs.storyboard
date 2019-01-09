@@ -85,12 +85,17 @@
                                     <segue destination="csG-da-fQe" kind="show" identifier="toAddSegue" id="v2Z-u1-jXt"/>
                                 </connections>
                             </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="TAj-Cz-4NC">
+                                <rect key="frame" x="63" y="223.5" width="249" height="220"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="TAj-Cz-4NC" firstAttribute="centerY" secondItem="gZS-6q-Eqd" secondAttribute="centerY" id="4Nt-z2-mwx"/>
                             <constraint firstItem="iFB-Rb-SLM" firstAttribute="top" secondItem="zu1-iC-3a6" secondAttribute="top" id="BqP-5k-2dR"/>
                             <constraint firstItem="zu1-iC-3a6" firstAttribute="trailing" secondItem="fOu-2S-81E" secondAttribute="trailing" constant="15" id="IQy-xZ-yuG"/>
                             <constraint firstItem="iFB-Rb-SLM" firstAttribute="leading" secondItem="zu1-iC-3a6" secondAttribute="leading" id="MQ3-Ff-b4a"/>
+                            <constraint firstItem="TAj-Cz-4NC" firstAttribute="centerX" secondItem="gZS-6q-Eqd" secondAttribute="centerX" id="ZsS-Ry-kRP"/>
                             <constraint firstItem="iFB-Rb-SLM" firstAttribute="bottom" secondItem="zu1-iC-3a6" secondAttribute="bottom" id="ahZ-DG-yGf"/>
                             <constraint firstItem="zu1-iC-3a6" firstAttribute="bottom" secondItem="fOu-2S-81E" secondAttribute="bottom" constant="15" id="e44-r0-jQ7"/>
                             <constraint firstItem="iFB-Rb-SLM" firstAttribute="trailing" secondItem="zu1-iC-3a6" secondAttribute="trailing" id="lj3-J5-1nG"/>
@@ -106,6 +111,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="buttonOutlet" destination="fOu-2S-81E" id="hMc-Xa-Aki"/>
+                        <outlet property="emptyImage" destination="TAj-Cz-4NC" id="c6w-2M-lFM"/>
                         <outlet property="tableView" destination="iFB-Rb-SLM" id="tSu-f4-OJm"/>
                         <segue destination="qkP-uv-O4d" kind="show" identifier="segueToDetails" id="4nQ-M9-xcd"/>
                     </connections>
@@ -141,6 +147,7 @@
     </scenes>
     <resources>
         <image name="add" width="40" height="40"/>
+        <image name="empty" width="249" height="220"/>
         <image name="illustration2" width="249" height="150"/>
     </resources>
 </document>

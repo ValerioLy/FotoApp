@@ -124,7 +124,7 @@ extension AlbumItemController : UICollectionViewDataSource, UICollectionViewDele
         case 0:
             return photos.count
         case 1:
-            return 3
+            return (User.getObject(withId: NetworkManager.getUserId())?.admin ?? false) ? 2 : 3
         default:
             return 0
         }
@@ -140,13 +140,15 @@ extension AlbumItemController : UICollectionViewDataSource, UICollectionViewDele
         case 1:
             let actionCell = collectionView.dequeueReusableCell(withReuseIdentifier: SingleLineActionController.kIdentifier, for: indexPath) as! SingleLineActionController
             
-            if indexPath.row == Actions.AddPhoto.rawValue {
+            let index = (User.getObject(withId: NetworkManager.getUserId())?.admin ?? false) ? indexPath.row + 1: indexPath.row
+            
+            if index == Actions.AddPhoto.rawValue {
                 actionCell.setup(actionNameStr: "Aggiungi foto")
             }
-            else if indexPath.row == Actions.OpenChat.rawValue {
+            else if index == Actions.OpenChat.rawValue {
                 actionCell.setup(actionNameStr: "Apri chat")
             }
-            else if indexPath.row == Actions.ViewDetails.rawValue {
+            else if index == Actions.ViewDetails.rawValue {
                 actionCell.setup(actionNameStr: "Vedi dettagli")
             }
             
@@ -168,13 +170,15 @@ extension AlbumItemController : UICollectionViewDataSource, UICollectionViewDele
                 openFullScreen()
             }
         case 1:
-            if indexPath.row == Actions.AddPhoto.rawValue {
+            let index = (User.getObject(withId: NetworkManager.getUserId())?.admin ?? false) ? indexPath.row + 1: indexPath.row
+            
+            if index == Actions.AddPhoto.rawValue {
                 self.openPickerDialog()
             }
             else if indexPath.row == Actions.OpenChat.rawValue {
                 self.navigationController?.pushViewController(ChatViewController(), animated: true)
             }
-            else if indexPath.row == Actions.ViewDetails.rawValue {
+            else if index == Actions.ViewDetails.rawValue {
                 self.performSegue(withIdentifier: R.segue.albumItemController.segueToDetails.identifier, sender: self)
             }
         default: break
