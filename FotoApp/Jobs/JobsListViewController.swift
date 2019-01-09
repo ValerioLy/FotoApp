@@ -82,12 +82,12 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     func setupNavbar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        let searchController = UISearchController(searchResultsController: nil)
+        var searchController = UISearchController(searchResultsController: nil)
 
         searchController = UISearchController(searchResultsController: nil)
-        searchController?.delegate = self as? UISearchControllerDelegate
-        searchController?.searchResultsUpdater = self as? UISearchResultsUpdating
-        searchController?.searchBar.delegate = self
+        searchController.delegate = self as? UISearchControllerDelegate
+        searchController.searchResultsUpdater = self as? UISearchResultsUpdating
+        searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
     }
     

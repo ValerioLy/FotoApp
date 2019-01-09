@@ -54,6 +54,7 @@ class NetworkManager: NSObject {
         }
         
     }
+    }
     
     
     

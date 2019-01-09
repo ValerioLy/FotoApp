@@ -33,6 +33,8 @@ class JobDetailsViewController: UIViewController {
             buttonAdd.isHidden = user.admin
         }
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(goToEdit))
+        
         self.trueTopic = Topic.getObject(withId: id)
         self.title = self.trueTopic.title
         self.trueListAlbum = Album.getObject(forTopic: id)
@@ -41,6 +43,11 @@ class JobDetailsViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "albumsListener"), object: nil)
     }
+    
+    @objc func goToEdit() {
+        self.performSegue(withIdentifier: "segueEdit", sender: self)
+    }
+    
     
     @objc private func notificationObserver(notification : Notification) {
         self.trueTopic = Topic.getObject(withId: id)

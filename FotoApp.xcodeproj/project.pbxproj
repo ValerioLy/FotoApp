@@ -42,6 +42,9 @@
 		B3E9540621B690F700D60014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E9540521B690EC00D60014 /* LaunchScreen.storyboard */; };
 		B3E9540821B6913300D60014 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E9540721B6913300D60014 /* LoginViewController.swift */; };
 		B3ECCE2421C90DC90085C1CB /* DownloadedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ECCE2321C90DC90085C1CB /* DownloadedImage.swift */; };
+		F93B52E421E603A00008CFB3 /* JobEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F93B52E321E603A00008CFB3 /* JobEdit.storyboard */; };
+		F93B52E621E604530008CFB3 /* JobEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93B52E521E604530008CFB3 /* JobEditController.swift */; };
+		F93B52EA21E604EF0008CFB3 /* JobEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93B52E921E604EF0008CFB3 /* JobEditCell.swift */; };
 		F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE1521AEB24C00FBC875 /* ViewController.swift */; };
 		F93EFE1B21AEB24D00FBC875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE1A21AEB24D00FBC875 /* Assets.xcassets */; };
 		F93EFE2921AEB24E00FBC875 /* FotoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE2821AEB24E00FBC875 /* FotoAppTests.swift */; };
@@ -118,6 +121,9 @@
 		B3ECCE2321C90DC90085C1CB /* DownloadedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedImage.swift; sourceTree = "<group>"; };
 		DF0164B32D4FCD27FC76DD06 /* Pods-FotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.release.xcconfig"; sourceTree = "<group>"; };
 		EA33564C2B6854DDCA5B18F7 /* Pods-FotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FotoApp/Pods-FotoApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F93B52E321E603A00008CFB3 /* JobEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JobEdit.storyboard; sourceTree = "<group>"; };
+		F93B52E521E604530008CFB3 /* JobEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobEditController.swift; sourceTree = "<group>"; };
+		F93B52E921E604EF0008CFB3 /* JobEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobEditCell.swift; sourceTree = "<group>"; };
 		F93EFE1021AEB24C00FBC875 /* FotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F93EFE1521AEB24C00FBC875 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F93EFE1821AEB24C00FBC875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -297,6 +303,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F93B52E221E603880008CFB3 /* JobEdit */ = {
+			isa = PBXGroup;
+			children = (
+				F93B52E321E603A00008CFB3 /* JobEdit.storyboard */,
+				F93B52E521E604530008CFB3 /* JobEditController.swift */,
+				F93B52E921E604EF0008CFB3 /* JobEditCell.swift */,
+			);
+			path = JobEdit;
+			sourceTree = "<group>";
+		};
 		F93EFE0721AEB24C00FBC875 = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +339,7 @@
 		F93EFE1221AEB24C00FBC875 /* FotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				F93B52E221E603880008CFB3 /* JobEdit */,
 				B33C51BB21C134D90023C98E /* JobDetails */,
 				B3861EA721C01FF7006118B6 /* AddAlbum */,
 				B3E953E721B6847A00D60014 /* Auth */,
@@ -533,6 +550,7 @@
 				F94711DC21B6B642007F5019 /* AddJob.storyboard in Resources */,
 				F93EFE1B21AEB24D00FBC875 /* Assets.xcassets in Resources */,
 				FF5C803821B52C6E0045EC1A /* Options.storyboard in Resources */,
+				F93B52E421E603A00008CFB3 /* JobEdit.storyboard in Resources */,
 				F93EFE5421AED0CE00FBC875 /* Xcode.gitignore in Resources */,
 				B3E953FB21B68DD200D60014 /* Signup.storyboard in Resources */,
 				B3E953F821B68D2800D60014 /* Login.storyboard in Resources */,
@@ -687,10 +705,12 @@
 				B33C51B721C134D70023C98E /* JobDetailsViewController.swift in Sources */,
 				B3861EB821C12F3D006118B6 /* User.swift in Sources */,
 				FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */,
+				F93B52EA21E604EF0008CFB3 /* JobEditCell.swift in Sources */,
 				FF8F43D321BE6B49003FFEE8 /* JobsListViewController.swift in Sources */,
 				F94711DE21B6C1E0007F5019 /* AddJobController.swift in Sources */,
 				B33C51BA21C134D70023C98E /* TopicTableViewCell.swift in Sources */,
 				B33C51B921C134D70023C98E /* TopicAlbumsTableViewCell.swift in Sources */,
+				F93B52E621E604530008CFB3 /* JobEditController.swift in Sources */,
 				B3E9540821B6913300D60014 /* LoginViewController.swift in Sources */,
 				FF8F43D721BE6B95003FFEE8 /* Topic.swift in Sources */,
 				B34CF23721B6AA4400FC4CB4 /* AlbumItemController.swift in Sources */,
