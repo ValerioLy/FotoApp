@@ -172,7 +172,7 @@ extension AlbumItemController : UICollectionViewDataSource, UICollectionViewDele
                 self.openPickerDialog()
             }
             else if indexPath.row == Actions.OpenChat.rawValue {
-//                self.performSegue(withIdentifier: "", sender: self)
+                self.navigationController?.pushViewController(ChatViewController(), animated: true)
             }
             else if indexPath.row == Actions.ViewDetails.rawValue {
                 self.performSegue(withIdentifier: R.segue.albumItemController.segueToDetails.identifier, sender: self)

@@ -12,6 +12,7 @@ import CodableFirebase
 
 class NetworkManager: NSObject {
     private static let USERS_COLLECTION = "users"
+    private static let MESSAGES_COLLECTION = "messages"
     private static let ALBUMS_COLLECTION = "albums"
     private static let PHOTOS_COLLECTION = "photos"
     private static let TOPICS_COLLECTION = "topics"
@@ -52,15 +53,10 @@ class NetworkManager: NSObject {
                 completion(false, "")
             }
             
-            }
-            
         }
+        
+        
     }
-    
-    
-    
-    
-    
     
     
     
@@ -615,6 +611,72 @@ class NetworkManager: NSObject {
             
         })
     }
+    
+    
+    // Chat
+    
+    static func getChatMessagesListener(idAlbum : String) -> ListenerRegistration? {
+        
+        guard Auth.auth().currentUser != nil else {
+            return nil
+        }
+        
+        
+        let messagesListener = db.collection(MESSAGES_COLLECTION).whereField("albumId", isEqualTo: idAlbum).addSnapshotListener { (querySnap, err) in
+            
+            if let snap = querySnap {
+                snap.documentChanges.forEach({ (item) in
+                    var message : Message?
+                    
+                    do {
+                        message = try FirebaseDecoder().decode(Message.self, from: item.document.data())
+                    }
+                    catch let err {
+                        debugPrint(err)
+                        return
+                    }
+                    
+                    if item.type == .removed {
+                        message?.remove()
+                    }
+                    else {
+                        message?.save()
+                    }
+                    
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "messagesListener"), object: nil)
+                })
+            }
+            else {
+                debugPrint(err?.localizedDescription ?? "No error")
+            }
+        }
+        
+        return messagesListener
+    }
+    
+    
+    static func sendMessage(id: String, senderName: String, senderId : String, sentDate : String, messageText : String, topicId : String, completion: @escaping(Bool, String?) -> ()){
+        
+        guard let user = Auth.auth().currentUser else {
+            completion(false, "No such user")
+            return
+        }
+        self.db.collection(MESSAGES_COLLECTION).document(id).setData([
+            "id": id,
+            "senderName": senderName,
+            "senderId": senderId,
+            "sentDate": sentDate,
+            "messageText": messageText,
+            "topicId": topicId
+        ], merge: true) { error in
+            if let error = error {
+                completion(false, error.localizedDescription)
+            } else {
+                completion(true, nil)
+            }
+        }
+    }
+    
 }
 
 
