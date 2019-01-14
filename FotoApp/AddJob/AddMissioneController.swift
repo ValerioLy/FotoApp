@@ -19,7 +19,7 @@ class AddMissioneController: UIViewController {
     @IBOutlet weak var jobName: UITextField!
     @IBOutlet weak var fieldDescription: UITextView!
     @IBOutlet weak var jobDate: UIDatePicker!
-    
+    var edit = false
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()

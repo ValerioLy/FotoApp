@@ -33,8 +33,7 @@ class JobsCell: UITableViewCell {
     
     func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?)->()) {
         URLSession.shared.dataTask(with: url) {
-            (data, response, error) in
-            completion(data!, response)
+            (data, response, error) in            completion(data!, response)
             }.resume()
     }
     

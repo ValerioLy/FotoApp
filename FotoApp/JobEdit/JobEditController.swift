@@ -10,6 +10,7 @@ import UIKit
 class JobEditController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    var editBool : Bool = false
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -35,11 +36,29 @@ class JobEditController: UIViewController, UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
+            editBool = true
             UIApplication.reloadGenericViewController(storyboardName: "AddJob", controllerIdentifier: "addjob")
         break
         case 1:
+            editBool = true
           self.performSegue(withIdentifier: "segueAddJob", sender: self)
         default : break
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
+        switch segue.identifier {
+        case "segueAddJob":
+            if let destinationController = segue.destination as? AddJobController {
+                destinationController.isEdit = editBool
+            }
+            
+            if let destinationController = segue.destination as? AddMissioneController{
+                destinationController.edit = editBool
+            }
+        default:
+            break
         }
     }
     
