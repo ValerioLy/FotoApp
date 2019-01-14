@@ -48,7 +48,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 7 images.
+  /// This `R.image` struct is generated, and contains static references to 8 images.
   struct image {
     /// Image `add`.
     static let add = Rswift.ImageResource(bundle: R.hostingBundle, name: "add")
@@ -56,6 +56,8 @@ struct R: Rswift.Validatable {
     static let closeIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "close-icon")
     /// Image `email-icon`.
     static let emailIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "email-icon")
+    /// Image `empty`.
+    static let empty = Rswift.ImageResource(bundle: R.hostingBundle, name: "empty")
     /// Image `illustration2`.
     static let illustration2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "illustration2")
     /// Image `placeholder`.
@@ -78,6 +80,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "email-icon", bundle: ..., traitCollection: ...)`
     static func emailIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.emailIcon, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "empty", bundle: ..., traitCollection: ...)`
+    static func empty(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.empty, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "illustration2", bundle: ..., traitCollection: ...)`
@@ -1173,6 +1180,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "add") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'add' is used in storyboard 'Jobs', but couldn't be loaded.") }
         if UIKit.UIImage(named: "illustration2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration2' is used in storyboard 'Jobs', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "empty") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'empty' is used in storyboard 'Jobs', but couldn't be loaded.") }
         if _R.storyboard.jobs().job() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'job' could not be loaded from storyboard 'Jobs' as 'JobsListViewController'.") }
       }
       

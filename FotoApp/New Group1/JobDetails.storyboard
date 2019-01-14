@@ -144,6 +144,7 @@
                         <outlet property="table" destination="QOo-Hs-MC9" id="YpQ-7c-ejU"/>
                         <outlet property="titleTopic" destination="rNc-72-4Kr" id="WgR-14-AK9"/>
                         <segue destination="QO1-5n-5BE" kind="show" identifier="segueToAlbumSpecs" id="t4j-wX-ODI"/>
+                        <segue destination="dDt-LT-Ub9" kind="show" identifier="segueEdit" id="KGB-lg-par"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="saZ-S1-nri" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -157,6 +158,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tb6-my-OfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1222" y="-408"/>
+        </scene>
+        <!--JobEdit-->
+        <scene sceneID="zft-hU-Mja">
+            <objects>
+                <viewControllerPlaceholder storyboardName="JobEdit" id="dDt-LT-Ub9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AQF-Xr-Hw9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1354" y="-328"/>
         </scene>
         <!--AddAlbum-->
         <scene sceneID="xk7-gA-tmm">
