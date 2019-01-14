@@ -12,7 +12,7 @@
         <!--Job Details View Controller-->
         <scene sceneID="swa-lZ-9JZ">
             <objects>
-                <viewController id="Yms-OO-q9a" customClass="JobDetailsViewController" customModule="FotoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="jobDetails" id="Yms-OO-q9a" customClass="JobDetailsViewController" customModule="FotoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XBm-Vl-gNW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

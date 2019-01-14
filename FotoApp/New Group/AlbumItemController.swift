@@ -175,7 +175,7 @@ extension AlbumItemController : UICollectionViewDataSource, UICollectionViewDele
             if index == Actions.AddPhoto.rawValue {
                 self.openPickerDialog()
             }
-            else if indexPath.row == Actions.OpenChat.rawValue {
+            else if index == Actions.OpenChat.rawValue {
                 self.navigationController?.pushViewController(ChatViewController(), animated: true)
             }
             else if index == Actions.ViewDetails.rawValue {

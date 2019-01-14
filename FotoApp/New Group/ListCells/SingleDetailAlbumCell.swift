@@ -12,7 +12,6 @@ class SingleDetailAlbumCell: UITableViewCell {
 
     @IBOutlet weak var descrLabel: UILabel!
     @IBOutlet weak var otherInfoLabel: UILabel!
-    @IBOutlet weak var pendingDeletion: UISwitch!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,8 +25,7 @@ class SingleDetailAlbumCell: UITableViewCell {
 
     func setup(album : Album)  {
         descrLabel.text = album.descr
-        let date = album.dateAdd.date?.stringFormatted ?? ""
+        let date = album.dateAdd.date?.stringFormatted ?? album.dateAdd ?? ""
         otherInfoLabel.text = "Creato da " + album.createdByName + " il " + date
-        pendingDeletion.isOn = album.isPendingForDeletion ?? false
     }
 }

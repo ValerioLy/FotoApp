@@ -674,4 +674,39 @@ class NetworkManager: NSObject {
         }
     }
     
+    
+    static func deleteAlbum(album : Album, completion: @escaping (Bool, String?) -> ()) {
+        guard Auth.auth().currentUser != nil else {
+            completion(false, "No such user")
+            return
+        }
+        
+        // first delete all photos of album
+        album.photos.forEach { (photoId) in
+            
+            // in db
+            db.collection(PHOTOS_COLLECTION).document(photoId).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                }
+            }
+            
+            // in storage
+            storageRef.child(album.id + "/" + photoId + ".jpg").delete(completion: { (err) in
+                if let err = err {
+                    print("Error removing file: \(err)")
+                }
+            })
+        }
+        
+        // so delete the album from db
+        db.collection(ALBUMS_COLLECTION).document(album.id).delete() { err in
+            if let err = err {
+                completion(false, err.localizedDescription)
+            }
+            else {
+                completion(true, nil)
+            }
+        }
+    }
 }
