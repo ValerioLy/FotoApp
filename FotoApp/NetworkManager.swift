@@ -56,7 +56,6 @@ class NetworkManager: NSObject {
             
         }
     }
-    }
     
     
     static func checkedLoggedUser(completion : @escaping (Bool) -> ()) {

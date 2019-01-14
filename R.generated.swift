@@ -115,7 +115,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 8 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 10 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `JobsCell`.
     static let jobsCell: Rswift.ReuseIdentifier<JobsCell> = Rswift.ReuseIdentifier(identifier: "JobsCell")
@@ -125,6 +125,10 @@ struct R: Rswift.Validatable {
     static let topicTableViewCell: Rswift.ReuseIdentifier<TopicTableViewCell> = Rswift.ReuseIdentifier(identifier: "TopicTableViewCell")
     /// Reuse identifier `cell`.
     static let cell: Rswift.ReuseIdentifier<JobCell> = Rswift.ReuseIdentifier(identifier: "cell")
+    /// Reuse identifier `editTopic`.
+    static let editTopic: Rswift.ReuseIdentifier<EditTopic> = Rswift.ReuseIdentifier(identifier: "editTopic")
+    /// Reuse identifier `editUser`.
+    static let editUser: Rswift.ReuseIdentifier<EditUser> = Rswift.ReuseIdentifier(identifier: "editUser")
     /// Reuse identifier `imageCell`.
     static let imageCell: Rswift.ReuseIdentifier<ImageCellController> = Rswift.ReuseIdentifier(identifier: "imageCell")
     /// Reuse identifier `singleDetailAlbumCell`.
@@ -184,12 +188,21 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `JobDetailsViewController`, and contains static references to 2 segues.
+    /// This struct is generated for `JobDetailsViewController`, and contains static references to 3 segues.
     struct jobDetailsViewController {
+      /// Segue identifier `segueEdit`.
+      static let segueEdit: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, JobDetailsViewController, JobEditController> = Rswift.StoryboardSegueIdentifier(identifier: "segueEdit")
       /// Segue identifier `segueToAddAlbum`.
       static let segueToAddAlbum: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, JobDetailsViewController, AddAlbumController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddAlbum")
       /// Segue identifier `segueToAlbumSpecs`.
       static let segueToAlbumSpecs: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, JobDetailsViewController, AlbumItemController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAlbumSpecs")
+      
+      /// Optionally returns a typed version of segue `segueEdit`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueEdit(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, JobDetailsViewController, JobEditController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.jobDetailsViewController.segueEdit, segue: segue)
+      }
       
       /// Optionally returns a typed version of segue `segueToAddAlbum`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
@@ -337,7 +350,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 11 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 12 storyboards.
   struct storyboard {
     /// Storyboard `AddAlbum`.
     static let addAlbum = _R.storyboard.addAlbum()
@@ -349,6 +362,8 @@ struct R: Rswift.Validatable {
     static let authScreen = _R.storyboard.authScreen()
     /// Storyboard `JobDetails`.
     static let jobDetails = _R.storyboard.jobDetails()
+    /// Storyboard `JobEdit`.
+    static let jobEdit = _R.storyboard.jobEdit()
     /// Storyboard `Jobs`.
     static let jobs = _R.storyboard.jobs()
     /// Storyboard `LaunchScreen`.
@@ -385,6 +400,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "JobDetails", bundle: ...)`
     static func jobDetails(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.jobDetails)
+    }
+    
+    /// `UIStoryboard(name: "JobEdit", bundle: ...)`
+    static func jobEdit(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.jobEdit)
     }
     
     /// `UIStoryboard(name: "Jobs", bundle: ...)`
@@ -1098,6 +1118,7 @@ struct _R: Rswift.Validatable {
       try jobDetails.validate()
       try jobs.validate()
       try signup.validate()
+      try jobEdit.validate()
       try authScreen.validate()
     }
     
@@ -1161,6 +1182,19 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "add") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'add' is used in storyboard 'JobDetails', but couldn't be loaded.") }
         if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'JobDetails', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct jobEdit: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = JobEditController
+      
+      let bundle = R.hostingBundle
+      let name = "JobEdit"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'JobEdit', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
