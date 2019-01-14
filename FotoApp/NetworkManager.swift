@@ -29,31 +29,20 @@ class NetworkManager: NSObject {
     }
     
     
-    static func getImageData(completion: @escaping(Bool, String) -> ())  {
+    static func getImageForTopic(topicId : String, completion: @escaping(Bool, String) -> ())  {
         
-        self.db.collection("photos").getDocuments { (snapshot, err) in
-            
-            if let error = err {
-                print("Non prende i documenti: \(err)")
-                completion(false, "")
-            } else {
-                if !(snapshot?.isEmpty)!  {
-                    let firstDocument = snapshot!.documents.first
-                    
-                    let docId = firstDocument!.documentID.first
-                    let link = firstDocument!.get("link") as! String
-                    
-                    print(link)
-                    
-                    completion(true, link)
-                    
-                } else {
-                    print("Documenti con foto vuote: \(err)")
+        self.db.collection(ALBUMS_COLLECTION).whereField("topicId", isEqualTo: topicId).addSnapshotListener { (querySnap, err) in
+            if let snap = querySnap, let docData = snap.documents.first?.data() {
+                if let firstImage = (docData["photos"] as! [String]).first {
+                    completion(true, firstImage)
+                }
+                else {
                     completion(false, "")
                 }
-                
             }
-            
+            else {
+                completion(false, "")
+            }
         }
     }
     

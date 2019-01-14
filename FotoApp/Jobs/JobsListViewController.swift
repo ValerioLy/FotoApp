@@ -116,14 +116,11 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
             cell.missionDate.text = listOfTopic[indexPath.row].expiration.date?.stringFormatted ?? "\(listOfTopic[indexPath.row].expiration)"
             
             
-            NetworkManager.getImageData { (success, urlString) in
-                let checkedUrl = URL(string: urlString)
-                
+            NetworkManager.getImageForTopic(topicId: listOfTopic[indexPath.row].id) { (success, url) in
+            
                 if success {
-                    debugPrint("Immagine Scaricata")
-                    cell.downloadImage(url: checkedUrl!)
+                    cell.downloadImage(url: URL(string: url)!)
                 } else {
-                      debugPrint("Non prende l'immagine")
                     cell.imageOutlet.image = UIImage(named: "illustration2")
                 }
             }
