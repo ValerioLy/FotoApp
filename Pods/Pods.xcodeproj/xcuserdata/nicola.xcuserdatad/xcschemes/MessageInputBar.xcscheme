@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5E4220C91C135176A4F61F1EA3A4EE82"
-               BlueprintName = "RealmSwift"
+               BlueprintIdentifier = "8BD7D9113AC42A0C0127929271BA7C55"
+               BlueprintName = "MessageInputBar"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "RealmSwift.framework">
+               BuildableName = "MessageInputBar.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
