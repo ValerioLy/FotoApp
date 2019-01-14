@@ -32,6 +32,17 @@ class JobEditController: UIViewController, UITableViewDataSource, UITableViewDel
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            UIApplication.reloadGenericViewController(storyboardName: "AddJob", controllerIdentifier: "addjob")
+        break
+        case 1:
+          self.performSegue(withIdentifier: "segueAddJob", sender: self)
+        default : break
+        }
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
