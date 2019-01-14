@@ -36,25 +36,25 @@ class NetworkManager: NSObject {
                 print("Non prende i documenti: \(err)")
                 completion(false, "")
             } else {
-            if !(snapshot?.isEmpty)!  {
-                let firstDocument = snapshot!.documents.first
+                if !(snapshot?.isEmpty)!  {
+                    let firstDocument = snapshot!.documents.first
+                    
+                    let docId = firstDocument!.documentID.first
+                    let link = firstDocument!.get("link") as! String
+                    
+                    print(link)
+                    
+                    completion(true, link)
+                    
+                } else {
+                    print("Documenti con foto vuote: \(err)")
+                    completion(false, "")
+                }
                 
-                let docId = firstDocument!.documentID.first
-                let link = firstDocument!.get("link") as! String
-                
-                print(link)
-                
-                completion(true, link)
-                
-            } else {
-                print("Documenti con foto vuote: \(err)")
-                completion(false, "")
             }
             
         }
-        
     }
-    
     
     
     static func checkedLoggedUser(completion : @escaping (Bool) -> ()) {
@@ -608,5 +608,3 @@ class NetworkManager: NSObject {
         })
     }
 }
-
-
