@@ -106,6 +106,7 @@ extension JobDetailsViewController : UITableViewDelegate, UITableViewDataSource 
             
             cell.title.text = self.trueListAlbum[indexPath.row].title
             cell.photos.text = String(self.trueListAlbum[indexPath.row].photos.count) + " photos"
+            cell.toDeleteLabel.isHidden = !self.trueListAlbum[indexPath.row].isPendingForDeletion
             
             return cell
             

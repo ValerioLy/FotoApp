@@ -12,15 +12,16 @@ class NetworkImageManager {
     //
     // TODO: descr
     //
-    static func image(with id : String, from url : String, completion: @escaping (Data?, Bool) -> ()) {
-        if let imageFound = DownloadedImage.getObject(withId: id) {
+    static func image(with id : String? = nil, from url : String, completion: @escaping (Data?, Bool) -> ()) {
+        if let imageId = id, let imageFound = DownloadedImage.getObject(withId: imageId) {
             completion(imageFound.data, true)
         }
         else {
             getData(from: URL(string: url)!) { (imageData, urlResponse, err) in
                 if imageData != nil {
                     // save the image
-                    DownloadedImage(id : id, data: imageData!).save()
+                    let imageId = (id != nil) ? id! : UUID().uuidString
+                    DownloadedImage(id : imageId, data: imageData!).save()
                     
                     completion(imageData, true)
                     return
