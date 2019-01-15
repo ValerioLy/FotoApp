@@ -15,6 +15,8 @@
 		B33C51B821C134D70023C98E /* JobDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B33C51B421C134D70023C98E /* JobDetails.storyboard */; };
 		B33C51B921C134D70023C98E /* TopicAlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33C51B521C134D70023C98E /* TopicAlbumsTableViewCell.swift */; };
 		B33C51BA21C134D70023C98E /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33C51B621C134D70023C98E /* TopicTableViewCell.swift */; };
+		B33DD11621EC8EC700137F8D /* UserDeleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DD11521EC8EC700137F8D /* UserDeleteCell.swift */; };
+		B33DD11821EC9C3900137F8D /* AdminDeleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DD11721EC9C3900137F8D /* AdminDeleteCell.swift */; };
 		B3416D7A21BEC2EE00D44AB4 /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3416D7921BEC2EE00D44AB4 /* RealmUtils.swift */; };
 		B34CF23721B6AA4400FC4CB4 /* AlbumItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34CF23621B6AA4400FC4CB4 /* AlbumItemController.swift */; };
 		B34CF23A21B6AD3300FC4CB4 /* ImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34CF23921B6AD3300FC4CB4 /* ImageCellController.swift */; };
@@ -98,6 +100,8 @@
 		B33C51B421C134D70023C98E /* JobDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JobDetails.storyboard; sourceTree = "<group>"; };
 		B33C51B521C134D70023C98E /* TopicAlbumsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicAlbumsTableViewCell.swift; sourceTree = "<group>"; };
 		B33C51B621C134D70023C98E /* TopicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
+		B33DD11521EC8EC700137F8D /* UserDeleteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDeleteCell.swift; sourceTree = "<group>"; };
+		B33DD11721EC9C3900137F8D /* AdminDeleteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDeleteCell.swift; sourceTree = "<group>"; };
 		B3416D7721BEB84100D44AB4 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		B3416D7921BEC2EE00D44AB4 /* RealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUtils.swift; sourceTree = "<group>"; };
 		B34CF23421B6A9A900FC4CB4 /* AlbumItem.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlbumItem.storyboard; sourceTree = "<group>"; };
@@ -231,6 +235,8 @@
 				B34CF23921B6AD3300FC4CB4 /* ImageCellController.swift */,
 				B34CF23B21B6BDA200FC4CB4 /* SingleLineActionController.swift */,
 				B3A415AC21BFE5290083F016 /* SingleDetailAlbumCell.swift */,
+				B33DD11521EC8EC700137F8D /* UserDeleteCell.swift */,
+				B33DD11721EC9C3900137F8D /* AdminDeleteCell.swift */,
 			);
 			path = ListCells;
 			sourceTree = "<group>";
@@ -720,9 +726,11 @@
 				B3A415AE21BFE5F60083F016 /* AlbumItemDetailsController.swift in Sources */,
 				B34CF23D21B6BDF600FC4CB4 /* SingleLineActionController.swift in Sources */,
 				B34CF24021B6CEE500FC4CB4 /* Photo.swift in Sources */,
+				B33DD11821EC9C3900137F8D /* AdminDeleteCell.swift in Sources */,
 				B37922E121C1526500BA1EB1 /* SingleLineActionCell.swift in Sources */,
 				B3E953E921B6849D00D60014 /* AppDelegate.swift in Sources */,
 				F982426C21C01326000A041E /* AddMissioneController.swift in Sources */,
+				B33DD11621EC8EC700137F8D /* UserDeleteCell.swift in Sources */,
 				FF664EF121E4EB0400F47934 /* ChatMessage.swift in Sources */,
 				F94711E021B6CB61007F5019 /* JobCell.swift in Sources */,
 				B34CF24221B6E1D600FC4CB4 /* NetworkImageManager.swift in Sources */,

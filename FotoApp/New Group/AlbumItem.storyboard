@@ -161,11 +161,11 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="singleDetailAlbumCell" rowHeight="192" id="tr4-39-fYz" customClass="SingleDetailAlbumCell" customModule="FotoApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="192"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="singleDetailAlbumCell" rowHeight="120" id="tr4-39-fYz" customClass="SingleDetailAlbumCell" customModule="FotoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tr4-39-fYz" id="8ou-XH-gs0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrizione" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmO-6o-Ngp">
@@ -175,31 +175,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZF-3N-H2Y">
-                                                    <rect key="frame" x="15" y="45" width="344" height="15"/>
+                                                    <rect key="frame" x="15" y="45" width="344" height="25"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Altro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4j3-CB-4ia">
-                                                    <rect key="frame" x="15" y="76" width="33" height="18"/>
+                                                    <rect key="frame" x="15" y="86" width="33" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhi-Wd-qar">
-                                                    <rect key="frame" x="15" y="102" width="345" height="0.0"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="du7-bP-1bQ">
-                                                    <rect key="frame" x="311" y="126" width="51" height="31"/>
-                                                    <connections>
-                                                        <action selector="daEliminareAction:" destination="ppY-fe-kQF" eventType="valueChanged" id="x1y-vw-DGl"/>
-                                                    </connections>
-                                                </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Da eliminare" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USx-Ki-oRo">
-                                                    <rect key="frame" x="15" y="126" width="95" height="31"/>
+                                                    <rect key="frame" x="15" y="112" width="345" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -209,25 +197,84 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="qhi-Wd-qar" secondAttribute="trailing" id="6PH-qS-nwd"/>
                                                 <constraint firstItem="tmO-6o-Ngp" firstAttribute="leading" secondItem="8ou-XH-gs0" secondAttribute="leadingMargin" id="ASb-eJ-2M6"/>
                                                 <constraint firstItem="tmO-6o-Ngp" firstAttribute="top" secondItem="8ou-XH-gs0" secondAttribute="topMargin" constant="8" id="AeP-WZ-82L"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="du7-bP-1bQ" secondAttribute="trailing" id="C3m-Bq-ysc"/>
                                                 <constraint firstItem="qhi-Wd-qar" firstAttribute="leading" secondItem="8ou-XH-gs0" secondAttribute="leadingMargin" id="SHR-YS-KdP"/>
+                                                <constraint firstAttribute="bottom" secondItem="qhi-Wd-qar" secondAttribute="bottom" constant="8" id="SUg-AK-Azy"/>
                                                 <constraint firstItem="4j3-CB-4ia" firstAttribute="top" secondItem="CZF-3N-H2Y" secondAttribute="bottom" constant="16" id="TCO-sy-WZf"/>
                                                 <constraint firstItem="4j3-CB-4ia" firstAttribute="leading" secondItem="8ou-XH-gs0" secondAttribute="leadingMargin" id="WNU-9i-bUV"/>
                                                 <constraint firstItem="qhi-Wd-qar" firstAttribute="top" secondItem="4j3-CB-4ia" secondAttribute="bottom" constant="8" id="eON-eh-skW"/>
                                                 <constraint firstItem="CZF-3N-H2Y" firstAttribute="leading" secondItem="8ou-XH-gs0" secondAttribute="leadingMargin" id="fXW-Nl-THW"/>
-                                                <constraint firstItem="USx-Ki-oRo" firstAttribute="leading" secondItem="8ou-XH-gs0" secondAttribute="leadingMargin" id="fnB-at-ymd"/>
                                                 <constraint firstAttribute="trailing" secondItem="CZF-3N-H2Y" secondAttribute="trailing" constant="16" id="gus-qH-xFU"/>
-                                                <constraint firstItem="USx-Ki-oRo" firstAttribute="top" secondItem="qhi-Wd-qar" secondAttribute="bottom" constant="24" id="hqS-AG-qO8"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="USx-Ki-oRo" secondAttribute="bottom" constant="24" id="lNq-Bs-6ez"/>
-                                                <constraint firstItem="du7-bP-1bQ" firstAttribute="centerY" secondItem="USx-Ki-oRo" secondAttribute="centerY" id="q6J-k2-xem"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="du7-bP-1bQ" secondAttribute="bottom" constant="24" id="xOt-9S-l9C"/>
                                                 <constraint firstItem="CZF-3N-H2Y" firstAttribute="top" secondItem="tmO-6o-Ngp" secondAttribute="bottom" constant="8" id="xg1-lL-lx0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descrLabel" destination="CZF-3N-H2Y" id="YAj-d0-s1w"/>
                                             <outlet property="otherInfoLabel" destination="qhi-Wd-qar" id="0Tw-mb-4RL"/>
-                                            <outlet property="pendingDeletion" destination="du7-bP-1bQ" id="h1z-ak-COJ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userDeleteCell" rowHeight="89" id="b0l-XV-yZs" customClass="UserDeleteCell" customModule="FotoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="148" width="375" height="89"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b0l-XV-yZs" id="YOP-Lt-EeX">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Da eliminare" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1o-xG-3e2">
+                                                    <rect key="frame" x="15" y="19" width="95" height="35"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dGI-Iz-9i3">
+                                                    <rect key="frame" x="311" y="19" width="51" height="35"/>
+                                                    <connections>
+                                                        <action selector="daEliminareAction:" destination="ppY-fe-kQF" eventType="valueChanged" id="Ded-d4-rM2"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="dGI-Iz-9i3" secondAttribute="bottom" constant="24" id="Elp-04-rIx"/>
+                                                <constraint firstItem="dGI-Iz-9i3" firstAttribute="centerY" secondItem="a1o-xG-3e2" secondAttribute="centerY" id="Fh8-tR-y8P"/>
+                                                <constraint firstItem="a1o-xG-3e2" firstAttribute="top" secondItem="YOP-Lt-EeX" secondAttribute="topMargin" constant="8" id="JN7-BO-MOC"/>
+                                                <constraint firstItem="a1o-xG-3e2" firstAttribute="leading" secondItem="YOP-Lt-EeX" secondAttribute="leadingMargin" id="eFg-1s-U4W"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="a1o-xG-3e2" secondAttribute="bottom" constant="24" id="nwQ-eK-XC2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="dGI-Iz-9i3" secondAttribute="trailing" id="xra-0L-Q88"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="daEliminareSwitch" destination="dGI-Iz-9i3" id="7ch-wc-tpX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="adminDeleteCell" rowHeight="89" id="AvO-b7-GSp" customClass="AdminDeleteCell" customModule="FotoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="237" width="375" height="89"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AvO-b7-GSp" id="EGM-JI-Fvs">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWZ-26-rAb">
+                                                    <rect key="frame" x="15" y="23.5" width="345" height="42"/>
+                                                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42" id="vTW-iW-8nT"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Delete"/>
+                                                    <connections>
+                                                        <action selector="deleteAction:" destination="ppY-fe-kQF" eventType="touchUpInside" id="Uwh-tn-OyS"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="UWZ-26-rAb" firstAttribute="leading" secondItem="EGM-JI-Fvs" secondAttribute="leadingMargin" id="9VG-Bu-vbK"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UWZ-26-rAb" secondAttribute="trailing" id="Idy-uZ-yCk"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="UWZ-26-rAb" secondAttribute="bottom" constant="8" id="Zrb-05-Pbf"/>
+                                                <constraint firstItem="UWZ-26-rAb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EGM-JI-Fvs" secondAttribute="topMargin" constant="8" id="maG-H4-aD9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="deleteButton" destination="UWZ-26-rAb" id="C5a-hV-LJT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -253,7 +300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEH-f5-G53" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2887" y="114"/>
+            <point key="canvasLocation" x="2885.5999999999999" y="113.79310344827587"/>
         </scene>
     </scenes>
     <resources>

@@ -29,31 +29,30 @@ class NetworkManager: NSObject {
     }
     
     
-    static func getImageData(completion: @escaping(Bool, String) -> ())  {
+    static func getImageForTopic(topicId : String, completion: @escaping(Bool, String?, String?) -> ())  {
         
-        self.db.collection("photos").getDocuments { (snapshot, err) in
-            
-            if let error = err {
-                print("Non prende i documenti: \(err)")
-                completion(false, "")
-            } else {
-                if !(snapshot?.isEmpty)!  {
-                    let firstDocument = snapshot!.documents.first
+        self.db.collection(ALBUMS_COLLECTION).whereField("topicId", isEqualTo: topicId).addSnapshotListener { (querySnap, err) in
+            if let snap = querySnap, let docData = snap.documents.first?.data() {
+                if let firstImage = (docData["photos"] as! [String]).first {
                     
-                    let docId = firstDocument!.documentID.first
-                    let link = firstDocument!.get("link") as! String
+                    self.db.collection(PHOTOS_COLLECTION).whereField("id", isEqualTo: firstImage).addSnapshotListener({ (snapshot, err) in
+                        
+                        if let data = snapshot?.documents.first?.data() {
+                            completion(true, data["link"] as! String, firstImage)
+                        }
+                        else {
+                            completion(false, nil, nil)
+                        }
+                    })
                     
-                    print(link)
-                    
-                    completion(true, link)
-                    
-                } else {
-                    print("Documenti con foto vuote: \(err)")
-                    completion(false, "")
                 }
-                
+                else {
+                    completion(false, nil, nil)
+                }
             }
-            
+            else {
+                completion(false, nil, nil)
+            }
         }
     }
     
@@ -674,4 +673,39 @@ class NetworkManager: NSObject {
         }
     }
     
+    
+    static func deleteAlbum(album : Album, completion: @escaping (Bool, String?) -> ()) {
+        guard Auth.auth().currentUser != nil else {
+            completion(false, "No such user")
+            return
+        }
+        
+        // first delete all photos of album
+        album.photos.forEach { (photoId) in
+            
+            // in db
+            db.collection(PHOTOS_COLLECTION).document(photoId).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                }
+            }
+            
+            // in storage
+            storageRef.child(album.id + "/" + photoId + ".jpg").delete(completion: { (err) in
+                if let err = err {
+                    print("Error removing file: \(err)")
+                }
+            })
+        }
+        
+        // so delete the album from db
+        db.collection(ALBUMS_COLLECTION).document(album.id).delete() { err in
+            if let err = err {
+                completion(false, err.localizedDescription)
+            }
+            else {
+                completion(true, nil)
+            }
+        }
+    }
 }

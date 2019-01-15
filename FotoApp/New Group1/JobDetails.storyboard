@@ -12,7 +12,7 @@
         <!--Job Details View Controller-->
         <scene sceneID="swa-lZ-9JZ">
             <objects>
-                <viewController id="Yms-OO-q9a" customClass="JobDetailsViewController" customModule="FotoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="jobDetails" id="Yms-OO-q9a" customClass="JobDetailsViewController" customModule="FotoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XBm-Vl-gNW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,6 +92,12 @@
                                                         <constraint firstAttribute="width" constant="24" id="s41-ra-6lg"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="· da eliminare" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9J-TI-yA5">
+                                                    <rect key="frame" x="67" y="42.5" width="91.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="fWT-p6-X1w" firstAttribute="leading" secondItem="SC8-18-bei" secondAttribute="leadingMargin" id="FYA-1s-N2j"/>
@@ -100,12 +106,15 @@
                                                 <constraint firstItem="UTQ-m2-5Jq" firstAttribute="top" secondItem="SC8-18-bei" secondAttribute="top" constant="8" id="TNG-Yv-DCL"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="HtS-oN-t7F" secondAttribute="trailing" id="ZRw-kL-BLS"/>
                                                 <constraint firstItem="HtS-oN-t7F" firstAttribute="centerY" secondItem="SC8-18-bei" secondAttribute="centerY" id="ggt-2N-2O7"/>
+                                                <constraint firstItem="b9J-TI-yA5" firstAttribute="leading" secondItem="fWT-p6-X1w" secondAttribute="trailing" constant="4" id="mId-aK-mZK"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="fWT-p6-X1w" secondAttribute="bottom" constant="8" id="wA6-ZI-aNC"/>
+                                                <constraint firstItem="b9J-TI-yA5" firstAttribute="centerY" secondItem="fWT-p6-X1w" secondAttribute="centerY" id="yZi-xH-Aww"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="photos" destination="fWT-p6-X1w" id="ahR-Gi-tdV"/>
                                             <outlet property="title" destination="UTQ-m2-5Jq" id="9bJ-cf-b8f"/>
+                                            <outlet property="toDeleteLabel" destination="b9J-TI-yA5" id="DUs-cT-fna"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

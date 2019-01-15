@@ -15,7 +15,7 @@ class TopicAlbumsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var photos: UILabel!
-    @IBOutlet weak var divider: UIView!
+    @IBOutlet weak var toDeleteLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
