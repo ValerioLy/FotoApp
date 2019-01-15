@@ -38,7 +38,12 @@ class JobEditController: UIViewController, UITableViewDataSource, UITableViewDel
         switch indexPath.section {
         case 0:
             editBool = true
-            UIApplication.reloadGenericViewController(storyboardName: "AddJob", controllerIdentifier: "addjob")
+            print("da edit a mission :"+topicId)
+            var controller = UIStoryboard.init(name: "AddJob", bundle: Bundle.main).instantiateViewController(withIdentifier: "addjob") as? AddMissioneController
+            controller!.id = topicId
+            controller!.edit = editBool
+            UIApplication.topViewController()?.navigationController?.pushViewController(controller!, animated: true)
+
         break
         case 1:
             editBool = true
@@ -57,9 +62,11 @@ class JobEditController: UIViewController, UITableViewDataSource, UITableViewDel
                 destinationController.id = topicId
             }
             
-            if let destinationController = segue.destination as? AddMissioneController{
-                destinationController.edit = editBool
-            }
+//            if let destinationController = segue.destination as? AddMissioneController{
+//                destinationController.edit = editBool
+//                destinationController.id = topicId
+//
+//            }
         default:
             break
         }

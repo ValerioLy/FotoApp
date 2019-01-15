@@ -129,7 +129,7 @@ class NetworkManager: NSObject {
         }
     }
     
-    static func uploadTopics(idDoc: String? = UUID().uuidString ,title : String? = nil, descriptio : String? = nil, expiration : String? = nil, workers : [String], completion: @escaping (Bool) -> ()) {
+    static func uploadTopics(idDoc: String? = UUID().uuidString ,title : String? = nil, descriptio : String? = nil, expiration : String? = nil, workers : [String]? = nil , completion: @escaping (Bool) -> ()) {
         guard let user = Auth.auth().currentUser else { completion(false); return}
         
 //        let id = UUID().uuidString
