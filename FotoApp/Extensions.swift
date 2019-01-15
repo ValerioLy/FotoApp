@@ -23,6 +23,11 @@ extension UIImageView {
         self.layer.cornerRadius = CGFloat(8)
         self.clipsToBounds = true
     }
+    
+    func circle() {
+        self.layer.cornerRadius = self.bounds.width / 2
+        self.clipsToBounds = true
+    }
 }
 
 extension UIButton {

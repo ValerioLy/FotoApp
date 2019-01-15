@@ -29,19 +29,29 @@ class NetworkManager: NSObject {
     }
     
     
-    static func getImageForTopic(topicId : String, completion: @escaping(Bool, String) -> ())  {
+    static func getImageForTopic(topicId : String, completion: @escaping(Bool, String?, String?) -> ())  {
         
         self.db.collection(ALBUMS_COLLECTION).whereField("topicId", isEqualTo: topicId).addSnapshotListener { (querySnap, err) in
             if let snap = querySnap, let docData = snap.documents.first?.data() {
                 if let firstImage = (docData["photos"] as! [String]).first {
-                    completion(true, firstImage)
+                    
+                    self.db.collection(PHOTOS_COLLECTION).whereField("id", isEqualTo: firstImage).addSnapshotListener({ (snapshot, err) in
+                        
+                        if let data = snapshot?.documents.first?.data() {
+                            completion(true, data["link"] as! String, firstImage)
+                        }
+                        else {
+                            completion(false, nil, nil)
+                        }
+                    })
+                    
                 }
                 else {
-                    completion(false, "")
+                    completion(false, nil, nil)
                 }
             }
             else {
-                completion(false, "")
+                completion(false, nil, nil)
             }
         }
     }

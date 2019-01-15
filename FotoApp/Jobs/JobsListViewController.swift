@@ -116,10 +116,10 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
             cell.missionDate.text = listOfTopic[indexPath.row].expiration.date?.stringFormatted ?? "\(listOfTopic[indexPath.row].expiration)"
             
             
-            NetworkManager.getImageForTopic(topicId: listOfTopic[indexPath.row].id) { (success, url) in
+            NetworkManager.getImageForTopic(topicId: listOfTopic[indexPath.row].id) { (success, url, imageId) in
             
                 if success {
-                    cell.downloadImage(url: URL(string: url)!)
+                    cell.downloadImage(id: imageId, url: URL(string: url ?? "")!)
                 } else {
                     cell.imageOutlet.image = UIImage(named: "illustration2")
                 }

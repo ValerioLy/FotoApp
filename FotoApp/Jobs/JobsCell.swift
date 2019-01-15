@@ -24,8 +24,9 @@ class JobsCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func downloadImage(url: URL) {
-        NetworkImageManager.image(with: "", from: url.absoluteString) { (imageData, success) in
+    func downloadImage(id : String?, url: URL) {
+        
+        NetworkImageManager.image(with: id, from: url.absoluteString) { (imageData, success) in
             DispatchQueue.main.async {
                 if success {
                     self.imageOutlet.roundedCorners()

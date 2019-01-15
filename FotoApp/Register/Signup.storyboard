@@ -231,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjr-6X-XjV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3951" y="107"/>
+            <point key="canvasLocation" x="3949.5999999999999" y="106.59670164917542"/>
         </scene>
         <!--Terms and contract-->
         <scene sceneID="heU-LH-wTk">
@@ -244,7 +244,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="w0V-Rt-1Ev">
                                 <rect key="frame" x="20" y="20" width="339" height="563"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">1. DEFINITIONS
+                                <string key="text">1. DEFINITIONS
 When used in this Agreement, the following terms shall have the respective meanings indicated, such
 meanings to be applicable to both the singular and plural forms of the terms defined:
 "Acceptance" of Software means completion of the acceptance testing process set forth in Section 3
@@ -735,7 +735,7 @@ This Agreement and its Riders and Schedules comprise the entire agreement betwee
 regarding the subject matter hereof and supersedes and merges all prior proposals, understandings, and
 all other agreements, oral, and written between the parties relating to the Agreement.
 IN WITNESS WHEREOF, the parties have executed this Agreement on the dates set forth first above,
-with full knowledge of its content and significance and intending to be legally bound by the terms hereof.</mutableString>
+with full knowledge of its content and significance and intending to be legally bound by the terms hereof.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
