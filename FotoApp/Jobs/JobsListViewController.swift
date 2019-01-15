@@ -63,6 +63,7 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         if segue.identifier == "segueToDetails" {
             if let destination = segue.destination as? JobDetailsViewController,
                 let id = selectedJobId {
+                print("da main a detail: "+id)
                 destination.id = id
             }
         }

@@ -11,6 +11,7 @@ class JobEditController: UIViewController, UITableViewDataSource, UITableViewDel
     
     @IBOutlet weak var tableView: UITableView!
     var editBool : Bool = false
+    var topicId = ""
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -41,6 +42,7 @@ class JobEditController: UIViewController, UITableViewDataSource, UITableViewDel
         break
         case 1:
             editBool = true
+            print("da edit a addjob :"+topicId)
           self.performSegue(withIdentifier: "segueAddJob", sender: self)
         default : break
         }
@@ -52,6 +54,7 @@ class JobEditController: UIViewController, UITableViewDataSource, UITableViewDel
         case "segueAddJob":
             if let destinationController = segue.destination as? AddJobController {
                 destinationController.isEdit = editBool
+                destinationController.id = topicId
             }
             
             if let destinationController = segue.destination as? AddMissioneController{
@@ -65,7 +68,6 @@ class JobEditController: UIViewController, UITableViewDataSource, UITableViewDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: nil)
     }
     
 

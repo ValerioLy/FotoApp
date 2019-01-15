@@ -130,13 +130,13 @@ class NetworkManager: NSObject {
         }
     }
     
-    static func uploadTopics(title : String, descriptio : String, expiration : String, workers : [String], completion: @escaping (Bool) -> ()) {
+    static func uploadTopics(idDoc: String? = UUID().uuidString ,title : String? = nil, descriptio : String? = nil, expiration : String? = nil, workers : [String], completion: @escaping (Bool) -> ()) {
         guard let user = Auth.auth().currentUser else { completion(false); return}
         
-        let id = UUID().uuidString
+//        let id = UUID().uuidString
         
-        db.collection(TOPICS_COLLECTION).document(id).setData([
-            "id": id,
+        db.collection(TOPICS_COLLECTION).document(idDoc!).setData([
+            "id": idDoc,
             "title" : title,
             "descriptio" : descriptio,
             "expiration": expiration,
@@ -144,7 +144,7 @@ class NetworkManager: NSObject {
             "creator": user.uid,
             "workers": workers,
             "albums": []
-        ]) { error in
+        ], merge: true) { error in
             completion(error == nil)
         }
     }

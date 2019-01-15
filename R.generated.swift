@@ -141,7 +141,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 10 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 11 view controllers.
   struct segue {
     /// This struct is generated for `AddJobController`, and contains static references to 1 segues.
     struct addJobController {
@@ -216,6 +216,21 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func segueToAlbumSpecs(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, JobDetailsViewController, AlbumItemController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.jobDetailsViewController.segueToAlbumSpecs, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `JobEditController`, and contains static references to 1 segues.
+    struct jobEditController {
+      /// Segue identifier `segueAddJob`.
+      static let segueAddJob: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, JobEditController, AddJobController> = Rswift.StoryboardSegueIdentifier(identifier: "segueAddJob")
+      
+      /// Optionally returns a typed version of segue `segueAddJob`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueAddJob(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, JobEditController, AddJobController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.jobEditController.segueAddJob, segue: segue)
       }
       
       fileprivate init() {}
@@ -1114,6 +1129,7 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try options.validate()
+      try addJob.validate()
       try albumItem.validate()
       try jobDetails.validate()
       try jobs.validate()
@@ -1131,11 +1147,20 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct addJob: Rswift.StoryboardResourceWithInitialControllerType {
+    struct addJob: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = AddJobController
       
+      let addjob = StoryboardViewControllerResource<AddMissioneController>(identifier: "addjob")
       let bundle = R.hostingBundle
       let name = "AddJob"
+      
+      func addjob(_: Void = ()) -> AddMissioneController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: addjob)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.addJob().addjob() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'addjob' could not be loaded from storyboard 'AddJob' as 'AddMissioneController'.") }
+      }
       
       fileprivate init() {}
     }
