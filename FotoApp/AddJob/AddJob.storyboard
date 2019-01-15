@@ -83,7 +83,7 @@
         <!--Add job-->
         <scene sceneID="WcV-3b-x7w">
             <objects>
-                <viewController id="gEq-rH-bt3" customClass="AddMissioneController" customModule="FotoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addjob" id="gEq-rH-bt3" customClass="AddMissioneController" customModule="FotoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yyQ-1F-5zK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

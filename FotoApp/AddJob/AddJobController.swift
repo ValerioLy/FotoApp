@@ -19,10 +19,16 @@ class AddJobController: UIViewController {
     var listUsers : [User] = []
     var filterData : [User] = []
     var isSearching = false
+    var isEdit : Bool = false
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if isEdit == true {
+         var forward = navigationItem.rightBarButtonItem
+            forward!.title = "Save"
+        }
         
         // show back button
         self.navigationItem.setHidesBackButton(false, animated:true)

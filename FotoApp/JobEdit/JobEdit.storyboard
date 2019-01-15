@@ -113,11 +113,20 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="ChR-DJ-qdz"/>
                     <connections>
                         <outlet property="tableView" destination="dKA-oa-5fa" id="1Kw-Uv-eYn"/>
+                        <segue destination="Oom-rN-goR" kind="show" identifier="segueAddJob" id="tIC-nO-GDV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Rv-Hn-1ZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1052" y="146.17691154422789"/>
+        </scene>
+        <!--AddJob-->
+        <scene sceneID="jrK-12-B1Z">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddJob" id="Oom-rN-goR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E9O-st-AFq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1740" y="8"/>
         </scene>
     </scenes>
     <resources>
