@@ -11,12 +11,16 @@ import SkeletonView
 class ImageCellController: UICollectionViewCell {
     static let kIdentifier = "imageCell"
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageNumber: UILabel!
     
     override func prepareForReuse() {
         imageView.image = nil
     }
     
-    func setup(with image : Photo) {
+    func setup(with image : Photo, number : Int) {
+        // set the index of the image
+        imageNumber.text = "\(number)"
+        
         // skeleton cool effect
         imageView.isSkeletonable = true
         imageView.showAnimatedGradientSkeleton()
