@@ -15,7 +15,7 @@ class AddMissioneController: UIViewController {
     
     @IBOutlet var labels: [UILabel]!
     var listaIdUsers : [String]!
-    
+    var topic : Topic?
     @IBOutlet weak var jobName: UITextField!
     @IBOutlet weak var fieldDescription: UITextView!
     @IBOutlet weak var jobDate: UIDatePicker!
@@ -25,6 +25,13 @@ class AddMissioneController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
+        topic = Topic.getObject(withId: id)
+        
+        
+        jobName.text = topic?.title
+        fieldDescription.text = topic?.descriptio
+        jobDate.date = topic?.expiration.date ?? Date()
         
     }
     
