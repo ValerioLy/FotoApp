@@ -15,6 +15,7 @@ class AlbumItemController: UIViewController {
     @IBOutlet weak var fullImageView: UIImageView!
     @IBOutlet weak var metaDate: UILabel!
     @IBOutlet weak var metaUser: UILabel!
+    @IBOutlet weak var btnBadPhoto: UIButton!
     
     var albumId : String!
     private var isMetadataHidden : Bool = false
@@ -33,6 +34,9 @@ class AlbumItemController: UIViewController {
         // hide metadata
         self.metadataContainer.transform = CGAffineTransform(translationX: 0, y: self.metadataContainer.bounds.height)
         
+        // hide the btn bad photo if not admin
+        btnBadPhoto.isHidden = !(User.getObject(withId: NetworkManager.getUserId())?.admin ?? false)
+        
         // add the image to the view
         self.fullImageView.isUserInteractionEnabled = true
         self.fullImageView.backgroundColor = UIColor.white
@@ -49,7 +53,9 @@ class AlbumItemController: UIViewController {
         self.currentAlbum = Album.getObject(withId: albumId)
         if self.currentAlbum != nil {
             self.title = self.currentAlbum.title
-            self.photos = Photo.getObjects(withId: Array(self.currentAlbum.photos))
+            self.photos = Photo.getObjects(withId: Array(self.currentAlbum.photos)).filter({ (item) -> Bool in
+                item.accepted
+            })
         }
         
         // create the listener
@@ -59,6 +65,15 @@ class AlbumItemController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "photoListener"), object: nil)
     }
     
+    @IBAction func actionBadPhoto(_ sender: Any) {
+        let alert = UIAlertController(title: "Attenzione", message: "Sei sicuro di eliminare la foto?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Si", style: .destructive, handler: { (action) in
+            
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     @objc private func notificationObserver(notification : Notification) {
         self.currentAlbum = Album.getObject(withId: albumId)
         self.title = self.currentAlbum.title
@@ -66,8 +81,12 @@ class AlbumItemController: UIViewController {
         let ids = Array(self.currentAlbum!.photos)
         NetworkManager.fetchPhotos(ids: ids, completion: { (success, err) in
             if success {
-                self.photos = Photo.getObjects(withId: ids)
-                self.collectionView.reloadSections(IndexSet(arrayLiteral: 0))
+                self.photos = Photo.getObjects(withId: Array(self.currentAlbum.photos)).filter({ (item) -> Bool in
+                    item.accepted
+                })
+                
+                // reload sections
+               self.collectionView.reloadSections(IndexSet(arrayLiteral: 0))
             }
         })
     }
@@ -98,6 +117,10 @@ class AlbumItemController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    deinit {
+        self.realtimeListener?.remove()
+    }
+    
     // Navigation stuff
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == R.segue.albumItemController.segueToDetails.identifier {
@@ -114,12 +137,12 @@ extension AlbumItemController : UICollectionViewDataSource, UICollectionViewDele
         case OpenChat
         case ViewDetails
     }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         switch section {
         case 0:
             return photos.count
@@ -156,6 +179,7 @@ extension AlbumItemController : UICollectionViewDataSource, UICollectionViewDele
         default:
             return UICollectionViewCell()
         }
+    
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

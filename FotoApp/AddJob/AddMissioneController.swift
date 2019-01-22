@@ -20,7 +20,7 @@ class AddMissioneController: UIViewController {
     @IBOutlet weak var fieldDescription: UITextView!
     @IBOutlet weak var jobDate: UIDatePicker!
     var edit = false
-    var id = ""
+    var id : String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,6 @@ class AddMissioneController: UIViewController {
     }
     
     @IBAction func addMission(_ sender: Any) {
-         print("id mission :"+id)
         let title : String = jobName.text ?? ""
         let description : String = fieldDescription.text!
         let scadenza : String = jobDate.date.dateInString

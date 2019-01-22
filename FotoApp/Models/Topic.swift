@@ -66,7 +66,7 @@ import FirebaseFirestore
         return Array(realm.objects(Topic.self))
     }
     
-    func deleteAllTopic(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
+    static func deleteAllTopic(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
                 for topic in Topic.all() {
                     topic.delete()
                 }

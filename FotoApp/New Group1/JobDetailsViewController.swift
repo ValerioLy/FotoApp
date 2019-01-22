@@ -31,9 +31,10 @@ class JobDetailsViewController: UIViewController {
         // hide the button if admin si logged
         if let user = User.getObject(withId: NetworkManager.getUserId()) {
             buttonAdd.isHidden = user.admin
+            navigationItem.rightBarButtonItem = (user.admin) ? UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(goToEdit)) : nil
         }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(goToEdit))
+        
         
         self.trueTopic = Topic.getObject(withId: id)
         self.title = self.trueTopic.title
@@ -45,7 +46,6 @@ class JobDetailsViewController: UIViewController {
     }
     
     @objc func goToEdit() {
-        
         self.performSegue(withIdentifier: "segueEdit", sender: self)
     }
     
