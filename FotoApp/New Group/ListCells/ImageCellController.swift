@@ -25,7 +25,9 @@ class ImageCellController: UICollectionViewCell {
         imageView.isSkeletonable = true
         imageView.showAnimatedGradientSkeleton()
         imageView.roundedCorners()
-        
+        imageNumber.layer.masksToBounds = true
+        imageNumber.layer.cornerRadius = 5
+
         // load the image
         NetworkImageManager.image(with: image.id, from: image.link) { (imageData, success) in
             DispatchQueue.main.async {
