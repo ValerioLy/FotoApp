@@ -10,7 +10,6 @@
 		3CED0C2376F801CF08824ECB /* Pods_FotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2EEA156DFACF1A6079BADC /* Pods_FotoApp.framework */; };
 		B31A3DEC21B584950014749E /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DE821B584950014749E /* UserInfoController.swift */; };
 		B31A3DEE21B584950014749E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A3DEA21B584950014749E /* SignupController.swift */; };
-		B33127F821E35EE30089EAD8 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33127F721E35EE20089EAD8 /* R.generated.swift */; };
 		B33C51B721C134D70023C98E /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33C51B321C134D60023C98E /* JobDetailsViewController.swift */; };
 		B33C51B821C134D70023C98E /* JobDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B33C51B421C134D70023C98E /* JobDetails.storyboard */; };
 		B33C51B921C134D70023C98E /* TopicAlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33C51B521C134D70023C98E /* TopicAlbumsTableViewCell.swift */; };
@@ -26,6 +25,8 @@
 		B37922DB21C14EA300BA1EB1 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3416D7721BEB84100D44AB4 /* Album.swift */; };
 		B37922DD21C151D600BA1EB1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37922DC21C151D500BA1EB1 /* NetworkManager.swift */; };
 		B37922E121C1526500BA1EB1 /* SingleLineActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37922E021C1526500BA1EB1 /* SingleLineActionCell.swift */; };
+		B384D2AE21F767B20022D527 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B384D2AD21F767B10022D527 /* R.generated.swift */; };
+		B384D2B021F767DB0022D527 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B384D2AF21F767DB0022D527 /* ViewController.swift */; };
 		B3861EA921C02016006118B6 /* AddAlbum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3861EA821C02016006118B6 /* AddAlbum.storyboard */; };
 		B3861EAB21C020E3006118B6 /* AddAlbumController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3861EAA21C020E3006118B6 /* AddAlbumController.swift */; };
 		B3861EB821C12F3D006118B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3861EB721C12F3C006118B6 /* User.swift */; };
@@ -94,7 +95,6 @@
 		5D2EEA156DFACF1A6079BADC /* Pods_FotoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FotoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31A3DE821B584950014749E /* UserInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfoController.swift; path = FotoApp/Register/UserInfoController.swift; sourceTree = SOURCE_ROOT; };
 		B31A3DEA21B584950014749E /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupController.swift; path = FotoApp/Register/SignupController.swift; sourceTree = SOURCE_ROOT; };
-		B33127F721E35EE20089EAD8 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		B33C51B321C134D60023C98E /* JobDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
 		B33C51B421C134D70023C98E /* JobDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JobDetails.storyboard; sourceTree = "<group>"; };
 		B33C51B521C134D70023C98E /* TopicAlbumsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicAlbumsTableViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +111,8 @@
 		B34CF24121B6E1D600FC4CB4 /* NetworkImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImageManager.swift; sourceTree = "<group>"; };
 		B37922DC21C151D500BA1EB1 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B37922E021C1526500BA1EB1 /* SingleLineActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleLineActionCell.swift; sourceTree = "<group>"; };
+		B384D2AD21F767B10022D527 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		B384D2AF21F767DB0022D527 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B3861EA821C02016006118B6 /* AddAlbum.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddAlbum.storyboard; sourceTree = "<group>"; };
 		B3861EAA21C020E3006118B6 /* AddAlbumController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlbumController.swift; sourceTree = "<group>"; };
 		B3861EB721C12F3C006118B6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -366,9 +368,10 @@
 				FF5C803621B52BC00045EC1A /* Options */,
 				F93EFE5221AEB8B900FBC875 /* Register */,
 				F93EFE1721AEB24C00FBC875 /* Main.storyboard */,
+				B384D2AF21F767DB0022D527 /* ViewController.swift */,
 				B3E953F421B6853C00D60014 /* Extensions.swift */,
 				B37922DC21C151D500BA1EB1 /* NetworkManager.swift */,
-				B33127F721E35EE20089EAD8 /* R.generated.swift */,
+				B384D2AD21F767B10022D527 /* R.generated.swift */,
 				F94711E421B6D27E007F5019 /* RealmUtils.swift */,
 				B3E953E821B6849D00D60014 /* AppDelegate.swift */,
 				FF8F43E821BEB58E003FFEE8 /* GeneralUtils.swift */,
@@ -713,6 +716,7 @@
 			files = (
 				B31A3DEE21B584950014749E /* SignupController.swift in Sources */,
 				B31A3DEC21B584950014749E /* UserInfoController.swift in Sources */,
+				B384D2AE21F767B20022D527 /* R.generated.swift in Sources */,
 				B37922DB21C14EA300BA1EB1 /* Album.swift in Sources */,
 				B3A415AD21BFE5290083F016 /* SingleDetailAlbumCell.swift in Sources */,
 				B3ECCE2421C90DC90085C1CB /* DownloadedImage.swift in Sources */,
@@ -738,9 +742,9 @@
 				FF5C803A21B5333D0045EC1A /* OptionsViewController.swift in Sources */,
 				B3416D7A21BEC2EE00D44AB4 /* RealmUtils.swift in Sources */,
 				FF1E570521B5896E00CED714 /* UserInfoViewController.swift in Sources */,
-				B33127F821E35EE30089EAD8 /* R.generated.swift in Sources */,
 				FF06419021E605BD0091FF3F /* BasicChatViewController.swift in Sources */,
 				B33C51B721C134D70023C98E /* JobDetailsViewController.swift in Sources */,
+				B384D2B021F767DB0022D527 /* ViewController.swift in Sources */,
 				B3861EB821C12F3D006118B6 /* User.swift in Sources */,
 				FF1E570321B576D000CED714 /* CreditsViewController.swift in Sources */,
 				F93B52EA21E604EF0008CFB3 /* JobEditCell.swift in Sources */,
