@@ -29,6 +29,13 @@ class NetworkManager: NSObject {
     }
     
     
+   
+    
+    
+    
+    
+    
+    
     static func getImageForTopic(topicId : String, completion: @escaping(Bool, String?, String?) -> ())  {
         
         self.db.collection(ALBUMS_COLLECTION).whereField("topicId", isEqualTo: topicId).addSnapshotListener { (querySnap, err) in

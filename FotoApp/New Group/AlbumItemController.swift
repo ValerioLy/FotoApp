@@ -158,7 +158,7 @@ extension AlbumItemController : UICollectionViewDataSource, UICollectionViewDele
         switch indexPath.section {
         case 0:
             let imageCell = self.collectionView.dequeueReusableCell(withReuseIdentifier: ImageCellController.kIdentifier, for: indexPath) as! ImageCellController
-            imageCell.setup(with: photos[indexPath.row])
+            imageCell.setup(with: photos[indexPath.row], number : indexPath.row + 1)
             return imageCell
         case 1:
             let actionCell = collectionView.dequeueReusableCell(withReuseIdentifier: SingleLineActionController.kIdentifier, for: indexPath) as! SingleLineActionController

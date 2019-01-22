@@ -40,16 +40,30 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flO-OX-Pfy" userLabel="imageNumber" customClass="MessageLabel" customModule="FotoApp" customModuleProvider="target">
+                                                    <rect key="frame" x="4" y="141" width="21" height="21"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="21" id="qQl-6h-Dzx"/>
+                                                        <constraint firstAttribute="height" constant="21" id="woE-fv-DHd"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="DMr-hZ-ZHQ" firstAttribute="leading" secondItem="ENB-Oh-kF7" secondAttribute="leading" constant="4" id="5vf-HJ-K3m"/>
                                             <constraint firstItem="DMr-hZ-ZHQ" firstAttribute="top" secondItem="ENB-Oh-kF7" secondAttribute="topMargin" constant="4" id="DeJ-Hk-guf"/>
+                                            <constraint firstItem="flO-OX-Pfy" firstAttribute="leading" secondItem="ENB-Oh-kF7" secondAttribute="leading" constant="4" id="MW4-X7-Hjn"/>
+                                            <constraint firstAttribute="bottom" secondItem="flO-OX-Pfy" secondAttribute="bottom" constant="4" id="ZYu-Kd-VgQ"/>
                                             <constraint firstItem="DMr-hZ-ZHQ" firstAttribute="bottom" secondItem="ENB-Oh-kF7" secondAttribute="bottomMargin" constant="4" id="bhx-0L-yez"/>
                                             <constraint firstAttribute="trailing" secondItem="DMr-hZ-ZHQ" secondAttribute="trailing" constant="4" id="z4M-fP-kV2"/>
                                         </constraints>
                                         <size key="customSize" width="242" height="166"/>
                                         <connections>
+                                            <outlet property="imageNumber" destination="flO-OX-Pfy" id="ePU-Ce-6Td"/>
                                             <outlet property="imageView" destination="DMr-hZ-ZHQ" id="ffn-pq-kz0"/>
                                         </connections>
                                     </collectionViewCell>
