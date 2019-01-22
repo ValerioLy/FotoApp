@@ -108,6 +108,7 @@ class AlbumItemController: UIViewController {
     }
 }
 
+
 extension AlbumItemController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     enum Actions : Int {
         case AddPhoto = 0
@@ -176,7 +177,7 @@ extension AlbumItemController : UICollectionViewDataSource, UICollectionViewDele
                 self.openPickerDialog()
             }
             else if index == Actions.OpenChat.rawValue {
-                self.navigationController?.pushViewController(ChatViewController(), animated: true)
+                self.navigationController?.pushViewController(BasicChatViewController(albumId : currentAlbum.id), animated: true)
             }
             else if index == Actions.ViewDetails.rawValue {
                 self.performSegue(withIdentifier: R.segue.albumItemController.segueToDetails.identifier, sender: self)

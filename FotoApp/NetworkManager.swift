@@ -625,7 +625,7 @@ class NetworkManager: NSObject {
         }
         
         
-        let messagesListener = db.collection(MESSAGES_COLLECTION).whereField("albumId", isEqualTo: idAlbum).addSnapshotListener { (querySnap, err) in
+        let messagesListener = db.collection(MESSAGES_COLLECTION).whereField("topicId", isEqualTo: idAlbum).addSnapshotListener { (querySnap, err) in
             
             if let snap = querySnap {
                 snap.documentChanges.forEach({ (item) in

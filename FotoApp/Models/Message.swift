@@ -23,15 +23,14 @@ import RealmSwift
         return "id"
     }
     
-    convenience init(topicId: String, id: String, messageText: String, senderName: String, senderId: String, sentDate: Date) {
+    convenience init(topicId: String, id: String, messageText: String, senderName: String, senderId: String, sentDate: String) {
         self.init()
         self.id = id
         self.senderName = senderName
         self.senderId = senderId
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss +zzzz"
-        self.sentDate = dateFormatter.string(from: sentDate)
+        
+        self.sentDate = sentDate
         
         self.messageText = messageText
         self.topicId = topicId

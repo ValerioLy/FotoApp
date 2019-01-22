@@ -115,7 +115,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 10 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 12 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `JobsCell`.
     static let jobsCell: Rswift.ReuseIdentifier<JobsCell> = Rswift.ReuseIdentifier(identifier: "JobsCell")
@@ -123,6 +123,8 @@ struct R: Rswift.Validatable {
     static let topicAlbumsTableViewCell: Rswift.ReuseIdentifier<TopicAlbumsTableViewCell> = Rswift.ReuseIdentifier(identifier: "TopicAlbumsTableViewCell")
     /// Reuse identifier `TopicTableViewCell`.
     static let topicTableViewCell: Rswift.ReuseIdentifier<TopicTableViewCell> = Rswift.ReuseIdentifier(identifier: "TopicTableViewCell")
+    /// Reuse identifier `adminDeleteCell`.
+    static let adminDeleteCell: Rswift.ReuseIdentifier<AdminDeleteCell> = Rswift.ReuseIdentifier(identifier: "adminDeleteCell")
     /// Reuse identifier `cell`.
     static let cell: Rswift.ReuseIdentifier<JobCell> = Rswift.ReuseIdentifier(identifier: "cell")
     /// Reuse identifier `editTopic`.
@@ -137,6 +139,8 @@ struct R: Rswift.Validatable {
     static let singleLineActionCell: Rswift.ReuseIdentifier<SingleLineActionCell> = Rswift.ReuseIdentifier(identifier: "singleLineActionCell")
     /// Reuse identifier `singleLineActionController`.
     static let singleLineActionController: Rswift.ReuseIdentifier<SingleLineActionController> = Rswift.ReuseIdentifier(identifier: "singleLineActionController")
+    /// Reuse identifier `userDeleteCell`.
+    static let userDeleteCell: Rswift.ReuseIdentifier<UserDeleteCell> = Rswift.ReuseIdentifier(identifier: "userDeleteCell")
     
     fileprivate init() {}
   }
@@ -1202,11 +1206,17 @@ struct _R: Rswift.Validatable {
       typealias InitialController = JobDetailsViewController
       
       let bundle = R.hostingBundle
+      let jobDetails = StoryboardViewControllerResource<JobDetailsViewController>(identifier: "jobDetails")
       let name = "JobDetails"
+      
+      func jobDetails(_: Void = ()) -> JobDetailsViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: jobDetails)
+      }
       
       static func validate() throws {
         if UIKit.UIImage(named: "add") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'add' is used in storyboard 'JobDetails', but couldn't be loaded.") }
         if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'JobDetails', but couldn't be loaded.") }
+        if _R.storyboard.jobDetails().jobDetails() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'jobDetails' could not be loaded from storyboard 'JobDetails' as 'JobDetailsViewController'.") }
       }
       
       fileprivate init() {}

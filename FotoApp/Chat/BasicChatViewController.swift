@@ -29,8 +29,10 @@ import MessageInputBar
 
 final class BasicChatViewController: ChatViewController {
     
+    
+    
     override func configureMessageCollectionView() {
-        
+        super.configureMessageCollectionView()
         if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
             layout.textMessageSizeCalculator.outgoingAvatarSize = .zero
             layout.textMessageSizeCalculator.incomingAvatarSize = .zero
@@ -38,6 +40,14 @@ final class BasicChatViewController: ChatViewController {
         
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+    }
+    
+    override init(albumId : String) {
+        super.init(albumId : albumId)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }
