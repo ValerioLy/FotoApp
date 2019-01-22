@@ -19,18 +19,26 @@ class AlbumItemDetailsController: UIViewController {
         // get user info
         self.amIAdmin = User.getObject(withId: NetworkManager.getUserId())?.admin ?? false
     }
-
+    
     @IBAction func deleteAction(_ sender: Any) {
-        NetworkManager.deleteAlbum(album: currentAlbum) { (success, err) in
-            if success {
-                self.navigationController?.popViewController(animated: true)
-                self.navigationController?.popViewController(animated: true)
+        let alert = UIAlertController(title: "Attenzione", message: "Sei sicuro di elimare", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { (action) in
+            NetworkManager.deleteAlbum(album: self.currentAlbum) { (success, err) in
+                if success {
+                    self.navigationController?.popViewController(animated: true)
+                    self.navigationController?.popViewController(animated: true)
+                }
+                else {
+                    let alert = UIApplication.alertError(title: "Opss", message: err, closeAction: {})
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
-            else {
-                let alert = UIApplication.alertError(title: "Opss", message: err, closeAction: {})
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alert, animated: true, completion:  nil)
     }
     
     @IBAction func daEliminareAction(_ sender: UISwitch) {

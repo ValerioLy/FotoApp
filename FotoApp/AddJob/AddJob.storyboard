@@ -115,7 +115,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="Baz-gZ-LUN"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZf-Qh-tWk" userLabel="viewName">

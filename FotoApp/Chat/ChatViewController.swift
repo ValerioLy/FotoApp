@@ -212,7 +212,7 @@ class ChatViewController: MessagesViewController {
         configureMessageCollectionView()
         configureMessageInputBar()
         loadFirstMessages()
-        title = "Aig"
+        title = "Chat"
     }
     
     override func viewDidAppear(_ animated: Bool) {
