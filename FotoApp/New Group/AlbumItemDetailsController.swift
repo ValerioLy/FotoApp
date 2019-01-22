@@ -21,8 +21,8 @@ class AlbumItemDetailsController: UIViewController {
     }
     
     @IBAction func deleteAction(_ sender: Any) {
-        let alert = UIAlertController(title: "Attenzione", message: "Sei sicuro di elimare", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { (action) in
+        let alert = UIAlertController(title: "Attenzione", message: "Sei sicuro di archiviare?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Si", style: .destructive, handler: { (action) in
             NetworkManager.deleteAlbum(album: self.currentAlbum) { (success, err) in
                 if success {
                     self.navigationController?.popViewController(animated: true)
@@ -34,7 +34,7 @@ class AlbumItemDetailsController: UIViewController {
                 }
             }
         }))
-        alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "No", style: .default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
         }))
         

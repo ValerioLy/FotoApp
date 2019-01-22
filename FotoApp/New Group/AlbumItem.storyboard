@@ -40,16 +40,31 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flO-OX-Pfy" userLabel="imageNumber" customClass="MessageLabel" customModule="FotoApp" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="128" width="38" height="38"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="38" id="qQl-6h-Dzx"/>
+                                                        <constraint firstAttribute="height" constant="38" id="woE-fv-DHd"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="DMr-hZ-ZHQ" firstAttribute="leading" secondItem="ENB-Oh-kF7" secondAttribute="leading" constant="4" id="5vf-HJ-K3m"/>
                                             <constraint firstItem="DMr-hZ-ZHQ" firstAttribute="top" secondItem="ENB-Oh-kF7" secondAttribute="topMargin" constant="4" id="DeJ-Hk-guf"/>
+                                            <constraint firstItem="flO-OX-Pfy" firstAttribute="leading" secondItem="ENB-Oh-kF7" secondAttribute="leading" id="MW4-X7-Hjn"/>
+                                            <constraint firstAttribute="bottom" secondItem="flO-OX-Pfy" secondAttribute="bottom" id="ZYu-Kd-VgQ"/>
                                             <constraint firstItem="DMr-hZ-ZHQ" firstAttribute="bottom" secondItem="ENB-Oh-kF7" secondAttribute="bottomMargin" constant="4" id="bhx-0L-yez"/>
                                             <constraint firstAttribute="trailing" secondItem="DMr-hZ-ZHQ" secondAttribute="trailing" constant="4" id="z4M-fP-kV2"/>
                                         </constraints>
                                         <size key="customSize" width="242" height="166"/>
                                         <connections>
+                                            <outlet property="imageNumber" destination="flO-OX-Pfy" id="ePU-Ce-6Td"/>
                                             <outlet property="imageView" destination="DMr-hZ-ZHQ" id="ffn-pq-kz0"/>
                                         </connections>
                                     </collectionViewCell>
@@ -83,6 +98,7 @@
                                         </constraints>
                                         <size key="customSize" width="276" height="49"/>
                                         <connections>
+                                            <outlet property="rightArrow" destination="o18-Qe-f90" id="civ-xJ-ICL"/>
                                             <outlet property="textLabel" destination="Fd8-tr-dly" id="kVG-Ep-Del"/>
                                         </connections>
                                     </collectionViewCell>
@@ -100,23 +116,35 @@
                                 <rect key="frame" x="0.0" y="611" width="375" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matteo Gvnn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6G-DZ-K1I" userLabel="userName">
-                                        <rect key="frame" x="16" y="18" width="98.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="16" y="18.5" width="93.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16 novembre, 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfg-Pb-wKt" userLabel="date">
-                                        <rect key="frame" x="118.5" y="18.5" width="138.5" height="19.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <rect key="frame" x="113.5" y="19" width="131" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFT-gI-bc0" userLabel="btnBadPhoto">
+                                        <rect key="frame" x="335" y="16" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="26e-Ll-EBR"/>
+                                            <constraint firstAttribute="width" constant="24" id="LHm-OJ-CTN"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="trash-icon"/>
+                                        <connections>
+                                            <action selector="actionBadPhoto:" destination="9hf-hN-jVo" eventType="touchUpInside" id="SsN-GY-wBL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="C6G-DZ-K1I" firstAttribute="leading" secondItem="BXq-xg-Cps" secondAttribute="leading" constant="16" id="1VT-6k-Shi"/>
                                     <constraint firstItem="rfg-Pb-wKt" firstAttribute="centerY" secondItem="C6G-DZ-K1I" secondAttribute="centerY" id="92a-d6-QEx"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rfg-Pb-wKt" secondAttribute="trailing" constant="16" id="BtO-Hb-nwc"/>
+                                    <constraint firstItem="iFT-gI-bc0" firstAttribute="centerY" secondItem="rfg-Pb-wKt" secondAttribute="centerY" id="AsY-Zf-Nb6"/>
                                     <constraint firstItem="rfg-Pb-wKt" firstAttribute="leading" secondItem="C6G-DZ-K1I" secondAttribute="trailing" constant="4" id="VwB-bv-v1a"/>
+                                    <constraint firstAttribute="trailing" secondItem="iFT-gI-bc0" secondAttribute="trailing" constant="16" id="cLo-aP-oDN"/>
                                     <constraint firstItem="C6G-DZ-K1I" firstAttribute="centerY" secondItem="BXq-xg-Cps" secondAttribute="centerY" id="iWx-Za-vUt"/>
                                     <constraint firstAttribute="height" constant="56" id="zoY-4c-Nn1"/>
                                 </constraints>
@@ -137,6 +165,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Nome album" id="OzV-lz-kHY"/>
                     <connections>
+                        <outlet property="btnBadPhoto" destination="iFT-gI-bc0" id="96R-nf-fHr"/>
                         <outlet property="collectionView" destination="ZBc-7M-mZC" id="3yT-tf-ZRh"/>
                         <outlet property="fullImageView" destination="kNf-Pe-YUn" id="Oqj-uQ-cbY"/>
                         <outlet property="metaDate" destination="rfg-Pb-wKt" id="6jC-YR-PNH"/>
@@ -219,8 +248,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Da eliminare" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1o-xG-3e2">
-                                                    <rect key="frame" x="15" y="19" width="95" height="35"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Da archiviare" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1o-xG-3e2">
+                                                    <rect key="frame" x="15" y="19" width="100" height="35"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -248,19 +277,19 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="adminDeleteCell" rowHeight="89" id="AvO-b7-GSp" customClass="AdminDeleteCell" customModule="FotoApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="237" width="375" height="89"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AvO-b7-GSp" id="EGM-JI-Fvs">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AvO-b7-GSp" id="EGM-JI-Fvs">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWZ-26-rAb">
-                                                    <rect key="frame" x="15" y="23.5" width="345" height="42"/>
-                                                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWZ-26-rAb">
+                                                    <rect key="frame" x="15" y="19" width="345" height="42"/>
+                                                    <color key="backgroundColor" red="1" green="0.14901960784313725" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="42" id="vTW-iW-8nT"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <state key="normal" title="Delete"/>
+                                                    <state key="normal" title="Archivia"/>
                                                     <connections>
                                                         <action selector="deleteAction:" destination="ppY-fe-kQF" eventType="touchUpInside" id="Uwh-tn-OyS"/>
                                                     </connections>
@@ -269,8 +298,8 @@
                                             <constraints>
                                                 <constraint firstItem="UWZ-26-rAb" firstAttribute="leading" secondItem="EGM-JI-Fvs" secondAttribute="leadingMargin" id="9VG-Bu-vbK"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="UWZ-26-rAb" secondAttribute="trailing" id="Idy-uZ-yCk"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="UWZ-26-rAb" secondAttribute="bottom" constant="8" id="Zrb-05-Pbf"/>
-                                                <constraint firstItem="UWZ-26-rAb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EGM-JI-Fvs" secondAttribute="topMargin" constant="8" id="maG-H4-aD9"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="UWZ-26-rAb" secondAttribute="bottom" constant="8" id="Zrb-05-Pbf"/>
+                                                <constraint firstItem="UWZ-26-rAb" firstAttribute="top" secondItem="EGM-JI-Fvs" secondAttribute="topMargin" constant="8" id="maG-H4-aD9"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -304,6 +333,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="right-arrow" width="16" height="16"/>
+        <image name="right-arrow" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="trash-icon" width="18" height="18"/>
     </resources>
 </document>

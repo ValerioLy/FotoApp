@@ -139,10 +139,16 @@ class NetworkManager: NSObject {
     static func uploadTopics(idDoc: String? = UUID().uuidString ,title : String? = nil, descriptio : String? = nil, expiration : String? = nil, workers : [String]? = nil , completion: @escaping (Bool) -> ()) {
         guard let user = Auth.auth().currentUser else { completion(false); return}
         
-//        let id = UUID().uuidString
+        var id = ""
+        if idDoc == nil {
+            id = UUID().uuidString
+        }
+        else {
+            id = idDoc!
+        }
         
-        db.collection(TOPICS_COLLECTION).document(idDoc!).setData([
-            "id": idDoc,
+        db.collection(TOPICS_COLLECTION).document(id).setData([
+            "id": id,
             "title" : title,
             "descriptio" : descriptio,
             "expiration": expiration,
@@ -239,17 +245,19 @@ class NetworkManager: NSObject {
         }
     }
     
-    static func getTopics(){
+    static func getTopicsListener() -> ListenerRegistration {
         var currentUser : User = User.getObject(withId: Auth.auth().currentUser!.uid)!
         
+        var list : ListenerRegistration!
         if currentUser.admin {
-            db.collection("topics").whereField("creator", isEqualTo: Auth.auth().currentUser?.uid).addSnapshotListener { (querySnapshot, error) in
+            list = db.collection("topics").whereField("creator", isEqualTo: Auth.auth().currentUser?.uid).addSnapshotListener { (querySnapshot, error) in
                 
                 guard let docs = querySnapshot?.documents else {
                     return
                 }
-                let tpo : Topic = Topic()
-                tpo.deleteAllTopic()
+                
+                Topic.deleteAllTopic()
+                
                 docs.forEach({ (item) in
                     let data = item.data()
                     
@@ -267,13 +275,14 @@ class NetworkManager: NSObject {
         }
             
         else{
-            db.collection("topics").whereField("workers", arrayContains:Auth.auth().currentUser?.uid).addSnapshotListener { (querySnapshot, error) in
+            list = db.collection("topics").whereField("workers", arrayContains:Auth.auth().currentUser?.uid).addSnapshotListener { (querySnapshot, error) in
                 
                 guard let docs = querySnapshot?.documents else {
                     return
                 }
-                let tpo : Topic = Topic()
-                tpo.deleteAllTopic()
+                
+                Topic.deleteAllTopic()
+                
                 docs.forEach({ (item) in
                     let data = item.data()
                     
@@ -289,6 +298,8 @@ class NetworkManager: NSObject {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "topicListener"), object: nil)
             }
         }
+        
+        return list
     }
     
     static func getTopicsJobDetail(id: String,completion: @escaping(Bool, Topic?) -> ()){
@@ -564,7 +575,8 @@ class NetworkManager: NSObject {
             return nil
         }
         
-        return db.collection(ALBUMS_COLLECTION).document(albumId).addSnapshotListener(includeMetadataChanges: false) { documentSnapshot, error in
+        return db.collection(ALBUMS_COLLECTION).document(albumId)
+            .addSnapshotListener(includeMetadataChanges: false) { documentSnapshot, error in
             
             guard let data = documentSnapshot?.data() else {
                 return
@@ -573,11 +585,11 @@ class NetworkManager: NSObject {
             do {
                 try FirebaseDecoder().decode(Album.self, from: data).save()
             }
-            catch let err {
+            catch let _ {
                 return
             }
             
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "photoListener"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "photoListener1"), object: nil)
         }
     }
     
@@ -715,4 +727,24 @@ class NetworkManager: NSObject {
             }
         }
     }
+    
+    static func deleteTopic(topic : Topic, albums : [Album], completionn: @escaping (Bool, String?) ->()) {
+        // delete all albums of topic
+        albums.forEach { (item) in
+            NetworkManager.deleteAlbum(album: item, completion: { (succ, err) in
+                
+            })
+        }
+        
+        // delete the topic object
+        db.collection(TOPICS_COLLECTION).document(topic.id).delete { (err) in
+            if let err = err {
+                completionn(false, err.localizedDescription)
+            }
+            else {
+                completionn(true, nil)
+            }
+        }
+    }
 }
+

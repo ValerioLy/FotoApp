@@ -10,6 +10,7 @@ import UIKit
 class SingleLineActionController: UICollectionViewCell {
     static let kIdentifier = "singleLineActionController"
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var rightArrow: UIImageView!
     
     func setup(actionNameStr : String) {
         textLabel.text = actionNameStr

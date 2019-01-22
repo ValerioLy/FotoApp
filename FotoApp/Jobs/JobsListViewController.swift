@@ -29,6 +29,7 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     private var selectedJobId : String? = nil
     var isSearching = false
     var searchController : UISearchController?
+    private var listener : ListenerRegistration?
     
     
     override func viewDidLoad() {
@@ -50,22 +51,63 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
                 currentUser = User.getObject(withId: Auth.auth().currentUser!.uid)!
                 if currentUser.admin {
                     self.buttonOutlet.isHidden = false
+                    
+                    // long press on item to delete it
+                    let longPress = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressAction(longPressGesture:)))
+                    self.tableView.addGestureRecognizer(longPress)
                 }
-                NetworkManager.getTopics()
+                self.listener = NetworkManager.getTopicsListener()
             }
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "topicListener"), object: nil)       
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationObserver(notification:)), name: NSNotification.Name(rawValue: "topicListener"), object: nil)
+        
     }
     
+    deinit {
+        self.listener?.remove()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToDetails" {
             if let destination = segue.destination as? JobDetailsViewController,
                 let id = selectedJobId {
-                print("da main a detail: "+id)
                 destination.id = id
             }
+        }
+    }
+    
+    @objc private func longPressAction(longPressGesture : UILongPressGestureRecognizer) {
+        let p = longPressGesture.location(in: self.tableView)
+        let indexPath = self.tableView.indexPathForRow(at: p)
+        if indexPath == nil {
+            print("Long press on table view, not row.")
+        }
+        else if (longPressGesture.state == UIGestureRecognizer.State.began) {
+            let selectedJob = listOfTopic[indexPath!.row]
+            guard let title = selectedJob.title else {
+                return
+            }
+            
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Delete \"\(title)\"", style: .destructive, handler: { (action) in
+                // delete topic
+                var albums : [Album] = []
+                selectedJob.albums.forEach({ (albumId) in
+                    if let a = Album.getObject(withId: albumId) {
+                        albums.append(a)
+                    }
+                })
+                
+                NetworkManager.deleteTopic(topic: selectedJob, albums: albums, completionn: { (success, err) in
+                    if !success {
+                        let alert = UIApplication.alertError(title: "Opss", message: err!, closeAction: {})
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                })
+            }))
+            alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -75,7 +117,7 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     private func fetchTopic() {
-        self.listOfTopic = Topic.all().sorted(by: { $0.getTitle().lowercased() < $1.getTitle().lowercased() })
+        self.listOfTopic = Topic.all()
         self.emptyImage.isHidden = self.listOfTopic.count != 0
     }
     
@@ -133,7 +175,6 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedJobId = self.listOfTopic[indexPath.row].id
         self.performSegue(withIdentifier: "segueToDetails", sender: self)
-        
     }    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

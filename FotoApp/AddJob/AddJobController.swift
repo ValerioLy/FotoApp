@@ -21,7 +21,10 @@ class AddJobController: UIViewController {
     var isSearching = false
     var isEdit : Bool = false
     var id = ""
-    
+    var topic : Topic?
+    var idWorker : [String] = []
+   
+
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -29,7 +32,12 @@ class AddJobController: UIViewController {
          if isEdit == true {
             let btn = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(actionSave))
         self.navigationItem.rightBarButtonItem  = btn
-
+        topic = Topic.getObject(withId: id)
+            for element in (topic?.workers)! {
+                idWorker.append(element)
+            }
+            
+     
         }
         
         
@@ -102,6 +110,17 @@ extension AddJobController : UITableViewDelegate, UITableViewDataSource, UISearc
         }
         else{
             cell.name.text = listUsers[indexPath.row].fullName()
+        }
+        
+        let idExist = idWorker.contains(listUsers[indexPath.row].id)
+ 
+        if idExist {
+            cell.accessoryType = UITableViewCell.AccessoryType.checkmark
+          
+        }
+        else{
+            cell.accessoryType = UITableViewCell.AccessoryType.none
+           
         }
         
         return cell

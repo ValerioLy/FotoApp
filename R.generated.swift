@@ -48,7 +48,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 8 images.
+  /// This `R.image` struct is generated, and contains static references to 9 images.
   struct image {
     /// Image `add`.
     static let add = Rswift.ImageResource(bundle: R.hostingBundle, name: "add")
@@ -64,6 +64,8 @@ struct R: Rswift.Validatable {
     static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder")
     /// Image `right-arrow`.
     static let rightArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "right-arrow")
+    /// Image `trash-icon`.
+    static let trashIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "trash-icon")
     /// Image `trees`.
     static let trees = Rswift.ImageResource(bundle: R.hostingBundle, name: "trees")
     
@@ -100,6 +102,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "right-arrow", bundle: ..., traitCollection: ...)`
     static func rightArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.rightArrow, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "trash-icon", bundle: ..., traitCollection: ...)`
+    static func trashIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.trashIcon, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "trees", bundle: ..., traitCollection: ...)`
@@ -1177,6 +1184,7 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "right-arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'right-arrow' is used in storyboard 'AlbumItem', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "trash-icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'trash-icon' is used in storyboard 'AlbumItem', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
