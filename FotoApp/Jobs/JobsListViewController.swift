@@ -114,7 +114,7 @@ class JobsListViewController: UIViewController, UITableViewDelegate, UITableView
         }
         else {
             cell.missionName.text = listOfTopic[indexPath.row].title
-            cell.missionDate.text = listOfTopic[indexPath.row].expiration.date?.stringFormatted ?? "\(listOfTopic[indexPath.row].expiration)"
+            cell.missionDate.text = "Scadenza: \(listOfTopic[indexPath.row].expiration.date?.stringFormatted ?? listOfTopic[indexPath.row].expiration)"
             
             
             NetworkManager.getImageForTopic(topicId: listOfTopic[indexPath.row].id) { (success, url, imageId) in

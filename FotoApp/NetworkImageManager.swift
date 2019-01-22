@@ -17,19 +17,25 @@ class NetworkImageManager {
             completion(imageFound.data, true)
         }
         else {
-            getData(from: URL(string: url)!) { (imageData, urlResponse, err) in
-                if imageData != nil {
-                    // save the image
-                    let imageId = (id != nil) ? id! : UUID().uuidString
-                    DownloadedImage(id : imageId, data: imageData!).save()
-                    
-                    completion(imageData, true)
-                    return
+            if let url = URL(string: url) {
+                getData(from: url) { (imageData, urlResponse, err) in
+                    if imageData != nil {
+                        // save the image
+                        let imageId = (id != nil) ? id! : UUID().uuidString
+                        DownloadedImage(id : imageId, data: imageData!).save()
+                        
+                        completion(imageData, true)
+                        return
+                    }
+                    else {
+                        completion(nil, false)
+                        return
+                    }
                 }
-                else {
-                    completion(nil, false)
-                    return
-                }
+            }
+            else {
+                completion(nil, false)
+                return
             }
         }
     }
