@@ -45,6 +45,7 @@ class JobDetailsViewController: UIViewController {
     }
     
     @objc func goToEdit() {
+        
         self.performSegue(withIdentifier: "segueEdit", sender: self)
     }
     
@@ -74,6 +75,13 @@ class JobDetailsViewController: UIViewController {
         else if segue.identifier == "segueToAddAlbum" {
             if let destination = segue.destination as? AddAlbumController {
                 destination.topicId = self.id
+            }
+           
+            }
+        else if segue.identifier == "segueEdit" {
+            if let destination =  segue.destination as? JobEditController {
+                destination.topicId = id
+                print("da detail a edit : "+id)
             }
         }
     }

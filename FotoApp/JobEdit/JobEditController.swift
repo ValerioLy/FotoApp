@@ -11,6 +11,7 @@ class JobEditController: UIViewController, UITableViewDataSource, UITableViewDel
     
     @IBOutlet weak var tableView: UITableView!
     var editBool : Bool = false
+    var topicId = ""
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -37,10 +38,16 @@ class JobEditController: UIViewController, UITableViewDataSource, UITableViewDel
         switch indexPath.section {
         case 0:
             editBool = true
-            UIApplication.reloadGenericViewController(storyboardName: "AddJob", controllerIdentifier: "addjob")
+            print("da edit a mission :"+topicId)
+            var controller = UIStoryboard.init(name: "AddJob", bundle: Bundle.main).instantiateViewController(withIdentifier: "addjob") as? AddMissioneController
+            controller!.id = topicId
+            controller!.edit = editBool
+            UIApplication.topViewController()?.navigationController?.pushViewController(controller!, animated: true)
+
         break
         case 1:
             editBool = true
+            print("da edit a addjob :"+topicId)
           self.performSegue(withIdentifier: "segueAddJob", sender: self)
         default : break
         }
@@ -52,11 +59,14 @@ class JobEditController: UIViewController, UITableViewDataSource, UITableViewDel
         case "segueAddJob":
             if let destinationController = segue.destination as? AddJobController {
                 destinationController.isEdit = editBool
+                destinationController.id = topicId
             }
             
-            if let destinationController = segue.destination as? AddMissioneController{
-                destinationController.edit = editBool
-            }
+//            if let destinationController = segue.destination as? AddMissioneController{
+//                destinationController.edit = editBool
+//                destinationController.id = topicId
+//
+//            }
         default:
             break
         }
@@ -65,7 +75,6 @@ class JobEditController: UIViewController, UITableViewDataSource, UITableViewDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: nil)
     }
     
 

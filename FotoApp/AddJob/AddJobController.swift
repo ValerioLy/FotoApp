@@ -20,15 +20,18 @@ class AddJobController: UIViewController {
     var filterData : [User] = []
     var isSearching = false
     var isEdit : Bool = false
+    var id = ""
+    
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if isEdit == true {
-         var forward = navigationItem.rightBarButtonItem
-            forward!.title = "Save"
+         if isEdit == true {
+            let btn = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(actionSave))
+        self.navigationItem.rightBarButtonItem  = btn
+
         }
+        
         
         // show back button
         self.navigationItem.setHidesBackButton(false, animated:true)
@@ -49,6 +52,16 @@ class AddJobController: UIViewController {
             }
         }
         
+        print("AddJob id: "+id)
+    }
+    
+    @objc func actionSave() {
+        
+        NetworkManager.uploadTopics(idDoc: id, workers: idUsers) { (success) in
+            if success {
+                debugPrint("upload id workers")
+            }
+        }
     }
     
     

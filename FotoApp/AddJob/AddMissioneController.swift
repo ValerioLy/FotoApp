@@ -20,12 +20,16 @@ class AddMissioneController: UIViewController {
     @IBOutlet weak var fieldDescription: UITextView!
     @IBOutlet weak var jobDate: UIDatePicker!
     var edit = false
+    var id = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
     }
     
     @IBAction func addMission(_ sender: Any) {
+         print("id mission :"+id)
         let title : String = jobName.text ?? ""
         let description : String = fieldDescription.text!
         let scadenza : String = jobDate.date.dateInString
@@ -37,11 +41,11 @@ class AddMissioneController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             return
         }
-        
+       
         let loading = UIApplication.loadingAlert(title: "Loading")
         self.present(loading, animated: true, completion: nil)
         
-        NetworkManager.uploadTopics(title: title, descriptio: description, expiration: scadenza, workers: listaIdUsers!) { (success) in
+        NetworkManager.uploadTopics(idDoc: id,title: title, descriptio: description, expiration: scadenza, workers: listaIdUsers) { (success) in
             if success {
                 loading.dismiss(animated: true, completion: {
                     
