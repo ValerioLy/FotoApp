@@ -575,7 +575,8 @@ class NetworkManager: NSObject {
             return nil
         }
         
-        return db.collection(ALBUMS_COLLECTION).document(albumId).addSnapshotListener(includeMetadataChanges: false) { documentSnapshot, error in
+        return db.collection(ALBUMS_COLLECTION).document(albumId)
+            .addSnapshotListener(includeMetadataChanges: false) { documentSnapshot, error in
             
             guard let data = documentSnapshot?.data() else {
                 return
@@ -584,11 +585,11 @@ class NetworkManager: NSObject {
             do {
                 try FirebaseDecoder().decode(Album.self, from: data).save()
             }
-            catch let err {
+            catch let _ {
                 return
             }
             
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "photoListener"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "photoListener1"), object: nil)
         }
     }
     
