@@ -25,8 +25,11 @@ class ImageCellController: UICollectionViewCell {
         imageView.isSkeletonable = true
         imageView.showAnimatedGradientSkeleton()
         imageView.roundedCorners()
-        imageNumber.layer.masksToBounds = true
-        imageNumber.layer.cornerRadius = 5
+        
+        imageNumber.clipsToBounds = true
+        imageNumber.layer.cornerRadius = imageNumber.frame.width/2
+        imageNumber.layer.borderColor = UIColor.white.cgColor
+        imageNumber.layer.borderWidth = CGFloat(8)
 
         // load the image
         NetworkImageManager.image(with: image.id, from: image.link) { (imageData, success) in
