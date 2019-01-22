@@ -47,7 +47,6 @@
 		F93B52E421E603A00008CFB3 /* JobEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F93B52E321E603A00008CFB3 /* JobEdit.storyboard */; };
 		F93B52E621E604530008CFB3 /* JobEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93B52E521E604530008CFB3 /* JobEditController.swift */; };
 		F93B52EA21E604EF0008CFB3 /* JobEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93B52E921E604EF0008CFB3 /* JobEditCell.swift */; };
-		F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE1521AEB24C00FBC875 /* ViewController.swift */; };
 		F93EFE1B21AEB24D00FBC875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F93EFE1A21AEB24D00FBC875 /* Assets.xcassets */; };
 		F93EFE2921AEB24E00FBC875 /* FotoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE2821AEB24E00FBC875 /* FotoAppTests.swift */; };
 		F93EFE3421AEB24E00FBC875 /* FotoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EFE3321AEB24E00FBC875 /* FotoAppUITests.swift */; };
@@ -133,7 +132,6 @@
 		F93B52E521E604530008CFB3 /* JobEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobEditController.swift; sourceTree = "<group>"; };
 		F93B52E921E604EF0008CFB3 /* JobEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobEditCell.swift; sourceTree = "<group>"; };
 		F93EFE1021AEB24C00FBC875 /* FotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F93EFE1521AEB24C00FBC875 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F93EFE1821AEB24C00FBC875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F93EFE1A21AEB24D00FBC875 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F93EFE1F21AEB24D00FBC875 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -369,7 +367,6 @@
 				F93EFE5221AEB8B900FBC875 /* Register */,
 				F93EFE1721AEB24C00FBC875 /* Main.storyboard */,
 				B3E953F421B6853C00D60014 /* Extensions.swift */,
-				F93EFE1521AEB24C00FBC875 /* ViewController.swift */,
 				B37922DC21C151D500BA1EB1 /* NetworkManager.swift */,
 				B33127F721E35EE20089EAD8 /* R.generated.swift */,
 				F94711E421B6D27E007F5019 /* RealmUtils.swift */,
@@ -737,7 +734,6 @@
 				B3E953ED21B684CB00D60014 /* LaunchScreenController.swift in Sources */,
 				FF8F43E921BEB58F003FFEE8 /* GeneralUtils.swift in Sources */,
 				B37922DD21C151D600BA1EB1 /* NetworkManager.swift in Sources */,
-				F93EFE1621AEB24C00FBC875 /* ViewController.swift in Sources */,
 				F97DD71321C144E80007E18D /* ResetPasswordController.swift in Sources */,
 				FF5C803A21B5333D0045EC1A /* OptionsViewController.swift in Sources */,
 				B3416D7A21BEC2EE00D44AB4 /* RealmUtils.swift in Sources */,

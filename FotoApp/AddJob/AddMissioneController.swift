@@ -26,7 +26,7 @@ class AddMissioneController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         
-        topic = Topic.getObject(withId: id!)
+        topic = Topic.getObject(withId: id ?? "")
         
         
         jobName.text = topic?.title
